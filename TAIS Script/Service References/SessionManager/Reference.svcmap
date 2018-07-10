@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7856830f-7002-45cb-8294-8637bb428502" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://5jr3xapi.navitaire.com/SessionManager.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SessionManager.disco" MetadataType="Disco" ID="5fb65d15-bd8f-4151-933e-5c0ec9a48e1d" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?disco" />
+    <MetadataFile FileName="SessionManager.xsd" MetadataType="Schema" ID="1cebba83-ffcd-4d66-8449-b64b35a9e0ab" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="SessionManager.wsdl" MetadataType="Wsdl" ID="52aa0df6-3538-4e69-8608-6f1e4bb59a4c" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?wsdl" />
+    <MetadataFile FileName="SessionManager1.xsd" MetadataType="Schema" ID="94e5e12e-461a-4144-b8c3-f68ad76bacca" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="SessionManager2.xsd" MetadataType="Schema" ID="9cf4b82f-cb9c-4c5d-804c-35ea1fcb1aef" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="SessionManager3.xsd" MetadataType="Schema" ID="c1025f2a-2dd8-4d54-ad67-a93a62e676d5" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="SessionManager4.xsd" MetadataType="Schema" ID="487fc5ea-0bfb-4b4b-b4f3-bc8cf7083a36" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
