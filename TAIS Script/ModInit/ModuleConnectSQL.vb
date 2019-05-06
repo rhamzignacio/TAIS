@@ -252,7 +252,8 @@
     Public Function App_Path() As String
         ' Return System.AppDomain.CurrentDomain.BaseDirectory() & "\" & "settings.ini"
 
-        Return "Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TRAVCOM;Trusted_Connection=True;User ID=sa;Password=password123;Data Source=192.168.0.6,1433"
+        Return "Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TAIS_SERVER;Trusted_Connection=True;User ID=aUserDB;Password=password123;Data Source=awsdbdata.chlhp7ltxo0j.ap-southeast-1.rds.amazonaws.com,1433"
+        'Return "Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TRAVCOM;Trusted_Connection=True;User ID=sa;Password=password123;Data Source=192.168.0.6,1433"
     End Function
 
 
@@ -269,7 +270,8 @@
         'sSetting = objIniFile.GetString("SQLSERVER", "ConnectionString", "\SETTINGS.INI")
 
         '========SQL Connection=========
-        CNN.Open("Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TRAVCOM;Trusted_Connection=True;User ID=sa;Password=password123;Data Source=192.168.0.6,1433")
+        CNN.Open("Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TAIS_SERVER;Trusted_Connection=True;User ID=aUserDB;Password=password123;Data Source=awsdbdata.chlhp7ltxo0j.ap-southeast-1.rds.amazonaws.com,1433")
+        'CNN.Open("Provider=SQLOLEDB.1;Persist Security Info=False;Initial Catalog=TRAVCOM;Trusted_Connection=True;User ID=sa;Password=password123;Data Source=192.168.0.6,1433")
 
         CNN.Close()
 

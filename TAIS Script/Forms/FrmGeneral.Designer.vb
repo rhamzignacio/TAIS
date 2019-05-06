@@ -24,11 +24,11 @@ Partial Class FrmGeneral
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGeneral))
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabCAPI = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label183 = New System.Windows.Forms.Label()
@@ -578,7 +578,6 @@ Partial Class FrmGeneral
         Me.RdButtonNonTax = New System.Windows.Forms.RadioButton()
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.TravellerCreditAccess = New System.Windows.Forms.PictureBox()
         Me.txtDateTime_CC = New System.Windows.Forms.TextBox()
         Me.Label172 = New System.Windows.Forms.Label()
         Me.PdnLogOut = New System.Windows.Forms.Button()
@@ -781,57 +780,56 @@ Partial Class FrmGeneral
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label233 = New System.Windows.Forms.Label()
-        Me.TabCAPI.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.GroupBox8.SuspendLayout
-        Me.GroupBox12.SuspendLayout
-        Me.GroupBox11.SuspendLayout
-        Me.GroupBox9.SuspendLayout
-        Me.TabPage2.SuspendLayout
-        Me.GroupBox10.SuspendLayout
-        Me.GroupBox3.SuspendLayout
-        Me.AirInformation.SuspendLayout
-        Me.FlagSegment.SuspendLayout
-        Me.ChangeProductType.SuspendLayout
-        Me.GroupBox2.SuspendLayout
-        Me.TravelType.SuspendLayout
-        Me.TabPage3.SuspendLayout
-        Me.GroupBox7.SuspendLayout
-        CType(Me.DGW1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.Panel2.SuspendLayout
-        Me.TabPage8.SuspendLayout
-        Me.TabPage4.SuspendLayout
-        Me.TabPage5.SuspendLayout
-        Me.ContextMenuStrip1.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage6.SuspendLayout
-        CType(Me.ControlBox_Close,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox5.SuspendLayout
-        Me.GroupBox6.SuspendLayout
-        Me.GroupBox4.SuspendLayout
-        CType(Me.DGWSet,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage7.SuspendLayout
-        Me.GroupBox13.SuspendLayout
-        CType(Me.DataGridClientList,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage9.SuspendLayout
-        CType(Me.TravellerCreditAccess,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBox15.SuspendLayout
-        Me.GroupBox14.SuspendLayout
-        Me.TabPage10.SuspendLayout
-        Me.Panel10.SuspendLayout
-        Me.Panel9.SuspendLayout
-        Me.GroupBox17.SuspendLayout
-        Me.Panel8.SuspendLayout
-        Me.GroupBox16.SuspendLayout
-        Me.Panel7.SuspendLayout
-        Me.Panel5.SuspendLayout
-        Me.Panel6.SuspendLayout
-        Me.TabPage11.SuspendLayout
-        Me.PanelServiceFee.SuspendLayout
-        CType(Me.DGServiceFee,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.Panel11.SuspendLayout
-        Me.SuspendLayout
+        Me.TabCAPI.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.AirInformation.SuspendLayout()
+        Me.FlagSegment.SuspendLayout()
+        Me.ChangeProductType.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.TravelType.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        CType(Me.DGW1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.TabPage8.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage6.SuspendLayout()
+        CType(Me.ControlBox_Close, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        CType(Me.DGWSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage7.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        CType(Me.DataGridClientList, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage9.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
+        Me.TabPage10.SuspendLayout()
+        Me.Panel10.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        Me.GroupBox17.SuspendLayout()
+        Me.Panel8.SuspendLayout()
+        Me.GroupBox16.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
+        Me.PanelServiceFee.SuspendLayout()
+        CType(Me.DGServiceFee, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel11.SuspendLayout()
+        Me.SuspendLayout()
         '
         'TabCAPI
         '
@@ -849,10 +847,10 @@ Partial Class FrmGeneral
         Me.TabCAPI.Controls.Add(Me.TabPage11)
         Me.TabCAPI.Cursor = System.Windows.Forms.Cursors.Default
         Me.TabCAPI.Location = New System.Drawing.Point(8, 46)
-        Me.TabCAPI.Multiline = true
+        Me.TabCAPI.Multiline = True
         Me.TabCAPI.Name = "TabCAPI"
         Me.TabCAPI.SelectedIndex = 0
-        Me.TabCAPI.ShowToolTips = true
+        Me.TabCAPI.ShowToolTips = True
         Me.TabCAPI.Size = New System.Drawing.Size(1004, 601)
         Me.TabCAPI.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight
         Me.TabCAPI.TabIndex = 9
@@ -880,7 +878,7 @@ Partial Class FrmGeneral
         Me.TabPage1.Controls.Add(Me.Label10)
         Me.TabPage1.Controls.Add(Me.cmdSend)
         Me.TabPage1.Controls.Add(Me.cboClient)
-        Me.TabPage1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.TabPage1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TabPage1.Location = New System.Drawing.Point(4, 49)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -890,10 +888,10 @@ Partial Class FrmGeneral
         '
         'Label183
         '
-        Me.Label183.AutoSize = true
+        Me.Label183.AutoSize = True
         Me.Label183.BackColor = System.Drawing.Color.Transparent
-        Me.Label183.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label183.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label183.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label183.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label183.Location = New System.Drawing.Point(48, 402)
         Me.Label183.Name = "Label183"
         Me.Label183.Size = New System.Drawing.Size(95, 14)
@@ -903,8 +901,8 @@ Partial Class FrmGeneral
         'txtRF
         '
         Me.txtRF.BackColor = System.Drawing.Color.White
-        Me.txtRF.Enabled = false
-        Me.txtRF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRF.Enabled = False
+        Me.txtRF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRF.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtRF.Location = New System.Drawing.Point(48, 419)
         Me.txtRF.Name = "txtRF"
@@ -913,8 +911,8 @@ Partial Class FrmGeneral
         '
         'cboTicketingAgent
         '
-        Me.cboTicketingAgent.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboTicketingAgent.FormattingEnabled = true
+        Me.cboTicketingAgent.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTicketingAgent.FormattingEnabled = True
         Me.cboTicketingAgent.Location = New System.Drawing.Point(50, 470)
         Me.cboTicketingAgent.Name = "cboTicketingAgent"
         Me.cboTicketingAgent.Size = New System.Drawing.Size(363, 22)
@@ -922,10 +920,10 @@ Partial Class FrmGeneral
         '
         'Label63
         '
-        Me.Label63.AutoSize = true
+        Me.Label63.AutoSize = True
         Me.Label63.BackColor = System.Drawing.Color.Transparent
-        Me.Label63.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label63.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label63.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label63.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label63.Location = New System.Drawing.Point(47, 452)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(100, 14)
@@ -934,8 +932,8 @@ Partial Class FrmGeneral
         '
         'Label129
         '
-        Me.Label129.AutoSize = true
-        Me.Label129.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label129.AutoSize = True
+        Me.Label129.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label129.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label129.Location = New System.Drawing.Point(946, 469)
         Me.Label129.Name = "Label129"
@@ -945,8 +943,8 @@ Partial Class FrmGeneral
         '
         'Label128
         '
-        Me.Label128.AutoSize = true
-        Me.Label128.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label128.AutoSize = True
+        Me.Label128.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label128.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label128.Location = New System.Drawing.Point(412, 349)
         Me.Label128.Name = "Label128"
@@ -956,8 +954,8 @@ Partial Class FrmGeneral
         '
         'Label127
         '
-        Me.Label127.AutoSize = true
-        Me.Label127.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label127.AutoSize = True
+        Me.Label127.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label127.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label127.Location = New System.Drawing.Point(412, 304)
         Me.Label127.Name = "Label127"
@@ -967,20 +965,20 @@ Partial Class FrmGeneral
         '
         'btnClearPre
         '
-        Me.btnClearPre.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
-            Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnClearPre.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClearPre.BackColor = System.Drawing.Color.White
-        Me.btnClearPre.BackgroundImage = CType(resources.GetObject("btnClearPre.BackgroundImage"),System.Drawing.Image)
+        Me.btnClearPre.BackgroundImage = CType(resources.GetObject("btnClearPre.BackgroundImage"), System.Drawing.Image)
         Me.btnClearPre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnClearPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClearPre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnClearPre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearPre.ForeColor = System.Drawing.Color.White
         Me.btnClearPre.Location = New System.Drawing.Point(928, 425)
         Me.btnClearPre.Name = "btnClearPre"
         Me.btnClearPre.Size = New System.Drawing.Size(48, 54)
         Me.btnClearPre.TabIndex = 101
-        Me.btnClearPre.UseVisualStyleBackColor = false
+        Me.btnClearPre.UseVisualStyleBackColor = False
         '
         'GroupBox8
         '
@@ -993,20 +991,20 @@ Partial Class FrmGeneral
         Me.GroupBox8.Controls.Add(Me.txtVessel)
         Me.GroupBox8.Controls.Add(Me.txtDiv)
         Me.GroupBox8.Controls.Add(Me.txtBA)
-        Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox8.Location = New System.Drawing.Point(502, 261)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(404, 133)
         Me.GroupBox8.TabIndex = 103
-        Me.GroupBox8.TabStop = false
+        Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "TRAVCOM GDS Entry :"
         '
         'txtClientNo
         '
         Me.txtClientNo.BackColor = System.Drawing.Color.White
-        Me.txtClientNo.Enabled = false
-        Me.txtClientNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtClientNo.Enabled = False
+        Me.txtClientNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClientNo.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtClientNo.Location = New System.Drawing.Point(126, 31)
         Me.txtClientNo.Name = "txtClientNo"
@@ -1015,61 +1013,61 @@ Partial Class FrmGeneral
         '
         'chkClientNo
         '
-        Me.chkClientNo.AutoSize = true
+        Me.chkClientNo.AutoSize = True
         Me.chkClientNo.BackColor = System.Drawing.Color.Transparent
-        Me.chkClientNo.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.chkClientNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.chkClientNo.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkClientNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.chkClientNo.Location = New System.Drawing.Point(26, 33)
         Me.chkClientNo.Name = "chkClientNo"
         Me.chkClientNo.Size = New System.Drawing.Size(69, 17)
         Me.chkClientNo.TabIndex = 81
         Me.chkClientNo.Text = "Client No"
-        Me.chkClientNo.UseVisualStyleBackColor = false
+        Me.chkClientNo.UseVisualStyleBackColor = False
         '
         'DivNo
         '
-        Me.DivNo.AutoSize = true
+        Me.DivNo.AutoSize = True
         Me.DivNo.BackColor = System.Drawing.Color.Transparent
-        Me.DivNo.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.DivNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.DivNo.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DivNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.DivNo.Location = New System.Drawing.Point(26, 54)
         Me.DivNo.Name = "DivNo"
         Me.DivNo.Size = New System.Drawing.Size(79, 17)
         Me.DivNo.TabIndex = 83
         Me.DivNo.Text = "Division No"
-        Me.DivNo.UseVisualStyleBackColor = false
+        Me.DivNo.UseVisualStyleBackColor = False
         '
         'BookingAgent
         '
-        Me.BookingAgent.AutoSize = true
+        Me.BookingAgent.AutoSize = True
         Me.BookingAgent.BackColor = System.Drawing.Color.Transparent
-        Me.BookingAgent.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.BookingAgent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.BookingAgent.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BookingAgent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BookingAgent.Location = New System.Drawing.Point(26, 75)
         Me.BookingAgent.Name = "BookingAgent"
         Me.BookingAgent.Size = New System.Drawing.Size(92, 17)
         Me.BookingAgent.TabIndex = 84
         Me.BookingAgent.Text = "Booking Agent"
-        Me.BookingAgent.UseVisualStyleBackColor = false
+        Me.BookingAgent.UseVisualStyleBackColor = False
         '
         'VesselName
         '
-        Me.VesselName.AutoSize = true
+        Me.VesselName.AutoSize = True
         Me.VesselName.BackColor = System.Drawing.Color.Transparent
-        Me.VesselName.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.VesselName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.VesselName.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VesselName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.VesselName.Location = New System.Drawing.Point(26, 98)
         Me.VesselName.Name = "VesselName"
         Me.VesselName.Size = New System.Drawing.Size(86, 17)
         Me.VesselName.TabIndex = 85
         Me.VesselName.Text = "Vessel Name"
-        Me.VesselName.UseVisualStyleBackColor = false
+        Me.VesselName.UseVisualStyleBackColor = False
         '
         'txtVessel
         '
         Me.txtVessel.BackColor = System.Drawing.Color.White
-        Me.txtVessel.Enabled = false
-        Me.txtVessel.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtVessel.Enabled = False
+        Me.txtVessel.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVessel.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtVessel.Location = New System.Drawing.Point(126, 96)
         Me.txtVessel.Name = "txtVessel"
@@ -1079,8 +1077,8 @@ Partial Class FrmGeneral
         'txtDiv
         '
         Me.txtDiv.BackColor = System.Drawing.Color.White
-        Me.txtDiv.Enabled = false
-        Me.txtDiv.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDiv.Enabled = False
+        Me.txtDiv.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDiv.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtDiv.Location = New System.Drawing.Point(126, 52)
         Me.txtDiv.Name = "txtDiv"
@@ -1090,8 +1088,8 @@ Partial Class FrmGeneral
         'txtBA
         '
         Me.txtBA.BackColor = System.Drawing.Color.White
-        Me.txtBA.Enabled = false
-        Me.txtBA.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtBA.Enabled = False
+        Me.txtBA.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtBA.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtBA.Location = New System.Drawing.Point(126, 73)
         Me.txtBA.Name = "txtBA"
@@ -1110,19 +1108,19 @@ Partial Class FrmGeneral
         Me.GroupBox12.Controls.Add(Me.rdMoveD)
         Me.GroupBox12.Controls.Add(Me.rdMoveU)
         Me.GroupBox12.Controls.Add(Me.Rd_BtnOk)
-        Me.GroupBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox12.Location = New System.Drawing.Point(42, 24)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Size = New System.Drawing.Size(404, 229)
         Me.GroupBox12.TabIndex = 107
-        Me.GroupBox12.TabStop = false
+        Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "SIMILAR COMPANY NAME LIST :"
         '
         'Label126
         '
-        Me.Label126.AutoSize = true
-        Me.Label126.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label126.AutoSize = True
+        Me.Label126.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label126.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label126.Location = New System.Drawing.Point(142, 207)
         Me.Label126.Name = "Label126"
@@ -1132,8 +1130,8 @@ Partial Class FrmGeneral
         '
         'Label124
         '
-        Me.Label124.AutoSize = true
-        Me.Label124.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label124.AutoSize = True
+        Me.Label124.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label124.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label124.Location = New System.Drawing.Point(354, 190)
         Me.Label124.Name = "Label124"
@@ -1145,10 +1143,10 @@ Partial Class FrmGeneral
         '
         Me.lstClient.BackColor = System.Drawing.Color.White
         Me.lstClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lstClient.Enabled = false
-        Me.lstClient.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lstClient.Enabled = False
+        Me.lstClient.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstClient.ForeColor = System.Drawing.Color.DarkBlue
-        Me.lstClient.FormattingEnabled = true
+        Me.lstClient.FormattingEnabled = True
         Me.lstClient.ItemHeight = 14
         Me.lstClient.Location = New System.Drawing.Point(22, 24)
         Me.lstClient.Name = "lstClient"
@@ -1157,10 +1155,10 @@ Partial Class FrmGeneral
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
+        Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label3.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(20, 170)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 13)
@@ -1170,22 +1168,22 @@ Partial Class FrmGeneral
         'btnSend
         '
         Me.btnSend.BackColor = System.Drawing.Color.Transparent
-        Me.btnSend.Enabled = false
+        Me.btnSend.Enabled = False
         Me.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSend.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnSend.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSend.ForeColor = System.Drawing.Color.White
-        Me.btnSend.Image = CType(resources.GetObject("btnSend.Image"),System.Drawing.Image)
+        Me.btnSend.Image = CType(resources.GetObject("btnSend.Image"), System.Drawing.Image)
         Me.btnSend.Location = New System.Drawing.Point(136, 182)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(37, 26)
         Me.btnSend.TabIndex = 1
-        Me.btnSend.UseVisualStyleBackColor = false
+        Me.btnSend.UseVisualStyleBackColor = False
         '
         'txtLineNo
         '
         Me.txtLineNo.BackColor = System.Drawing.Color.White
-        Me.txtLineNo.Enabled = false
-        Me.txtLineNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtLineNo.Enabled = False
+        Me.txtLineNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLineNo.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtLineNo.Location = New System.Drawing.Point(23, 187)
         Me.txtLineNo.Name = "txtLineNo"
@@ -1194,47 +1192,47 @@ Partial Class FrmGeneral
         '
         'rdMoveD
         '
-        Me.rdMoveD.AutoSize = true
+        Me.rdMoveD.AutoSize = True
         Me.rdMoveD.BackColor = System.Drawing.Color.Transparent
-        Me.rdMoveD.Enabled = false
-        Me.rdMoveD.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.rdMoveD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdMoveD.Enabled = False
+        Me.rdMoveD.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdMoveD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdMoveD.Location = New System.Drawing.Point(249, 190)
         Me.rdMoveD.Name = "rdMoveD"
         Me.rdMoveD.Size = New System.Drawing.Size(80, 17)
         Me.rdMoveD.TabIndex = 80
-        Me.rdMoveD.TabStop = true
+        Me.rdMoveD.TabStop = True
         Me.rdMoveD.Text = "Move Down"
-        Me.rdMoveD.UseVisualStyleBackColor = false
+        Me.rdMoveD.UseVisualStyleBackColor = False
         '
         'rdMoveU
         '
-        Me.rdMoveU.AutoSize = true
+        Me.rdMoveU.AutoSize = True
         Me.rdMoveU.BackColor = System.Drawing.Color.Transparent
-        Me.rdMoveU.Enabled = false
-        Me.rdMoveU.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.rdMoveU.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdMoveU.Enabled = False
+        Me.rdMoveU.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdMoveU.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdMoveU.Location = New System.Drawing.Point(249, 172)
         Me.rdMoveU.Name = "rdMoveU"
         Me.rdMoveU.Size = New System.Drawing.Size(65, 17)
         Me.rdMoveU.TabIndex = 79
-        Me.rdMoveU.TabStop = true
+        Me.rdMoveU.TabStop = True
         Me.rdMoveU.Text = "Move up"
-        Me.rdMoveU.UseVisualStyleBackColor = false
+        Me.rdMoveU.UseVisualStyleBackColor = False
         '
         'Rd_BtnOk
         '
         Me.Rd_BtnOk.BackColor = System.Drawing.Color.Transparent
-        Me.Rd_BtnOk.Enabled = false
+        Me.Rd_BtnOk.Enabled = False
         Me.Rd_BtnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Rd_BtnOk.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Rd_BtnOk.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Rd_BtnOk.ForeColor = System.Drawing.Color.White
-        Me.Rd_BtnOk.Image = CType(resources.GetObject("Rd_BtnOk.Image"),System.Drawing.Image)
+        Me.Rd_BtnOk.Image = CType(resources.GetObject("Rd_BtnOk.Image"), System.Drawing.Image)
         Me.Rd_BtnOk.Location = New System.Drawing.Point(324, 170)
         Me.Rd_BtnOk.Name = "Rd_BtnOk"
         Me.Rd_BtnOk.Size = New System.Drawing.Size(47, 37)
         Me.Rd_BtnOk.TabIndex = 78
-        Me.Rd_BtnOk.UseVisualStyleBackColor = false
+        Me.Rd_BtnOk.UseVisualStyleBackColor = False
         '
         'GroupBox11
         '
@@ -1249,49 +1247,49 @@ Partial Class FrmGeneral
         Me.GroupBox11.Controls.Add(Me.RdMoveUpPax)
         Me.GroupBox11.Controls.Add(Me.ButtonOkPax)
         Me.GroupBox11.Controls.Add(Me.RdMoveDownPax)
-        Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox11.Location = New System.Drawing.Point(502, 24)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Size = New System.Drawing.Size(404, 229)
         Me.GroupBox11.TabIndex = 106
-        Me.GroupBox11.TabStop = false
+        Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "TRAVELLER LIST :"
         '
         'RdPDMD
         '
-        Me.RdPDMD.AutoSize = true
+        Me.RdPDMD.AutoSize = True
         Me.RdPDMD.BackColor = System.Drawing.Color.Transparent
-        Me.RdPDMD.Enabled = false
-        Me.RdPDMD.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdPDMD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdPDMD.Enabled = False
+        Me.RdPDMD.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdPDMD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdPDMD.Location = New System.Drawing.Point(290, 195)
         Me.RdPDMD.Name = "RdPDMD"
         Me.RdPDMD.Size = New System.Drawing.Size(56, 17)
         Me.RdPDMD.TabIndex = 111
-        Me.RdPDMD.TabStop = true
+        Me.RdPDMD.TabStop = True
         Me.RdPDMD.Text = "PD MD"
-        Me.RdPDMD.UseVisualStyleBackColor = false
+        Me.RdPDMD.UseVisualStyleBackColor = False
         '
         'RdPDMu
         '
-        Me.RdPDMu.AutoSize = true
+        Me.RdPDMu.AutoSize = True
         Me.RdPDMu.BackColor = System.Drawing.Color.Transparent
-        Me.RdPDMu.Enabled = false
-        Me.RdPDMu.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdPDMu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdPDMu.Enabled = False
+        Me.RdPDMu.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdPDMu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdPDMu.Location = New System.Drawing.Point(290, 180)
         Me.RdPDMu.Name = "RdPDMu"
         Me.RdPDMu.Size = New System.Drawing.Size(56, 17)
         Me.RdPDMu.TabIndex = 110
-        Me.RdPDMu.TabStop = true
+        Me.RdPDMu.TabStop = True
         Me.RdPDMu.Text = "PD MU"
-        Me.RdPDMu.UseVisualStyleBackColor = false
+        Me.RdPDMu.UseVisualStyleBackColor = False
         '
         'Label125
         '
-        Me.Label125.AutoSize = true
-        Me.Label125.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label125.AutoSize = True
+        Me.Label125.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label125.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label125.Location = New System.Drawing.Point(381, 192)
         Me.Label125.Name = "Label125"
@@ -1301,10 +1299,10 @@ Partial Class FrmGeneral
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
+        Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label4.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(21, 170)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 13)
@@ -1314,8 +1312,8 @@ Partial Class FrmGeneral
         'txtPaxNo
         '
         Me.txtPaxNo.BackColor = System.Drawing.Color.White
-        Me.txtPaxNo.Enabled = false
-        Me.txtPaxNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaxNo.Enabled = False
+        Me.txtPaxNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaxNo.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtPaxNo.Location = New System.Drawing.Point(19, 187)
         Me.txtPaxNo.Name = "txtPaxNo"
@@ -1325,25 +1323,25 @@ Partial Class FrmGeneral
         'btnPax
         '
         Me.btnPax.BackColor = System.Drawing.Color.Transparent
-        Me.btnPax.Enabled = false
+        Me.btnPax.Enabled = False
         Me.btnPax.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPax.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnPax.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPax.ForeColor = System.Drawing.Color.White
-        Me.btnPax.Image = CType(resources.GetObject("btnPax.Image"),System.Drawing.Image)
+        Me.btnPax.Image = CType(resources.GetObject("btnPax.Image"), System.Drawing.Image)
         Me.btnPax.Location = New System.Drawing.Point(144, 183)
         Me.btnPax.Name = "btnPax"
         Me.btnPax.Size = New System.Drawing.Size(37, 26)
         Me.btnPax.TabIndex = 1
-        Me.btnPax.UseVisualStyleBackColor = false
+        Me.btnPax.UseVisualStyleBackColor = False
         '
         'ListPax
         '
         Me.ListPax.BackColor = System.Drawing.Color.White
         Me.ListPax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ListPax.Enabled = false
-        Me.ListPax.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.ListPax.Enabled = False
+        Me.ListPax.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListPax.ForeColor = System.Drawing.Color.DarkBlue
-        Me.ListPax.FormattingEnabled = true
+        Me.ListPax.FormattingEnabled = True
         Me.ListPax.ItemHeight = 14
         Me.ListPax.Location = New System.Drawing.Point(18, 21)
         Me.ListPax.Name = "ListPax"
@@ -1352,47 +1350,47 @@ Partial Class FrmGeneral
         '
         'RdMoveUpPax
         '
-        Me.RdMoveUpPax.AutoSize = true
+        Me.RdMoveUpPax.AutoSize = True
         Me.RdMoveUpPax.BackColor = System.Drawing.Color.Transparent
-        Me.RdMoveUpPax.Enabled = false
-        Me.RdMoveUpPax.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdMoveUpPax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdMoveUpPax.Enabled = False
+        Me.RdMoveUpPax.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdMoveUpPax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdMoveUpPax.Location = New System.Drawing.Point(203, 178)
         Me.RdMoveUpPax.Name = "RdMoveUpPax"
         Me.RdMoveUpPax.Size = New System.Drawing.Size(65, 17)
         Me.RdMoveUpPax.TabIndex = 87
-        Me.RdMoveUpPax.TabStop = true
+        Me.RdMoveUpPax.TabStop = True
         Me.RdMoveUpPax.Text = "Move up"
-        Me.RdMoveUpPax.UseVisualStyleBackColor = false
+        Me.RdMoveUpPax.UseVisualStyleBackColor = False
         '
         'ButtonOkPax
         '
         Me.ButtonOkPax.BackColor = System.Drawing.Color.Transparent
-        Me.ButtonOkPax.Enabled = false
+        Me.ButtonOkPax.Enabled = False
         Me.ButtonOkPax.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ButtonOkPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.ButtonOkPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonOkPax.ForeColor = System.Drawing.Color.White
-        Me.ButtonOkPax.Image = CType(resources.GetObject("ButtonOkPax.Image"),System.Drawing.Image)
+        Me.ButtonOkPax.Image = CType(resources.GetObject("ButtonOkPax.Image"), System.Drawing.Image)
         Me.ButtonOkPax.Location = New System.Drawing.Point(355, 173)
         Me.ButtonOkPax.Name = "ButtonOkPax"
         Me.ButtonOkPax.Size = New System.Drawing.Size(39, 36)
         Me.ButtonOkPax.TabIndex = 86
-        Me.ButtonOkPax.UseVisualStyleBackColor = false
+        Me.ButtonOkPax.UseVisualStyleBackColor = False
         '
         'RdMoveDownPax
         '
-        Me.RdMoveDownPax.AutoSize = true
+        Me.RdMoveDownPax.AutoSize = True
         Me.RdMoveDownPax.BackColor = System.Drawing.Color.Transparent
-        Me.RdMoveDownPax.Enabled = false
-        Me.RdMoveDownPax.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdMoveDownPax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdMoveDownPax.Enabled = False
+        Me.RdMoveDownPax.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdMoveDownPax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdMoveDownPax.Location = New System.Drawing.Point(203, 195)
         Me.RdMoveDownPax.Name = "RdMoveDownPax"
         Me.RdMoveDownPax.Size = New System.Drawing.Size(80, 17)
         Me.RdMoveDownPax.TabIndex = 88
-        Me.RdMoveDownPax.TabStop = true
+        Me.RdMoveDownPax.TabStop = True
         Me.RdMoveDownPax.Text = "Move Down"
-        Me.RdMoveDownPax.UseVisualStyleBackColor = false
+        Me.RdMoveDownPax.UseVisualStyleBackColor = False
         '
         'GroupBox9
         '
@@ -1401,73 +1399,73 @@ Partial Class FrmGeneral
         Me.GroupBox9.Controls.Add(Me.PhoneEle)
         Me.GroupBox9.Controls.Add(Me.Compleat)
         Me.GroupBox9.Controls.Add(Me.RF)
-        Me.GroupBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox9.Location = New System.Drawing.Point(502, 409)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(404, 65)
         Me.GroupBox9.TabIndex = 104
-        Me.GroupBox9.TabStop = false
+        Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "OTHER PNR ELEMENT :"
         '
         'TKTL
         '
-        Me.TKTL.AutoSize = true
+        Me.TKTL.AutoSize = True
         Me.TKTL.BackColor = System.Drawing.Color.Transparent
-        Me.TKTL.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.TKTL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.TKTL.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TKTL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TKTL.Location = New System.Drawing.Point(346, 24)
         Me.TKTL.Name = "TKTL"
         Me.TKTL.Size = New System.Drawing.Size(47, 17)
         Me.TKTL.TabIndex = 16
         Me.TKTL.Text = "TKTL"
-        Me.TKTL.UseVisualStyleBackColor = false
+        Me.TKTL.UseVisualStyleBackColor = False
         '
         'PhoneEle
         '
-        Me.PhoneEle.AutoSize = true
+        Me.PhoneEle.AutoSize = True
         Me.PhoneEle.BackColor = System.Drawing.Color.Transparent
-        Me.PhoneEle.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.PhoneEle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.PhoneEle.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneEle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.PhoneEle.Location = New System.Drawing.Point(26, 25)
         Me.PhoneEle.Name = "PhoneEle"
         Me.PhoneEle.Size = New System.Drawing.Size(97, 17)
         Me.PhoneEle.TabIndex = 13
         Me.PhoneEle.Text = "Phone Element"
-        Me.PhoneEle.UseVisualStyleBackColor = false
+        Me.PhoneEle.UseVisualStyleBackColor = False
         '
         'Compleat
         '
-        Me.Compleat.AutoSize = true
+        Me.Compleat.AutoSize = True
         Me.Compleat.BackColor = System.Drawing.Color.Transparent
-        Me.Compleat.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Compleat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Compleat.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Compleat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Compleat.Location = New System.Drawing.Point(139, 25)
         Me.Compleat.Name = "Compleat"
         Me.Compleat.Size = New System.Drawing.Size(74, 17)
         Me.Compleat.TabIndex = 14
         Me.Compleat.Text = "COMPLEAT"
-        Me.Compleat.UseVisualStyleBackColor = false
+        Me.Compleat.UseVisualStyleBackColor = False
         '
         'RF
         '
-        Me.RF.AutoSize = true
+        Me.RF.AutoSize = True
         Me.RF.BackColor = System.Drawing.Color.Transparent
-        Me.RF.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RF.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RF.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RF.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RF.Location = New System.Drawing.Point(231, 24)
         Me.RF.Name = "RF"
         Me.RF.Size = New System.Drawing.Size(95, 17)
         Me.RF.TabIndex = 15
         Me.RF.Text = "Received From"
-        Me.RF.UseVisualStyleBackColor = false
+        Me.RF.UseVisualStyleBackColor = False
         '
         'Label12
         '
-        Me.Label12.AutoSize = true
+        Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Calibri", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label12.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label12.Location = New System.Drawing.Point(48, 264)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(80, 14)
@@ -1476,8 +1474,8 @@ Partial Class FrmGeneral
         '
         'cboBillTo
         '
-        Me.cboBillTo.Enabled = false
-        Me.cboBillTo.FormattingEnabled = true
+        Me.cboBillTo.Enabled = False
+        Me.cboBillTo.FormattingEnabled = True
         Me.cboBillTo.Location = New System.Drawing.Point(48, 368)
         Me.cboBillTo.Name = "cboBillTo"
         Me.cboBillTo.Size = New System.Drawing.Size(365, 21)
@@ -1486,23 +1484,23 @@ Partial Class FrmGeneral
         'btnVessel
         '
         Me.btnVessel.BackColor = System.Drawing.Color.Transparent
-        Me.btnVessel.Enabled = false
+        Me.btnVessel.Enabled = False
         Me.btnVessel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVessel.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnVessel.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVessel.ForeColor = System.Drawing.Color.White
-        Me.btnVessel.Image = CType(resources.GetObject("btnVessel.Image"),System.Drawing.Image)
+        Me.btnVessel.Image = CType(resources.GetObject("btnVessel.Image"), System.Drawing.Image)
         Me.btnVessel.Location = New System.Drawing.Point(407, 324)
         Me.btnVessel.Name = "btnVessel"
         Me.btnVessel.Size = New System.Drawing.Size(37, 26)
         Me.btnVessel.TabIndex = 3
-        Me.btnVessel.UseVisualStyleBackColor = false
+        Me.btnVessel.UseVisualStyleBackColor = False
         '
         'Label11
         '
-        Me.Label11.AutoSize = true
+        Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Calibri", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label11.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(48, 352)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(47, 14)
@@ -1511,8 +1509,8 @@ Partial Class FrmGeneral
         '
         'cboVessel
         '
-        Me.cboVessel.Enabled = false
-        Me.cboVessel.FormattingEnabled = true
+        Me.cboVessel.Enabled = False
+        Me.cboVessel.FormattingEnabled = True
         Me.cboVessel.Location = New System.Drawing.Point(48, 326)
         Me.cboVessel.Name = "cboVessel"
         Me.cboVessel.Size = New System.Drawing.Size(366, 21)
@@ -1520,10 +1518,10 @@ Partial Class FrmGeneral
         '
         'Label10
         '
-        Me.Label10.AutoSize = true
+        Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Calibri", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label10.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(48, 309)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(148, 14)
@@ -1533,21 +1531,21 @@ Partial Class FrmGeneral
         'cmdSend
         '
         Me.cmdSend.BackColor = System.Drawing.Color.Transparent
-        Me.cmdSend.Enabled = false
+        Me.cmdSend.Enabled = False
         Me.cmdSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdSend.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.cmdSend.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdSend.ForeColor = System.Drawing.Color.White
-        Me.cmdSend.Image = CType(resources.GetObject("cmdSend.Image"),System.Drawing.Image)
+        Me.cmdSend.Image = CType(resources.GetObject("cmdSend.Image"), System.Drawing.Image)
         Me.cmdSend.Location = New System.Drawing.Point(407, 278)
         Me.cmdSend.Name = "cmdSend"
         Me.cmdSend.Size = New System.Drawing.Size(37, 26)
         Me.cmdSend.TabIndex = 1
-        Me.cmdSend.UseVisualStyleBackColor = false
+        Me.cmdSend.UseVisualStyleBackColor = False
         '
         'cboClient
         '
-        Me.cboClient.Enabled = false
-        Me.cboClient.FormattingEnabled = true
+        Me.cboClient.Enabled = False
+        Me.cboClient.FormattingEnabled = True
         Me.cboClient.Location = New System.Drawing.Point(48, 281)
         Me.cboClient.Name = "cboClient"
         Me.cboClient.Size = New System.Drawing.Size(368, 21)
@@ -1581,46 +1579,46 @@ Partial Class FrmGeneral
         Me.GroupBox10.BackColor = System.Drawing.Color.White
         Me.GroupBox10.Controls.Add(Me.rdEmployee)
         Me.GroupBox10.Controls.Add(Me.rdDoktors)
-        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox10.Location = New System.Drawing.Point(25, 46)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(531, 34)
         Me.GroupBox10.TabIndex = 407
-        Me.GroupBox10.TabStop = false
+        Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Traveller Type :"
         '
         'rdEmployee
         '
-        Me.rdEmployee.AutoSize = true
-        Me.rdEmployee.Checked = true
-        Me.rdEmployee.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.rdEmployee.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdEmployee.AutoSize = True
+        Me.rdEmployee.Checked = True
+        Me.rdEmployee.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdEmployee.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdEmployee.Location = New System.Drawing.Point(125, 12)
         Me.rdEmployee.Name = "rdEmployee"
         Me.rdEmployee.Size = New System.Drawing.Size(71, 18)
         Me.rdEmployee.TabIndex = 0
-        Me.rdEmployee.TabStop = true
+        Me.rdEmployee.TabStop = True
         Me.rdEmployee.Text = "Employee"
-        Me.rdEmployee.UseVisualStyleBackColor = true
+        Me.rdEmployee.UseVisualStyleBackColor = True
         '
         'rdDoktors
         '
-        Me.rdDoktors.AutoSize = true
-        Me.rdDoktors.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.rdDoktors.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdDoktors.AutoSize = True
+        Me.rdDoktors.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rdDoktors.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdDoktors.Location = New System.Drawing.Point(227, 11)
         Me.rdDoktors.Name = "rdDoktors"
         Me.rdDoktors.Size = New System.Drawing.Size(242, 18)
         Me.rdDoktors.TabIndex = 1
         Me.rdDoktors.Text = "Doctors/Conventions/Family/Relatives/Others"
-        Me.rdDoktors.UseVisualStyleBackColor = true
+        Me.rdDoktors.UseVisualStyleBackColor = True
         '
         'Label191
         '
-        Me.Label191.AutoSize = true
+        Me.Label191.AutoSize = True
         Me.Label191.BackColor = System.Drawing.Color.Transparent
-        Me.Label191.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label191.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label191.ForeColor = System.Drawing.Color.Teal
         Me.Label191.Location = New System.Drawing.Point(114, 78)
         Me.Label191.Name = "Label191"
@@ -1629,8 +1627,8 @@ Partial Class FrmGeneral
         '
         'Label130
         '
-        Me.Label130.AutoSize = true
-        Me.Label130.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label130.AutoSize = True
+        Me.Label130.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label130.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label130.Location = New System.Drawing.Point(956, 478)
         Me.Label130.Name = "Label130"
@@ -1654,19 +1652,19 @@ Partial Class FrmGeneral
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.Label18)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox3.Location = New System.Drawing.Point(581, 270)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(345, 244)
         Me.GroupBox3.TabIndex = 5
-        Me.GroupBox3.TabStop = false
+        Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Ticket Number Entry"
         '
         'Label132
         '
-        Me.Label132.AutoSize = true
-        Me.Label132.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label132.AutoSize = True
+        Me.Label132.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label132.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label132.Location = New System.Drawing.Point(301, 225)
         Me.Label132.Name = "Label132"
@@ -1676,8 +1674,8 @@ Partial Class FrmGeneral
         '
         'Label131
         '
-        Me.Label131.AutoSize = true
-        Me.Label131.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label131.AutoSize = True
+        Me.Label131.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label131.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label131.Location = New System.Drawing.Point(305, 167)
         Me.Label131.Name = "Label131"
@@ -1688,19 +1686,19 @@ Partial Class FrmGeneral
         'btnClearTicket
         '
         Me.btnClearTicket.BackColor = System.Drawing.Color.White
-        Me.btnClearTicket.BackgroundImage = CType(resources.GetObject("btnClearTicket.BackgroundImage"),System.Drawing.Image)
+        Me.btnClearTicket.BackgroundImage = CType(resources.GetObject("btnClearTicket.BackgroundImage"), System.Drawing.Image)
         Me.btnClearTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnClearTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnClearTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearTicket.ForeColor = System.Drawing.Color.White
         Me.btnClearTicket.Location = New System.Drawing.Point(299, 189)
         Me.btnClearTicket.Name = "btnClearTicket"
         Me.btnClearTicket.Size = New System.Drawing.Size(36, 37)
         Me.btnClearTicket.TabIndex = 4
-        Me.btnClearTicket.UseVisualStyleBackColor = false
+        Me.btnClearTicket.UseVisualStyleBackColor = False
         '
         'TicketField
         '
-        Me.TicketField.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TicketField.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TicketField.Location = New System.Drawing.Point(20, 138)
         Me.TicketField.Name = "TicketField"
         Me.TicketField.Size = New System.Drawing.Size(276, 90)
@@ -1712,30 +1710,30 @@ Partial Class FrmGeneral
         Me.btnAddTicket.BackColor = System.Drawing.Color.White
         Me.btnAddTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnAddTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddTicket.ForeColor = System.Drawing.Color.White
-        Me.btnAddTicket.Image = CType(resources.GetObject("btnAddTicket.Image"),System.Drawing.Image)
+        Me.btnAddTicket.Image = CType(resources.GetObject("btnAddTicket.Image"), System.Drawing.Image)
         Me.btnAddTicket.Location = New System.Drawing.Point(298, 139)
         Me.btnAddTicket.Name = "btnAddTicket"
         Me.btnAddTicket.Size = New System.Drawing.Size(35, 30)
         Me.btnAddTicket.TabIndex = 2
-        Me.btnAddTicket.UseVisualStyleBackColor = false
+        Me.btnAddTicket.UseVisualStyleBackColor = False
         '
         'txtTicketNumber
         '
-        Me.txtTicketNumber.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtTicketNumber.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTicketNumber.Location = New System.Drawing.Point(19, 110)
         Me.txtTicketNumber.MaxLength = 10
-        Me.txtTicketNumber.Multiline = true
+        Me.txtTicketNumber.Multiline = True
         Me.txtTicketNumber.Name = "txtTicketNumber"
         Me.txtTicketNumber.Size = New System.Drawing.Size(302, 22)
         Me.txtTicketNumber.TabIndex = 1
         '
         'Label13
         '
-        Me.Label13.AutoSize = true
+        Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.Teal
         Me.Label13.Location = New System.Drawing.Point(17, 19)
         Me.Label13.Name = "Label13"
@@ -1745,10 +1743,10 @@ Partial Class FrmGeneral
         '
         'Label14
         '
-        Me.Label14.AutoSize = true
+        Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label14.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(23, 45)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(95, 14)
@@ -1757,8 +1755,8 @@ Partial Class FrmGeneral
         '
         'cboAlineCode
         '
-        Me.cboAlineCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboAlineCode.FormattingEnabled = true
+        Me.cboAlineCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboAlineCode.FormattingEnabled = True
         Me.cboAlineCode.Location = New System.Drawing.Point(19, 61)
         Me.cboAlineCode.Name = "cboAlineCode"
         Me.cboAlineCode.Size = New System.Drawing.Size(303, 22)
@@ -1766,8 +1764,8 @@ Partial Class FrmGeneral
         '
         'Label15
         '
-        Me.Label15.AutoSize = true
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Red
         Me.Label15.Location = New System.Drawing.Point(16, 43)
         Me.Label15.Name = "Label15"
@@ -1777,10 +1775,10 @@ Partial Class FrmGeneral
         '
         'Label16
         '
-        Me.Label16.AutoSize = true
+        Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label16.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label16.Location = New System.Drawing.Point(27, 91)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(119, 14)
@@ -1789,7 +1787,7 @@ Partial Class FrmGeneral
         '
         'Label18
         '
-        Me.Label18.AutoSize = true
+        Me.Label18.AutoSize = True
         Me.Label18.ForeColor = System.Drawing.Color.Red
         Me.Label18.Location = New System.Drawing.Point(18, 94)
         Me.Label18.Name = "Label18"
@@ -1879,50 +1877,50 @@ Partial Class FrmGeneral
         Me.AirInformation.Controls.Add(Me.Label20)
         Me.AirInformation.Controls.Add(Me.txtLowFare)
         Me.AirInformation.Controls.Add(Me.Label23)
-        Me.AirInformation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.AirInformation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.AirInformation.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AirInformation.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.AirInformation.Location = New System.Drawing.Point(24, 81)
         Me.AirInformation.Name = "AirInformation"
         Me.AirInformation.Size = New System.Drawing.Size(543, 461)
         Me.AirInformation.TabIndex = 3
-        Me.AirInformation.TabStop = false
+        Me.AirInformation.TabStop = False
         Me.AirInformation.Text = "Air Information :"
         '
         'Label247
         '
-        Me.Label247.AutoSize = true
-        Me.Label247.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label247.AutoSize = True
+        Me.Label247.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label247.ForeColor = System.Drawing.Color.Red
         Me.Label247.Location = New System.Drawing.Point(291, 26)
         Me.Label247.Name = "Label247"
         Me.Label247.Size = New System.Drawing.Size(102, 12)
         Me.Label247.TabIndex = 485
         Me.Label247.Text = "(For Split Tickets Only)"
-        Me.Label247.Visible = false
+        Me.Label247.Visible = False
         '
         'txtBoxNetFare
         '
         Me.txtBoxNetFare.BackColor = System.Drawing.Color.White
-        Me.txtBoxNetFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtBoxNetFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtBoxNetFare.Location = New System.Drawing.Point(247, 43)
-        Me.txtBoxNetFare.Multiline = true
+        Me.txtBoxNetFare.Multiline = True
         Me.txtBoxNetFare.Name = "txtBoxNetFare"
         Me.txtBoxNetFare.Size = New System.Drawing.Size(117, 22)
         Me.txtBoxNetFare.TabIndex = 484
-        Me.txtBoxNetFare.Visible = false
+        Me.txtBoxNetFare.Visible = False
         '
         'Label246
         '
-        Me.Label246.AutoSize = true
+        Me.Label246.AutoSize = True
         Me.Label246.BackColor = System.Drawing.Color.Transparent
-        Me.Label246.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label246.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label246.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label246.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label246.Location = New System.Drawing.Point(245, 25)
         Me.Label246.Name = "Label246"
         Me.Label246.Size = New System.Drawing.Size(48, 14)
         Me.Label246.TabIndex = 483
         Me.Label246.Text = "Net Fare"
-        Me.Label246.Visible = false
+        Me.Label246.Visible = False
         '
         'btnRetrieveFare
         '
@@ -1931,26 +1929,26 @@ Partial Class FrmGeneral
         Me.btnRetrieveFare.Size = New System.Drawing.Size(187, 23)
         Me.btnRetrieveFare.TabIndex = 3
         Me.btnRetrieveFare.Text = "Retrieve Fare From Amadeus"
-        Me.btnRetrieveFare.UseVisualStyleBackColor = true
+        Me.btnRetrieveFare.UseVisualStyleBackColor = True
         '
         'txt_eticket
         '
         Me.txt_eticket.BackColor = System.Drawing.Color.White
-        Me.txt_eticket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txt_eticket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_eticket.Location = New System.Drawing.Point(21, 270)
-        Me.txt_eticket.Multiline = true
+        Me.txt_eticket.Multiline = True
         Me.txt_eticket.Name = "txt_eticket"
-        Me.txt_eticket.ReadOnly = true
+        Me.txt_eticket.ReadOnly = True
         Me.txt_eticket.Size = New System.Drawing.Size(87, 22)
         Me.txt_eticket.TabIndex = 19
         Me.txt_eticket.Text = "E"
         '
         'Label177
         '
-        Me.Label177.AutoSize = true
+        Me.Label177.AutoSize = True
         Me.Label177.BackColor = System.Drawing.Color.Transparent
-        Me.Label177.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label177.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label177.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label177.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label177.Location = New System.Drawing.Point(132, 122)
         Me.Label177.Name = "Label177"
         Me.Label177.Size = New System.Drawing.Size(98, 14)
@@ -1959,8 +1957,8 @@ Partial Class FrmGeneral
         '
         'Label196
         '
-        Me.Label196.AutoSize = true
-        Me.Label196.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label196.AutoSize = True
+        Me.Label196.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label196.ForeColor = System.Drawing.Color.Red
         Me.Label196.Location = New System.Drawing.Point(11, 162)
         Me.Label196.Name = "Label196"
@@ -1971,42 +1969,42 @@ Partial Class FrmGeneral
         'btnMajorCls
         '
         Me.btnMajorCls.BackColor = System.Drawing.Color.Transparent
-        Me.btnMajorCls.BackgroundImage = CType(resources.GetObject("btnMajorCls.BackgroundImage"),System.Drawing.Image)
+        Me.btnMajorCls.BackgroundImage = CType(resources.GetObject("btnMajorCls.BackgroundImage"), System.Drawing.Image)
         Me.btnMajorCls.Location = New System.Drawing.Point(109, 181)
         Me.btnMajorCls.Name = "btnMajorCls"
         Me.btnMajorCls.Size = New System.Drawing.Size(18, 21)
         Me.btnMajorCls.TabIndex = 481
         Me.btnMajorCls.Text = "..."
-        Me.btnMajorCls.UseVisualStyleBackColor = false
+        Me.btnMajorCls.UseVisualStyleBackColor = False
         '
         'btnMajorClass
         '
         Me.btnMajorClass.BackColor = System.Drawing.Color.Transparent
-        Me.btnMajorClass.BackgroundImage = CType(resources.GetObject("btnMajorClass.BackgroundImage"),System.Drawing.Image)
+        Me.btnMajorClass.BackgroundImage = CType(resources.GetObject("btnMajorClass.BackgroundImage"), System.Drawing.Image)
         Me.btnMajorClass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnMajorClass.Enabled = false
+        Me.btnMajorClass.Enabled = False
         Me.btnMajorClass.Location = New System.Drawing.Point(259, 432)
         Me.btnMajorClass.Name = "btnMajorClass"
         Me.btnMajorClass.Size = New System.Drawing.Size(18, 21)
         Me.btnMajorClass.TabIndex = 480
-        Me.btnMajorClass.UseVisualStyleBackColor = false
-        Me.btnMajorClass.Visible = false
+        Me.btnMajorClass.UseVisualStyleBackColor = False
+        Me.btnMajorClass.Visible = False
         '
         'Txt11
         '
         Me.Txt11.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt11.Location = New System.Drawing.Point(122, 433)
         Me.Txt11.Name = "Txt11"
-        Me.Txt11.ReadOnly = true
+        Me.Txt11.ReadOnly = True
         Me.Txt11.Size = New System.Drawing.Size(133, 20)
         Me.Txt11.TabIndex = 479
-        Me.Txt11.Visible = false
+        Me.Txt11.Visible = False
         '
         'Label81
         '
-        Me.Label81.AutoSize = true
-        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label81.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label81.Location = New System.Drawing.Point(18, 162)
         Me.Label81.Name = "Label81"
         Me.Label81.Size = New System.Drawing.Size(67, 13)
@@ -2016,21 +2014,21 @@ Partial Class FrmGeneral
         'txtMajorClass
         '
         Me.txtMajorClass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtMajorClass.Enabled = false
-        Me.txtMajorClass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtMajorClass.Enabled = False
+        Me.txtMajorClass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMajorClass.Location = New System.Drawing.Point(20, 181)
         Me.txtMajorClass.MaxLength = 1
         Me.txtMajorClass.Name = "txtMajorClass"
-        Me.txtMajorClass.ReadOnly = true
+        Me.txtMajorClass.ReadOnly = True
         Me.txtMajorClass.Size = New System.Drawing.Size(88, 20)
         Me.txtMajorClass.TabIndex = 9
         '
         'Label194
         '
-        Me.Label194.AutoSize = true
+        Me.Label194.AutoSize = True
         Me.Label194.BackColor = System.Drawing.Color.Transparent
-        Me.Label194.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label194.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label194.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label194.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label194.Location = New System.Drawing.Point(25, 75)
         Me.Label194.Name = "Label194"
         Me.Label194.Size = New System.Drawing.Size(97, 14)
@@ -2040,9 +2038,9 @@ Partial Class FrmGeneral
         'txtPublishFare
         '
         Me.txtPublishFare.BackColor = System.Drawing.Color.White
-        Me.txtPublishFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPublishFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPublishFare.Location = New System.Drawing.Point(21, 92)
-        Me.txtPublishFare.Multiline = true
+        Me.txtPublishFare.Multiline = True
         Me.txtPublishFare.Name = "txtPublishFare"
         Me.txtPublishFare.Size = New System.Drawing.Size(107, 22)
         Me.txtPublishFare.TabIndex = 0
@@ -2050,41 +2048,41 @@ Partial Class FrmGeneral
         'btnCurrCode
         '
         Me.btnCurrCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnCurrCode.BackgroundImage = CType(resources.GetObject("btnCurrCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnCurrCode.BackgroundImage = CType(resources.GetObject("btnCurrCode.BackgroundImage"), System.Drawing.Image)
         Me.btnCurrCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCurrCode.Enabled = false
+        Me.btnCurrCode.Enabled = False
         Me.btnCurrCode.Location = New System.Drawing.Point(316, 226)
         Me.btnCurrCode.Name = "btnCurrCode"
         Me.btnCurrCode.Size = New System.Drawing.Size(18, 21)
         Me.btnCurrCode.TabIndex = 19
-        Me.btnCurrCode.UseVisualStyleBackColor = false
+        Me.btnCurrCode.UseVisualStyleBackColor = False
         '
         'btnRCdes
         '
         Me.btnRCdes.BackColor = System.Drawing.Color.Transparent
-        Me.btnRCdes.BackgroundImage = CType(resources.GetObject("btnRCdes.BackgroundImage"),System.Drawing.Image)
+        Me.btnRCdes.BackgroundImage = CType(resources.GetObject("btnRCdes.BackgroundImage"), System.Drawing.Image)
         Me.btnRCdes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnRCdes.Enabled = false
+        Me.btnRCdes.Enabled = False
         Me.btnRCdes.Location = New System.Drawing.Point(509, 177)
         Me.btnRCdes.Name = "btnRCdes"
         Me.btnRCdes.Size = New System.Drawing.Size(18, 21)
         Me.btnRCdes.TabIndex = 472
-        Me.btnRCdes.UseVisualStyleBackColor = false
+        Me.btnRCdes.UseVisualStyleBackColor = False
         '
         'txtTripType
         '
         Me.txtTripType.BackColor = System.Drawing.Color.White
-        Me.txtTripType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtTripType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTripType.Location = New System.Drawing.Point(138, 270)
-        Me.txtTripType.Multiline = true
+        Me.txtTripType.Multiline = True
         Me.txtTripType.Name = "txtTripType"
-        Me.txtTripType.ReadOnly = true
+        Me.txtTripType.ReadOnly = True
         Me.txtTripType.Size = New System.Drawing.Size(157, 22)
         Me.txtTripType.TabIndex = 20
         '
         'Label192
         '
-        Me.Label192.AutoSize = true
+        Me.Label192.AutoSize = True
         Me.Label192.ForeColor = System.Drawing.Color.Red
         Me.Label192.Location = New System.Drawing.Point(128, 256)
         Me.Label192.Name = "Label192"
@@ -2095,21 +2093,21 @@ Partial Class FrmGeneral
         'btnLFare
         '
         Me.btnLFare.BackColor = System.Drawing.Color.Transparent
-        Me.btnLFare.BackgroundImage = CType(resources.GetObject("btnLFare.BackgroundImage"),System.Drawing.Image)
+        Me.btnLFare.BackgroundImage = CType(resources.GetObject("btnLFare.BackgroundImage"), System.Drawing.Image)
         Me.btnLFare.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnLFare.Enabled = false
+        Me.btnLFare.Enabled = False
         Me.btnLFare.Location = New System.Drawing.Point(362, 137)
         Me.btnLFare.Name = "btnLFare"
         Me.btnLFare.Size = New System.Drawing.Size(18, 21)
         Me.btnLFare.TabIndex = 470
-        Me.btnLFare.UseVisualStyleBackColor = false
+        Me.btnLFare.UseVisualStyleBackColor = False
         '
         'Label185
         '
-        Me.Label185.AutoSize = true
+        Me.Label185.AutoSize = True
         Me.Label185.BackColor = System.Drawing.Color.Transparent
-        Me.Label185.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label185.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label185.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label185.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label185.Location = New System.Drawing.Point(26, 254)
         Me.Label185.Name = "Label185"
         Me.Label185.Size = New System.Drawing.Size(64, 14)
@@ -2118,8 +2116,8 @@ Partial Class FrmGeneral
         '
         'Label190
         '
-        Me.Label190.AutoSize = true
-        Me.Label190.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label190.AutoSize = True
+        Me.Label190.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label190.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label190.Location = New System.Drawing.Point(451, 364)
         Me.Label190.Name = "Label190"
@@ -2129,10 +2127,10 @@ Partial Class FrmGeneral
         '
         'Label193
         '
-        Me.Label193.AutoSize = true
+        Me.Label193.AutoSize = True
         Me.Label193.BackColor = System.Drawing.Color.Transparent
-        Me.Label193.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label193.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label193.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label193.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label193.Location = New System.Drawing.Point(136, 255)
         Me.Label193.Name = "Label193"
         Me.Label193.Size = New System.Drawing.Size(54, 14)
@@ -2142,19 +2140,19 @@ Partial Class FrmGeneral
         'btnDelFare
         '
         Me.btnDelFare.BackColor = System.Drawing.Color.White
-        Me.btnDelFare.BackgroundImage = CType(resources.GetObject("btnDelFare.BackgroundImage"),System.Drawing.Image)
+        Me.btnDelFare.BackgroundImage = CType(resources.GetObject("btnDelFare.BackgroundImage"), System.Drawing.Image)
         Me.btnDelFare.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnDelFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnDelFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelFare.ForeColor = System.Drawing.Color.White
         Me.btnDelFare.Location = New System.Drawing.Point(448, 325)
         Me.btnDelFare.Name = "btnDelFare"
         Me.btnDelFare.Size = New System.Drawing.Size(40, 40)
         Me.btnDelFare.TabIndex = 27
-        Me.btnDelFare.UseVisualStyleBackColor = false
+        Me.btnDelFare.UseVisualStyleBackColor = False
         '
         'Label186
         '
-        Me.Label186.AutoSize = true
+        Me.Label186.AutoSize = True
         Me.Label186.ForeColor = System.Drawing.Color.Red
         Me.Label186.Location = New System.Drawing.Point(17, 251)
         Me.Label186.Name = "Label186"
@@ -2164,10 +2162,10 @@ Partial Class FrmGeneral
         '
         'Label189
         '
-        Me.Label189.AutoSize = true
+        Me.Label189.AutoSize = True
         Me.Label189.BackColor = System.Drawing.Color.Transparent
-        Me.Label189.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label189.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label189.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label189.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label189.Location = New System.Drawing.Point(256, 308)
         Me.Label189.Name = "Label189"
         Me.Label189.Size = New System.Drawing.Size(160, 14)
@@ -2177,8 +2175,8 @@ Partial Class FrmGeneral
         'cboTicketType
         '
         Me.cboTicketType.BackColor = System.Drawing.SystemColors.Control
-        Me.cboTicketType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboTicketType.FormattingEnabled = true
+        Me.cboTicketType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTicketType.FormattingEnabled = True
         Me.cboTicketType.Items.AddRange(New Object() {"E-E Ticket", "X-Exchange Document"})
         Me.cboTicketType.Location = New System.Drawing.Point(21, 270)
         Me.cboTicketType.Name = "cboTicketType"
@@ -2187,7 +2185,7 @@ Partial Class FrmGeneral
         '
         'RTFares
         '
-        Me.RTFares.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.RTFares.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RTFares.Location = New System.Drawing.Point(259, 325)
         Me.RTFares.Name = "RTFares"
         Me.RTFares.Size = New System.Drawing.Size(183, 101)
@@ -2197,8 +2195,8 @@ Partial Class FrmGeneral
         'cboTripType
         '
         Me.cboTripType.BackColor = System.Drawing.SystemColors.Control
-        Me.cboTripType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboTripType.FormattingEnabled = true
+        Me.cboTripType.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTripType.FormattingEnabled = True
         Me.cboTripType.Items.AddRange(New Object() {"S-Single", "A-Return (Point to Point)", "O-Return (Single Open Jaw)", "D-Return (Double open Jaw)", "R-Round Trip"})
         Me.cboTripType.Location = New System.Drawing.Point(138, 270)
         Me.cboTripType.Name = "cboTripType"
@@ -2208,55 +2206,55 @@ Partial Class FrmGeneral
         'txtDescRCode
         '
         Me.txtDescRCode.BackColor = System.Drawing.Color.White
-        Me.txtDescRCode.Enabled = false
-        Me.txtDescRCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDescRCode.Enabled = False
+        Me.txtDescRCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescRCode.Location = New System.Drawing.Point(20, 434)
         Me.txtDescRCode.MaxLength = 2
         Me.txtDescRCode.Name = "txtDescRCode"
         Me.txtDescRCode.Size = New System.Drawing.Size(101, 20)
         Me.txtDescRCode.TabIndex = 20
-        Me.txtDescRCode.Visible = false
+        Me.txtDescRCode.Visible = False
         '
         'txtNetTicket
         '
         Me.txtNetTicket.BackColor = System.Drawing.Color.White
-        Me.txtNetTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtNetTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNetTicket.Location = New System.Drawing.Point(336, 270)
-        Me.txtNetTicket.Multiline = true
+        Me.txtNetTicket.Multiline = True
         Me.txtNetTicket.Name = "txtNetTicket"
-        Me.txtNetTicket.ReadOnly = true
+        Me.txtNetTicket.ReadOnly = True
         Me.txtNetTicket.Size = New System.Drawing.Size(176, 22)
         Me.txtNetTicket.TabIndex = 22
         '
         'btnRCode
         '
         Me.btnRCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnRCode.BackgroundImage = CType(resources.GetObject("btnRCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnRCode.BackgroundImage = CType(resources.GetObject("btnRCode.BackgroundImage"), System.Drawing.Image)
         Me.btnRCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnRCode.Enabled = false
+        Me.btnRCode.Enabled = False
         Me.btnRCode.Location = New System.Drawing.Point(335, 432)
         Me.btnRCode.Name = "btnRCode"
         Me.btnRCode.Size = New System.Drawing.Size(19, 21)
         Me.btnRCode.TabIndex = 451
-        Me.btnRCode.UseVisualStyleBackColor = false
-        Me.btnRCode.Visible = false
+        Me.btnRCode.UseVisualStyleBackColor = False
+        Me.btnRCode.Visible = False
         '
         'Txt15
         '
         Me.Txt15.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt15.Location = New System.Drawing.Point(323, 432)
         Me.Txt15.Name = "Txt15"
-        Me.Txt15.ReadOnly = true
+        Me.Txt15.ReadOnly = True
         Me.Txt15.Size = New System.Drawing.Size(12, 20)
         Me.Txt15.TabIndex = 450
-        Me.Txt15.Visible = false
+        Me.Txt15.Visible = False
         '
         'Label184
         '
-        Me.Label184.AutoSize = true
+        Me.Label184.AutoSize = True
         Me.Label184.BackColor = System.Drawing.Color.Transparent
-        Me.Label184.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label184.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label184.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label184.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label184.Location = New System.Drawing.Point(21, 308)
         Me.Label184.Name = "Label184"
         Me.Label184.Size = New System.Drawing.Size(92, 14)
@@ -2265,7 +2263,7 @@ Partial Class FrmGeneral
         '
         'Label182
         '
-        Me.Label182.AutoSize = true
+        Me.Label182.AutoSize = True
         Me.Label182.ForeColor = System.Drawing.Color.Red
         Me.Label182.Location = New System.Drawing.Point(242, 166)
         Me.Label182.Name = "Label182"
@@ -2275,7 +2273,7 @@ Partial Class FrmGeneral
         '
         'Label181
         '
-        Me.Label181.AutoSize = true
+        Me.Label181.AutoSize = True
         Me.Label181.ForeColor = System.Drawing.Color.Red
         Me.Label181.Location = New System.Drawing.Point(373, 166)
         Me.Label181.Name = "Label181"
@@ -2286,19 +2284,19 @@ Partial Class FrmGeneral
         'btnReasonCodeDen
         '
         Me.btnReasonCodeDen.BackColor = System.Drawing.Color.Transparent
-        Me.btnReasonCodeDen.BackgroundImage = CType(resources.GetObject("btnReasonCodeDen.BackgroundImage"),System.Drawing.Image)
+        Me.btnReasonCodeDen.BackgroundImage = CType(resources.GetObject("btnReasonCodeDen.BackgroundImage"), System.Drawing.Image)
         Me.btnReasonCodeDen.Location = New System.Drawing.Point(490, 181)
         Me.btnReasonCodeDen.Name = "btnReasonCodeDen"
         Me.btnReasonCodeDen.Size = New System.Drawing.Size(18, 21)
         Me.btnReasonCodeDen.TabIndex = 14
         Me.btnReasonCodeDen.Text = "..."
-        Me.btnReasonCodeDen.UseVisualStyleBackColor = false
+        Me.btnReasonCodeDen.UseVisualStyleBackColor = False
         '
         'Label89
         '
-        Me.Label89.AutoSize = true
-        Me.Label89.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label89.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label89.AutoSize = True
+        Me.Label89.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label89.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label89.Location = New System.Drawing.Point(381, 166)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(109, 13)
@@ -2308,54 +2306,54 @@ Partial Class FrmGeneral
         'txtRCodeDenied
         '
         Me.txtRCodeDenied.BackColor = System.Drawing.Color.White
-        Me.txtRCodeDenied.Enabled = false
-        Me.txtRCodeDenied.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRCodeDenied.Enabled = False
+        Me.txtRCodeDenied.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRCodeDenied.Location = New System.Drawing.Point(383, 181)
         Me.txtRCodeDenied.MaxLength = 2
         Me.txtRCodeDenied.Name = "txtRCodeDenied"
-        Me.txtRCodeDenied.ReadOnly = true
+        Me.txtRCodeDenied.ReadOnly = True
         Me.txtRCodeDenied.Size = New System.Drawing.Size(106, 20)
         Me.txtRCodeDenied.TabIndex = 12
         '
         'btnReasonCode
         '
         Me.btnReasonCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnReasonCode.BackgroundImage = CType(resources.GetObject("btnReasonCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnReasonCode.BackgroundImage = CType(resources.GetObject("btnReasonCode.BackgroundImage"), System.Drawing.Image)
         Me.btnReasonCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnReasonCode.Enabled = false
+        Me.btnReasonCode.Enabled = False
         Me.btnReasonCode.Location = New System.Drawing.Point(299, 432)
         Me.btnReasonCode.Name = "btnReasonCode"
         Me.btnReasonCode.Size = New System.Drawing.Size(19, 21)
         Me.btnReasonCode.TabIndex = 446
-        Me.btnReasonCode.UseVisualStyleBackColor = false
-        Me.btnReasonCode.Visible = false
+        Me.btnReasonCode.UseVisualStyleBackColor = False
+        Me.btnReasonCode.Visible = False
         '
         'btnReasonCD
         '
         Me.btnReasonCD.BackColor = System.Drawing.Color.Transparent
-        Me.btnReasonCD.BackgroundImage = CType(resources.GetObject("btnReasonCD.BackgroundImage"),System.Drawing.Image)
+        Me.btnReasonCD.BackgroundImage = CType(resources.GetObject("btnReasonCD.BackgroundImage"), System.Drawing.Image)
         Me.btnReasonCD.Location = New System.Drawing.Point(363, 181)
         Me.btnReasonCD.Name = "btnReasonCD"
         Me.btnReasonCD.Size = New System.Drawing.Size(18, 21)
         Me.btnReasonCD.TabIndex = 12
         Me.btnReasonCD.Text = "..."
-        Me.btnReasonCD.UseVisualStyleBackColor = false
+        Me.btnReasonCD.UseVisualStyleBackColor = False
         '
         'Txt14
         '
         Me.Txt14.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt14.Location = New System.Drawing.Point(283, 432)
         Me.Txt14.Name = "Txt14"
-        Me.Txt14.ReadOnly = true
+        Me.Txt14.ReadOnly = True
         Me.Txt14.Size = New System.Drawing.Size(11, 20)
         Me.Txt14.TabIndex = 445
-        Me.Txt14.Visible = false
+        Me.Txt14.Visible = False
         '
         'Label88
         '
-        Me.Label88.AutoSize = true
-        Me.Label88.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label88.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label88.AutoSize = True
+        Me.Label88.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label88.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label88.Location = New System.Drawing.Point(250, 166)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(77, 13)
@@ -2365,21 +2363,21 @@ Partial Class FrmGeneral
         'txtReasonCode
         '
         Me.txtReasonCode.BackColor = System.Drawing.Color.White
-        Me.txtReasonCode.Enabled = false
-        Me.txtReasonCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtReasonCode.Enabled = False
+        Me.txtReasonCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReasonCode.Location = New System.Drawing.Point(245, 181)
         Me.txtReasonCode.MaxLength = 2
         Me.txtReasonCode.Name = "txtReasonCode"
-        Me.txtReasonCode.ReadOnly = true
+        Me.txtReasonCode.ReadOnly = True
         Me.txtReasonCode.Size = New System.Drawing.Size(119, 20)
         Me.txtReasonCode.TabIndex = 11
         '
         'Label179
         '
-        Me.Label179.AutoSize = true
+        Me.Label179.AutoSize = True
         Me.Label179.BackColor = System.Drawing.Color.Transparent
-        Me.Label179.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label179.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label179.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label179.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label179.Location = New System.Drawing.Point(338, 255)
         Me.Label179.Name = "Label179"
         Me.Label179.Size = New System.Drawing.Size(54, 14)
@@ -2388,8 +2386,8 @@ Partial Class FrmGeneral
         '
         'Label180
         '
-        Me.Label180.AutoSize = true
-        Me.Label180.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label180.AutoSize = True
+        Me.Label180.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label180.ForeColor = System.Drawing.Color.Red
         Me.Label180.Location = New System.Drawing.Point(332, 255)
         Me.Label180.Name = "Label180"
@@ -2400,8 +2398,8 @@ Partial Class FrmGeneral
         'cboNetTicket
         '
         Me.cboNetTicket.BackColor = System.Drawing.Color.White
-        Me.cboNetTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboNetTicket.FormattingEnabled = true
+        Me.cboNetTicket.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboNetTicket.FormattingEnabled = True
         Me.cboNetTicket.Items.AddRange(New Object() {"Y - No commission in Rate Paid", "N - Commission included in Rate Paid)"})
         Me.cboNetTicket.Location = New System.Drawing.Point(336, 270)
         Me.cboNetTicket.Name = "cboNetTicket"
@@ -2410,10 +2408,10 @@ Partial Class FrmGeneral
         '
         'Label178
         '
-        Me.Label178.AutoSize = true
+        Me.Label178.AutoSize = True
         Me.Label178.BackColor = System.Drawing.Color.Transparent
-        Me.Label178.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label178.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label178.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label178.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label178.Location = New System.Drawing.Point(17, 122)
         Me.Label178.Name = "Label178"
         Me.Label178.Size = New System.Drawing.Size(97, 14)
@@ -2423,9 +2421,9 @@ Partial Class FrmGeneral
         'txtCustSpecHighFare
         '
         Me.txtCustSpecHighFare.BackColor = System.Drawing.Color.White
-        Me.txtCustSpecHighFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCustSpecHighFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCustSpecHighFare.Location = New System.Drawing.Point(136, 137)
-        Me.txtCustSpecHighFare.Multiline = true
+        Me.txtCustSpecHighFare.Multiline = True
         Me.txtCustSpecHighFare.Name = "txtCustSpecHighFare"
         Me.txtCustSpecHighFare.Size = New System.Drawing.Size(100, 22)
         Me.txtCustSpecHighFare.TabIndex = 6
@@ -2433,9 +2431,9 @@ Partial Class FrmGeneral
         'txtCustSpecLowFare
         '
         Me.txtCustSpecLowFare.BackColor = System.Drawing.Color.White
-        Me.txtCustSpecLowFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCustSpecLowFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCustSpecLowFare.Location = New System.Drawing.Point(20, 137)
-        Me.txtCustSpecLowFare.Multiline = true
+        Me.txtCustSpecLowFare.Multiline = True
         Me.txtCustSpecLowFare.Name = "txtCustSpecLowFare"
         Me.txtCustSpecLowFare.Size = New System.Drawing.Size(108, 22)
         Me.txtCustSpecLowFare.TabIndex = 5
@@ -2443,17 +2441,17 @@ Partial Class FrmGeneral
         'txtNoofTkt
         '
         Me.txtNoofTkt.BackColor = System.Drawing.Color.White
-        Me.txtNoofTkt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtNoofTkt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoofTkt.Location = New System.Drawing.Point(19, 226)
-        Me.txtNoofTkt.Multiline = true
+        Me.txtNoofTkt.Multiline = True
         Me.txtNoofTkt.Name = "txtNoofTkt"
         Me.txtNoofTkt.Size = New System.Drawing.Size(108, 22)
         Me.txtNoofTkt.TabIndex = 13
         '
         'Label160
         '
-        Me.Label160.AutoSize = true
-        Me.Label160.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label160.AutoSize = True
+        Me.Label160.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label160.ForeColor = System.Drawing.Color.Red
         Me.Label160.Location = New System.Drawing.Point(17, 206)
         Me.Label160.Name = "Label160"
@@ -2463,10 +2461,10 @@ Partial Class FrmGeneral
         '
         'Label159
         '
-        Me.Label159.AutoSize = true
+        Me.Label159.AutoSize = True
         Me.Label159.BackColor = System.Drawing.Color.Transparent
-        Me.Label159.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label159.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label159.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label159.Location = New System.Drawing.Point(22, 210)
         Me.Label159.Name = "Label159"
         Me.Label159.Size = New System.Drawing.Size(70, 14)
@@ -2475,8 +2473,8 @@ Partial Class FrmGeneral
         '
         'Label134
         '
-        Me.Label134.AutoSize = true
-        Me.Label134.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label134.AutoSize = True
+        Me.Label134.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label134.ForeColor = System.Drawing.Color.SeaGreen
         Me.Label134.Location = New System.Drawing.Point(498, 71)
         Me.Label134.Name = "Label134"
@@ -2486,8 +2484,8 @@ Partial Class FrmGeneral
         '
         'Label133
         '
-        Me.Label133.AutoSize = true
-        Me.Label133.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label133.AutoSize = True
+        Me.Label133.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label133.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label133.Location = New System.Drawing.Point(202, 364)
         Me.Label133.Name = "Label133"
@@ -2497,10 +2495,10 @@ Partial Class FrmGeneral
         '
         'Label17
         '
-        Me.Label17.AutoSize = true
+        Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label17.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label17.Location = New System.Drawing.Point(140, 75)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(66, 14)
@@ -2509,10 +2507,10 @@ Partial Class FrmGeneral
         '
         'Label45
         '
-        Me.Label45.AutoSize = true
+        Me.Label45.AutoSize = True
         Me.Label45.BackColor = System.Drawing.Color.Transparent
-        Me.Label45.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label45.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label45.Location = New System.Drawing.Point(249, 210)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(52, 14)
@@ -2521,19 +2519,19 @@ Partial Class FrmGeneral
         '
         'txtComPercentage
         '
-        Me.txtComPercentage.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtComPercentage.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtComPercentage.Location = New System.Drawing.Point(419, 226)
-        Me.txtComPercentage.Multiline = true
+        Me.txtComPercentage.Multiline = True
         Me.txtComPercentage.Name = "txtComPercentage"
         Me.txtComPercentage.Size = New System.Drawing.Size(71, 22)
         Me.txtComPercentage.TabIndex = 17
         '
         'Label22
         '
-        Me.Label22.AutoSize = true
+        Me.Label22.AutoSize = True
         Me.Label22.BackColor = System.Drawing.Color.Transparent
-        Me.Label22.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label22.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label22.Location = New System.Drawing.Point(416, 209)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(44, 14)
@@ -2542,19 +2540,19 @@ Partial Class FrmGeneral
         '
         'txtCommAmt
         '
-        Me.txtCommAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCommAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCommAmt.Location = New System.Drawing.Point(338, 226)
-        Me.txtCommAmt.Multiline = true
+        Me.txtCommAmt.Multiline = True
         Me.txtCommAmt.Name = "txtCommAmt"
         Me.txtCommAmt.Size = New System.Drawing.Size(76, 22)
         Me.txtCommAmt.TabIndex = 16
         '
         'Label21
         '
-        Me.Label21.AutoSize = true
+        Me.Label21.AutoSize = True
         Me.Label21.BackColor = System.Drawing.Color.Transparent
-        Me.Label21.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label21.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label21.Location = New System.Drawing.Point(335, 210)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(52, 14)
@@ -2564,19 +2562,19 @@ Partial Class FrmGeneral
         'btnClearSF
         '
         Me.btnClearSF.BackColor = System.Drawing.Color.White
-        Me.btnClearSF.BackgroundImage = CType(resources.GetObject("btnClearSF.BackgroundImage"),System.Drawing.Image)
+        Me.btnClearSF.BackgroundImage = CType(resources.GetObject("btnClearSF.BackgroundImage"), System.Drawing.Image)
         Me.btnClearSF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnClearSF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnClearSF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClearSF.ForeColor = System.Drawing.Color.White
         Me.btnClearSF.Location = New System.Drawing.Point(199, 325)
         Me.btnClearSF.Name = "btnClearSF"
         Me.btnClearSF.Size = New System.Drawing.Size(40, 40)
         Me.btnClearSF.TabIndex = 25
-        Me.btnClearSF.UseVisualStyleBackColor = false
+        Me.btnClearSF.UseVisualStyleBackColor = False
         '
         'RTSF
         '
-        Me.RTSF.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.RTSF.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RTSF.Location = New System.Drawing.Point(19, 325)
         Me.RTSF.Name = "RTSF"
         Me.RTSF.Size = New System.Drawing.Size(178, 101)
@@ -2585,10 +2583,10 @@ Partial Class FrmGeneral
         '
         'Label53
         '
-        Me.Label53.AutoSize = true
+        Me.Label53.AutoSize = True
         Me.Label53.BackColor = System.Drawing.Color.Transparent
-        Me.Label53.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label53.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label53.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label53.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label53.Location = New System.Drawing.Point(380, 71)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(93, 14)
@@ -2597,8 +2595,8 @@ Partial Class FrmGeneral
         '
         'cboSegment
         '
-        Me.cboSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboSegment.FormattingEnabled = true
+        Me.cboSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSegment.FormattingEnabled = True
         Me.cboSegment.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
         Me.cboSegment.Location = New System.Drawing.Point(381, 92)
         Me.cboSegment.Name = "cboSegment"
@@ -2607,19 +2605,19 @@ Partial Class FrmGeneral
         '
         'txtSFSegment
         '
-        Me.txtSFSegment.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSFSegment.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSFSegment.Location = New System.Drawing.Point(245, 92)
-        Me.txtSFSegment.Multiline = true
+        Me.txtSFSegment.Multiline = True
         Me.txtSFSegment.Name = "txtSFSegment"
         Me.txtSFSegment.Size = New System.Drawing.Size(119, 22)
         Me.txtSFSegment.TabIndex = 2
         '
         'Label52
         '
-        Me.Label52.AutoSize = true
+        Me.Label52.AutoSize = True
         Me.Label52.BackColor = System.Drawing.Color.Transparent
-        Me.Label52.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label52.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label52.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label52.Location = New System.Drawing.Point(243, 71)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(113, 14)
@@ -2631,19 +2629,19 @@ Partial Class FrmGeneral
         Me.btnAddSFSegment.BackColor = System.Drawing.Color.White
         Me.btnAddSFSegment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddSFSegment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddSFSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnAddSFSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddSFSegment.ForeColor = System.Drawing.Color.White
-        Me.btnAddSFSegment.Image = CType(resources.GetObject("btnAddSFSegment.Image"),System.Drawing.Image)
+        Me.btnAddSFSegment.Image = CType(resources.GetObject("btnAddSFSegment.Image"), System.Drawing.Image)
         Me.btnAddSFSegment.Location = New System.Drawing.Point(492, 83)
         Me.btnAddSFSegment.Name = "btnAddSFSegment"
         Me.btnAddSFSegment.Size = New System.Drawing.Size(35, 30)
         Me.btnAddSFSegment.TabIndex = 4
-        Me.btnAddSFSegment.UseVisualStyleBackColor = false
+        Me.btnAddSFSegment.UseVisualStyleBackColor = False
         '
         'Label46
         '
-        Me.Label46.AutoSize = true
-        Me.Label46.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.ForeColor = System.Drawing.Color.Red
         Me.Label46.Location = New System.Drawing.Point(243, 210)
         Me.Label46.Name = "Label46"
@@ -2653,17 +2651,17 @@ Partial Class FrmGeneral
         '
         'txtExpCode
         '
-        Me.txtExpCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtExpCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtExpCode.Location = New System.Drawing.Point(136, 226)
-        Me.txtExpCode.Multiline = true
+        Me.txtExpCode.Multiline = True
         Me.txtExpCode.Name = "txtExpCode"
         Me.txtExpCode.Size = New System.Drawing.Size(99, 22)
         Me.txtExpCode.TabIndex = 14
         '
         'Label34
         '
-        Me.Label34.AutoSize = true
-        Me.Label34.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label34.AutoSize = True
+        Me.Label34.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label34.ForeColor = System.Drawing.Color.Red
         Me.Label34.Location = New System.Drawing.Point(130, 165)
         Me.Label34.Name = "Label34"
@@ -2673,10 +2671,10 @@ Partial Class FrmGeneral
         '
         'cboCurrAir
         '
-        Me.cboCurrAir.AllowDrop = true
+        Me.cboCurrAir.AllowDrop = True
         Me.cboCurrAir.BackColor = System.Drawing.Color.White
-        Me.cboCurrAir.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboCurrAir.FormattingEnabled = true
+        Me.cboCurrAir.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCurrAir.FormattingEnabled = True
         Me.cboCurrAir.Items.AddRange(New Object() {"PHP", "USD"})
         Me.cboCurrAir.Location = New System.Drawing.Point(245, 226)
         Me.cboCurrAir.Name = "cboCurrAir"
@@ -2686,9 +2684,9 @@ Partial Class FrmGeneral
         'txtNoOfPax
         '
         Me.txtNoOfPax.BackColor = System.Drawing.Color.White
-        Me.txtNoOfPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtNoOfPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoOfPax.Location = New System.Drawing.Point(136, 181)
-        Me.txtNoOfPax.Multiline = true
+        Me.txtNoOfPax.Multiline = True
         Me.txtNoOfPax.Name = "txtNoOfPax"
         Me.txtNoOfPax.Size = New System.Drawing.Size(100, 22)
         Me.txtNoOfPax.TabIndex = 10
@@ -2697,19 +2695,19 @@ Partial Class FrmGeneral
         'txtSellingFare
         '
         Me.txtSellingFare.BackColor = System.Drawing.Color.White
-        Me.txtSellingFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSellingFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSellingFare.Location = New System.Drawing.Point(136, 92)
-        Me.txtSellingFare.Multiline = true
+        Me.txtSellingFare.Multiline = True
         Me.txtSellingFare.Name = "txtSellingFare"
         Me.txtSellingFare.Size = New System.Drawing.Size(100, 22)
         Me.txtSellingFare.TabIndex = 1
         '
         'Label33
         '
-        Me.Label33.AutoSize = true
+        Me.Label33.AutoSize = True
         Me.Label33.BackColor = System.Drawing.Color.Transparent
-        Me.Label33.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label33.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label33.Location = New System.Drawing.Point(135, 165)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(54, 14)
@@ -2718,10 +2716,10 @@ Partial Class FrmGeneral
         '
         'Label19
         '
-        Me.Label19.AutoSize = true
+        Me.Label19.AutoSize = True
         Me.Label19.BackColor = System.Drawing.Color.Transparent
-        Me.Label19.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label19.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label19.Location = New System.Drawing.Point(382, 120)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(99, 14)
@@ -2731,19 +2729,19 @@ Partial Class FrmGeneral
         'txtRefFare
         '
         Me.txtRefFare.BackColor = System.Drawing.Color.White
-        Me.txtRefFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRefFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRefFare.Location = New System.Drawing.Point(383, 137)
-        Me.txtRefFare.Multiline = true
+        Me.txtRefFare.Multiline = True
         Me.txtRefFare.Name = "txtRefFare"
         Me.txtRefFare.Size = New System.Drawing.Size(106, 22)
         Me.txtRefFare.TabIndex = 8
         '
         'Label20
         '
-        Me.Label20.AutoSize = true
+        Me.Label20.AutoSize = True
         Me.Label20.BackColor = System.Drawing.Color.Transparent
-        Me.Label20.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label20.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label20.Location = New System.Drawing.Point(245, 120)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(57, 14)
@@ -2753,19 +2751,19 @@ Partial Class FrmGeneral
         'txtLowFare
         '
         Me.txtLowFare.BackColor = System.Drawing.Color.White
-        Me.txtLowFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtLowFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLowFare.Location = New System.Drawing.Point(245, 137)
-        Me.txtLowFare.Multiline = true
+        Me.txtLowFare.Multiline = True
         Me.txtLowFare.Name = "txtLowFare"
         Me.txtLowFare.Size = New System.Drawing.Size(119, 22)
         Me.txtLowFare.TabIndex = 7
         '
         'Label23
         '
-        Me.Label23.AutoSize = true
+        Me.Label23.AutoSize = True
         Me.Label23.BackColor = System.Drawing.Color.Transparent
-        Me.Label23.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label23.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label23.Location = New System.Drawing.Point(133, 209)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(50, 14)
@@ -2774,8 +2772,8 @@ Partial Class FrmGeneral
         '
         'Label28
         '
-        Me.Label28.AutoSize = true
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.Red
         Me.Label28.Location = New System.Drawing.Point(298, 9)
         Me.Label28.Name = "Label28"
@@ -2789,50 +2787,50 @@ Partial Class FrmGeneral
         Me.FlagSegment.Controls.Add(Me.chkOffline)
         Me.FlagSegment.Controls.Add(Me.chkOnSigner)
         Me.FlagSegment.Controls.Add(Me.chkOffSigner)
-        Me.FlagSegment.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.FlagSegment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.FlagSegment.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlagSegment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.FlagSegment.Location = New System.Drawing.Point(301, 10)
         Me.FlagSegment.Name = "FlagSegment"
         Me.FlagSegment.Size = New System.Drawing.Size(255, 44)
         Me.FlagSegment.TabIndex = 2
-        Me.FlagSegment.TabStop = false
+        Me.FlagSegment.TabStop = False
         Me.FlagSegment.Text = "Flag Segment :"
         '
         'chkOffline
         '
-        Me.chkOffline.AutoSize = true
-        Me.chkOffline.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.chkOffline.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.chkOffline.AutoSize = True
+        Me.chkOffline.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkOffline.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.chkOffline.Location = New System.Drawing.Point(177, 19)
         Me.chkOffline.Name = "chkOffline"
         Me.chkOffline.Size = New System.Drawing.Size(58, 18)
         Me.chkOffline.TabIndex = 2
         Me.chkOffline.Text = "Offline"
-        Me.chkOffline.UseVisualStyleBackColor = true
+        Me.chkOffline.UseVisualStyleBackColor = True
         '
         'chkOnSigner
         '
-        Me.chkOnSigner.AutoSize = true
-        Me.chkOnSigner.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.chkOnSigner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.chkOnSigner.AutoSize = True
+        Me.chkOnSigner.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkOnSigner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.chkOnSigner.Location = New System.Drawing.Point(25, 19)
         Me.chkOnSigner.Name = "chkOnSigner"
         Me.chkOnSigner.Size = New System.Drawing.Size(75, 18)
         Me.chkOnSigner.TabIndex = 0
         Me.chkOnSigner.Text = "On-Signer"
-        Me.chkOnSigner.UseVisualStyleBackColor = true
+        Me.chkOnSigner.UseVisualStyleBackColor = True
         '
         'chkOffSigner
         '
-        Me.chkOffSigner.AutoSize = true
-        Me.chkOffSigner.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.chkOffSigner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.chkOffSigner.AutoSize = True
+        Me.chkOffSigner.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkOffSigner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.chkOffSigner.Location = New System.Drawing.Point(100, 19)
         Me.chkOffSigner.Name = "chkOffSigner"
         Me.chkOffSigner.Size = New System.Drawing.Size(77, 18)
         Me.chkOffSigner.TabIndex = 1
         Me.chkOffSigner.Text = "Off-Signer"
-        Me.chkOffSigner.UseVisualStyleBackColor = true
+        Me.chkOffSigner.UseVisualStyleBackColor = True
         '
         'ChangeProductType
         '
@@ -2844,20 +2842,20 @@ Partial Class FrmGeneral
         Me.ChangeProductType.Controls.Add(Me.cboSupplierCode)
         Me.ChangeProductType.Controls.Add(Me.Label61)
         Me.ChangeProductType.Controls.Add(Me.Label60)
-        Me.ChangeProductType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.ChangeProductType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.ChangeProductType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChangeProductType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ChangeProductType.Location = New System.Drawing.Point(581, 103)
         Me.ChangeProductType.Name = "ChangeProductType"
         Me.ChangeProductType.Size = New System.Drawing.Size(345, 148)
         Me.ChangeProductType.TabIndex = 4
-        Me.ChangeProductType.TabStop = false
+        Me.ChangeProductType.TabStop = False
         Me.ChangeProductType.Text = "Change Product Type from BSP to Non-BSP"
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
+        Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Teal
         Me.Label1.Location = New System.Drawing.Point(18, 17)
         Me.Label1.Name = "Label1"
@@ -2867,10 +2865,10 @@ Partial Class FrmGeneral
         '
         'Label59
         '
-        Me.Label59.AutoSize = true
+        Me.Label59.AutoSize = True
         Me.Label59.BackColor = System.Drawing.Color.Transparent
-        Me.Label59.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label59.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label59.Location = New System.Drawing.Point(23, 46)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(95, 14)
@@ -2879,8 +2877,8 @@ Partial Class FrmGeneral
         '
         'cboAirlineCode
         '
-        Me.cboAirlineCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboAirlineCode.FormattingEnabled = true
+        Me.cboAirlineCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboAirlineCode.FormattingEnabled = True
         Me.cboAirlineCode.Location = New System.Drawing.Point(19, 62)
         Me.cboAirlineCode.Name = "cboAirlineCode"
         Me.cboAirlineCode.Size = New System.Drawing.Size(303, 22)
@@ -2888,8 +2886,8 @@ Partial Class FrmGeneral
         '
         'Label58
         '
-        Me.Label58.AutoSize = true
-        Me.Label58.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label58.AutoSize = True
+        Me.Label58.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label58.ForeColor = System.Drawing.Color.Red
         Me.Label58.Location = New System.Drawing.Point(16, 44)
         Me.Label58.Name = "Label58"
@@ -2899,8 +2897,8 @@ Partial Class FrmGeneral
         '
         'cboSupplierCode
         '
-        Me.cboSupplierCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboSupplierCode.FormattingEnabled = true
+        Me.cboSupplierCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSupplierCode.FormattingEnabled = True
         Me.cboSupplierCode.Location = New System.Drawing.Point(19, 108)
         Me.cboSupplierCode.Name = "cboSupplierCode"
         Me.cboSupplierCode.Size = New System.Drawing.Size(305, 22)
@@ -2908,10 +2906,10 @@ Partial Class FrmGeneral
         '
         'Label61
         '
-        Me.Label61.AutoSize = true
+        Me.Label61.AutoSize = True
         Me.Label61.BackColor = System.Drawing.Color.Transparent
-        Me.Label61.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label61.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label61.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label61.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label61.Location = New System.Drawing.Point(27, 92)
         Me.Label61.Name = "Label61"
         Me.Label61.Size = New System.Drawing.Size(113, 14)
@@ -2920,7 +2918,7 @@ Partial Class FrmGeneral
         '
         'Label60
         '
-        Me.Label60.AutoSize = true
+        Me.Label60.AutoSize = True
         Me.Label60.ForeColor = System.Drawing.Color.Red
         Me.Label60.Location = New System.Drawing.Point(18, 95)
         Me.Label60.Name = "Label60"
@@ -2936,21 +2934,21 @@ Partial Class FrmGeneral
         Me.GroupBox2.Controls.Add(Me.DateSegment)
         Me.GroupBox2.Controls.Add(Me.Label67)
         Me.GroupBox2.Controls.Add(Me.Label70)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox2.Location = New System.Drawing.Point(583, 15)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(343, 44)
         Me.GroupBox2.TabIndex = 6
-        Me.GroupBox2.TabStop = false
+        Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Retain PNR Segment :"
         '
         'Label64
         '
-        Me.Label64.AutoSize = true
+        Me.Label64.AutoSize = True
         Me.Label64.BackColor = System.Drawing.Color.Transparent
-        Me.Label64.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label64.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label64.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label64.Location = New System.Drawing.Point(215, 19)
         Me.Label64.Name = "Label64"
         Me.Label64.Size = New System.Drawing.Size(108, 12)
@@ -2959,9 +2957,9 @@ Partial Class FrmGeneral
         '
         'txtDateSegment
         '
-        Me.txtDateSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDateSegment.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDateSegment.Location = New System.Drawing.Point(53, 19)
-        Me.txtDateSegment.Multiline = true
+        Me.txtDateSegment.Multiline = True
         Me.txtDateSegment.Name = "txtDateSegment"
         Me.txtDateSegment.Size = New System.Drawing.Size(126, 19)
         Me.txtDateSegment.TabIndex = 0
@@ -2969,8 +2967,8 @@ Partial Class FrmGeneral
         'DateSegment
         '
         Me.DateSegment.CustomFormat = ""
-        Me.DateSegment.Enabled = false
-        Me.DateSegment.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.DateSegment.Enabled = False
+        Me.DateSegment.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateSegment.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateSegment.Location = New System.Drawing.Point(53, 19)
         Me.DateSegment.Name = "DateSegment"
@@ -2980,10 +2978,10 @@ Partial Class FrmGeneral
         '
         'Label67
         '
-        Me.Label67.AutoSize = true
+        Me.Label67.AutoSize = True
         Me.Label67.BackColor = System.Drawing.Color.Transparent
-        Me.Label67.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label67.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label67.Location = New System.Drawing.Point(-46, 26)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(35, 14)
@@ -2992,7 +2990,7 @@ Partial Class FrmGeneral
         '
         'Label70
         '
-        Me.Label70.AutoSize = true
+        Me.Label70.AutoSize = True
         Me.Label70.ForeColor = System.Drawing.Color.Red
         Me.Label70.Location = New System.Drawing.Point(-2, -32)
         Me.Label70.Name = "Label70"
@@ -3003,21 +3001,21 @@ Partial Class FrmGeneral
         'BSpbtnClear
         '
         Me.BSpbtnClear.BackColor = System.Drawing.Color.White
-        Me.BSpbtnClear.BackgroundImage = CType(resources.GetObject("BSpbtnClear.BackgroundImage"),System.Drawing.Image)
+        Me.BSpbtnClear.BackgroundImage = CType(resources.GetObject("BSpbtnClear.BackgroundImage"), System.Drawing.Image)
         Me.BSpbtnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.BSpbtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BSpbtnClear.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.BSpbtnClear.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BSpbtnClear.ForeColor = System.Drawing.Color.White
         Me.BSpbtnClear.Location = New System.Drawing.Point(937, 429)
         Me.BSpbtnClear.Name = "BSpbtnClear"
         Me.BSpbtnClear.Size = New System.Drawing.Size(48, 56)
         Me.BSpbtnClear.TabIndex = 0
-        Me.BSpbtnClear.UseVisualStyleBackColor = false
+        Me.BSpbtnClear.UseVisualStyleBackColor = False
         '
         'Label36
         '
-        Me.Label36.AutoSize = true
-        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label36.ForeColor = System.Drawing.Color.Red
         Me.Label36.Location = New System.Drawing.Point(22, 9)
         Me.Label36.Name = "Label36"
@@ -3031,52 +3029,52 @@ Partial Class FrmGeneral
         Me.TravelType.Controls.Add(Me.RdDom)
         Me.TravelType.Controls.Add(Me.RdReg)
         Me.TravelType.Controls.Add(Me.RdIntl)
-        Me.TravelType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.TravelType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.TravelType.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TravelType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TravelType.Location = New System.Drawing.Point(24, 11)
         Me.TravelType.Name = "TravelType"
         Me.TravelType.Size = New System.Drawing.Size(271, 44)
         Me.TravelType.TabIndex = 0
-        Me.TravelType.TabStop = false
+        Me.TravelType.TabStop = False
         Me.TravelType.Text = "Travel Type :"
         '
         'RdDom
         '
-        Me.RdDom.AutoSize = true
-        Me.RdDom.Checked = true
-        Me.RdDom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdDom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdDom.AutoSize = True
+        Me.RdDom.Checked = True
+        Me.RdDom.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdDom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdDom.Location = New System.Drawing.Point(30, 16)
         Me.RdDom.Name = "RdDom"
         Me.RdDom.Size = New System.Drawing.Size(69, 18)
         Me.RdDom.TabIndex = 0
-        Me.RdDom.TabStop = true
+        Me.RdDom.TabStop = True
         Me.RdDom.Text = "Domestic"
-        Me.RdDom.UseVisualStyleBackColor = true
+        Me.RdDom.UseVisualStyleBackColor = True
         '
         'RdReg
         '
-        Me.RdReg.AutoSize = true
-        Me.RdReg.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdReg.AutoSize = True
+        Me.RdReg.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdReg.Location = New System.Drawing.Point(100, 16)
         Me.RdReg.Name = "RdReg"
         Me.RdReg.Size = New System.Drawing.Size(66, 18)
         Me.RdReg.TabIndex = 1
         Me.RdReg.Text = "Regional"
-        Me.RdReg.UseVisualStyleBackColor = true
+        Me.RdReg.UseVisualStyleBackColor = True
         '
         'RdIntl
         '
-        Me.RdIntl.AutoSize = true
-        Me.RdIntl.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdIntl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdIntl.AutoSize = True
+        Me.RdIntl.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdIntl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdIntl.Location = New System.Drawing.Point(168, 16)
         Me.RdIntl.Name = "RdIntl"
         Me.RdIntl.Size = New System.Drawing.Size(83, 18)
         Me.RdIntl.TabIndex = 2
         Me.RdIntl.Text = "International"
-        Me.RdIntl.UseVisualStyleBackColor = true
+        Me.RdIntl.UseVisualStyleBackColor = True
         '
         'TabPage3
         '
@@ -3092,8 +3090,8 @@ Partial Class FrmGeneral
         '
         'Label135
         '
-        Me.Label135.AutoSize = true
-        Me.Label135.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label135.AutoSize = True
+        Me.Label135.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label135.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label135.Location = New System.Drawing.Point(956, 486)
         Me.Label135.Name = "Label135"
@@ -3104,16 +3102,16 @@ Partial Class FrmGeneral
         'btnNonAir
         '
         Me.btnNonAir.BackColor = System.Drawing.Color.White
-        Me.btnNonAir.BackgroundImage = CType(resources.GetObject("btnNonAir.BackgroundImage"),System.Drawing.Image)
+        Me.btnNonAir.BackgroundImage = CType(resources.GetObject("btnNonAir.BackgroundImage"), System.Drawing.Image)
         Me.btnNonAir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNonAir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNonAir.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnNonAir.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNonAir.ForeColor = System.Drawing.Color.White
         Me.btnNonAir.Location = New System.Drawing.Point(938, 437)
         Me.btnNonAir.Name = "btnNonAir"
         Me.btnNonAir.Size = New System.Drawing.Size(48, 48)
         Me.btnNonAir.TabIndex = 17
-        Me.btnNonAir.UseVisualStyleBackColor = false
+        Me.btnNonAir.UseVisualStyleBackColor = False
         '
         'GroupBox7
         '
@@ -3157,21 +3155,21 @@ Partial Class FrmGeneral
         Me.GroupBox7.Controls.Add(Me.Label54)
         Me.GroupBox7.Controls.Add(Me.Label55)
         Me.GroupBox7.Controls.Add(Me.Label56)
-        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox7.Location = New System.Drawing.Point(24, 15)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(732, 480)
         Me.GroupBox7.TabIndex = 384
-        Me.GroupBox7.TabStop = false
+        Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Non-Air Details :"
         '
         'Label25
         '
-        Me.Label25.AutoSize = true
+        Me.Label25.AutoSize = True
         Me.Label25.BackColor = System.Drawing.Color.Transparent
-        Me.Label25.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label25.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label25.Location = New System.Drawing.Point(49, 31)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(75, 14)
@@ -3180,7 +3178,7 @@ Partial Class FrmGeneral
         '
         'Label37
         '
-        Me.Label37.AutoSize = true
+        Me.Label37.AutoSize = True
         Me.Label37.ForeColor = System.Drawing.Color.Red
         Me.Label37.Location = New System.Drawing.Point(41, 31)
         Me.Label37.Name = "Label37"
@@ -3190,7 +3188,7 @@ Partial Class FrmGeneral
         '
         'Label38
         '
-        Me.Label38.AutoSize = true
+        Me.Label38.AutoSize = True
         Me.Label38.ForeColor = System.Drawing.Color.Red
         Me.Label38.Location = New System.Drawing.Point(381, 30)
         Me.Label38.Name = "Label38"
@@ -3200,10 +3198,10 @@ Partial Class FrmGeneral
         '
         'Label26
         '
-        Me.Label26.AutoSize = true
+        Me.Label26.AutoSize = True
         Me.Label26.BackColor = System.Drawing.Color.DarkGray
-        Me.Label26.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label26.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label26.Location = New System.Drawing.Point(53, 353)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(130, 11)
@@ -3212,17 +3210,17 @@ Partial Class FrmGeneral
         '
         'txtDateOut
         '
-        Me.txtDateOut.Enabled = false
-        Me.txtDateOut.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDateOut.Enabled = False
+        Me.txtDateOut.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDateOut.Location = New System.Drawing.Point(561, 405)
-        Me.txtDateOut.Multiline = true
+        Me.txtDateOut.Multiline = True
         Me.txtDateOut.Name = "txtDateOut"
         Me.txtDateOut.Size = New System.Drawing.Size(109, 18)
         Me.txtDateOut.TabIndex = 16
         '
         'Label39
         '
-        Me.Label39.AutoSize = true
+        Me.Label39.AutoSize = True
         Me.Label39.ForeColor = System.Drawing.Color.Red
         Me.Label39.Location = New System.Drawing.Point(44, 73)
         Me.Label39.Name = "Label39"
@@ -3232,17 +3230,17 @@ Partial Class FrmGeneral
         '
         'txtDatein
         '
-        Me.txtDatein.Enabled = false
-        Me.txtDatein.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDatein.Enabled = False
+        Me.txtDatein.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDatein.Location = New System.Drawing.Point(403, 405)
-        Me.txtDatein.Multiline = true
+        Me.txtDatein.Multiline = True
         Me.txtDatein.Name = "txtDatein"
         Me.txtDatein.Size = New System.Drawing.Size(135, 18)
         Me.txtDatein.TabIndex = 14
         '
         'Label40
         '
-        Me.Label40.AutoSize = true
+        Me.Label40.AutoSize = True
         Me.Label40.ForeColor = System.Drawing.Color.Red
         Me.Label40.Location = New System.Drawing.Point(562, 122)
         Me.Label40.Name = "Label40"
@@ -3253,8 +3251,8 @@ Partial Class FrmGeneral
         'cboProductCode
         '
         Me.cboProductCode.DropDownWidth = 100
-        Me.cboProductCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboProductCode.FormattingEnabled = true
+        Me.cboProductCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProductCode.FormattingEnabled = True
         Me.cboProductCode.Location = New System.Drawing.Point(45, 45)
         Me.cboProductCode.Name = "cboProductCode"
         Me.cboProductCode.Size = New System.Drawing.Size(331, 22)
@@ -3262,8 +3260,8 @@ Partial Class FrmGeneral
         '
         'cboVendorCode
         '
-        Me.cboVendorCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboVendorCode.FormattingEnabled = true
+        Me.cboVendorCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboVendorCode.FormattingEnabled = True
         Me.cboVendorCode.Location = New System.Drawing.Point(47, 88)
         Me.cboVendorCode.Name = "cboVendorCode"
         Me.cboVendorCode.Size = New System.Drawing.Size(329, 22)
@@ -3271,10 +3269,10 @@ Partial Class FrmGeneral
         '
         'Label27
         '
-        Me.Label27.AutoSize = true
+        Me.Label27.AutoSize = True
         Me.Label27.BackColor = System.Drawing.Color.Transparent
-        Me.Label27.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label27.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label27.Location = New System.Drawing.Point(560, 388)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(76, 14)
@@ -3283,10 +3281,10 @@ Partial Class FrmGeneral
         '
         'Label29
         '
-        Me.Label29.AutoSize = true
+        Me.Label29.AutoSize = True
         Me.Label29.BackColor = System.Drawing.Color.Transparent
-        Me.Label29.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label29.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label29.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label29.Location = New System.Drawing.Point(404, 388)
         Me.Label29.Name = "Label29"
@@ -3298,8 +3296,8 @@ Partial Class FrmGeneral
         'DTCheckOut
         '
         Me.DTCheckOut.CustomFormat = ""
-        Me.DTCheckOut.Enabled = false
-        Me.DTCheckOut.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.DTCheckOut.Enabled = False
+        Me.DTCheckOut.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DTCheckOut.Location = New System.Drawing.Point(562, 405)
         Me.DTCheckOut.Name = "DTCheckOut"
@@ -3309,10 +3307,10 @@ Partial Class FrmGeneral
         '
         'Label30
         '
-        Me.Label30.AutoSize = true
+        Me.Label30.AutoSize = True
         Me.Label30.BackColor = System.Drawing.Color.Transparent
-        Me.Label30.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label30.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label30.Location = New System.Drawing.Point(53, 73)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(73, 14)
@@ -3322,8 +3320,8 @@ Partial Class FrmGeneral
         'DTCheckIn
         '
         Me.DTCheckIn.CustomFormat = ""
-        Me.DTCheckIn.Enabled = false
-        Me.DTCheckIn.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.DTCheckIn.Enabled = False
+        Me.DTCheckIn.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTCheckIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DTCheckIn.Location = New System.Drawing.Point(404, 405)
         Me.DTCheckIn.Name = "DTCheckIn"
@@ -3333,18 +3331,18 @@ Partial Class FrmGeneral
         '
         'txtComP
         '
-        Me.txtComP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtComP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtComP.Location = New System.Drawing.Point(49, 137)
-        Me.txtComP.Multiline = true
+        Me.txtComP.Multiline = True
         Me.txtComP.Name = "txtComP"
         Me.txtComP.Size = New System.Drawing.Size(123, 21)
         Me.txtComP.TabIndex = 3
         '
         'txtRMExpCode
         '
-        Me.txtRMExpCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRMExpCode.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRMExpCode.Location = New System.Drawing.Point(297, 405)
-        Me.txtRMExpCode.Multiline = true
+        Me.txtRMExpCode.Multiline = True
         Me.txtRMExpCode.Name = "txtRMExpCode"
         Me.txtRMExpCode.Size = New System.Drawing.Size(95, 20)
         Me.txtRMExpCode.TabIndex = 12
@@ -3352,10 +3350,10 @@ Partial Class FrmGeneral
         '
         'Label31
         '
-        Me.Label31.AutoSize = true
+        Me.Label31.AutoSize = True
         Me.Label31.BackColor = System.Drawing.Color.Transparent
-        Me.Label31.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label31.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label31.Location = New System.Drawing.Point(296, 389)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(85, 14)
@@ -3364,10 +3362,10 @@ Partial Class FrmGeneral
         '
         'Label35
         '
-        Me.Label35.AutoSize = true
+        Me.Label35.AutoSize = True
         Me.Label35.BackColor = System.Drawing.Color.Transparent
-        Me.Label35.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label35.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label35.Location = New System.Drawing.Point(52, 122)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(89, 14)
@@ -3376,17 +3374,17 @@ Partial Class FrmGeneral
         '
         'txtRMLF
         '
-        Me.txtRMLF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRMLF.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRMLF.Location = New System.Drawing.Point(166, 405)
-        Me.txtRMLF.Multiline = true
+        Me.txtRMLF.Multiline = True
         Me.txtRMLF.Name = "txtRMLF"
         Me.txtRMLF.Size = New System.Drawing.Size(122, 20)
         Me.txtRMLF.TabIndex = 11
         '
         'cboCostCurr
         '
-        Me.cboCostCurr.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboCostCurr.FormattingEnabled = true
+        Me.cboCostCurr.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCostCurr.FormattingEnabled = True
         Me.cboCostCurr.Items.AddRange(New Object() {"PHP", "USD"})
         Me.cboCostCurr.Location = New System.Drawing.Point(178, 137)
         Me.cboCostCurr.Name = "cboCostCurr"
@@ -3395,10 +3393,10 @@ Partial Class FrmGeneral
         '
         'Label41
         '
-        Me.Label41.AutoSize = true
+        Me.Label41.AutoSize = True
         Me.Label41.BackColor = System.Drawing.Color.Transparent
-        Me.Label41.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label41.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label41.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label41.Location = New System.Drawing.Point(165, 389)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(60, 14)
@@ -3407,10 +3405,10 @@ Partial Class FrmGeneral
         '
         'Label42
         '
-        Me.Label42.AutoSize = true
+        Me.Label42.AutoSize = True
         Me.Label42.BackColor = System.Drawing.Color.Transparent
-        Me.Label42.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label42.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label42.Location = New System.Drawing.Point(181, 122)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(52, 14)
@@ -3419,19 +3417,19 @@ Partial Class FrmGeneral
         '
         'txtRMRefFare
         '
-        Me.txtRMRefFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRMRefFare.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRMRefFare.Location = New System.Drawing.Point(50, 405)
-        Me.txtRMRefFare.Multiline = true
+        Me.txtRMRefFare.Multiline = True
         Me.txtRMRefFare.Name = "txtRMRefFare"
         Me.txtRMRefFare.Size = New System.Drawing.Size(110, 20)
         Me.txtRMRefFare.TabIndex = 10
         '
         'Label44
         '
-        Me.Label44.AutoSize = true
+        Me.Label44.AutoSize = True
         Me.Label44.BackColor = System.Drawing.Color.Transparent
-        Me.Label44.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label44.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label44.Location = New System.Drawing.Point(390, 29)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(112, 14)
@@ -3440,10 +3438,10 @@ Partial Class FrmGeneral
         '
         'Label47
         '
-        Me.Label47.AutoSize = true
+        Me.Label47.AutoSize = True
         Me.Label47.BackColor = System.Drawing.Color.Transparent
-        Me.Label47.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label47.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label47.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label47.Location = New System.Drawing.Point(49, 389)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(58, 14)
@@ -3452,9 +3450,9 @@ Partial Class FrmGeneral
         '
         'txtCostAmt
         '
-        Me.txtCostAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCostAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCostAmt.Location = New System.Drawing.Point(307, 137)
-        Me.txtCostAmt.Multiline = true
+        Me.txtCostAmt.Multiline = True
         Me.txtCostAmt.Name = "txtCostAmt"
         Me.txtCostAmt.Size = New System.Drawing.Size(121, 21)
         Me.txtCostAmt.TabIndex = 5
@@ -3462,8 +3460,8 @@ Partial Class FrmGeneral
         'cboProdTYpe
         '
         Me.cboProdTYpe.DropDownWidth = 100
-        Me.cboProdTYpe.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboProdTYpe.FormattingEnabled = true
+        Me.cboProdTYpe.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProdTYpe.FormattingEnabled = True
         Me.cboProdTYpe.Location = New System.Drawing.Point(384, 45)
         Me.cboProdTYpe.Name = "cboProdTYpe"
         Me.cboProdTYpe.Size = New System.Drawing.Size(308, 22)
@@ -3471,11 +3469,11 @@ Partial Class FrmGeneral
         '
         'Label48
         '
-        Me.Label48.AutoEllipsis = true
-        Me.Label48.AutoSize = true
+        Me.Label48.AutoEllipsis = True
+        Me.Label48.AutoSize = True
         Me.Label48.BackColor = System.Drawing.Color.Transparent
-        Me.Label48.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label48.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label48.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label48.Location = New System.Drawing.Point(311, 122)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(68, 14)
@@ -3484,11 +3482,11 @@ Partial Class FrmGeneral
         '
         'Label49
         '
-        Me.Label49.AutoEllipsis = true
-        Me.Label49.AutoSize = true
+        Me.Label49.AutoEllipsis = True
+        Me.Label49.AutoSize = True
         Me.Label49.BackColor = System.Drawing.Color.Transparent
-        Me.Label49.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label49.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label49.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label49.Location = New System.Drawing.Point(437, 123)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(59, 14)
@@ -3497,28 +3495,28 @@ Partial Class FrmGeneral
         '
         'txtSFAmt
         '
-        Me.txtSFAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSFAmt.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSFAmt.Location = New System.Drawing.Point(434, 137)
-        Me.txtSFAmt.Multiline = true
+        Me.txtSFAmt.Multiline = True
         Me.txtSFAmt.Name = "txtSFAmt"
         Me.txtSFAmt.Size = New System.Drawing.Size(127, 21)
         Me.txtSFAmt.TabIndex = 6
         '
         'txtNoPax
         '
-        Me.txtNoPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtNoPax.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoPax.Location = New System.Drawing.Point(567, 137)
-        Me.txtNoPax.Multiline = true
+        Me.txtNoPax.Multiline = True
         Me.txtNoPax.Name = "txtNoPax"
         Me.txtNoPax.Size = New System.Drawing.Size(125, 21)
         Me.txtNoPax.TabIndex = 7
         '
         'Label50
         '
-        Me.Label50.AutoSize = true
+        Me.Label50.AutoSize = True
         Me.Label50.BackColor = System.Drawing.Color.Transparent
-        Me.Label50.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label50.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label50.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label50.Location = New System.Drawing.Point(570, 121)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(57, 14)
@@ -3527,26 +3525,26 @@ Partial Class FrmGeneral
         '
         'DGW1
         '
-        Me.DGW1.AllowUserToAddRows = false
-        Me.DGW1.AllowUserToResizeColumns = false
-        Me.DGW1.AllowUserToResizeRows = false
+        Me.DGW1.AllowUserToAddRows = False
+        Me.DGW1.AllowUserToResizeColumns = False
+        Me.DGW1.AllowUserToResizeRows = False
         Me.DGW1.BackgroundColor = System.Drawing.Color.SlateGray
         Me.DGW1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DGW1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DGW1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGW1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.SkyBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGW1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGW1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGW1.GridColor = System.Drawing.Color.White
         Me.DGW1.Location = New System.Drawing.Point(48, 165)
         Me.DGW1.Name = "DGW1"
-        Me.DGW1.ReadOnly = true
+        Me.DGW1.ReadOnly = True
         Me.DGW1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGW1.Size = New System.Drawing.Size(644, 180)
         Me.DGW1.TabIndex = 407
@@ -3567,88 +3565,88 @@ Partial Class FrmGeneral
         '
         'checkboxBoxLCC
         '
-        Me.checkboxBoxLCC.AutoSize = true
-        Me.checkboxBoxLCC.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.checkboxBoxLCC.AutoSize = True
+        Me.checkboxBoxLCC.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.checkboxBoxLCC.Location = New System.Drawing.Point(492, 6)
         Me.checkboxBoxLCC.Name = "checkboxBoxLCC"
         Me.checkboxBoxLCC.Size = New System.Drawing.Size(43, 16)
         Me.checkboxBoxLCC.TabIndex = 395
         Me.checkboxBoxLCC.Text = "LCC"
-        Me.checkboxBoxLCC.UseVisualStyleBackColor = true
+        Me.checkboxBoxLCC.UseVisualStyleBackColor = True
         '
         'btnDel
         '
         Me.btnDel.BackColor = System.Drawing.Color.SteelBlue
         Me.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnDel.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnDel.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDel.ForeColor = System.Drawing.Color.White
         Me.btnDel.Location = New System.Drawing.Point(591, 3)
         Me.btnDel.Name = "btnDel"
         Me.btnDel.Size = New System.Drawing.Size(50, 22)
         Me.btnDel.TabIndex = 9
         Me.btnDel.Text = "&Delete"
-        Me.btnDel.UseVisualStyleBackColor = false
+        Me.btnDel.UseVisualStyleBackColor = False
         '
         'btnAddTrans
         '
         Me.btnAddTrans.BackColor = System.Drawing.Color.SteelBlue
         Me.btnAddTrans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddTrans.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.btnAddTrans.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnAddTrans.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddTrans.ForeColor = System.Drawing.Color.White
         Me.btnAddTrans.Location = New System.Drawing.Point(541, 3)
         Me.btnAddTrans.Name = "btnAddTrans"
         Me.btnAddTrans.Size = New System.Drawing.Size(50, 22)
         Me.btnAddTrans.TabIndex = 8
         Me.btnAddTrans.Text = "&Add"
-        Me.btnAddTrans.UseVisualStyleBackColor = false
+        Me.btnAddTrans.UseVisualStyleBackColor = False
         '
         'MRReg
         '
-        Me.MRReg.AutoSize = true
+        Me.MRReg.AutoSize = True
         Me.MRReg.BackColor = System.Drawing.Color.DarkGray
-        Me.MRReg.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.MRReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.MRReg.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MRReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.MRReg.Location = New System.Drawing.Point(208, 6)
         Me.MRReg.Name = "MRReg"
         Me.MRReg.Size = New System.Drawing.Size(59, 16)
         Me.MRReg.TabIndex = 393
-        Me.MRReg.TabStop = true
+        Me.MRReg.TabStop = True
         Me.MRReg.Text = "Regional"
-        Me.MRReg.UseVisualStyleBackColor = false
+        Me.MRReg.UseVisualStyleBackColor = False
         '
         'MRdom
         '
-        Me.MRdom.AutoSize = true
+        Me.MRdom.AutoSize = True
         Me.MRdom.BackColor = System.Drawing.Color.DarkGray
-        Me.MRdom.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.MRdom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.MRdom.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MRdom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.MRdom.Location = New System.Drawing.Point(139, 6)
         Me.MRdom.Name = "MRdom"
         Me.MRdom.Size = New System.Drawing.Size(63, 16)
         Me.MRdom.TabIndex = 392
-        Me.MRdom.TabStop = true
+        Me.MRdom.TabStop = True
         Me.MRdom.Text = "Domestic"
-        Me.MRdom.UseVisualStyleBackColor = false
+        Me.MRdom.UseVisualStyleBackColor = False
         '
         'MRIntl
         '
-        Me.MRIntl.AutoSize = true
+        Me.MRIntl.AutoSize = True
         Me.MRIntl.BackColor = System.Drawing.Color.DarkGray
-        Me.MRIntl.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.MRIntl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.MRIntl.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MRIntl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.MRIntl.Location = New System.Drawing.Point(273, 6)
         Me.MRIntl.Name = "MRIntl"
         Me.MRIntl.Size = New System.Drawing.Size(74, 16)
         Me.MRIntl.TabIndex = 394
-        Me.MRIntl.TabStop = true
+        Me.MRIntl.TabStop = True
         Me.MRIntl.Text = "International"
-        Me.MRIntl.UseVisualStyleBackColor = false
+        Me.MRIntl.UseVisualStyleBackColor = False
         '
         'Label51
         '
-        Me.Label51.AutoSize = true
+        Me.Label51.AutoSize = True
         Me.Label51.ForeColor = System.Drawing.Color.Red
         Me.Label51.Location = New System.Drawing.Point(304, 123)
         Me.Label51.Name = "Label51"
@@ -3658,7 +3656,7 @@ Partial Class FrmGeneral
         '
         'Label54
         '
-        Me.Label54.AutoSize = true
+        Me.Label54.AutoSize = True
         Me.Label54.ForeColor = System.Drawing.Color.Red
         Me.Label54.Location = New System.Drawing.Point(174, 122)
         Me.Label54.Name = "Label54"
@@ -3668,7 +3666,7 @@ Partial Class FrmGeneral
         '
         'Label55
         '
-        Me.Label55.AutoSize = true
+        Me.Label55.AutoSize = True
         Me.Label55.ForeColor = System.Drawing.Color.Red
         Me.Label55.Location = New System.Drawing.Point(44, 123)
         Me.Label55.Name = "Label55"
@@ -3678,7 +3676,7 @@ Partial Class FrmGeneral
         '
         'Label56
         '
-        Me.Label56.AutoSize = true
+        Me.Label56.AutoSize = True
         Me.Label56.ForeColor = System.Drawing.Color.Red
         Me.Label56.Location = New System.Drawing.Point(428, 124)
         Me.Label56.Name = "Label56"
@@ -3726,15 +3724,15 @@ Partial Class FrmGeneral
         'btnAddClient
         '
         Me.btnAddClient.BackColor = System.Drawing.Color.Transparent
-        Me.btnAddClient.BackgroundImage = CType(resources.GetObject("btnAddClient.BackgroundImage"),System.Drawing.Image)
+        Me.btnAddClient.BackgroundImage = CType(resources.GetObject("btnAddClient.BackgroundImage"), System.Drawing.Image)
         Me.btnAddClient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAddClient.Enabled = false
+        Me.btnAddClient.Enabled = False
         Me.btnAddClient.Location = New System.Drawing.Point(938, 49)
         Me.btnAddClient.Name = "btnAddClient"
         Me.btnAddClient.Size = New System.Drawing.Size(18, 21)
         Me.btnAddClient.TabIndex = 378
-        Me.btnAddClient.UseVisualStyleBackColor = false
-        Me.btnAddClient.Visible = false
+        Me.btnAddClient.UseVisualStyleBackColor = False
+        Me.btnAddClient.Visible = False
         '
         'TxtTravEmail
         '
@@ -3745,10 +3743,10 @@ Partial Class FrmGeneral
         '
         'Label232
         '
-        Me.Label232.AutoSize = true
+        Me.Label232.AutoSize = True
         Me.Label232.BackColor = System.Drawing.Color.Transparent
-        Me.Label232.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label232.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label232.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label232.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label232.Location = New System.Drawing.Point(533, 34)
         Me.Label232.Name = "Label232"
         Me.Label232.Size = New System.Drawing.Size(173, 14)
@@ -3757,8 +3755,8 @@ Partial Class FrmGeneral
         '
         'Label136
         '
-        Me.Label136.AutoSize = true
-        Me.Label136.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label136.AutoSize = True
+        Me.Label136.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label136.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label136.Location = New System.Drawing.Point(954, 479)
         Me.Label136.Name = "Label136"
@@ -3769,42 +3767,42 @@ Partial Class FrmGeneral
         'btnRemarks
         '
         Me.btnRemarks.BackColor = System.Drawing.Color.White
-        Me.btnRemarks.BackgroundImage = CType(resources.GetObject("btnRemarks.BackgroundImage"),System.Drawing.Image)
+        Me.btnRemarks.BackgroundImage = CType(resources.GetObject("btnRemarks.BackgroundImage"), System.Drawing.Image)
         Me.btnRemarks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnRemarks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemarks.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnRemarks.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRemarks.ForeColor = System.Drawing.Color.White
         Me.btnRemarks.Location = New System.Drawing.Point(935, 432)
         Me.btnRemarks.Name = "btnRemarks"
         Me.btnRemarks.Size = New System.Drawing.Size(48, 49)
         Me.btnRemarks.TabIndex = 11
-        Me.btnRemarks.UseVisualStyleBackColor = false
+        Me.btnRemarks.UseVisualStyleBackColor = False
         '
         'txtccDetails
         '
         Me.txtccDetails.Location = New System.Drawing.Point(45, 423)
         Me.txtccDetails.MaxLength = 50
-        Me.txtccDetails.Multiline = true
+        Me.txtccDetails.Multiline = True
         Me.txtccDetails.Name = "txtccDetails"
         Me.txtccDetails.Size = New System.Drawing.Size(449, 48)
         Me.txtccDetails.TabIndex = 11
         '
         'txtDateofConvention
         '
-        Me.txtDateofConvention.Enabled = false
-        Me.txtDateofConvention.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDateofConvention.Enabled = False
+        Me.txtDateofConvention.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDateofConvention.Location = New System.Drawing.Point(45, 138)
-        Me.txtDateofConvention.Multiline = true
+        Me.txtDateofConvention.Multiline = True
         Me.txtDateofConvention.Name = "txtDateofConvention"
         Me.txtDateofConvention.Size = New System.Drawing.Size(109, 18)
         Me.txtDateofConvention.TabIndex = 3
         '
         'Label109
         '
-        Me.Label109.AutoSize = true
+        Me.Label109.AutoSize = True
         Me.Label109.BackColor = System.Drawing.Color.Transparent
-        Me.Label109.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label109.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label109.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label109.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label109.Location = New System.Drawing.Point(45, 121)
         Me.Label109.Name = "Label109"
         Me.Label109.Size = New System.Drawing.Size(105, 14)
@@ -3814,8 +3812,8 @@ Partial Class FrmGeneral
         'DateConvention
         '
         Me.DateConvention.CustomFormat = ""
-        Me.DateConvention.Enabled = false
-        Me.DateConvention.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.DateConvention.Enabled = False
+        Me.DateConvention.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateConvention.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateConvention.Location = New System.Drawing.Point(45, 138)
         Me.DateConvention.MinDate = New Date(2013, 12, 4, 0, 0, 0, 0)
@@ -3826,10 +3824,10 @@ Partial Class FrmGeneral
         '
         'Label108
         '
-        Me.Label108.AutoSize = true
+        Me.Label108.AutoSize = True
         Me.Label108.BackColor = System.Drawing.Color.Transparent
-        Me.Label108.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label108.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label108.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label108.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label108.Location = New System.Drawing.Point(45, 216)
         Me.Label108.Name = "Label108"
         Me.Label108.Size = New System.Drawing.Size(67, 14)
@@ -3838,28 +3836,28 @@ Partial Class FrmGeneral
         '
         'txtHotelName
         '
-        Me.txtHotelName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtHotelName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtHotelName.Location = New System.Drawing.Point(45, 233)
-        Me.txtHotelName.Multiline = true
+        Me.txtHotelName.Multiline = True
         Me.txtHotelName.Name = "txtHotelName"
         Me.txtHotelName.Size = New System.Drawing.Size(449, 20)
         Me.txtHotelName.TabIndex = 5
         '
         'txtLnNo
         '
-        Me.txtLnNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtLnNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLnNo.Location = New System.Drawing.Point(48, 366)
-        Me.txtLnNo.Multiline = true
+        Me.txtLnNo.Multiline = True
         Me.txtLnNo.Name = "txtLnNo"
         Me.txtLnNo.Size = New System.Drawing.Size(214, 20)
         Me.txtLnNo.TabIndex = 10
         '
         'Label75
         '
-        Me.Label75.AutoSize = true
+        Me.Label75.AutoSize = True
         Me.Label75.BackColor = System.Drawing.Color.Transparent
-        Me.Label75.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label75.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label75.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label75.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label75.Location = New System.Drawing.Point(45, 406)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(259, 14)
@@ -3868,19 +3866,19 @@ Partial Class FrmGeneral
         '
         'txtConventionPlace
         '
-        Me.txtConventionPlace.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtConventionPlace.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtConventionPlace.Location = New System.Drawing.Point(45, 92)
-        Me.txtConventionPlace.Multiline = true
+        Me.txtConventionPlace.Multiline = True
         Me.txtConventionPlace.Name = "txtConventionPlace"
         Me.txtConventionPlace.Size = New System.Drawing.Size(452, 20)
         Me.txtConventionPlace.TabIndex = 1
         '
         'Label62
         '
-        Me.Label62.AutoSize = true
+        Me.Label62.AutoSize = True
         Me.Label62.BackColor = System.Drawing.Color.Transparent
-        Me.Label62.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label62.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label62.Location = New System.Drawing.Point(45, 76)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(196, 14)
@@ -3889,19 +3887,19 @@ Partial Class FrmGeneral
         '
         'cboConventionName
         '
-        Me.cboConventionName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.cboConventionName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboConventionName.Location = New System.Drawing.Point(45, 51)
-        Me.cboConventionName.Multiline = true
+        Me.cboConventionName.Multiline = True
         Me.cboConventionName.Name = "cboConventionName"
         Me.cboConventionName.Size = New System.Drawing.Size(452, 20)
         Me.cboConventionName.TabIndex = 0
         '
         'Label65
         '
-        Me.Label65.AutoSize = true
+        Me.Label65.AutoSize = True
         Me.Label65.BackColor = System.Drawing.Color.Transparent
-        Me.Label65.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label65.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label65.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label65.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label65.Location = New System.Drawing.Point(45, 35)
         Me.Label65.Name = "Label65"
         Me.Label65.Size = New System.Drawing.Size(196, 14)
@@ -3910,8 +3908,8 @@ Partial Class FrmGeneral
         '
         'cboBookerName
         '
-        Me.cboBookerName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboBookerName.FormattingEnabled = true
+        Me.cboBookerName.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboBookerName.FormattingEnabled = True
         Me.cboBookerName.Location = New System.Drawing.Point(45, 184)
         Me.cboBookerName.Name = "cboBookerName"
         Me.cboBookerName.Size = New System.Drawing.Size(449, 22)
@@ -3919,10 +3917,10 @@ Partial Class FrmGeneral
         '
         'Label66
         '
-        Me.Label66.AutoSize = true
+        Me.Label66.AutoSize = True
         Me.Label66.BackColor = System.Drawing.Color.Transparent
-        Me.Label66.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label66.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label66.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label66.Location = New System.Drawing.Point(45, 168)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(201, 14)
@@ -3931,19 +3929,19 @@ Partial Class FrmGeneral
         '
         'txtTBSNo
         '
-        Me.txtTBSNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtTBSNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTBSNo.Location = New System.Drawing.Point(45, 321)
-        Me.txtTBSNo.Multiline = true
+        Me.txtTBSNo.Multiline = True
         Me.txtTBSNo.Name = "txtTBSNo"
         Me.txtTBSNo.Size = New System.Drawing.Size(217, 20)
         Me.txtTBSNo.TabIndex = 7
         '
         'Label69
         '
-        Me.Label69.AutoSize = true
+        Me.Label69.AutoSize = True
         Me.Label69.BackColor = System.Drawing.Color.Transparent
-        Me.Label69.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label69.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label69.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label69.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label69.Location = New System.Drawing.Point(45, 262)
         Me.Label69.Name = "Label69"
         Me.Label69.Size = New System.Drawing.Size(177, 14)
@@ -3952,19 +3950,19 @@ Partial Class FrmGeneral
         '
         'txtAuthorizedNo
         '
-        Me.txtAuthorizedNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtAuthorizedNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAuthorizedNo.Location = New System.Drawing.Point(45, 278)
-        Me.txtAuthorizedNo.Multiline = true
+        Me.txtAuthorizedNo.Multiline = True
         Me.txtAuthorizedNo.Name = "txtAuthorizedNo"
         Me.txtAuthorizedNo.Size = New System.Drawing.Size(451, 20)
         Me.txtAuthorizedNo.TabIndex = 6
         '
         'Label71
         '
-        Me.Label71.AutoSize = true
+        Me.Label71.AutoSize = True
         Me.Label71.BackColor = System.Drawing.Color.Transparent
-        Me.Label71.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label71.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label71.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label71.Location = New System.Drawing.Point(45, 305)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(46, 14)
@@ -3973,57 +3971,57 @@ Partial Class FrmGeneral
         '
         'txtCCGL
         '
-        Me.txtCCGL.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCCGL.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCCGL.Location = New System.Drawing.Point(268, 366)
-        Me.txtCCGL.Multiline = true
+        Me.txtCCGL.Multiline = True
         Me.txtCCGL.Name = "txtCCGL"
         Me.txtCCGL.Size = New System.Drawing.Size(217, 20)
         Me.txtCCGL.TabIndex = 9
-        Me.txtCCGL.Visible = false
+        Me.txtCCGL.Visible = False
         '
         'Label72
         '
-        Me.Label72.AutoSize = true
+        Me.Label72.AutoSize = True
         Me.Label72.BackColor = System.Drawing.Color.Transparent
-        Me.Label72.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label72.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label72.Location = New System.Drawing.Point(265, 305)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(109, 14)
         Me.Label72.TabIndex = 345
         Me.Label72.Text = "Employee /  UPID No :"
-        Me.Label72.Visible = false
+        Me.Label72.Visible = False
         '
         'Label73
         '
-        Me.Label73.AutoSize = true
+        Me.Label73.AutoSize = True
         Me.Label73.BackColor = System.Drawing.Color.Transparent
-        Me.Label73.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label73.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label73.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label73.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label73.Location = New System.Drawing.Point(268, 349)
         Me.Label73.Name = "Label73"
         Me.Label73.Size = New System.Drawing.Size(103, 14)
         Me.Label73.TabIndex = 347
         Me.Label73.Text = "Cost Center GL No :"
-        Me.Label73.Visible = false
+        Me.Label73.Visible = False
         '
         'txtEmployee
         '
-        Me.txtEmployee.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtEmployee.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmployee.Location = New System.Drawing.Point(268, 321)
-        Me.txtEmployee.Multiline = true
+        Me.txtEmployee.Multiline = True
         Me.txtEmployee.Name = "txtEmployee"
         Me.txtEmployee.Size = New System.Drawing.Size(228, 20)
         Me.txtEmployee.TabIndex = 8
         Me.txtEmployee.Text = "                     "
-        Me.txtEmployee.Visible = false
+        Me.txtEmployee.Visible = False
         '
         'Label74
         '
-        Me.Label74.AutoSize = true
+        Me.Label74.AutoSize = True
         Me.Label74.BackColor = System.Drawing.Color.Transparent
-        Me.Label74.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label74.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label74.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label74.Location = New System.Drawing.Point(45, 349)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(49, 14)
@@ -4206,13 +4204,13 @@ Partial Class FrmGeneral
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"),System.Drawing.Image)
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(157, 391)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(18, 21)
         Me.Button1.TabIndex = 372
         Me.Button1.Text = "..."
-        Me.Button1.UseVisualStyleBackColor = false
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'txtSalesChannel
         '
@@ -4224,83 +4222,83 @@ Partial Class FrmGeneral
         'btnCSData6Mis
         '
         Me.btnCSData6Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData6Mis.BackgroundImage = CType(resources.GetObject("btnCSData6Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData6Mis.BackgroundImage = CType(resources.GetObject("btnCSData6Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData6Mis.Location = New System.Drawing.Point(321, 468)
         Me.btnCSData6Mis.Name = "btnCSData6Mis"
         Me.btnCSData6Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData6Mis.TabIndex = 370
         Me.btnCSData6Mis.Text = "..."
-        Me.btnCSData6Mis.UseVisualStyleBackColor = false
+        Me.btnCSData6Mis.UseVisualStyleBackColor = False
         '
         'btnCSData5Mis
         '
         Me.btnCSData5Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData5Mis.BackgroundImage = CType(resources.GetObject("btnCSData5Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData5Mis.BackgroundImage = CType(resources.GetObject("btnCSData5Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData5Mis.Location = New System.Drawing.Point(160, 467)
         Me.btnCSData5Mis.Name = "btnCSData5Mis"
         Me.btnCSData5Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData5Mis.TabIndex = 369
         Me.btnCSData5Mis.Text = "..."
-        Me.btnCSData5Mis.UseVisualStyleBackColor = false
+        Me.btnCSData5Mis.UseVisualStyleBackColor = False
         '
         'btnCSData7Mis
         '
         Me.btnCSData7Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData7Mis.BackgroundImage = CType(resources.GetObject("btnCSData7Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData7Mis.BackgroundImage = CType(resources.GetObject("btnCSData7Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData7Mis.Location = New System.Drawing.Point(484, 467)
         Me.btnCSData7Mis.Name = "btnCSData7Mis"
         Me.btnCSData7Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData7Mis.TabIndex = 368
         Me.btnCSData7Mis.Text = "..."
-        Me.btnCSData7Mis.UseVisualStyleBackColor = false
+        Me.btnCSData7Mis.UseVisualStyleBackColor = False
         '
         'btnCSData8Mis
         '
         Me.btnCSData8Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData8Mis.BackgroundImage = CType(resources.GetObject("btnCSData8Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData8Mis.BackgroundImage = CType(resources.GetObject("btnCSData8Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData8Mis.Location = New System.Drawing.Point(649, 467)
         Me.btnCSData8Mis.Name = "btnCSData8Mis"
         Me.btnCSData8Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData8Mis.TabIndex = 367
         Me.btnCSData8Mis.Text = "..."
-        Me.btnCSData8Mis.UseVisualStyleBackColor = false
+        Me.btnCSData8Mis.UseVisualStyleBackColor = False
         '
         'btnCSData12Mis
         '
         Me.btnCSData12Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData12Mis.BackgroundImage = CType(resources.GetObject("btnCSData12Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData12Mis.BackgroundImage = CType(resources.GetObject("btnCSData12Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData12Mis.Location = New System.Drawing.Point(813, 468)
         Me.btnCSData12Mis.Name = "btnCSData12Mis"
         Me.btnCSData12Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData12Mis.TabIndex = 366
         Me.btnCSData12Mis.Text = "..."
-        Me.btnCSData12Mis.UseVisualStyleBackColor = false
+        Me.btnCSData12Mis.UseVisualStyleBackColor = False
         '
         'btnCSData8
         '
         Me.btnCSData8.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData8.BackgroundImage = CType(resources.GetObject("btnCSData8.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData8.BackgroundImage = CType(resources.GetObject("btnCSData8.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData8.Enabled = false
+        Me.btnCSData8.Enabled = False
         Me.btnCSData8.Location = New System.Drawing.Point(648, 487)
         Me.btnCSData8.Name = "btnCSData8"
         Me.btnCSData8.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData8.TabIndex = 365
-        Me.btnCSData8.UseVisualStyleBackColor = false
+        Me.btnCSData8.UseVisualStyleBackColor = False
         '
         'txt31
         '
         Me.txt31.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txt31.Location = New System.Drawing.Point(504, 488)
         Me.txt31.Name = "txt31"
-        Me.txt31.ReadOnly = true
+        Me.txt31.ReadOnly = True
         Me.txt31.Size = New System.Drawing.Size(145, 20)
         Me.txt31.TabIndex = 364
         '
         'Label231
         '
-        Me.Label231.AutoSize = true
-        Me.Label231.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label231.AutoSize = True
+        Me.Label231.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label231.Location = New System.Drawing.Point(504, 452)
         Me.Label231.Name = "Label231"
         Me.Label231.Size = New System.Drawing.Size(59, 13)
@@ -4310,7 +4308,7 @@ Partial Class FrmGeneral
         'txtCSData8
         '
         Me.txtCSData8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData8.Enabled = false
+        Me.txtCSData8.Enabled = False
         Me.txtCSData8.Location = New System.Drawing.Point(504, 468)
         Me.txtCSData8.Name = "txtCSData8"
         Me.txtCSData8.Size = New System.Drawing.Size(145, 20)
@@ -4319,28 +4317,28 @@ Partial Class FrmGeneral
         'btnCSData7
         '
         Me.btnCSData7.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData7.BackgroundImage = CType(resources.GetObject("btnCSData7.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData7.BackgroundImage = CType(resources.GetObject("btnCSData7.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData7.Enabled = false
+        Me.btnCSData7.Enabled = False
         Me.btnCSData7.Location = New System.Drawing.Point(484, 487)
         Me.btnCSData7.Name = "btnCSData7"
         Me.btnCSData7.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData7.TabIndex = 361
-        Me.btnCSData7.UseVisualStyleBackColor = false
+        Me.btnCSData7.UseVisualStyleBackColor = False
         '
         'txt30
         '
         Me.txt30.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txt30.Location = New System.Drawing.Point(340, 488)
         Me.txt30.Name = "txt30"
-        Me.txt30.ReadOnly = true
+        Me.txt30.ReadOnly = True
         Me.txt30.Size = New System.Drawing.Size(145, 20)
         Me.txt30.TabIndex = 360
         '
         'Label230
         '
-        Me.Label230.AutoSize = true
-        Me.Label230.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label230.AutoSize = True
+        Me.Label230.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label230.Location = New System.Drawing.Point(340, 452)
         Me.Label230.Name = "Label230"
         Me.Label230.Size = New System.Drawing.Size(59, 13)
@@ -4350,7 +4348,7 @@ Partial Class FrmGeneral
         'txtCSData7
         '
         Me.txtCSData7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData7.Enabled = false
+        Me.txtCSData7.Enabled = False
         Me.txtCSData7.Location = New System.Drawing.Point(340, 468)
         Me.txtCSData7.Name = "txtCSData7"
         Me.txtCSData7.Size = New System.Drawing.Size(145, 20)
@@ -4359,28 +4357,28 @@ Partial Class FrmGeneral
         'btnCSData6
         '
         Me.btnCSData6.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData6.BackgroundImage = CType(resources.GetObject("btnCSData6.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData6.BackgroundImage = CType(resources.GetObject("btnCSData6.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData6.Enabled = false
+        Me.btnCSData6.Enabled = False
         Me.btnCSData6.Location = New System.Drawing.Point(321, 487)
         Me.btnCSData6.Name = "btnCSData6"
         Me.btnCSData6.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData6.TabIndex = 357
-        Me.btnCSData6.UseVisualStyleBackColor = false
+        Me.btnCSData6.UseVisualStyleBackColor = False
         '
         'txt29
         '
         Me.txt29.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txt29.Location = New System.Drawing.Point(177, 488)
         Me.txt29.Name = "txt29"
-        Me.txt29.ReadOnly = true
+        Me.txt29.ReadOnly = True
         Me.txt29.Size = New System.Drawing.Size(145, 20)
         Me.txt29.TabIndex = 356
         '
         'Label229
         '
-        Me.Label229.AutoSize = true
-        Me.Label229.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label229.AutoSize = True
+        Me.Label229.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label229.Location = New System.Drawing.Point(177, 452)
         Me.Label229.Name = "Label229"
         Me.Label229.Size = New System.Drawing.Size(59, 13)
@@ -4390,7 +4388,7 @@ Partial Class FrmGeneral
         'txtCSData6
         '
         Me.txtCSData6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData6.Enabled = false
+        Me.txtCSData6.Enabled = False
         Me.txtCSData6.Location = New System.Drawing.Point(177, 468)
         Me.txtCSData6.Name = "txtCSData6"
         Me.txtCSData6.Size = New System.Drawing.Size(145, 20)
@@ -4399,28 +4397,28 @@ Partial Class FrmGeneral
         'btnCSData5
         '
         Me.btnCSData5.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData5.BackgroundImage = CType(resources.GetObject("btnCSData5.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData5.BackgroundImage = CType(resources.GetObject("btnCSData5.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData5.Enabled = false
+        Me.btnCSData5.Enabled = False
         Me.btnCSData5.Location = New System.Drawing.Point(159, 487)
         Me.btnCSData5.Name = "btnCSData5"
         Me.btnCSData5.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData5.TabIndex = 353
-        Me.btnCSData5.UseVisualStyleBackColor = false
+        Me.btnCSData5.UseVisualStyleBackColor = False
         '
         'txt28
         '
         Me.txt28.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txt28.Location = New System.Drawing.Point(15, 488)
         Me.txt28.Name = "txt28"
-        Me.txt28.ReadOnly = true
+        Me.txt28.ReadOnly = True
         Me.txt28.Size = New System.Drawing.Size(145, 20)
         Me.txt28.TabIndex = 352
         '
         'Label218
         '
-        Me.Label218.AutoSize = true
-        Me.Label218.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label218.AutoSize = True
+        Me.Label218.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label218.Location = New System.Drawing.Point(15, 452)
         Me.Label218.Name = "Label218"
         Me.Label218.Size = New System.Drawing.Size(59, 13)
@@ -4430,7 +4428,7 @@ Partial Class FrmGeneral
         'txtCSData5
         '
         Me.txtCSData5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData5.Enabled = false
+        Me.txtCSData5.Enabled = False
         Me.txtCSData5.Location = New System.Drawing.Point(15, 468)
         Me.txtCSData5.Name = "txtCSData5"
         Me.txtCSData5.Size = New System.Drawing.Size(145, 20)
@@ -4438,8 +4436,8 @@ Partial Class FrmGeneral
         '
         'Label188
         '
-        Me.Label188.AutoSize = true
-        Me.Label188.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label188.AutoSize = True
+        Me.Label188.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label188.Location = New System.Drawing.Point(337, 92)
         Me.Label188.Name = "Label188"
         Me.Label188.Size = New System.Drawing.Size(37, 13)
@@ -4448,7 +4446,7 @@ Partial Class FrmGeneral
         '
         'txtSMID
         '
-        Me.txtSMID.Enabled = false
+        Me.txtSMID.Enabled = False
         Me.txtSMID.Location = New System.Drawing.Point(339, 108)
         Me.txtSMID.Name = "txtSMID"
         Me.txtSMID.Size = New System.Drawing.Size(117, 20)
@@ -4456,8 +4454,8 @@ Partial Class FrmGeneral
         '
         'Label187
         '
-        Me.Label187.AutoSize = true
-        Me.Label187.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label187.AutoSize = True
+        Me.Label187.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label187.Location = New System.Drawing.Point(456, 94)
         Me.Label187.Name = "Label187"
         Me.Label187.Size = New System.Drawing.Size(42, 13)
@@ -4466,7 +4464,7 @@ Partial Class FrmGeneral
         '
         'txtTSPID
         '
-        Me.txtTSPID.Enabled = false
+        Me.txtTSPID.Enabled = False
         Me.txtTSPID.Location = New System.Drawing.Point(459, 109)
         Me.txtTSPID.Name = "txtTSPID"
         Me.txtTSPID.Size = New System.Drawing.Size(110, 20)
@@ -4485,18 +4483,18 @@ Partial Class FrmGeneral
         'btnRecall
         '
         Me.btnRecall.BackColor = System.Drawing.Color.White
-        Me.btnRecall.Font = New System.Drawing.Font("Rockwell", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.btnRecall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.btnRecall.Font = New System.Drawing.Font("Rockwell", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRecall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnRecall.Location = New System.Drawing.Point(280, 108)
         Me.btnRecall.Name = "btnRecall"
         Me.btnRecall.Size = New System.Drawing.Size(59, 24)
         Me.btnRecall.TabIndex = 344
         Me.btnRecall.Text = "&RECALL"
-        Me.btnRecall.UseVisualStyleBackColor = false
+        Me.btnRecall.UseVisualStyleBackColor = False
         '
         'TextBox5
         '
-        Me.TextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(128,Byte),Integer), CType(CType(0,Byte),Integer))
+        Me.TextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.TextBox5.Location = New System.Drawing.Point(348, 19)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(85, 20)
@@ -4507,181 +4505,181 @@ Partial Class FrmGeneral
         'txtHotelBookedF_N
         '
         Me.txtHotelBookedF_N.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtHotelBookedF_N.Enabled = false
+        Me.txtHotelBookedF_N.Enabled = False
         Me.txtHotelBookedF_N.Location = New System.Drawing.Point(504, 326)
         Me.txtHotelBookedF_N.MaxLength = 1
         Me.txtHotelBookedF_N.Name = "txtHotelBookedF_N"
-        Me.txtHotelBookedF_N.ReadOnly = true
+        Me.txtHotelBookedF_N.ReadOnly = True
         Me.txtHotelBookedF_N.Size = New System.Drawing.Size(145, 20)
         Me.txtHotelBookedF_N.TabIndex = 25
         '
         'btnHotelReasonCode
         '
         Me.btnHotelReasonCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnHotelReasonCode.BackgroundImage = CType(resources.GetObject("btnHotelReasonCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnHotelReasonCode.BackgroundImage = CType(resources.GetObject("btnHotelReasonCode.BackgroundImage"), System.Drawing.Image)
         Me.btnHotelReasonCode.Location = New System.Drawing.Point(487, 326)
         Me.btnHotelReasonCode.Name = "btnHotelReasonCode"
         Me.btnHotelReasonCode.Size = New System.Drawing.Size(18, 21)
         Me.btnHotelReasonCode.TabIndex = 336
         Me.btnHotelReasonCode.Text = "..."
-        Me.btnHotelReasonCode.UseVisualStyleBackColor = false
+        Me.btnHotelReasonCode.UseVisualStyleBackColor = False
         '
         'btnProjNumber
         '
         Me.btnProjNumber.BackColor = System.Drawing.Color.Transparent
-        Me.btnProjNumber.BackgroundImage = CType(resources.GetObject("btnProjNumber.BackgroundImage"),System.Drawing.Image)
+        Me.btnProjNumber.BackgroundImage = CType(resources.GetObject("btnProjNumber.BackgroundImage"), System.Drawing.Image)
         Me.btnProjNumber.Location = New System.Drawing.Point(808, 183)
         Me.btnProjNumber.Name = "btnProjNumber"
         Me.btnProjNumber.Size = New System.Drawing.Size(18, 21)
         Me.btnProjNumber.TabIndex = 335
         Me.btnProjNumber.Text = "..."
-        Me.btnProjNumber.UseVisualStyleBackColor = false
+        Me.btnProjNumber.UseVisualStyleBackColor = False
         '
         'btnReasonOfTrip
         '
         Me.btnReasonOfTrip.BackColor = System.Drawing.Color.Transparent
-        Me.btnReasonOfTrip.BackgroundImage = CType(resources.GetObject("btnReasonOfTrip.BackgroundImage"),System.Drawing.Image)
+        Me.btnReasonOfTrip.BackgroundImage = CType(resources.GetObject("btnReasonOfTrip.BackgroundImage"), System.Drawing.Image)
         Me.btnReasonOfTrip.Location = New System.Drawing.Point(808, 250)
         Me.btnReasonOfTrip.Name = "btnReasonOfTrip"
         Me.btnReasonOfTrip.Size = New System.Drawing.Size(18, 21)
         Me.btnReasonOfTrip.TabIndex = 334
         Me.btnReasonOfTrip.Text = "..."
-        Me.btnReasonOfTrip.UseVisualStyleBackColor = false
+        Me.btnReasonOfTrip.UseVisualStyleBackColor = False
         '
         'btnMgrSuperior
         '
         Me.btnMgrSuperior.BackColor = System.Drawing.Color.Transparent
-        Me.btnMgrSuperior.BackgroundImage = CType(resources.GetObject("btnMgrSuperior.BackgroundImage"),System.Drawing.Image)
+        Me.btnMgrSuperior.BackgroundImage = CType(resources.GetObject("btnMgrSuperior.BackgroundImage"), System.Drawing.Image)
         Me.btnMgrSuperior.Location = New System.Drawing.Point(646, 251)
         Me.btnMgrSuperior.Name = "btnMgrSuperior"
         Me.btnMgrSuperior.Size = New System.Drawing.Size(18, 21)
         Me.btnMgrSuperior.TabIndex = 333
         Me.btnMgrSuperior.Text = "..."
-        Me.btnMgrSuperior.UseVisualStyleBackColor = false
+        Me.btnMgrSuperior.UseVisualStyleBackColor = False
         '
         'btnEmpNumber
         '
         Me.btnEmpNumber.BackColor = System.Drawing.Color.Transparent
-        Me.btnEmpNumber.BackgroundImage = CType(resources.GetObject("btnEmpNumber.BackgroundImage"),System.Drawing.Image)
+        Me.btnEmpNumber.BackgroundImage = CType(resources.GetObject("btnEmpNumber.BackgroundImage"), System.Drawing.Image)
         Me.btnEmpNumber.Location = New System.Drawing.Point(972, 108)
         Me.btnEmpNumber.Name = "btnEmpNumber"
         Me.btnEmpNumber.Size = New System.Drawing.Size(18, 21)
         Me.btnEmpNumber.TabIndex = 332
         Me.btnEmpNumber.Text = "..."
-        Me.btnEmpNumber.UseVisualStyleBackColor = false
+        Me.btnEmpNumber.UseVisualStyleBackColor = False
         '
         'btnDepNumber
         '
         Me.btnDepNumber.BackColor = System.Drawing.Color.Transparent
-        Me.btnDepNumber.BackgroundImage = CType(resources.GetObject("btnDepNumber.BackgroundImage"),System.Drawing.Image)
+        Me.btnDepNumber.BackgroundImage = CType(resources.GetObject("btnDepNumber.BackgroundImage"), System.Drawing.Image)
         Me.btnDepNumber.Location = New System.Drawing.Point(972, 182)
         Me.btnDepNumber.Name = "btnDepNumber"
         Me.btnDepNumber.Size = New System.Drawing.Size(18, 21)
         Me.btnDepNumber.TabIndex = 331
         Me.btnDepNumber.Text = "..."
-        Me.btnDepNumber.UseVisualStyleBackColor = false
+        Me.btnDepNumber.UseVisualStyleBackColor = False
         '
         'btnCostCenterCode
         '
         Me.btnCostCenterCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnCostCenterCode.BackgroundImage = CType(resources.GetObject("btnCostCenterCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnCostCenterCode.BackgroundImage = CType(resources.GetObject("btnCostCenterCode.BackgroundImage"), System.Drawing.Image)
         Me.btnCostCenterCode.Location = New System.Drawing.Point(646, 182)
         Me.btnCostCenterCode.Name = "btnCostCenterCode"
         Me.btnCostCenterCode.Size = New System.Drawing.Size(18, 21)
         Me.btnCostCenterCode.TabIndex = 330
         Me.btnCostCenterCode.Text = "..."
-        Me.btnCostCenterCode.UseVisualStyleBackColor = false
+        Me.btnCostCenterCode.UseVisualStyleBackColor = False
         '
         'btnCSData4Mis
         '
         Me.btnCSData4Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData4Mis.BackgroundImage = CType(resources.GetObject("btnCSData4Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData4Mis.BackgroundImage = CType(resources.GetObject("btnCSData4Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData4Mis.Location = New System.Drawing.Point(975, 390)
         Me.btnCSData4Mis.Name = "btnCSData4Mis"
         Me.btnCSData4Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData4Mis.TabIndex = 329
         Me.btnCSData4Mis.Text = "..."
-        Me.btnCSData4Mis.UseVisualStyleBackColor = false
+        Me.btnCSData4Mis.UseVisualStyleBackColor = False
         '
         'btnCSData3Mis
         '
         Me.btnCSData3Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData3Mis.BackgroundImage = CType(resources.GetObject("btnCSData3Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData3Mis.BackgroundImage = CType(resources.GetObject("btnCSData3Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData3Mis.Location = New System.Drawing.Point(813, 390)
         Me.btnCSData3Mis.Name = "btnCSData3Mis"
         Me.btnCSData3Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData3Mis.TabIndex = 328
         Me.btnCSData3Mis.Text = "..."
-        Me.btnCSData3Mis.UseVisualStyleBackColor = false
+        Me.btnCSData3Mis.UseVisualStyleBackColor = False
         '
         'btnCSData2Mis
         '
         Me.btnCSData2Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData2Mis.BackgroundImage = CType(resources.GetObject("btnCSData2Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData2Mis.BackgroundImage = CType(resources.GetObject("btnCSData2Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData2Mis.Location = New System.Drawing.Point(650, 390)
         Me.btnCSData2Mis.Name = "btnCSData2Mis"
         Me.btnCSData2Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData2Mis.TabIndex = 327
         Me.btnCSData2Mis.Text = "..."
-        Me.btnCSData2Mis.UseVisualStyleBackColor = false
+        Me.btnCSData2Mis.UseVisualStyleBackColor = False
         '
         'btnCSData1Mis
         '
         Me.btnCSData1Mis.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData1Mis.BackgroundImage = CType(resources.GetObject("btnCSData1Mis.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData1Mis.BackgroundImage = CType(resources.GetObject("btnCSData1Mis.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData1Mis.Location = New System.Drawing.Point(489, 390)
         Me.btnCSData1Mis.Name = "btnCSData1Mis"
         Me.btnCSData1Mis.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData1Mis.TabIndex = 326
         Me.btnCSData1Mis.Text = "..."
-        Me.btnCSData1Mis.UseVisualStyleBackColor = false
+        Me.btnCSData1Mis.UseVisualStyleBackColor = False
         '
         'btnApproverMIS
         '
         Me.btnApproverMIS.BackColor = System.Drawing.Color.Transparent
-        Me.btnApproverMIS.BackgroundImage = CType(resources.GetObject("btnApproverMIS.BackgroundImage"),System.Drawing.Image)
+        Me.btnApproverMIS.BackgroundImage = CType(resources.GetObject("btnApproverMIS.BackgroundImage"), System.Drawing.Image)
         Me.btnApproverMIS.Location = New System.Drawing.Point(321, 251)
         Me.btnApproverMIS.Name = "btnApproverMIS"
         Me.btnApproverMIS.Size = New System.Drawing.Size(18, 21)
         Me.btnApproverMIS.TabIndex = 325
         Me.btnApproverMIS.Text = "..."
-        Me.btnApproverMIS.UseVisualStyleBackColor = false
+        Me.btnApproverMIS.UseVisualStyleBackColor = False
         '
         'btnAprovalCode
         '
         Me.btnAprovalCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnAprovalCode.BackgroundImage = CType(resources.GetObject("btnAprovalCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnAprovalCode.BackgroundImage = CType(resources.GetObject("btnAprovalCode.BackgroundImage"), System.Drawing.Image)
         Me.btnAprovalCode.Location = New System.Drawing.Point(484, 250)
         Me.btnAprovalCode.Name = "btnAprovalCode"
         Me.btnAprovalCode.Size = New System.Drawing.Size(18, 21)
         Me.btnAprovalCode.TabIndex = 324
         Me.btnAprovalCode.Text = "..."
-        Me.btnAprovalCode.UseVisualStyleBackColor = false
+        Me.btnAprovalCode.UseVisualStyleBackColor = False
         '
         'btnAirAccomRCode
         '
         Me.btnAirAccomRCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnAirAccomRCode.BackgroundImage = CType(resources.GetObject("btnAirAccomRCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnAirAccomRCode.BackgroundImage = CType(resources.GetObject("btnAirAccomRCode.BackgroundImage"), System.Drawing.Image)
         Me.btnAirAccomRCode.Location = New System.Drawing.Point(811, 324)
         Me.btnAirAccomRCode.Name = "btnAirAccomRCode"
         Me.btnAirAccomRCode.Size = New System.Drawing.Size(18, 21)
         Me.btnAirAccomRCode.TabIndex = 323
         Me.btnAirAccomRCode.Text = "..."
-        Me.btnAirAccomRCode.UseVisualStyleBackColor = false
+        Me.btnAirAccomRCode.UseVisualStyleBackColor = False
         '
         'btnMISSet
         '
-        Me.btnMISSet.BackgroundImage = CType(resources.GetObject("btnMISSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnMISSet.BackgroundImage = CType(resources.GetObject("btnMISSet.BackgroundImage"), System.Drawing.Image)
         Me.btnMISSet.Location = New System.Drawing.Point(941, 29)
         Me.btnMISSet.Name = "btnMISSet"
         Me.btnMISSet.Size = New System.Drawing.Size(43, 25)
         Me.btnMISSet.TabIndex = 322
-        Me.btnMISSet.UseVisualStyleBackColor = true
+        Me.btnMISSet.UseVisualStyleBackColor = True
         '
         'Label9
         '
-        Me.Label9.AutoSize = true
-        Me.Label9.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Arial Rounded MT Bold", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Red
         Me.Label9.Location = New System.Drawing.Point(15, 5)
         Me.Label9.Name = "Label9"
@@ -4758,253 +4756,253 @@ Partial Class FrmGeneral
         Me.txtClientN.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.txtClientN.Location = New System.Drawing.Point(17, 135)
         Me.txtClientN.Name = "txtClientN"
-        Me.txtClientN.ReadOnly = true
+        Me.txtClientN.ReadOnly = True
         Me.txtClientN.Size = New System.Drawing.Size(255, 20)
         Me.txtClientN.TabIndex = 312
         '
         'btnEmployeeNo
         '
         Me.btnEmployeeNo.BackColor = System.Drawing.Color.Transparent
-        Me.btnEmployeeNo.BackgroundImage = CType(resources.GetObject("btnEmployeeNo.BackgroundImage"),System.Drawing.Image)
+        Me.btnEmployeeNo.BackgroundImage = CType(resources.GetObject("btnEmployeeNo.BackgroundImage"), System.Drawing.Image)
         Me.btnEmployeeNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnEmployeeNo.Enabled = false
+        Me.btnEmployeeNo.Enabled = False
         Me.btnEmployeeNo.Location = New System.Drawing.Point(972, 128)
         Me.btnEmployeeNo.Name = "btnEmployeeNo"
         Me.btnEmployeeNo.Size = New System.Drawing.Size(18, 21)
         Me.btnEmployeeNo.TabIndex = 311
-        Me.btnEmployeeNo.UseVisualStyleBackColor = false
+        Me.btnEmployeeNo.UseVisualStyleBackColor = False
         '
         'Txt16
         '
         Me.Txt16.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt16.Location = New System.Drawing.Point(830, 129)
         Me.Txt16.Name = "Txt16"
-        Me.Txt16.ReadOnly = true
+        Me.Txt16.ReadOnly = True
         Me.Txt16.Size = New System.Drawing.Size(143, 20)
         Me.Txt16.TabIndex = 310
         '
         'btnDeptNo
         '
         Me.btnDeptNo.BackColor = System.Drawing.Color.Transparent
-        Me.btnDeptNo.BackgroundImage = CType(resources.GetObject("btnDeptNo.BackgroundImage"),System.Drawing.Image)
+        Me.btnDeptNo.BackgroundImage = CType(resources.GetObject("btnDeptNo.BackgroundImage"), System.Drawing.Image)
         Me.btnDeptNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnDeptNo.Enabled = false
+        Me.btnDeptNo.Enabled = False
         Me.btnDeptNo.Location = New System.Drawing.Point(972, 203)
         Me.btnDeptNo.Name = "btnDeptNo"
         Me.btnDeptNo.Size = New System.Drawing.Size(18, 21)
         Me.btnDeptNo.TabIndex = 309
-        Me.btnDeptNo.UseVisualStyleBackColor = false
+        Me.btnDeptNo.UseVisualStyleBackColor = False
         '
         'btnProjNo
         '
         Me.btnProjNo.BackColor = System.Drawing.Color.Transparent
-        Me.btnProjNo.BackgroundImage = CType(resources.GetObject("btnProjNo.BackgroundImage"),System.Drawing.Image)
+        Me.btnProjNo.BackgroundImage = CType(resources.GetObject("btnProjNo.BackgroundImage"), System.Drawing.Image)
         Me.btnProjNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnProjNo.Enabled = false
+        Me.btnProjNo.Enabled = False
         Me.btnProjNo.Location = New System.Drawing.Point(808, 203)
         Me.btnProjNo.Name = "btnProjNo"
         Me.btnProjNo.Size = New System.Drawing.Size(18, 21)
         Me.btnProjNo.TabIndex = 308
-        Me.btnProjNo.UseVisualStyleBackColor = false
+        Me.btnProjNo.UseVisualStyleBackColor = False
         '
         'btnCostCenter
         '
         Me.btnCostCenter.BackColor = System.Drawing.Color.Transparent
-        Me.btnCostCenter.BackgroundImage = CType(resources.GetObject("btnCostCenter.BackgroundImage"),System.Drawing.Image)
+        Me.btnCostCenter.BackgroundImage = CType(resources.GetObject("btnCostCenter.BackgroundImage"), System.Drawing.Image)
         Me.btnCostCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCostCenter.Enabled = false
+        Me.btnCostCenter.Enabled = False
         Me.btnCostCenter.Location = New System.Drawing.Point(646, 203)
         Me.btnCostCenter.Name = "btnCostCenter"
         Me.btnCostCenter.Size = New System.Drawing.Size(18, 21)
         Me.btnCostCenter.TabIndex = 307
-        Me.btnCostCenter.UseVisualStyleBackColor = false
+        Me.btnCostCenter.UseVisualStyleBackColor = False
         '
         'btnTravStatus
         '
         Me.btnTravStatus.BackColor = System.Drawing.Color.Transparent
-        Me.btnTravStatus.BackgroundImage = CType(resources.GetObject("btnTravStatus.BackgroundImage"),System.Drawing.Image)
+        Me.btnTravStatus.BackgroundImage = CType(resources.GetObject("btnTravStatus.BackgroundImage"), System.Drawing.Image)
         Me.btnTravStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnTravStatus.Enabled = false
+        Me.btnTravStatus.Enabled = False
         Me.btnTravStatus.Location = New System.Drawing.Point(484, 203)
         Me.btnTravStatus.Name = "btnTravStatus"
         Me.btnTravStatus.Size = New System.Drawing.Size(18, 21)
         Me.btnTravStatus.TabIndex = 306
-        Me.btnTravStatus.UseVisualStyleBackColor = false
+        Me.btnTravStatus.UseVisualStyleBackColor = False
         '
         'btnTravName
         '
         Me.btnTravName.BackColor = System.Drawing.Color.Transparent
-        Me.btnTravName.BackgroundImage = CType(resources.GetObject("btnTravName.BackgroundImage"),System.Drawing.Image)
+        Me.btnTravName.BackgroundImage = CType(resources.GetObject("btnTravName.BackgroundImage"), System.Drawing.Image)
         Me.btnTravName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnTravName.Enabled = false
+        Me.btnTravName.Enabled = False
         Me.btnTravName.Location = New System.Drawing.Point(321, 203)
         Me.btnTravName.Name = "btnTravName"
         Me.btnTravName.Size = New System.Drawing.Size(18, 21)
         Me.btnTravName.TabIndex = 305
-        Me.btnTravName.UseVisualStyleBackColor = false
+        Me.btnTravName.UseVisualStyleBackColor = False
         '
         'btnReasonTrip
         '
         Me.btnReasonTrip.BackColor = System.Drawing.Color.Transparent
-        Me.btnReasonTrip.BackgroundImage = CType(resources.GetObject("btnReasonTrip.BackgroundImage"),System.Drawing.Image)
+        Me.btnReasonTrip.BackgroundImage = CType(resources.GetObject("btnReasonTrip.BackgroundImage"), System.Drawing.Image)
         Me.btnReasonTrip.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnReasonTrip.Enabled = false
+        Me.btnReasonTrip.Enabled = False
         Me.btnReasonTrip.Location = New System.Drawing.Point(808, 271)
         Me.btnReasonTrip.Name = "btnReasonTrip"
         Me.btnReasonTrip.Size = New System.Drawing.Size(18, 21)
         Me.btnReasonTrip.TabIndex = 303
-        Me.btnReasonTrip.UseVisualStyleBackColor = false
+        Me.btnReasonTrip.UseVisualStyleBackColor = False
         '
         'btnMgrSup
         '
         Me.btnMgrSup.BackColor = System.Drawing.Color.Transparent
-        Me.btnMgrSup.BackgroundImage = CType(resources.GetObject("btnMgrSup.BackgroundImage"),System.Drawing.Image)
+        Me.btnMgrSup.BackgroundImage = CType(resources.GetObject("btnMgrSup.BackgroundImage"), System.Drawing.Image)
         Me.btnMgrSup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnMgrSup.Enabled = false
+        Me.btnMgrSup.Enabled = False
         Me.btnMgrSup.Location = New System.Drawing.Point(646, 271)
         Me.btnMgrSup.Name = "btnMgrSup"
         Me.btnMgrSup.Size = New System.Drawing.Size(18, 21)
         Me.btnMgrSup.TabIndex = 302
-        Me.btnMgrSup.UseVisualStyleBackColor = false
+        Me.btnMgrSup.UseVisualStyleBackColor = False
         '
         'btnApproverCode
         '
         Me.btnApproverCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnApproverCode.BackgroundImage = CType(resources.GetObject("btnApproverCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnApproverCode.BackgroundImage = CType(resources.GetObject("btnApproverCode.BackgroundImage"), System.Drawing.Image)
         Me.btnApproverCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnApproverCode.Enabled = false
+        Me.btnApproverCode.Enabled = False
         Me.btnApproverCode.Location = New System.Drawing.Point(484, 271)
         Me.btnApproverCode.Name = "btnApproverCode"
         Me.btnApproverCode.Size = New System.Drawing.Size(18, 21)
         Me.btnApproverCode.TabIndex = 301
-        Me.btnApproverCode.UseVisualStyleBackColor = false
+        Me.btnApproverCode.UseVisualStyleBackColor = False
         '
         'btnApprover
         '
         Me.btnApprover.BackColor = System.Drawing.Color.Transparent
-        Me.btnApprover.BackgroundImage = CType(resources.GetObject("btnApprover.BackgroundImage"),System.Drawing.Image)
+        Me.btnApprover.BackgroundImage = CType(resources.GetObject("btnApprover.BackgroundImage"), System.Drawing.Image)
         Me.btnApprover.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnApprover.Enabled = false
+        Me.btnApprover.Enabled = False
         Me.btnApprover.Location = New System.Drawing.Point(321, 271)
         Me.btnApprover.Name = "btnApprover"
         Me.btnApprover.Size = New System.Drawing.Size(18, 21)
         Me.btnApprover.TabIndex = 300
-        Me.btnApprover.UseVisualStyleBackColor = false
+        Me.btnApprover.UseVisualStyleBackColor = False
         '
         'btnOrderRef
         '
         Me.btnOrderRef.BackColor = System.Drawing.Color.Transparent
-        Me.btnOrderRef.BackgroundImage = CType(resources.GetObject("btnOrderRef.BackgroundImage"),System.Drawing.Image)
+        Me.btnOrderRef.BackgroundImage = CType(resources.GetObject("btnOrderRef.BackgroundImage"), System.Drawing.Image)
         Me.btnOrderRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnOrderRef.Enabled = false
+        Me.btnOrderRef.Enabled = False
         Me.btnOrderRef.Location = New System.Drawing.Point(160, 271)
         Me.btnOrderRef.Name = "btnOrderRef"
         Me.btnOrderRef.Size = New System.Drawing.Size(18, 21)
         Me.btnOrderRef.TabIndex = 299
-        Me.btnOrderRef.UseVisualStyleBackColor = false
+        Me.btnOrderRef.UseVisualStyleBackColor = False
         '
         'btnTourCode
         '
         Me.btnTourCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnTourCode.BackgroundImage = CType(resources.GetObject("btnTourCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnTourCode.BackgroundImage = CType(resources.GetObject("btnTourCode.BackgroundImage"), System.Drawing.Image)
         Me.btnTourCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnTourCode.Enabled = false
+        Me.btnTourCode.Enabled = False
         Me.btnTourCode.Location = New System.Drawing.Point(321, 346)
         Me.btnTourCode.Name = "btnTourCode"
         Me.btnTourCode.Size = New System.Drawing.Size(18, 21)
         Me.btnTourCode.TabIndex = 297
-        Me.btnTourCode.UseVisualStyleBackColor = false
+        Me.btnTourCode.UseVisualStyleBackColor = False
         '
         'btnStopOverFlag
         '
         Me.btnStopOverFlag.BackColor = System.Drawing.Color.Transparent
-        Me.btnStopOverFlag.BackgroundImage = CType(resources.GetObject("btnStopOverFlag.BackgroundImage"),System.Drawing.Image)
+        Me.btnStopOverFlag.BackgroundImage = CType(resources.GetObject("btnStopOverFlag.BackgroundImage"), System.Drawing.Image)
         Me.btnStopOverFlag.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnStopOverFlag.Enabled = false
+        Me.btnStopOverFlag.Enabled = False
         Me.btnStopOverFlag.Location = New System.Drawing.Point(160, 346)
         Me.btnStopOverFlag.Name = "btnStopOverFlag"
         Me.btnStopOverFlag.Size = New System.Drawing.Size(18, 21)
         Me.btnStopOverFlag.TabIndex = 296
-        Me.btnStopOverFlag.UseVisualStyleBackColor = false
+        Me.btnStopOverFlag.UseVisualStyleBackColor = False
         '
         'btnRecordType
         '
         Me.btnRecordType.BackColor = System.Drawing.Color.Transparent
-        Me.btnRecordType.BackgroundImage = CType(resources.GetObject("btnRecordType.BackgroundImage"),System.Drawing.Image)
+        Me.btnRecordType.BackgroundImage = CType(resources.GetObject("btnRecordType.BackgroundImage"), System.Drawing.Image)
         Me.btnRecordType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnRecordType.Enabled = false
+        Me.btnRecordType.Enabled = False
         Me.btnRecordType.Location = New System.Drawing.Point(321, 411)
         Me.btnRecordType.Name = "btnRecordType"
         Me.btnRecordType.Size = New System.Drawing.Size(18, 21)
         Me.btnRecordType.TabIndex = 294
-        Me.btnRecordType.UseVisualStyleBackColor = false
+        Me.btnRecordType.UseVisualStyleBackColor = False
         '
         'btnSalesChannel
         '
         Me.btnSalesChannel.BackColor = System.Drawing.Color.Transparent
-        Me.btnSalesChannel.BackgroundImage = CType(resources.GetObject("btnSalesChannel.BackgroundImage"),System.Drawing.Image)
+        Me.btnSalesChannel.BackgroundImage = CType(resources.GetObject("btnSalesChannel.BackgroundImage"), System.Drawing.Image)
         Me.btnSalesChannel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalesChannel.Enabled = false
+        Me.btnSalesChannel.Enabled = False
         Me.btnSalesChannel.Location = New System.Drawing.Point(157, 411)
         Me.btnSalesChannel.Name = "btnSalesChannel"
         Me.btnSalesChannel.Size = New System.Drawing.Size(18, 21)
         Me.btnSalesChannel.TabIndex = 293
-        Me.btnSalesChannel.UseVisualStyleBackColor = false
+        Me.btnSalesChannel.UseVisualStyleBackColor = False
         '
         'btnCarBookedFlag
         '
         Me.btnCarBookedFlag.BackColor = System.Drawing.Color.Transparent
-        Me.btnCarBookedFlag.BackgroundImage = CType(resources.GetObject("btnCarBookedFlag.BackgroundImage"),System.Drawing.Image)
+        Me.btnCarBookedFlag.BackgroundImage = CType(resources.GetObject("btnCarBookedFlag.BackgroundImage"), System.Drawing.Image)
         Me.btnCarBookedFlag.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCarBookedFlag.Enabled = false
+        Me.btnCarBookedFlag.Enabled = False
         Me.btnCarBookedFlag.Location = New System.Drawing.Point(973, 346)
         Me.btnCarBookedFlag.Name = "btnCarBookedFlag"
         Me.btnCarBookedFlag.Size = New System.Drawing.Size(18, 21)
         Me.btnCarBookedFlag.TabIndex = 292
-        Me.btnCarBookedFlag.UseVisualStyleBackColor = false
+        Me.btnCarBookedFlag.UseVisualStyleBackColor = False
         '
         'btnAReasonCD
         '
         Me.btnAReasonCD.BackColor = System.Drawing.Color.Transparent
-        Me.btnAReasonCD.BackgroundImage = CType(resources.GetObject("btnAReasonCD.BackgroundImage"),System.Drawing.Image)
+        Me.btnAReasonCD.BackgroundImage = CType(resources.GetObject("btnAReasonCD.BackgroundImage"), System.Drawing.Image)
         Me.btnAReasonCD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnAReasonCD.Enabled = false
+        Me.btnAReasonCD.Enabled = False
         Me.btnAReasonCD.Location = New System.Drawing.Point(811, 345)
         Me.btnAReasonCD.Name = "btnAReasonCD"
         Me.btnAReasonCD.Size = New System.Drawing.Size(18, 21)
         Me.btnAReasonCD.TabIndex = 291
-        Me.btnAReasonCD.UseVisualStyleBackColor = false
+        Me.btnAReasonCD.UseVisualStyleBackColor = False
         '
         'btnHotelBookedFlag
         '
         Me.btnHotelBookedFlag.BackColor = System.Drawing.Color.Transparent
-        Me.btnHotelBookedFlag.BackgroundImage = CType(resources.GetObject("btnHotelBookedFlag.BackgroundImage"),System.Drawing.Image)
+        Me.btnHotelBookedFlag.BackgroundImage = CType(resources.GetObject("btnHotelBookedFlag.BackgroundImage"), System.Drawing.Image)
         Me.btnHotelBookedFlag.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnHotelBookedFlag.Enabled = false
+        Me.btnHotelBookedFlag.Enabled = False
         Me.btnHotelBookedFlag.Location = New System.Drawing.Point(648, 346)
         Me.btnHotelBookedFlag.Name = "btnHotelBookedFlag"
         Me.btnHotelBookedFlag.Size = New System.Drawing.Size(18, 21)
         Me.btnHotelBookedFlag.TabIndex = 290
-        Me.btnHotelBookedFlag.UseVisualStyleBackColor = false
+        Me.btnHotelBookedFlag.UseVisualStyleBackColor = False
         '
         'btnHotlReasonCd
         '
         Me.btnHotlReasonCd.BackColor = System.Drawing.Color.Transparent
-        Me.btnHotlReasonCd.BackgroundImage = CType(resources.GetObject("btnHotlReasonCd.BackgroundImage"),System.Drawing.Image)
+        Me.btnHotlReasonCd.BackgroundImage = CType(resources.GetObject("btnHotlReasonCd.BackgroundImage"), System.Drawing.Image)
         Me.btnHotlReasonCd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnHotlReasonCd.Enabled = false
+        Me.btnHotlReasonCd.Enabled = False
         Me.btnHotlReasonCd.Location = New System.Drawing.Point(487, 346)
         Me.btnHotlReasonCd.Name = "btnHotlReasonCd"
         Me.btnHotlReasonCd.Size = New System.Drawing.Size(18, 21)
         Me.btnHotlReasonCd.TabIndex = 289
-        Me.btnHotlReasonCd.UseVisualStyleBackColor = false
+        Me.btnHotlReasonCd.UseVisualStyleBackColor = False
         '
         'Txt22
         '
         Me.Txt22.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt22.Location = New System.Drawing.Point(175, 411)
         Me.Txt22.Name = "Txt22"
-        Me.Txt22.ReadOnly = true
+        Me.Txt22.ReadOnly = True
         Me.Txt22.Size = New System.Drawing.Size(145, 20)
         Me.Txt22.TabIndex = 288
         '
@@ -5013,7 +5011,7 @@ Partial Class FrmGeneral
         Me.Txt21.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt21.Location = New System.Drawing.Point(13, 411)
         Me.Txt21.Name = "Txt21"
-        Me.Txt21.ReadOnly = true
+        Me.Txt21.ReadOnly = True
         Me.Txt21.Size = New System.Drawing.Size(145, 20)
         Me.Txt21.TabIndex = 287
         '
@@ -5022,7 +5020,7 @@ Partial Class FrmGeneral
         Me.Txt20.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt20.Location = New System.Drawing.Point(828, 346)
         Me.Txt20.Name = "Txt20"
-        Me.Txt20.ReadOnly = true
+        Me.Txt20.ReadOnly = True
         Me.Txt20.Size = New System.Drawing.Size(145, 20)
         Me.Txt20.TabIndex = 286
         '
@@ -5031,7 +5029,7 @@ Partial Class FrmGeneral
         Me.Txt19.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt19.Location = New System.Drawing.Point(667, 346)
         Me.Txt19.Name = "Txt19"
-        Me.Txt19.ReadOnly = true
+        Me.Txt19.ReadOnly = True
         Me.Txt19.Size = New System.Drawing.Size(145, 20)
         Me.Txt19.TabIndex = 285
         '
@@ -5040,7 +5038,7 @@ Partial Class FrmGeneral
         Me.Txt18.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt18.Location = New System.Drawing.Point(504, 346)
         Me.Txt18.Name = "Txt18"
-        Me.Txt18.ReadOnly = true
+        Me.Txt18.ReadOnly = True
         Me.Txt18.Size = New System.Drawing.Size(145, 20)
         Me.Txt18.TabIndex = 284
         '
@@ -5049,7 +5047,7 @@ Partial Class FrmGeneral
         Me.Txt17.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt17.Location = New System.Drawing.Point(341, 346)
         Me.Txt17.Name = "Txt17"
-        Me.Txt17.ReadOnly = true
+        Me.Txt17.ReadOnly = True
         Me.Txt17.Size = New System.Drawing.Size(146, 20)
         Me.Txt17.TabIndex = 283
         '
@@ -5058,7 +5056,7 @@ Partial Class FrmGeneral
         Me.Txt13.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt13.Location = New System.Drawing.Point(175, 346)
         Me.Txt13.Name = "Txt13"
-        Me.Txt13.ReadOnly = true
+        Me.Txt13.ReadOnly = True
         Me.Txt13.Size = New System.Drawing.Size(145, 20)
         Me.Txt13.TabIndex = 280
         '
@@ -5067,7 +5065,7 @@ Partial Class FrmGeneral
         Me.Txt12.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt12.Location = New System.Drawing.Point(14, 346)
         Me.Txt12.Name = "Txt12"
-        Me.Txt12.ReadOnly = true
+        Me.Txt12.ReadOnly = True
         Me.Txt12.Size = New System.Drawing.Size(145, 20)
         Me.Txt12.TabIndex = 279
         '
@@ -5076,7 +5074,7 @@ Partial Class FrmGeneral
         Me.Txt10.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt10.Location = New System.Drawing.Point(664, 271)
         Me.Txt10.Name = "Txt10"
-        Me.Txt10.ReadOnly = true
+        Me.Txt10.ReadOnly = True
         Me.Txt10.Size = New System.Drawing.Size(145, 20)
         Me.Txt10.TabIndex = 277
         '
@@ -5085,7 +5083,7 @@ Partial Class FrmGeneral
         Me.Txt9.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt9.Location = New System.Drawing.Point(501, 271)
         Me.Txt9.Name = "Txt9"
-        Me.Txt9.ReadOnly = true
+        Me.Txt9.ReadOnly = True
         Me.Txt9.Size = New System.Drawing.Size(145, 20)
         Me.Txt9.TabIndex = 276
         '
@@ -5094,7 +5092,7 @@ Partial Class FrmGeneral
         Me.Txt8.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt8.Location = New System.Drawing.Point(340, 271)
         Me.Txt8.Name = "Txt8"
-        Me.Txt8.ReadOnly = true
+        Me.Txt8.ReadOnly = True
         Me.Txt8.Size = New System.Drawing.Size(145, 20)
         Me.Txt8.TabIndex = 275
         '
@@ -5103,7 +5101,7 @@ Partial Class FrmGeneral
         Me.Txt7.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt7.Location = New System.Drawing.Point(175, 271)
         Me.Txt7.Name = "Txt7"
-        Me.Txt7.ReadOnly = true
+        Me.Txt7.ReadOnly = True
         Me.Txt7.Size = New System.Drawing.Size(145, 20)
         Me.Txt7.TabIndex = 274
         '
@@ -5112,7 +5110,7 @@ Partial Class FrmGeneral
         Me.Txt6.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt6.Location = New System.Drawing.Point(14, 271)
         Me.Txt6.Name = "Txt6"
-        Me.Txt6.ReadOnly = true
+        Me.Txt6.ReadOnly = True
         Me.Txt6.Size = New System.Drawing.Size(145, 20)
         Me.Txt6.TabIndex = 273
         '
@@ -5121,7 +5119,7 @@ Partial Class FrmGeneral
         Me.Txt5.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt5.Location = New System.Drawing.Point(826, 203)
         Me.Txt5.Name = "Txt5"
-        Me.Txt5.ReadOnly = true
+        Me.Txt5.ReadOnly = True
         Me.Txt5.Size = New System.Drawing.Size(145, 20)
         Me.Txt5.TabIndex = 272
         '
@@ -5130,7 +5128,7 @@ Partial Class FrmGeneral
         Me.Txt4.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt4.Location = New System.Drawing.Point(664, 203)
         Me.Txt4.Name = "Txt4"
-        Me.Txt4.ReadOnly = true
+        Me.Txt4.ReadOnly = True
         Me.Txt4.Size = New System.Drawing.Size(145, 20)
         Me.Txt4.TabIndex = 271
         '
@@ -5139,7 +5137,7 @@ Partial Class FrmGeneral
         Me.Txt3.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt3.Location = New System.Drawing.Point(501, 203)
         Me.Txt3.Name = "Txt3"
-        Me.Txt3.ReadOnly = true
+        Me.Txt3.ReadOnly = True
         Me.Txt3.Size = New System.Drawing.Size(145, 20)
         Me.Txt3.TabIndex = 270
         '
@@ -5148,7 +5146,7 @@ Partial Class FrmGeneral
         Me.Txt2.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt2.Location = New System.Drawing.Point(340, 203)
         Me.Txt2.Name = "Txt2"
-        Me.Txt2.ReadOnly = true
+        Me.Txt2.ReadOnly = True
         Me.Txt2.Size = New System.Drawing.Size(146, 20)
         Me.Txt2.TabIndex = 269
         '
@@ -5157,76 +5155,76 @@ Partial Class FrmGeneral
         Me.Txt1.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt1.Location = New System.Drawing.Point(15, 203)
         Me.Txt1.Name = "Txt1"
-        Me.Txt1.ReadOnly = true
+        Me.Txt1.ReadOnly = True
         Me.Txt1.Size = New System.Drawing.Size(305, 20)
         Me.Txt1.TabIndex = 268
         '
         'btnCSData1
         '
         Me.btnCSData1.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData1.BackgroundImage = CType(resources.GetObject("btnCSData1.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData1.BackgroundImage = CType(resources.GetObject("btnCSData1.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData1.Enabled = false
+        Me.btnCSData1.Enabled = False
         Me.btnCSData1.Location = New System.Drawing.Point(489, 410)
         Me.btnCSData1.Name = "btnCSData1"
         Me.btnCSData1.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData1.TabIndex = 267
-        Me.btnCSData1.UseVisualStyleBackColor = false
+        Me.btnCSData1.UseVisualStyleBackColor = False
         '
         'btnCSData2
         '
         Me.btnCSData2.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData2.BackgroundImage = CType(resources.GetObject("btnCSData2.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData2.BackgroundImage = CType(resources.GetObject("btnCSData2.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData2.Enabled = false
+        Me.btnCSData2.Enabled = False
         Me.btnCSData2.Location = New System.Drawing.Point(650, 411)
         Me.btnCSData2.Name = "btnCSData2"
         Me.btnCSData2.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData2.TabIndex = 266
-        Me.btnCSData2.UseVisualStyleBackColor = false
+        Me.btnCSData2.UseVisualStyleBackColor = False
         '
         'btnCSData3
         '
         Me.btnCSData3.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData3.BackgroundImage = CType(resources.GetObject("btnCSData3.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData3.BackgroundImage = CType(resources.GetObject("btnCSData3.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData3.Enabled = false
+        Me.btnCSData3.Enabled = False
         Me.btnCSData3.Location = New System.Drawing.Point(813, 410)
         Me.btnCSData3.Name = "btnCSData3"
         Me.btnCSData3.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData3.TabIndex = 265
-        Me.btnCSData3.UseVisualStyleBackColor = false
+        Me.btnCSData3.UseVisualStyleBackColor = False
         '
         'btnCSData4
         '
         Me.btnCSData4.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData4.BackgroundImage = CType(resources.GetObject("btnCSData4.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData4.BackgroundImage = CType(resources.GetObject("btnCSData4.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData4.Enabled = false
+        Me.btnCSData4.Enabled = False
         Me.btnCSData4.Location = New System.Drawing.Point(975, 410)
         Me.btnCSData4.Name = "btnCSData4"
         Me.btnCSData4.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData4.TabIndex = 264
-        Me.btnCSData4.UseVisualStyleBackColor = false
+        Me.btnCSData4.UseVisualStyleBackColor = False
         '
         'btnCSData12
         '
         Me.btnCSData12.BackColor = System.Drawing.Color.Transparent
-        Me.btnCSData12.BackgroundImage = CType(resources.GetObject("btnCSData12.BackgroundImage"),System.Drawing.Image)
+        Me.btnCSData12.BackgroundImage = CType(resources.GetObject("btnCSData12.BackgroundImage"), System.Drawing.Image)
         Me.btnCSData12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnCSData12.Enabled = false
+        Me.btnCSData12.Enabled = False
         Me.btnCSData12.Location = New System.Drawing.Point(813, 487)
         Me.btnCSData12.Name = "btnCSData12"
         Me.btnCSData12.Size = New System.Drawing.Size(18, 21)
         Me.btnCSData12.TabIndex = 263
-        Me.btnCSData12.UseVisualStyleBackColor = false
+        Me.btnCSData12.UseVisualStyleBackColor = False
         '
         'Txt27
         '
         Me.Txt27.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt27.Location = New System.Drawing.Point(669, 488)
         Me.Txt27.Name = "Txt27"
-        Me.Txt27.ReadOnly = true
+        Me.Txt27.ReadOnly = True
         Me.Txt27.Size = New System.Drawing.Size(145, 20)
         Me.Txt27.TabIndex = 262
         '
@@ -5235,7 +5233,7 @@ Partial Class FrmGeneral
         Me.Txt26.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt26.Location = New System.Drawing.Point(830, 411)
         Me.Txt26.Name = "Txt26"
-        Me.Txt26.ReadOnly = true
+        Me.Txt26.ReadOnly = True
         Me.Txt26.Size = New System.Drawing.Size(145, 20)
         Me.Txt26.TabIndex = 261
         '
@@ -5244,7 +5242,7 @@ Partial Class FrmGeneral
         Me.Txt25.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt25.Location = New System.Drawing.Point(669, 411)
         Me.Txt25.Name = "Txt25"
-        Me.Txt25.ReadOnly = true
+        Me.Txt25.ReadOnly = True
         Me.Txt25.Size = New System.Drawing.Size(145, 20)
         Me.Txt25.TabIndex = 260
         '
@@ -5253,7 +5251,7 @@ Partial Class FrmGeneral
         Me.Txt24.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt24.Location = New System.Drawing.Point(504, 411)
         Me.Txt24.Name = "Txt24"
-        Me.Txt24.ReadOnly = true
+        Me.Txt24.ReadOnly = True
         Me.Txt24.Size = New System.Drawing.Size(145, 20)
         Me.Txt24.TabIndex = 259
         '
@@ -5262,36 +5260,36 @@ Partial Class FrmGeneral
         Me.Txt23.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.Txt23.Location = New System.Drawing.Point(343, 411)
         Me.Txt23.Name = "Txt23"
-        Me.Txt23.ReadOnly = true
+        Me.Txt23.ReadOnly = True
         Me.Txt23.Size = New System.Drawing.Size(145, 20)
         Me.Txt23.TabIndex = 258
         '
         'btnOrderR
         '
         Me.btnOrderR.BackColor = System.Drawing.Color.Transparent
-        Me.btnOrderR.BackgroundImage = CType(resources.GetObject("btnOrderR.BackgroundImage"),System.Drawing.Image)
+        Me.btnOrderR.BackgroundImage = CType(resources.GetObject("btnOrderR.BackgroundImage"), System.Drawing.Image)
         Me.btnOrderR.Location = New System.Drawing.Point(160, 251)
         Me.btnOrderR.Name = "btnOrderR"
         Me.btnOrderR.Size = New System.Drawing.Size(18, 21)
         Me.btnOrderR.TabIndex = 10
         Me.btnOrderR.Text = "..."
-        Me.btnOrderR.UseVisualStyleBackColor = false
+        Me.btnOrderR.UseVisualStyleBackColor = False
         '
         'btnTravStatusCode
         '
         Me.btnTravStatusCode.BackColor = System.Drawing.Color.Transparent
-        Me.btnTravStatusCode.BackgroundImage = CType(resources.GetObject("btnTravStatusCode.BackgroundImage"),System.Drawing.Image)
+        Me.btnTravStatusCode.BackgroundImage = CType(resources.GetObject("btnTravStatusCode.BackgroundImage"), System.Drawing.Image)
         Me.btnTravStatusCode.Location = New System.Drawing.Point(484, 182)
         Me.btnTravStatusCode.Name = "btnTravStatusCode"
         Me.btnTravStatusCode.Size = New System.Drawing.Size(18, 21)
         Me.btnTravStatusCode.TabIndex = 24
         Me.btnTravStatusCode.Text = "..."
-        Me.btnTravStatusCode.UseVisualStyleBackColor = false
+        Me.btnTravStatusCode.UseVisualStyleBackColor = False
         '
         'Label76
         '
-        Me.Label76.AutoSize = true
-        Me.Label76.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label76.AutoSize = True
+        Me.Label76.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label76.Location = New System.Drawing.Point(342, 310)
         Me.Label76.Name = "Label76"
         Me.Label76.Size = New System.Drawing.Size(106, 13)
@@ -5301,7 +5299,7 @@ Partial Class FrmGeneral
         'txtHotelReasonCD
         '
         Me.txtHotelReasonCD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtHotelReasonCD.Enabled = false
+        Me.txtHotelReasonCD.Enabled = False
         Me.txtHotelReasonCD.Location = New System.Drawing.Point(342, 326)
         Me.txtHotelReasonCD.MaxLength = 2
         Me.txtHotelReasonCD.Name = "txtHotelReasonCD"
@@ -5310,8 +5308,8 @@ Partial Class FrmGeneral
         '
         'Label77
         '
-        Me.Label77.AutoSize = true
-        Me.Label77.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label77.AutoSize = True
+        Me.Label77.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label77.Location = New System.Drawing.Point(669, 452)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(65, 13)
@@ -5321,7 +5319,7 @@ Partial Class FrmGeneral
         'txtCSData12
         '
         Me.txtCSData12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData12.Enabled = false
+        Me.txtCSData12.Enabled = False
         Me.txtCSData12.Location = New System.Drawing.Point(669, 468)
         Me.txtCSData12.Name = "txtCSData12"
         Me.txtCSData12.Size = New System.Drawing.Size(145, 20)
@@ -5329,8 +5327,8 @@ Partial Class FrmGeneral
         '
         'Label78
         '
-        Me.Label78.AutoSize = true
-        Me.Label78.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label78.AutoSize = True
+        Me.Label78.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label78.Location = New System.Drawing.Point(828, 310)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(92, 13)
@@ -5339,8 +5337,8 @@ Partial Class FrmGeneral
         '
         'Label79
         '
-        Me.Label79.AutoSize = true
-        Me.Label79.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label79.AutoSize = True
+        Me.Label79.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label79.Location = New System.Drawing.Point(667, 310)
         Me.Label79.Name = "Label79"
         Me.Label79.Size = New System.Drawing.Size(139, 13)
@@ -5349,8 +5347,8 @@ Partial Class FrmGeneral
         '
         'Label80
         '
-        Me.Label80.AutoSize = true
-        Me.Label80.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label80.AutoSize = True
+        Me.Label80.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label80.Location = New System.Drawing.Point(503, 310)
         Me.Label80.Name = "Label80"
         Me.Label80.Size = New System.Drawing.Size(101, 13)
@@ -5359,8 +5357,8 @@ Partial Class FrmGeneral
         '
         'Label82
         '
-        Me.Label82.AutoSize = true
-        Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label82.AutoSize = True
+        Me.Label82.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label82.Location = New System.Drawing.Point(830, 375)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(59, 13)
@@ -5369,8 +5367,8 @@ Partial Class FrmGeneral
         '
         'Label83
         '
-        Me.Label83.AutoSize = true
-        Me.Label83.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label83.AutoSize = True
+        Me.Label83.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label83.Location = New System.Drawing.Point(669, 375)
         Me.Label83.Name = "Label83"
         Me.Label83.Size = New System.Drawing.Size(59, 13)
@@ -5379,8 +5377,8 @@ Partial Class FrmGeneral
         '
         'Label84
         '
-        Me.Label84.AutoSize = true
-        Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label84.AutoSize = True
+        Me.Label84.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label84.Location = New System.Drawing.Point(504, 375)
         Me.Label84.Name = "Label84"
         Me.Label84.Size = New System.Drawing.Size(59, 13)
@@ -5389,8 +5387,8 @@ Partial Class FrmGeneral
         '
         'Label85
         '
-        Me.Label85.AutoSize = true
-        Me.Label85.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label85.AutoSize = True
+        Me.Label85.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label85.Location = New System.Drawing.Point(343, 375)
         Me.Label85.Name = "Label85"
         Me.Label85.Size = New System.Drawing.Size(59, 13)
@@ -5400,7 +5398,7 @@ Partial Class FrmGeneral
         'txtCSData4
         '
         Me.txtCSData4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData4.Enabled = false
+        Me.txtCSData4.Enabled = False
         Me.txtCSData4.Location = New System.Drawing.Point(830, 391)
         Me.txtCSData4.MaxLength = 15
         Me.txtCSData4.Name = "txtCSData4"
@@ -5410,7 +5408,7 @@ Partial Class FrmGeneral
         'txtCSData3
         '
         Me.txtCSData3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData3.Enabled = false
+        Me.txtCSData3.Enabled = False
         Me.txtCSData3.Location = New System.Drawing.Point(669, 391)
         Me.txtCSData3.MaxLength = 15
         Me.txtCSData3.Name = "txtCSData3"
@@ -5420,7 +5418,7 @@ Partial Class FrmGeneral
         'txtCSData2
         '
         Me.txtCSData2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData2.Enabled = false
+        Me.txtCSData2.Enabled = False
         Me.txtCSData2.Location = New System.Drawing.Point(504, 391)
         Me.txtCSData2.MaxLength = 15
         Me.txtCSData2.Name = "txtCSData2"
@@ -5430,7 +5428,7 @@ Partial Class FrmGeneral
         'txtCSData1
         '
         Me.txtCSData1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCSData1.Enabled = false
+        Me.txtCSData1.Enabled = False
         Me.txtCSData1.Location = New System.Drawing.Point(343, 391)
         Me.txtCSData1.MaxLength = 15
         Me.txtCSData1.Name = "txtCSData1"
@@ -5439,8 +5437,8 @@ Partial Class FrmGeneral
         '
         'Label86
         '
-        Me.Label86.AutoSize = true
-        Me.Label86.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label86.AutoSize = True
+        Me.Label86.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label86.Location = New System.Drawing.Point(175, 375)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(75, 13)
@@ -5449,8 +5447,8 @@ Partial Class FrmGeneral
         '
         'Label87
         '
-        Me.Label87.AutoSize = true
-        Me.Label87.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label87.AutoSize = True
+        Me.Label87.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label87.Location = New System.Drawing.Point(13, 375)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(81, 13)
@@ -5460,29 +5458,29 @@ Partial Class FrmGeneral
         'txtRecordType
         '
         Me.txtRecordType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtRecordType.Enabled = false
+        Me.txtRecordType.Enabled = False
         Me.txtRecordType.Location = New System.Drawing.Point(175, 391)
         Me.txtRecordType.MaxLength = 2
         Me.txtRecordType.Name = "txtRecordType"
-        Me.txtRecordType.ReadOnly = true
+        Me.txtRecordType.ReadOnly = True
         Me.txtRecordType.Size = New System.Drawing.Size(145, 20)
         Me.txtRecordType.TabIndex = 30
         '
         'txtCarBookedFlag
         '
         Me.txtCarBookedFlag.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCarBookedFlag.Enabled = false
+        Me.txtCarBookedFlag.Enabled = False
         Me.txtCarBookedFlag.Location = New System.Drawing.Point(828, 326)
         Me.txtCarBookedFlag.MaxLength = 1
         Me.txtCarBookedFlag.Name = "txtCarBookedFlag"
-        Me.txtCarBookedFlag.ReadOnly = true
+        Me.txtCarBookedFlag.ReadOnly = True
         Me.txtCarBookedFlag.Size = New System.Drawing.Size(145, 20)
         Me.txtCarBookedFlag.TabIndex = 28
         '
         'txtAirNoReasonCD
         '
         Me.txtAirNoReasonCD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtAirNoReasonCD.Enabled = false
+        Me.txtAirNoReasonCD.Enabled = False
         Me.txtAirNoReasonCD.Location = New System.Drawing.Point(667, 326)
         Me.txtAirNoReasonCD.MaxLength = 5
         Me.txtAirNoReasonCD.Name = "txtAirNoReasonCD"
@@ -5491,8 +5489,8 @@ Partial Class FrmGeneral
         '
         'Label90
         '
-        Me.Label90.AutoSize = true
-        Me.Label90.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label90.AutoSize = True
+        Me.Label90.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label90.Location = New System.Drawing.Point(827, 234)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(60, 13)
@@ -5501,8 +5499,8 @@ Partial Class FrmGeneral
         '
         'Label91
         '
-        Me.Label91.AutoSize = true
-        Me.Label91.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label91.AutoSize = True
+        Me.Label91.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label91.Location = New System.Drawing.Point(175, 310)
         Me.Label91.Name = "Label91"
         Me.Label91.Size = New System.Drawing.Size(63, 13)
@@ -5511,8 +5509,8 @@ Partial Class FrmGeneral
         '
         'Label92
         '
-        Me.Label92.AutoSize = true
-        Me.Label92.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label92.AutoSize = True
+        Me.Label92.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label92.Location = New System.Drawing.Point(14, 310)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(106, 13)
@@ -5522,7 +5520,7 @@ Partial Class FrmGeneral
         'txtFFLYR
         '
         Me.txtFFLYR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtFFLYR.Enabled = false
+        Me.txtFFLYR.Enabled = False
         Me.txtFFLYR.Location = New System.Drawing.Point(828, 250)
         Me.txtFFLYR.MaxLength = 15
         Me.txtFFLYR.Name = "txtFFLYR"
@@ -5532,7 +5530,7 @@ Partial Class FrmGeneral
         'txtTourCode
         '
         Me.txtTourCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTourCode.Enabled = false
+        Me.txtTourCode.Enabled = False
         Me.txtTourCode.Location = New System.Drawing.Point(175, 326)
         Me.txtTourCode.MaxLength = 15
         Me.txtTourCode.Name = "txtTourCode"
@@ -5542,7 +5540,7 @@ Partial Class FrmGeneral
         'txtStopOverTRF
         '
         Me.txtStopOverTRF.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtStopOverTRF.Enabled = false
+        Me.txtStopOverTRF.Enabled = False
         Me.txtStopOverTRF.Location = New System.Drawing.Point(14, 326)
         Me.txtStopOverTRF.MaxLength = 1
         Me.txtStopOverTRF.Name = "txtStopOverTRF"
@@ -5551,8 +5549,8 @@ Partial Class FrmGeneral
         '
         'Label93
         '
-        Me.Label93.AutoSize = true
-        Me.Label93.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label93.AutoSize = True
+        Me.Label93.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label93.Location = New System.Drawing.Point(664, 236)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(83, 13)
@@ -5561,8 +5559,8 @@ Partial Class FrmGeneral
         '
         'Label94
         '
-        Me.Label94.AutoSize = true
-        Me.Label94.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label94.AutoSize = True
+        Me.Label94.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label94.Location = New System.Drawing.Point(501, 236)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(97, 13)
@@ -5572,7 +5570,7 @@ Partial Class FrmGeneral
         'txtReasonofTrip
         '
         Me.txtReasonofTrip.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtReasonofTrip.Enabled = false
+        Me.txtReasonofTrip.Enabled = False
         Me.txtReasonofTrip.Location = New System.Drawing.Point(664, 251)
         Me.txtReasonofTrip.MaxLength = 15
         Me.txtReasonofTrip.Name = "txtReasonofTrip"
@@ -5582,7 +5580,7 @@ Partial Class FrmGeneral
         'txtMgrSuperior
         '
         Me.txtMgrSuperior.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtMgrSuperior.Enabled = false
+        Me.txtMgrSuperior.Enabled = False
         Me.txtMgrSuperior.Location = New System.Drawing.Point(501, 251)
         Me.txtMgrSuperior.MaxLength = 15
         Me.txtMgrSuperior.Name = "txtMgrSuperior"
@@ -5591,8 +5589,8 @@ Partial Class FrmGeneral
         '
         'Label95
         '
-        Me.Label95.AutoSize = true
-        Me.Label95.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label95.AutoSize = True
+        Me.Label95.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label95.Location = New System.Drawing.Point(340, 235)
         Me.Label95.Name = "Label95"
         Me.Label95.Size = New System.Drawing.Size(84, 13)
@@ -5602,7 +5600,7 @@ Partial Class FrmGeneral
         'txtApproverCode
         '
         Me.txtApproverCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtApproverCode.Enabled = false
+        Me.txtApproverCode.Enabled = False
         Me.txtApproverCode.Location = New System.Drawing.Point(340, 251)
         Me.txtApproverCode.MaxLength = 15
         Me.txtApproverCode.Name = "txtApproverCode"
@@ -5612,7 +5610,7 @@ Partial Class FrmGeneral
         'txtApprover
         '
         Me.txtApprover.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtApprover.Enabled = false
+        Me.txtApprover.Enabled = False
         Me.txtApprover.Location = New System.Drawing.Point(175, 251)
         Me.txtApprover.MaxLength = 15
         Me.txtApprover.Name = "txtApprover"
@@ -5621,8 +5619,8 @@ Partial Class FrmGeneral
         '
         'Label96
         '
-        Me.Label96.AutoSize = true
-        Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label96.AutoSize = True
+        Me.Label96.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label96.Location = New System.Drawing.Point(175, 235)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(56, 13)
@@ -5631,8 +5629,8 @@ Partial Class FrmGeneral
         '
         'Label97
         '
-        Me.Label97.AutoSize = true
-        Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label97.AutoSize = True
+        Me.Label97.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label97.Location = New System.Drawing.Point(14, 235)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(92, 13)
@@ -5642,7 +5640,7 @@ Partial Class FrmGeneral
         'txtOrderRef
         '
         Me.txtOrderRef.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtOrderRef.Enabled = false
+        Me.txtOrderRef.Enabled = False
         Me.txtOrderRef.Location = New System.Drawing.Point(14, 251)
         Me.txtOrderRef.MaxLength = 15
         Me.txtOrderRef.Name = "txtOrderRef"
@@ -5652,7 +5650,7 @@ Partial Class FrmGeneral
         'txtDeptNo
         '
         Me.txtDeptNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDeptNo.Enabled = false
+        Me.txtDeptNo.Enabled = False
         Me.txtDeptNo.Location = New System.Drawing.Point(826, 183)
         Me.txtDeptNo.MaxLength = 15
         Me.txtDeptNo.Name = "txtDeptNo"
@@ -5661,8 +5659,8 @@ Partial Class FrmGeneral
         '
         'Label98
         '
-        Me.Label98.AutoSize = true
-        Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label98.AutoSize = True
+        Me.Label98.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label98.Location = New System.Drawing.Point(826, 167)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(79, 13)
@@ -5672,7 +5670,7 @@ Partial Class FrmGeneral
         'txtProjectNo
         '
         Me.txtProjectNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtProjectNo.Enabled = false
+        Me.txtProjectNo.Enabled = False
         Me.txtProjectNo.Location = New System.Drawing.Point(664, 183)
         Me.txtProjectNo.MaxLength = 15
         Me.txtProjectNo.Name = "txtProjectNo"
@@ -5681,8 +5679,8 @@ Partial Class FrmGeneral
         '
         'Label99
         '
-        Me.Label99.AutoSize = true
-        Me.Label99.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label99.AutoSize = True
+        Me.Label99.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label99.Location = New System.Drawing.Point(664, 167)
         Me.Label99.Name = "Label99"
         Me.Label99.Size = New System.Drawing.Size(86, 13)
@@ -5692,7 +5690,7 @@ Partial Class FrmGeneral
         'txtCostCenterCode
         '
         Me.txtCostCenterCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCostCenterCode.Enabled = false
+        Me.txtCostCenterCode.Enabled = False
         Me.txtCostCenterCode.Location = New System.Drawing.Point(501, 183)
         Me.txtCostCenterCode.MaxLength = 15
         Me.txtCostCenterCode.Name = "txtCostCenterCode"
@@ -5701,8 +5699,8 @@ Partial Class FrmGeneral
         '
         'Label100
         '
-        Me.Label100.AutoSize = true
-        Me.Label100.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label100.AutoSize = True
+        Me.Label100.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label100.Location = New System.Drawing.Point(501, 167)
         Me.Label100.Name = "Label100"
         Me.Label100.Size = New System.Drawing.Size(96, 13)
@@ -5711,8 +5709,8 @@ Partial Class FrmGeneral
         '
         'Label101
         '
-        Me.Label101.AutoSize = true
-        Me.Label101.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label101.AutoSize = True
+        Me.Label101.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label101.Location = New System.Drawing.Point(340, 167)
         Me.Label101.Name = "Label101"
         Me.Label101.Size = New System.Drawing.Size(87, 13)
@@ -5722,7 +5720,7 @@ Partial Class FrmGeneral
         'txtTravellerStat
         '
         Me.txtTravellerStat.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTravellerStat.Enabled = false
+        Me.txtTravellerStat.Enabled = False
         Me.txtTravellerStat.Location = New System.Drawing.Point(340, 183)
         Me.txtTravellerStat.MaxLength = 15
         Me.txtTravellerStat.Name = "txtTravellerStat"
@@ -5732,7 +5730,7 @@ Partial Class FrmGeneral
         'txtTravellerName
         '
         Me.txtTravellerName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtTravellerName.Enabled = false
+        Me.txtTravellerName.Enabled = False
         Me.txtTravellerName.Location = New System.Drawing.Point(14, 183)
         Me.txtTravellerName.MaxLength = 30
         Me.txtTravellerName.Name = "txtTravellerName"
@@ -5741,8 +5739,8 @@ Partial Class FrmGeneral
         '
         'Label102
         '
-        Me.Label102.AutoSize = true
-        Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label102.AutoSize = True
+        Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label102.Location = New System.Drawing.Point(14, 167)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(85, 13)
@@ -5752,7 +5750,7 @@ Partial Class FrmGeneral
         'txtEmployeeNo
         '
         Me.txtEmployeeNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtEmployeeNo.Enabled = false
+        Me.txtEmployeeNo.Enabled = False
         Me.txtEmployeeNo.Location = New System.Drawing.Point(832, 108)
         Me.txtEmployeeNo.MaxLength = 15
         Me.txtEmployeeNo.Name = "txtEmployeeNo"
@@ -5761,8 +5759,8 @@ Partial Class FrmGeneral
         '
         'Label103
         '
-        Me.Label103.AutoSize = true
-        Me.Label103.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label103.AutoSize = True
+        Me.Label103.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label103.Location = New System.Drawing.Point(829, 92)
         Me.Label103.Name = "Label103"
         Me.Label103.Size = New System.Drawing.Size(76, 13)
@@ -5771,7 +5769,7 @@ Partial Class FrmGeneral
         '
         'txtLocalCustNo
         '
-        Me.txtLocalCustNo.Enabled = false
+        Me.txtLocalCustNo.Enabled = False
         Me.txtLocalCustNo.Location = New System.Drawing.Point(573, 109)
         Me.txtLocalCustNo.Name = "txtLocalCustNo"
         Me.txtLocalCustNo.Size = New System.Drawing.Size(116, 20)
@@ -5779,8 +5777,8 @@ Partial Class FrmGeneral
         '
         'Label104
         '
-        Me.Label104.AutoSize = true
-        Me.Label104.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label104.AutoSize = True
+        Me.Label104.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label104.Location = New System.Drawing.Point(570, 93)
         Me.Label104.Name = "Label104"
         Me.Label104.Size = New System.Drawing.Size(80, 13)
@@ -5789,7 +5787,7 @@ Partial Class FrmGeneral
         '
         'txtGlobalCustNo
         '
-        Me.txtGlobalCustNo.Enabled = false
+        Me.txtGlobalCustNo.Enabled = False
         Me.txtGlobalCustNo.Location = New System.Drawing.Point(693, 108)
         Me.txtGlobalCustNo.Name = "txtGlobalCustNo"
         Me.txtGlobalCustNo.Size = New System.Drawing.Size(136, 20)
@@ -5797,8 +5795,8 @@ Partial Class FrmGeneral
         '
         'Label105
         '
-        Me.Label105.AutoSize = true
-        Me.Label105.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label105.AutoSize = True
+        Me.Label105.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label105.Location = New System.Drawing.Point(691, 92)
         Me.Label105.Name = "Label105"
         Me.Label105.Size = New System.Drawing.Size(84, 13)
@@ -5807,7 +5805,7 @@ Partial Class FrmGeneral
         '
         'cboClientName
         '
-        Me.cboClientName.FormattingEnabled = true
+        Me.cboClientName.FormattingEnabled = True
         Me.cboClientName.Location = New System.Drawing.Point(18, 108)
         Me.cboClientName.Name = "cboClientName"
         Me.cboClientName.Size = New System.Drawing.Size(254, 21)
@@ -5815,8 +5813,8 @@ Partial Class FrmGeneral
         '
         'Label106
         '
-        Me.Label106.AutoSize = true
-        Me.Label106.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label106.AutoSize = True
+        Me.Label106.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label106.Location = New System.Drawing.Point(17, 92)
         Me.Label106.Name = "Label106"
         Me.Label106.Size = New System.Drawing.Size(70, 13)
@@ -5825,7 +5823,7 @@ Partial Class FrmGeneral
         '
         'txtHotelBookedF
         '
-        Me.txtHotelBookedF.FormattingEnabled = true
+        Me.txtHotelBookedF.FormattingEnabled = True
         Me.txtHotelBookedF.Items.AddRange(New Object() {"Y", "N"})
         Me.txtHotelBookedF.Location = New System.Drawing.Point(503, 326)
         Me.txtHotelBookedF.Name = "txtHotelBookedF"
@@ -5834,7 +5832,7 @@ Partial Class FrmGeneral
         '
         'txtCarBookedFlag_N
         '
-        Me.txtCarBookedFlag_N.FormattingEnabled = true
+        Me.txtCarBookedFlag_N.FormattingEnabled = True
         Me.txtCarBookedFlag_N.Items.AddRange(New Object() {"Y", "N"})
         Me.txtCarBookedFlag_N.Location = New System.Drawing.Point(827, 326)
         Me.txtCarBookedFlag_N.Name = "txtCarBookedFlag_N"
@@ -5843,7 +5841,7 @@ Partial Class FrmGeneral
         '
         'RecordType_F
         '
-        Me.RecordType_F.FormattingEnabled = true
+        Me.RecordType_F.FormattingEnabled = True
         Me.RecordType_F.Items.AddRange(New Object() {"SH = Air Only", "HS = Hotel Only", "CS = Car Only", "SH-HS = Air & Hotel Only", "SH-CS = Air & Car Only", "SH-HS-CS = Air & Hotel & Car"})
         Me.RecordType_F.Location = New System.Drawing.Point(175, 391)
         Me.RecordType_F.Name = "RecordType_F"
@@ -5852,7 +5850,7 @@ Partial Class FrmGeneral
         '
         'txtTourCode_N
         '
-        Me.txtTourCode_N.FormattingEnabled = true
+        Me.txtTourCode_N.FormattingEnabled = True
         Me.txtTourCode_N.Items.AddRange(New Object() {"NOCODE"})
         Me.txtTourCode_N.Location = New System.Drawing.Point(177, 326)
         Me.txtTourCode_N.Name = "txtTourCode_N"
@@ -5886,7 +5884,7 @@ Partial Class FrmGeneral
         Me.btnConvert.Size = New System.Drawing.Size(72, 22)
         Me.btnConvert.TabIndex = 114
         Me.btnConvert.Text = "Convert"
-        Me.btnConvert.UseVisualStyleBackColor = false
+        Me.btnConvert.UseVisualStyleBackColor = False
         '
         'btnRetain
         '
@@ -5897,12 +5895,12 @@ Partial Class FrmGeneral
         Me.btnRetain.Size = New System.Drawing.Size(72, 22)
         Me.btnRetain.TabIndex = 113
         Me.btnRetain.Text = "Retain PNR"
-        Me.btnRetain.UseVisualStyleBackColor = false
+        Me.btnRetain.UseVisualStyleBackColor = False
         '
         'Label137
         '
-        Me.Label137.AutoSize = true
-        Me.Label137.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label137.AutoSize = True
+        Me.Label137.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label137.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label137.Location = New System.Drawing.Point(947, 496)
         Me.Label137.Name = "Label137"
@@ -5914,10 +5912,10 @@ Partial Class FrmGeneral
         '
         Me.rtxtAbacus.BackColor = System.Drawing.Color.White
         Me.rtxtAbacus.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.rtxtAbacus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.rtxtAbacus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtxtAbacus.Location = New System.Drawing.Point(24, 51)
         Me.rtxtAbacus.Name = "rtxtAbacus"
-        Me.rtxtAbacus.ReadOnly = true
+        Me.rtxtAbacus.ReadOnly = True
         Me.rtxtAbacus.Size = New System.Drawing.Size(527, 399)
         Me.rtxtAbacus.TabIndex = 104
         Me.rtxtAbacus.Text = ""
@@ -5932,7 +5930,7 @@ Partial Class FrmGeneral
         '
         Me.CopyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C),System.Windows.Forms.Keys)
+        Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
         Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.CopyToolStripMenuItem.Text = "Copy"
         '
@@ -5940,23 +5938,23 @@ Partial Class FrmGeneral
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
         Me.GroupBox1.Controls.Add(Me.AbacusSmartKeys)
-        Me.GroupBox1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox1.Location = New System.Drawing.Point(557, 43)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(422, 407)
         Me.GroupBox1.TabIndex = 102
-        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "To SMART keys"
         '
         'AbacusSmartKeys
         '
         Me.AbacusSmartKeys.BackColor = System.Drawing.Color.White
         Me.AbacusSmartKeys.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.AbacusSmartKeys.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.AbacusSmartKeys.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AbacusSmartKeys.Location = New System.Drawing.Point(11, 22)
         Me.AbacusSmartKeys.Name = "AbacusSmartKeys"
-        Me.AbacusSmartKeys.ReadOnly = true
+        Me.AbacusSmartKeys.ReadOnly = True
         Me.AbacusSmartKeys.Size = New System.Drawing.Size(398, 367)
         Me.AbacusSmartKeys.TabIndex = 103
         Me.AbacusSmartKeys.Text = ""
@@ -5967,18 +5965,18 @@ Partial Class FrmGeneral
         Me.btnEraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEraser.ForeColor = System.Drawing.Color.White
-        Me.btnEraser.Image = CType(resources.GetObject("btnEraser.Image"),System.Drawing.Image)
+        Me.btnEraser.Image = CType(resources.GetObject("btnEraser.Image"), System.Drawing.Image)
         Me.btnEraser.Location = New System.Drawing.Point(930, 461)
         Me.btnEraser.Name = "btnEraser"
         Me.btnEraser.Size = New System.Drawing.Size(49, 37)
         Me.btnEraser.TabIndex = 3
-        Me.btnEraser.UseVisualStyleBackColor = false
+        Me.btnEraser.UseVisualStyleBackColor = False
         '
         'Label107
         '
-        Me.Label107.AutoSize = true
-        Me.Label107.Font = New System.Drawing.Font("Calibri", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label107.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label107.AutoSize = True
+        Me.Label107.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label107.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label107.Location = New System.Drawing.Point(63, 21)
         Me.Label107.Name = "Label107"
         Me.Label107.Size = New System.Drawing.Size(196, 19)
@@ -5987,12 +5985,12 @@ Partial Class FrmGeneral
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"),System.Drawing.Image)
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(24, 10)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(36, 35)
         Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = false
+        Me.PictureBox1.TabStop = False
         '
         'TabPage6
         '
@@ -6000,7 +5998,7 @@ Partial Class FrmGeneral
         Me.TabPage6.Controls.Add(Me.ControlBox_Close)
         Me.TabPage6.Controls.Add(Me.GroupBox5)
         Me.TabPage6.Controls.Add(Me.GroupBox4)
-        Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.TabPage6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.TabPage6.Location = New System.Drawing.Point(4, 49)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
@@ -6014,7 +6012,7 @@ Partial Class FrmGeneral
         Me.ControlBox_Close.Name = "ControlBox_Close"
         Me.ControlBox_Close.Size = New System.Drawing.Size(982, 501)
         Me.ControlBox_Close.TabIndex = 2
-        Me.ControlBox_Close.TabStop = false
+        Me.ControlBox_Close.TabStop = False
         '
         'GroupBox5
         '
@@ -6057,17 +6055,17 @@ Partial Class FrmGeneral
         Me.GroupBox5.Controls.Add(Me.txtGDS_AgentSet)
         Me.GroupBox5.Controls.Add(Me.txtLastName_AgentSet)
         Me.GroupBox5.Controls.Add(Me.txtFirstName_AgentSet)
-        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox5.Location = New System.Drawing.Point(466, 10)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(521, 499)
         Me.GroupBox5.TabIndex = 1
-        Me.GroupBox5.TabStop = false
+        Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "User Settings :"
         '
         'txtGDSPassword
         '
-        Me.txtGDSPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtGDSPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGDSPassword.Location = New System.Drawing.Point(405, 161)
         Me.txtGDSPassword.Name = "txtGDSPassword"
         Me.txtGDSPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -6076,7 +6074,7 @@ Partial Class FrmGeneral
         '
         'txtCreditAccess
         '
-        Me.txtCreditAccess.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCreditAccess.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCreditAccess.Location = New System.Drawing.Point(300, 161)
         Me.txtCreditAccess.Name = "txtCreditAccess"
         Me.txtCreditAccess.Size = New System.Drawing.Size(96, 20)
@@ -6084,9 +6082,9 @@ Partial Class FrmGeneral
         '
         'Label171
         '
-        Me.Label171.AutoSize = true
-        Me.Label171.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label171.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label171.AutoSize = True
+        Me.Label171.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label171.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label171.Location = New System.Drawing.Point(405, 146)
         Me.Label171.Name = "Label171"
         Me.Label171.Size = New System.Drawing.Size(74, 12)
@@ -6095,9 +6093,9 @@ Partial Class FrmGeneral
         '
         'Label170
         '
-        Me.Label170.AutoSize = true
-        Me.Label170.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label170.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label170.AutoSize = True
+        Me.Label170.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label170.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label170.Location = New System.Drawing.Point(301, 146)
         Me.Label170.Name = "Label170"
         Me.Label170.Size = New System.Drawing.Size(69, 12)
@@ -6106,9 +6104,9 @@ Partial Class FrmGeneral
         '
         'Label156
         '
-        Me.Label156.AutoSize = true
+        Me.Label156.AutoSize = True
         Me.Label156.BackColor = System.Drawing.Color.Transparent
-        Me.Label156.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label156.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label156.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label156.Location = New System.Drawing.Point(41, 250)
         Me.Label156.Name = "Label156"
@@ -6142,25 +6140,25 @@ Partial Class FrmGeneral
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(495, 191)
         Me.GroupBox6.TabIndex = 98
-        Me.GroupBox6.TabStop = false
+        Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Access Level"
         '
         'chkMandatory
         '
-        Me.chkMandatory.AutoSize = true
-        Me.chkMandatory.Enabled = false
-        Me.chkMandatory.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkMandatory.AutoSize = True
+        Me.chkMandatory.Enabled = False
+        Me.chkMandatory.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkMandatory.Location = New System.Drawing.Point(303, 71)
         Me.chkMandatory.Name = "chkMandatory"
         Me.chkMandatory.Size = New System.Drawing.Size(91, 16)
         Me.chkMandatory.TabIndex = 96
         Me.chkMandatory.Text = "Mandatory Field"
-        Me.chkMandatory.UseVisualStyleBackColor = true
+        Me.chkMandatory.UseVisualStyleBackColor = True
         '
         'Label155
         '
-        Me.Label155.AutoSize = true
-        Me.Label155.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label155.AutoSize = True
+        Me.Label155.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label155.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label155.Location = New System.Drawing.Point(379, 174)
         Me.Label155.Name = "Label155"
@@ -6171,7 +6169,7 @@ Partial Class FrmGeneral
         'btnClearLevel_Access
         '
         Me.btnClearLevel_Access.BackColor = System.Drawing.Color.White
-        Me.btnClearLevel_Access.BackgroundImage = CType(resources.GetObject("btnClearLevel_Access.BackgroundImage"),System.Drawing.Image)
+        Me.btnClearLevel_Access.BackgroundImage = CType(resources.GetObject("btnClearLevel_Access.BackgroundImage"), System.Drawing.Image)
         Me.btnClearLevel_Access.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClearLevel_Access.ForeColor = System.Drawing.Color.White
         Me.btnClearLevel_Access.Location = New System.Drawing.Point(456, 140)
@@ -6179,75 +6177,75 @@ Partial Class FrmGeneral
         Me.btnClearLevel_Access.Size = New System.Drawing.Size(33, 33)
         Me.btnClearLevel_Access.TabIndex = 67
         Me.btnClearLevel_Access.Text = " "
-        Me.btnClearLevel_Access.UseVisualStyleBackColor = false
+        Me.btnClearLevel_Access.UseVisualStyleBackColor = False
         '
         'btnSaveLevel_Access
         '
         Me.btnSaveLevel_Access.BackColor = System.Drawing.Color.White
-        Me.btnSaveLevel_Access.BackgroundImage = CType(resources.GetObject("btnSaveLevel_Access.BackgroundImage"),System.Drawing.Image)
+        Me.btnSaveLevel_Access.BackgroundImage = CType(resources.GetObject("btnSaveLevel_Access.BackgroundImage"), System.Drawing.Image)
         Me.btnSaveLevel_Access.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSaveLevel_Access.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnSaveLevel_Access.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveLevel_Access.ForeColor = System.Drawing.Color.White
         Me.btnSaveLevel_Access.Location = New System.Drawing.Point(420, 141)
         Me.btnSaveLevel_Access.Name = "btnSaveLevel_Access"
         Me.btnSaveLevel_Access.Size = New System.Drawing.Size(33, 33)
         Me.btnSaveLevel_Access.TabIndex = 66
-        Me.btnSaveLevel_Access.UseVisualStyleBackColor = false
+        Me.btnSaveLevel_Access.UseVisualStyleBackColor = False
         '
         'btnEditLevel_Acces
         '
         Me.btnEditLevel_Acces.BackColor = System.Drawing.Color.White
-        Me.btnEditLevel_Acces.BackgroundImage = CType(resources.GetObject("btnEditLevel_Acces.BackgroundImage"),System.Drawing.Image)
+        Me.btnEditLevel_Acces.BackgroundImage = CType(resources.GetObject("btnEditLevel_Acces.BackgroundImage"), System.Drawing.Image)
         Me.btnEditLevel_Acces.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditLevel_Acces.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnEditLevel_Acces.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEditLevel_Acces.ForeColor = System.Drawing.Color.White
         Me.btnEditLevel_Acces.Location = New System.Drawing.Point(381, 141)
         Me.btnEditLevel_Acces.Name = "btnEditLevel_Acces"
         Me.btnEditLevel_Acces.Size = New System.Drawing.Size(33, 33)
         Me.btnEditLevel_Acces.TabIndex = 65
-        Me.btnEditLevel_Acces.UseVisualStyleBackColor = false
+        Me.btnEditLevel_Acces.UseVisualStyleBackColor = False
         '
         'chkBillTo_Set
         '
-        Me.chkBillTo_Set.AutoSize = true
-        Me.chkBillTo_Set.Enabled = false
-        Me.chkBillTo_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkBillTo_Set.AutoSize = True
+        Me.chkBillTo_Set.Enabled = False
+        Me.chkBillTo_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkBillTo_Set.Location = New System.Drawing.Point(303, 127)
         Me.chkBillTo_Set.Name = "chkBillTo_Set"
         Me.chkBillTo_Set.Size = New System.Drawing.Size(48, 16)
         Me.chkBillTo_Set.TabIndex = 63
         Me.chkBillTo_Set.Text = "Bill To"
-        Me.chkBillTo_Set.UseVisualStyleBackColor = true
+        Me.chkBillTo_Set.UseVisualStyleBackColor = True
         '
         'chkVName_set
         '
-        Me.chkVName_set.AutoSize = true
-        Me.chkVName_set.Enabled = false
-        Me.chkVName_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkVName_set.AutoSize = True
+        Me.chkVName_set.Enabled = False
+        Me.chkVName_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkVName_set.Location = New System.Drawing.Point(303, 109)
         Me.chkVName_set.Name = "chkVName_set"
         Me.chkVName_set.Size = New System.Drawing.Size(80, 16)
         Me.chkVName_set.TabIndex = 61
         Me.chkVName_set.Text = "Vessel Name"
-        Me.chkVName_set.UseVisualStyleBackColor = true
+        Me.chkVName_set.UseVisualStyleBackColor = True
         '
         'chkClientName_Set
         '
-        Me.chkClientName_Set.AutoSize = true
-        Me.chkClientName_Set.Enabled = false
-        Me.chkClientName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkClientName_Set.AutoSize = True
+        Me.chkClientName_Set.Enabled = False
+        Me.chkClientName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkClientName_Set.Location = New System.Drawing.Point(303, 91)
         Me.chkClientName_Set.Name = "chkClientName_Set"
         Me.chkClientName_Set.Size = New System.Drawing.Size(75, 16)
         Me.chkClientName_Set.TabIndex = 59
         Me.chkClientName_Set.Text = "Client Name"
-        Me.chkClientName_Set.UseVisualStyleBackColor = true
+        Me.chkClientName_Set.UseVisualStyleBackColor = True
         '
         'Label152
         '
-        Me.Label152.AutoSize = true
+        Me.Label152.AutoSize = True
         Me.Label152.BackColor = System.Drawing.Color.White
-        Me.Label152.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label152.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label152.ForeColor = System.Drawing.Color.Red
         Me.Label152.Location = New System.Drawing.Point(15, 27)
         Me.Label152.Name = "Label152"
@@ -6257,8 +6255,8 @@ Partial Class FrmGeneral
         '
         'cboAccessLevel
         '
-        Me.cboAccessLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboAccessLevel.FormattingEnabled = true
+        Me.cboAccessLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboAccessLevel.FormattingEnabled = True
         Me.cboAccessLevel.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
         Me.cboAccessLevel.Location = New System.Drawing.Point(69, 24)
         Me.cboAccessLevel.Name = "cboAccessLevel"
@@ -6267,34 +6265,34 @@ Partial Class FrmGeneral
         '
         'chkVesselName_Set
         '
-        Me.chkVesselName_Set.AutoSize = true
-        Me.chkVesselName_Set.Enabled = false
-        Me.chkVesselName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkVesselName_Set.AutoSize = True
+        Me.chkVesselName_Set.Enabled = False
+        Me.chkVesselName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkVesselName_Set.Location = New System.Drawing.Point(24, 127)
         Me.chkVesselName_Set.Name = "chkVesselName_Set"
         Me.chkVesselName_Set.Size = New System.Drawing.Size(80, 16)
         Me.chkVesselName_Set.TabIndex = 48
         Me.chkVesselName_Set.Text = "Vessel Name"
-        Me.chkVesselName_Set.UseVisualStyleBackColor = true
+        Me.chkVesselName_Set.UseVisualStyleBackColor = True
         '
         'chkTKTL_set
         '
-        Me.chkTKTL_set.AutoSize = true
-        Me.chkTKTL_set.Enabled = false
-        Me.chkTKTL_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkTKTL_set.AutoSize = True
+        Me.chkTKTL_set.Enabled = False
+        Me.chkTKTL_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkTKTL_set.Location = New System.Drawing.Point(193, 127)
         Me.chkTKTL_set.Name = "chkTKTL_set"
         Me.chkTKTL_set.Size = New System.Drawing.Size(45, 16)
         Me.chkTKTL_set.TabIndex = 47
         Me.chkTKTL_set.Text = "TKTL"
-        Me.chkTKTL_set.UseVisualStyleBackColor = true
+        Me.chkTKTL_set.UseVisualStyleBackColor = True
         '
         'Label153
         '
-        Me.Label153.AutoSize = true
+        Me.Label153.AutoSize = True
         Me.Label153.BackColor = System.Drawing.Color.White
-        Me.Label153.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label153.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label153.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label153.Location = New System.Drawing.Point(188, 55)
         Me.Label153.Name = "Label153"
         Me.Label153.Size = New System.Drawing.Size(60, 13)
@@ -6303,70 +6301,70 @@ Partial Class FrmGeneral
         '
         'chkReceivedFrom_Set
         '
-        Me.chkReceivedFrom_Set.AutoSize = true
-        Me.chkReceivedFrom_Set.Enabled = false
-        Me.chkReceivedFrom_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkReceivedFrom_Set.AutoSize = True
+        Me.chkReceivedFrom_Set.Enabled = False
+        Me.chkReceivedFrom_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkReceivedFrom_Set.Location = New System.Drawing.Point(193, 109)
         Me.chkReceivedFrom_Set.Name = "chkReceivedFrom_Set"
         Me.chkReceivedFrom_Set.Size = New System.Drawing.Size(88, 16)
         Me.chkReceivedFrom_Set.TabIndex = 45
         Me.chkReceivedFrom_Set.Text = "Received From"
-        Me.chkReceivedFrom_Set.UseVisualStyleBackColor = true
+        Me.chkReceivedFrom_Set.UseVisualStyleBackColor = True
         '
         'chkCompleat_Set
         '
-        Me.chkCompleat_Set.AutoSize = true
-        Me.chkCompleat_Set.Enabled = false
-        Me.chkCompleat_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkCompleat_Set.AutoSize = True
+        Me.chkCompleat_Set.Enabled = False
+        Me.chkCompleat_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkCompleat_Set.Location = New System.Drawing.Point(193, 91)
         Me.chkCompleat_Set.Name = "chkCompleat_Set"
         Me.chkCompleat_Set.Size = New System.Drawing.Size(76, 16)
         Me.chkCompleat_Set.TabIndex = 44
         Me.chkCompleat_Set.Text = "COMPLEAT"
-        Me.chkCompleat_Set.UseVisualStyleBackColor = true
+        Me.chkCompleat_Set.UseVisualStyleBackColor = True
         '
         'chkPhoneElement_Set
         '
-        Me.chkPhoneElement_Set.AutoSize = true
-        Me.chkPhoneElement_Set.Enabled = false
-        Me.chkPhoneElement_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkPhoneElement_Set.AutoSize = True
+        Me.chkPhoneElement_Set.Enabled = False
+        Me.chkPhoneElement_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkPhoneElement_Set.Location = New System.Drawing.Point(193, 73)
         Me.chkPhoneElement_Set.Name = "chkPhoneElement_Set"
         Me.chkPhoneElement_Set.Size = New System.Drawing.Size(86, 16)
         Me.chkPhoneElement_Set.TabIndex = 43
         Me.chkPhoneElement_Set.Text = "Phone Element"
-        Me.chkPhoneElement_Set.UseVisualStyleBackColor = true
+        Me.chkPhoneElement_Set.UseVisualStyleBackColor = True
         '
         'chk_BookingAgent_Set
         '
-        Me.chk_BookingAgent_Set.AutoSize = true
-        Me.chk_BookingAgent_Set.Enabled = false
-        Me.chk_BookingAgent_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chk_BookingAgent_Set.AutoSize = True
+        Me.chk_BookingAgent_Set.Enabled = False
+        Me.chk_BookingAgent_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chk_BookingAgent_Set.Location = New System.Drawing.Point(24, 109)
         Me.chk_BookingAgent_Set.Name = "chk_BookingAgent_Set"
         Me.chk_BookingAgent_Set.Size = New System.Drawing.Size(84, 16)
         Me.chk_BookingAgent_Set.TabIndex = 42
         Me.chk_BookingAgent_Set.Text = "Booking Agent"
-        Me.chk_BookingAgent_Set.UseVisualStyleBackColor = true
+        Me.chk_BookingAgent_Set.UseVisualStyleBackColor = True
         '
         'chkDiv_Set
         '
-        Me.chkDiv_Set.AutoSize = true
-        Me.chkDiv_Set.Enabled = false
-        Me.chkDiv_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkDiv_Set.AutoSize = True
+        Me.chkDiv_Set.Enabled = False
+        Me.chkDiv_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkDiv_Set.Location = New System.Drawing.Point(24, 91)
         Me.chkDiv_Set.Name = "chkDiv_Set"
         Me.chkDiv_Set.Size = New System.Drawing.Size(72, 16)
         Me.chkDiv_Set.TabIndex = 41
         Me.chkDiv_Set.Text = "Division No"
-        Me.chkDiv_Set.UseVisualStyleBackColor = true
+        Me.chkDiv_Set.UseVisualStyleBackColor = True
         '
         'Label154
         '
-        Me.Label154.AutoSize = true
+        Me.Label154.AutoSize = True
         Me.Label154.BackColor = System.Drawing.Color.White
-        Me.Label154.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label154.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label154.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label154.Location = New System.Drawing.Point(19, 55)
         Me.Label154.Name = "Label154"
         Me.Label154.Size = New System.Drawing.Size(130, 13)
@@ -6375,29 +6373,29 @@ Partial Class FrmGeneral
         '
         'chkClientNo_Set
         '
-        Me.chkClientNo_Set.AutoSize = true
-        Me.chkClientNo_Set.Enabled = false
-        Me.chkClientNo_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.chkClientNo_Set.AutoSize = True
+        Me.chkClientNo_Set.Enabled = False
+        Me.chkClientNo_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkClientNo_Set.Location = New System.Drawing.Point(24, 73)
         Me.chkClientNo_Set.Name = "chkClientNo_Set"
         Me.chkClientNo_Set.Size = New System.Drawing.Size(62, 16)
         Me.chkClientNo_Set.TabIndex = 39
         Me.chkClientNo_Set.Text = "Client No"
-        Me.chkClientNo_Set.UseVisualStyleBackColor = true
+        Me.chkClientNo_Set.UseVisualStyleBackColor = True
         '
         'btnListofAgent_AgentSet
         '
-        Me.btnListofAgent_AgentSet.BackgroundImage = CType(resources.GetObject("btnListofAgent_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnListofAgent_AgentSet.BackgroundImage = CType(resources.GetObject("btnListofAgent_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnListofAgent_AgentSet.Location = New System.Drawing.Point(19, 238)
         Me.btnListofAgent_AgentSet.Name = "btnListofAgent_AgentSet"
         Me.btnListofAgent_AgentSet.Size = New System.Drawing.Size(98, 35)
         Me.btnListofAgent_AgentSet.TabIndex = 97
-        Me.btnListofAgent_AgentSet.UseVisualStyleBackColor = true
+        Me.btnListofAgent_AgentSet.UseVisualStyleBackColor = True
         '
         'Label151
         '
-        Me.Label151.AutoSize = true
-        Me.Label151.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label151.AutoSize = True
+        Me.Label151.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label151.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label151.Location = New System.Drawing.Point(323, 274)
         Me.Label151.Name = "Label151"
@@ -6408,8 +6406,8 @@ Partial Class FrmGeneral
         'cboLevel_AgentSet
         '
         Me.cboLevel_AgentSet.DropDownWidth = 100
-        Me.cboLevel_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboLevel_AgentSet.FormattingEnabled = true
+        Me.cboLevel_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboLevel_AgentSet.FormattingEnabled = True
         Me.cboLevel_AgentSet.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
         Me.cboLevel_AgentSet.Location = New System.Drawing.Point(405, 120)
         Me.cboLevel_AgentSet.Name = "cboLevel_AgentSet"
@@ -6418,9 +6416,9 @@ Partial Class FrmGeneral
         '
         'Label138
         '
-        Me.Label138.AutoSize = true
-        Me.Label138.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label138.AutoSize = True
+        Me.Label138.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label138.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label138.Location = New System.Drawing.Point(405, 106)
         Me.Label138.Name = "Label138"
         Me.Label138.Size = New System.Drawing.Size(33, 12)
@@ -6430,19 +6428,19 @@ Partial Class FrmGeneral
         'btnSave_AgentSet
         '
         Me.btnSave_AgentSet.BackColor = System.Drawing.Color.White
-        Me.btnSave_AgentSet.BackgroundImage = CType(resources.GetObject("btnSave_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnSave_AgentSet.BackgroundImage = CType(resources.GetObject("btnSave_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnSave_AgentSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave_AgentSet.ForeColor = System.Drawing.Color.White
         Me.btnSave_AgentSet.Location = New System.Drawing.Point(396, 238)
         Me.btnSave_AgentSet.Name = "btnSave_AgentSet"
         Me.btnSave_AgentSet.Size = New System.Drawing.Size(33, 33)
         Me.btnSave_AgentSet.TabIndex = 84
-        Me.btnSave_AgentSet.UseVisualStyleBackColor = false
+        Me.btnSave_AgentSet.UseVisualStyleBackColor = False
         '
         'btnClear_AgentSet
         '
         Me.btnClear_AgentSet.BackColor = System.Drawing.Color.White
-        Me.btnClear_AgentSet.BackgroundImage = CType(resources.GetObject("btnClear_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnClear_AgentSet.BackgroundImage = CType(resources.GetObject("btnClear_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnClear_AgentSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear_AgentSet.ForeColor = System.Drawing.Color.White
         Me.btnClear_AgentSet.Location = New System.Drawing.Point(434, 238)
@@ -6450,49 +6448,49 @@ Partial Class FrmGeneral
         Me.btnClear_AgentSet.Size = New System.Drawing.Size(33, 33)
         Me.btnClear_AgentSet.TabIndex = 85
         Me.btnClear_AgentSet.Text = "&Clear"
-        Me.btnClear_AgentSet.UseVisualStyleBackColor = false
+        Me.btnClear_AgentSet.UseVisualStyleBackColor = False
         '
         'btnDelete_AgentSet
         '
         Me.btnDelete_AgentSet.BackColor = System.Drawing.Color.White
-        Me.btnDelete_AgentSet.BackgroundImage = CType(resources.GetObject("btnDelete_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnDelete_AgentSet.BackgroundImage = CType(resources.GetObject("btnDelete_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnDelete_AgentSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete_AgentSet.ForeColor = System.Drawing.Color.White
         Me.btnDelete_AgentSet.Location = New System.Drawing.Point(469, 238)
         Me.btnDelete_AgentSet.Name = "btnDelete_AgentSet"
         Me.btnDelete_AgentSet.Size = New System.Drawing.Size(33, 33)
         Me.btnDelete_AgentSet.TabIndex = 86
-        Me.btnDelete_AgentSet.UseVisualStyleBackColor = false
+        Me.btnDelete_AgentSet.UseVisualStyleBackColor = False
         '
         'btnEdit_AgentSet
         '
         Me.btnEdit_AgentSet.BackColor = System.Drawing.Color.White
-        Me.btnEdit_AgentSet.BackgroundImage = CType(resources.GetObject("btnEdit_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnEdit_AgentSet.BackgroundImage = CType(resources.GetObject("btnEdit_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnEdit_AgentSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEdit_AgentSet.ForeColor = System.Drawing.Color.White
         Me.btnEdit_AgentSet.Location = New System.Drawing.Point(358, 238)
         Me.btnEdit_AgentSet.Name = "btnEdit_AgentSet"
         Me.btnEdit_AgentSet.Size = New System.Drawing.Size(33, 33)
         Me.btnEdit_AgentSet.TabIndex = 83
-        Me.btnEdit_AgentSet.UseVisualStyleBackColor = false
+        Me.btnEdit_AgentSet.UseVisualStyleBackColor = False
         '
         'btnAdd_AgentSet
         '
         Me.btnAdd_AgentSet.BackColor = System.Drawing.Color.White
-        Me.btnAdd_AgentSet.BackgroundImage = CType(resources.GetObject("btnAdd_AgentSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnAdd_AgentSet.BackgroundImage = CType(resources.GetObject("btnAdd_AgentSet.BackgroundImage"), System.Drawing.Image)
         Me.btnAdd_AgentSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd_AgentSet.ForeColor = System.Drawing.Color.White
         Me.btnAdd_AgentSet.Location = New System.Drawing.Point(319, 238)
         Me.btnAdd_AgentSet.Name = "btnAdd_AgentSet"
         Me.btnAdd_AgentSet.Size = New System.Drawing.Size(33, 33)
         Me.btnAdd_AgentSet.TabIndex = 82
-        Me.btnAdd_AgentSet.UseVisualStyleBackColor = false
+        Me.btnAdd_AgentSet.UseVisualStyleBackColor = False
         '
         'Label139
         '
-        Me.Label139.AutoSize = true
-        Me.Label139.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label139.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label139.AutoSize = True
+        Me.Label139.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label139.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label139.Location = New System.Drawing.Point(300, 21)
         Me.Label139.Name = "Label139"
         Me.Label139.Size = New System.Drawing.Size(49, 12)
@@ -6501,7 +6499,7 @@ Partial Class FrmGeneral
         '
         'txtOthers_AgentSet
         '
-        Me.txtOthers_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtOthers_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOthers_AgentSet.Location = New System.Drawing.Point(300, 38)
         Me.txtOthers_AgentSet.Name = "txtOthers_AgentSet"
         Me.txtOthers_AgentSet.Size = New System.Drawing.Size(98, 20)
@@ -6509,9 +6507,9 @@ Partial Class FrmGeneral
         '
         'Label140
         '
-        Me.Label140.AutoSize = true
-        Me.Label140.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label140.AutoSize = True
+        Me.Label140.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label140.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label140.Location = New System.Drawing.Point(19, 188)
         Me.Label140.Name = "Label140"
         Me.Label140.Size = New System.Drawing.Size(48, 12)
@@ -6520,18 +6518,18 @@ Partial Class FrmGeneral
         '
         'txtRemarks_AgentSet
         '
-        Me.txtRemarks_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtRemarks_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRemarks_AgentSet.Location = New System.Drawing.Point(19, 204)
-        Me.txtRemarks_AgentSet.Multiline = true
+        Me.txtRemarks_AgentSet.Multiline = True
         Me.txtRemarks_AgentSet.Name = "txtRemarks_AgentSet"
         Me.txtRemarks_AgentSet.Size = New System.Drawing.Size(276, 22)
         Me.txtRemarks_AgentSet.TabIndex = 78
         '
         'Label141
         '
-        Me.Label141.AutoSize = true
-        Me.Label141.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label141.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label141.AutoSize = True
+        Me.Label141.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label141.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label141.Location = New System.Drawing.Point(300, 106)
         Me.Label141.Name = "Label141"
         Me.Label141.Size = New System.Drawing.Size(37, 12)
@@ -6541,8 +6539,8 @@ Partial Class FrmGeneral
         'cboStatus_AgentSet
         '
         Me.cboStatus_AgentSet.DropDownWidth = 100
-        Me.cboStatus_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboStatus_AgentSet.FormattingEnabled = true
+        Me.cboStatus_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboStatus_AgentSet.FormattingEnabled = True
         Me.cboStatus_AgentSet.Items.AddRange(New Object() {"Active", "In-Active"})
         Me.cboStatus_AgentSet.Location = New System.Drawing.Point(300, 120)
         Me.cboStatus_AgentSet.Name = "cboStatus_AgentSet"
@@ -6551,9 +6549,9 @@ Partial Class FrmGeneral
         '
         'Label142
         '
-        Me.Label142.AutoSize = true
-        Me.Label142.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label142.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label142.AutoSize = True
+        Me.Label142.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label142.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label142.Location = New System.Drawing.Point(19, 146)
         Me.Label142.Name = "Label142"
         Me.Label142.Size = New System.Drawing.Size(63, 12)
@@ -6562,7 +6560,7 @@ Partial Class FrmGeneral
         '
         'txtPhoneField2_AgentSet
         '
-        Me.txtPhoneField2_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPhoneField2_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPhoneField2_AgentSet.Location = New System.Drawing.Point(19, 162)
         Me.txtPhoneField2_AgentSet.Name = "txtPhoneField2_AgentSet"
         Me.txtPhoneField2_AgentSet.Size = New System.Drawing.Size(276, 20)
@@ -6571,8 +6569,8 @@ Partial Class FrmGeneral
         'cboDiv_AgentSet
         '
         Me.cboDiv_AgentSet.DropDownWidth = 100
-        Me.cboDiv_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboDiv_AgentSet.FormattingEnabled = true
+        Me.cboDiv_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboDiv_AgentSet.FormattingEnabled = True
         Me.cboDiv_AgentSet.Location = New System.Drawing.Point(191, 39)
         Me.cboDiv_AgentSet.Name = "cboDiv_AgentSet"
         Me.cboDiv_AgentSet.Size = New System.Drawing.Size(104, 21)
@@ -6580,9 +6578,9 @@ Partial Class FrmGeneral
         '
         'Label143
         '
-        Me.Label143.AutoSize = true
-        Me.Label143.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label143.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label143.AutoSize = True
+        Me.Label143.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label143.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label143.Location = New System.Drawing.Point(191, 21)
         Me.Label143.Name = "Label143"
         Me.Label143.Size = New System.Drawing.Size(44, 12)
@@ -6591,7 +6589,7 @@ Partial Class FrmGeneral
         '
         'txtPhoneField1_AgentSet
         '
-        Me.txtPhoneField1_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPhoneField1_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPhoneField1_AgentSet.Location = New System.Drawing.Point(19, 120)
         Me.txtPhoneField1_AgentSet.Name = "txtPhoneField1_AgentSet"
         Me.txtPhoneField1_AgentSet.Size = New System.Drawing.Size(276, 20)
@@ -6599,9 +6597,9 @@ Partial Class FrmGeneral
         '
         'Label144
         '
-        Me.Label144.AutoSize = true
-        Me.Label144.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label144.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label144.AutoSize = True
+        Me.Label144.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label144.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label144.Location = New System.Drawing.Point(19, 106)
         Me.Label144.Name = "Label144"
         Me.Label144.Size = New System.Drawing.Size(125, 12)
@@ -6610,9 +6608,9 @@ Partial Class FrmGeneral
         '
         'Label145
         '
-        Me.Label145.AutoSize = true
-        Me.Label145.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label145.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label145.AutoSize = True
+        Me.Label145.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label145.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label145.Location = New System.Drawing.Point(191, 62)
         Me.Label145.Name = "Label145"
         Me.Label145.Size = New System.Drawing.Size(57, 12)
@@ -6621,9 +6619,9 @@ Partial Class FrmGeneral
         '
         'Label146
         '
-        Me.Label146.AutoSize = true
-        Me.Label146.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label146.AutoSize = True
+        Me.Label146.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label146.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label146.Location = New System.Drawing.Point(405, 62)
         Me.Label146.Name = "Label146"
         Me.Label146.Size = New System.Drawing.Size(60, 12)
@@ -6632,9 +6630,9 @@ Partial Class FrmGeneral
         '
         'Label147
         '
-        Me.Label147.AutoSize = true
-        Me.Label147.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label147.AutoSize = True
+        Me.Label147.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label147.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label147.Location = New System.Drawing.Point(300, 60)
         Me.Label147.Name = "Label147"
         Me.Label147.Size = New System.Drawing.Size(51, 12)
@@ -6643,9 +6641,9 @@ Partial Class FrmGeneral
         '
         'Label148
         '
-        Me.Label148.AutoSize = true
-        Me.Label148.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label148.AutoSize = True
+        Me.Label148.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label148.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label148.Location = New System.Drawing.Point(405, 23)
         Me.Label148.Name = "Label148"
         Me.Label148.Size = New System.Drawing.Size(61, 12)
@@ -6654,9 +6652,9 @@ Partial Class FrmGeneral
         '
         'Label149
         '
-        Me.Label149.AutoSize = true
-        Me.Label149.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label149.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label149.AutoSize = True
+        Me.Label149.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label149.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label149.Location = New System.Drawing.Point(19, 62)
         Me.Label149.Name = "Label149"
         Me.Label149.Size = New System.Drawing.Size(55, 12)
@@ -6665,9 +6663,9 @@ Partial Class FrmGeneral
         '
         'Label150
         '
-        Me.Label150.AutoSize = true
-        Me.Label150.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label150.AutoSize = True
+        Me.Label150.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label150.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label150.Location = New System.Drawing.Point(19, 22)
         Me.Label150.Name = "Label150"
         Me.Label150.Size = New System.Drawing.Size(56, 12)
@@ -6676,7 +6674,7 @@ Partial Class FrmGeneral
         '
         'txtContactNo_AgentSet
         '
-        Me.txtContactNo_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtContactNo_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContactNo_AgentSet.Location = New System.Drawing.Point(191, 78)
         Me.txtContactNo_AgentSet.Name = "txtContactNo_AgentSet"
         Me.txtContactNo_AgentSet.Size = New System.Drawing.Size(104, 20)
@@ -6684,7 +6682,7 @@ Partial Class FrmGeneral
         '
         'txtGroup_AgentSet
         '
-        Me.txtGroup_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtGroup_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGroup_AgentSet.Location = New System.Drawing.Point(405, 78)
         Me.txtGroup_AgentSet.Name = "txtGroup_AgentSet"
         Me.txtGroup_AgentSet.Size = New System.Drawing.Size(99, 20)
@@ -6692,7 +6690,7 @@ Partial Class FrmGeneral
         '
         'txtQueueNo_AgentSet
         '
-        Me.txtQueueNo_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtQueueNo_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtQueueNo_AgentSet.Location = New System.Drawing.Point(300, 78)
         Me.txtQueueNo_AgentSet.Name = "txtQueueNo_AgentSet"
         Me.txtQueueNo_AgentSet.Size = New System.Drawing.Size(98, 20)
@@ -6700,7 +6698,7 @@ Partial Class FrmGeneral
         '
         'txtGDS_AgentSet
         '
-        Me.txtGDS_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtGDS_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGDS_AgentSet.Location = New System.Drawing.Point(405, 39)
         Me.txtGDS_AgentSet.Name = "txtGDS_AgentSet"
         Me.txtGDS_AgentSet.Size = New System.Drawing.Size(97, 20)
@@ -6708,7 +6706,7 @@ Partial Class FrmGeneral
         '
         'txtLastName_AgentSet
         '
-        Me.txtLastName_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtLastName_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLastName_AgentSet.Location = New System.Drawing.Point(19, 78)
         Me.txtLastName_AgentSet.Name = "txtLastName_AgentSet"
         Me.txtLastName_AgentSet.Size = New System.Drawing.Size(166, 20)
@@ -6716,7 +6714,7 @@ Partial Class FrmGeneral
         '
         'txtFirstName_AgentSet
         '
-        Me.txtFirstName_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtFirstName_AgentSet.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFirstName_AgentSet.Location = New System.Drawing.Point(19, 38)
         Me.txtFirstName_AgentSet.Name = "txtFirstName_AgentSet"
         Me.txtFirstName_AgentSet.Size = New System.Drawing.Size(169, 20)
@@ -6764,18 +6762,18 @@ Partial Class FrmGeneral
         Me.GroupBox4.Controls.Add(Me.txtProType_Set)
         Me.GroupBox4.Controls.Add(Me.cboProductName_Set)
         Me.GroupBox4.Controls.Add(Me.Label68)
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.Location = New System.Drawing.Point(8, 12)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(450, 499)
         Me.GroupBox4.TabIndex = 0
-        Me.GroupBox4.TabStop = false
+        Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Product Settings :"
         '
         'Label123
         '
-        Me.Label123.AutoSize = true
-        Me.Label123.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label123.AutoSize = True
+        Me.Label123.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label123.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label123.Location = New System.Drawing.Point(371, 473)
         Me.Label123.Name = "Label123"
@@ -6785,8 +6783,8 @@ Partial Class FrmGeneral
         '
         'Label122
         '
-        Me.Label122.AutoSize = true
-        Me.Label122.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label122.AutoSize = True
+        Me.Label122.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label122.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label122.Location = New System.Drawing.Point(126, 139)
         Me.Label122.Name = "Label122"
@@ -6796,8 +6794,8 @@ Partial Class FrmGeneral
         '
         'Label121
         '
-        Me.Label121.AutoSize = true
-        Me.Label121.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label121.AutoSize = True
+        Me.Label121.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label121.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label121.Location = New System.Drawing.Point(168, 138)
         Me.Label121.Name = "Label121"
@@ -6808,31 +6806,31 @@ Partial Class FrmGeneral
         'btnEditAccess_Set
         '
         Me.btnEditAccess_Set.BackColor = System.Drawing.Color.White
-        Me.btnEditAccess_Set.BackgroundImage = CType(resources.GetObject("btnEditAccess_Set.BackgroundImage"),System.Drawing.Image)
+        Me.btnEditAccess_Set.BackgroundImage = CType(resources.GetObject("btnEditAccess_Set.BackgroundImage"), System.Drawing.Image)
         Me.btnEditAccess_Set.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditAccess_Set.ForeColor = System.Drawing.Color.White
         Me.btnEditAccess_Set.Location = New System.Drawing.Point(368, 441)
         Me.btnEditAccess_Set.Name = "btnEditAccess_Set"
         Me.btnEditAccess_Set.Size = New System.Drawing.Size(33, 33)
         Me.btnEditAccess_Set.TabIndex = 87
-        Me.btnEditAccess_Set.UseVisualStyleBackColor = false
+        Me.btnEditAccess_Set.UseVisualStyleBackColor = False
         '
         'btnSaveAccess_Set
         '
         Me.btnSaveAccess_Set.BackColor = System.Drawing.Color.White
-        Me.btnSaveAccess_Set.BackgroundImage = CType(resources.GetObject("btnSaveAccess_Set.BackgroundImage"),System.Drawing.Image)
+        Me.btnSaveAccess_Set.BackgroundImage = CType(resources.GetObject("btnSaveAccess_Set.BackgroundImage"), System.Drawing.Image)
         Me.btnSaveAccess_Set.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSaveAccess_Set.ForeColor = System.Drawing.Color.White
         Me.btnSaveAccess_Set.Location = New System.Drawing.Point(403, 441)
         Me.btnSaveAccess_Set.Name = "btnSaveAccess_Set"
         Me.btnSaveAccess_Set.Size = New System.Drawing.Size(33, 33)
         Me.btnSaveAccess_Set.TabIndex = 86
-        Me.btnSaveAccess_Set.UseVisualStyleBackColor = false
+        Me.btnSaveAccess_Set.UseVisualStyleBackColor = False
         '
         'Label116
         '
-        Me.Label116.AutoSize = true
-        Me.Label116.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label116.AutoSize = True
+        Me.Label116.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label116.Location = New System.Drawing.Point(335, 378)
         Me.Label116.Name = "Label116"
         Me.Label116.Size = New System.Drawing.Size(18, 12)
@@ -6842,9 +6840,9 @@ Partial Class FrmGeneral
         'cboEC_Set
         '
         Me.cboEC_Set.DropDownWidth = 100
-        Me.cboEC_Set.Enabled = false
-        Me.cboEC_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboEC_Set.FormattingEnabled = true
+        Me.cboEC_Set.Enabled = False
+        Me.cboEC_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboEC_Set.FormattingEnabled = True
         Me.cboEC_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboEC_Set.Location = New System.Drawing.Point(336, 393)
         Me.cboEC_Set.Name = "cboEC_Set"
@@ -6853,8 +6851,8 @@ Partial Class FrmGeneral
         '
         'Label117
         '
-        Me.Label117.AutoSize = true
-        Me.Label117.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label117.AutoSize = True
+        Me.Label117.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label117.Location = New System.Drawing.Point(11, 421)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(57, 12)
@@ -6864,9 +6862,9 @@ Partial Class FrmGeneral
         'CboDate_Set
         '
         Me.CboDate_Set.DropDownWidth = 100
-        Me.CboDate_Set.Enabled = false
-        Me.CboDate_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.CboDate_Set.FormattingEnabled = true
+        Me.CboDate_Set.Enabled = False
+        Me.CboDate_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboDate_Set.FormattingEnabled = True
         Me.CboDate_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.CboDate_Set.Location = New System.Drawing.Point(11, 436)
         Me.CboDate_Set.Name = "CboDate_Set"
@@ -6875,8 +6873,8 @@ Partial Class FrmGeneral
         '
         'Label118
         '
-        Me.Label118.AutoSize = true
-        Me.Label118.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label118.AutoSize = True
+        Me.Label118.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label118.Location = New System.Drawing.Point(245, 378)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(44, 12)
@@ -6886,9 +6884,9 @@ Partial Class FrmGeneral
         'CboLowFare_Set
         '
         Me.CboLowFare_Set.DropDownWidth = 100
-        Me.CboLowFare_Set.Enabled = false
-        Me.CboLowFare_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.CboLowFare_Set.FormattingEnabled = true
+        Me.CboLowFare_Set.Enabled = False
+        Me.CboLowFare_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CboLowFare_Set.FormattingEnabled = True
         Me.CboLowFare_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.CboLowFare_Set.Location = New System.Drawing.Point(245, 393)
         Me.CboLowFare_Set.Name = "CboLowFare_Set"
@@ -6897,8 +6895,8 @@ Partial Class FrmGeneral
         '
         'Label119
         '
-        Me.Label119.AutoSize = true
-        Me.Label119.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label119.AutoSize = True
+        Me.Label119.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label119.Location = New System.Drawing.Point(103, 378)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(41, 12)
@@ -6908,9 +6906,9 @@ Partial Class FrmGeneral
         'cboRefFare_Set
         '
         Me.cboRefFare_Set.DropDownWidth = 100
-        Me.cboRefFare_Set.Enabled = false
-        Me.cboRefFare_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboRefFare_Set.FormattingEnabled = true
+        Me.cboRefFare_Set.Enabled = False
+        Me.cboRefFare_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboRefFare_Set.FormattingEnabled = True
         Me.cboRefFare_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboRefFare_Set.Location = New System.Drawing.Point(103, 393)
         Me.cboRefFare_Set.Name = "cboRefFare_Set"
@@ -6919,8 +6917,8 @@ Partial Class FrmGeneral
         '
         'Label120
         '
-        Me.Label120.AutoSize = true
-        Me.Label120.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label120.AutoSize = True
+        Me.Label120.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label120.Location = New System.Drawing.Point(9, 378)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(53, 12)
@@ -6930,9 +6928,9 @@ Partial Class FrmGeneral
         'cboTravelType_Set
         '
         Me.cboTravelType_Set.DropDownWidth = 100
-        Me.cboTravelType_Set.Enabled = false
-        Me.cboTravelType_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboTravelType_Set.FormattingEnabled = true
+        Me.cboTravelType_Set.Enabled = False
+        Me.cboTravelType_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboTravelType_Set.FormattingEnabled = True
         Me.cboTravelType_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboTravelType_Set.Location = New System.Drawing.Point(9, 393)
         Me.cboTravelType_Set.Name = "cboTravelType_Set"
@@ -6942,9 +6940,9 @@ Partial Class FrmGeneral
         'cboCAAccess_Set
         '
         Me.cboCAAccess_Set.DropDownWidth = 100
-        Me.cboCAAccess_Set.Enabled = false
-        Me.cboCAAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboCAAccess_Set.FormattingEnabled = true
+        Me.cboCAAccess_Set.Enabled = False
+        Me.cboCAAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCAAccess_Set.FormattingEnabled = True
         Me.cboCAAccess_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboCAAccess_Set.Location = New System.Drawing.Point(103, 349)
         Me.cboCAAccess_Set.Name = "cboCAAccess_Set"
@@ -6953,8 +6951,8 @@ Partial Class FrmGeneral
         '
         'txtCostAmount_Set
         '
-        Me.txtCostAmount_Set.Enabled = false
-        Me.txtCostAmount_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCostAmount_Set.Enabled = False
+        Me.txtCostAmount_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCostAmount_Set.Location = New System.Drawing.Point(9, 349)
         Me.txtCostAmount_Set.Name = "txtCostAmount_Set"
         Me.txtCostAmount_Set.Size = New System.Drawing.Size(89, 20)
@@ -6962,8 +6960,8 @@ Partial Class FrmGeneral
         '
         'txtSF_set
         '
-        Me.txtSF_set.Enabled = false
-        Me.txtSF_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSF_set.Enabled = False
+        Me.txtSF_set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSF_set.Location = New System.Drawing.Point(245, 349)
         Me.txtSF_set.Name = "txtSF_set"
         Me.txtSF_set.Size = New System.Drawing.Size(87, 20)
@@ -6972,9 +6970,9 @@ Partial Class FrmGeneral
         'cboSAAccess_Set
         '
         Me.cboSAAccess_Set.DropDownWidth = 100
-        Me.cboSAAccess_Set.Enabled = false
-        Me.cboSAAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboSAAccess_Set.FormattingEnabled = true
+        Me.cboSAAccess_Set.Enabled = False
+        Me.cboSAAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboSAAccess_Set.FormattingEnabled = True
         Me.cboSAAccess_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboSAAccess_Set.Location = New System.Drawing.Point(336, 349)
         Me.cboSAAccess_Set.Name = "cboSAAccess_Set"
@@ -6983,8 +6981,8 @@ Partial Class FrmGeneral
         '
         'Label114
         '
-        Me.Label114.AutoSize = true
-        Me.Label114.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label114.AutoSize = True
+        Me.Label114.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label114.Location = New System.Drawing.Point(245, 333)
         Me.Label114.Name = "Label114"
         Me.Label114.Size = New System.Drawing.Size(67, 12)
@@ -6993,8 +6991,8 @@ Partial Class FrmGeneral
         '
         'Label115
         '
-        Me.Label115.AutoSize = true
-        Me.Label115.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label115.AutoSize = True
+        Me.Label115.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label115.Location = New System.Drawing.Point(9, 333)
         Me.Label115.Name = "Label115"
         Me.Label115.Size = New System.Drawing.Size(60, 12)
@@ -7004,9 +7002,9 @@ Partial Class FrmGeneral
         'cboProdAccess_Set
         '
         Me.cboProdAccess_Set.DropDownWidth = 100
-        Me.cboProdAccess_Set.Enabled = false
-        Me.cboProdAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboProdAccess_Set.FormattingEnabled = true
+        Me.cboProdAccess_Set.Enabled = False
+        Me.cboProdAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProdAccess_Set.FormattingEnabled = True
         Me.cboProdAccess_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboProdAccess_Set.Location = New System.Drawing.Point(103, 307)
         Me.cboProdAccess_Set.Name = "cboProdAccess_Set"
@@ -7015,8 +7013,8 @@ Partial Class FrmGeneral
         '
         'txtSubProd_Set
         '
-        Me.txtSubProd_Set.Enabled = false
-        Me.txtSubProd_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSubProd_Set.Enabled = False
+        Me.txtSubProd_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubProd_Set.Location = New System.Drawing.Point(9, 307)
         Me.txtSubProd_Set.Name = "txtSubProd_Set"
         Me.txtSubProd_Set.Size = New System.Drawing.Size(89, 20)
@@ -7025,9 +7023,9 @@ Partial Class FrmGeneral
         'cboCPAccess_Set
         '
         Me.cboCPAccess_Set.DropDownWidth = 100
-        Me.cboCPAccess_Set.Enabled = false
-        Me.cboCPAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboCPAccess_Set.FormattingEnabled = true
+        Me.cboCPAccess_Set.Enabled = False
+        Me.cboCPAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboCPAccess_Set.FormattingEnabled = True
         Me.cboCPAccess_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboCPAccess_Set.Location = New System.Drawing.Point(335, 307)
         Me.cboCPAccess_Set.Name = "cboCPAccess_Set"
@@ -7036,8 +7034,8 @@ Partial Class FrmGeneral
         '
         'txtCP_Set
         '
-        Me.txtCP_Set.Enabled = false
-        Me.txtCP_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtCP_Set.Enabled = False
+        Me.txtCP_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCP_Set.Location = New System.Drawing.Point(245, 307)
         Me.txtCP_Set.Name = "txtCP_Set"
         Me.txtCP_Set.Size = New System.Drawing.Size(87, 20)
@@ -7045,8 +7043,8 @@ Partial Class FrmGeneral
         '
         'Label112
         '
-        Me.Label112.AutoSize = true
-        Me.Label112.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label112.AutoSize = True
+        Me.Label112.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label112.Location = New System.Drawing.Point(245, 291)
         Me.Label112.Name = "Label112"
         Me.Label112.Size = New System.Drawing.Size(77, 12)
@@ -7055,8 +7053,8 @@ Partial Class FrmGeneral
         '
         'Label113
         '
-        Me.Label113.AutoSize = true
-        Me.Label113.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label113.AutoSize = True
+        Me.Label113.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label113.Location = New System.Drawing.Point(9, 291)
         Me.Label113.Name = "Label113"
         Me.Label113.Size = New System.Drawing.Size(78, 12)
@@ -7065,8 +7063,8 @@ Partial Class FrmGeneral
         '
         'Label110
         '
-        Me.Label110.AutoSize = true
-        Me.Label110.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label110.AutoSize = True
+        Me.Label110.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label110.Location = New System.Drawing.Point(243, 243)
         Me.Label110.Name = "Label110"
         Me.Label110.Size = New System.Drawing.Size(32, 12)
@@ -7076,9 +7074,9 @@ Partial Class FrmGeneral
         'cboVAccess_Set
         '
         Me.cboVAccess_Set.DropDownWidth = 100
-        Me.cboVAccess_Set.Enabled = false
-        Me.cboVAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboVAccess_Set.FormattingEnabled = true
+        Me.cboVAccess_Set.Enabled = False
+        Me.cboVAccess_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboVAccess_Set.FormattingEnabled = True
         Me.cboVAccess_Set.Items.AddRange(New Object() {"Enabled", "Disabled"})
         Me.cboVAccess_Set.Location = New System.Drawing.Point(243, 259)
         Me.cboVAccess_Set.Name = "cboVAccess_Set"
@@ -7087,8 +7085,8 @@ Partial Class FrmGeneral
         '
         'Label111
         '
-        Me.Label111.AutoSize = true
-        Me.Label111.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label111.AutoSize = True
+        Me.Label111.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label111.Location = New System.Drawing.Point(9, 243)
         Me.Label111.Name = "Label111"
         Me.Label111.Size = New System.Drawing.Size(62, 12)
@@ -7098,9 +7096,9 @@ Partial Class FrmGeneral
         'cboVendorName_Set
         '
         Me.cboVendorName_Set.DropDownWidth = 100
-        Me.cboVendorName_Set.Enabled = false
-        Me.cboVendorName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboVendorName_Set.FormattingEnabled = true
+        Me.cboVendorName_Set.Enabled = False
+        Me.cboVendorName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboVendorName_Set.FormattingEnabled = True
         Me.cboVendorName_Set.Location = New System.Drawing.Point(9, 259)
         Me.cboVendorName_Set.Name = "cboVendorName_Set"
         Me.cboVendorName_Set.Size = New System.Drawing.Size(228, 21)
@@ -7109,68 +7107,68 @@ Partial Class FrmGeneral
         'btnDeleteSet
         '
         Me.btnDeleteSet.BackColor = System.Drawing.Color.White
-        Me.btnDeleteSet.BackgroundImage = CType(resources.GetObject("btnDeleteSet.BackgroundImage"),System.Drawing.Image)
+        Me.btnDeleteSet.BackgroundImage = CType(resources.GetObject("btnDeleteSet.BackgroundImage"), System.Drawing.Image)
         Me.btnDeleteSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDeleteSet.ForeColor = System.Drawing.Color.White
         Me.btnDeleteSet.Location = New System.Drawing.Point(198, 107)
         Me.btnDeleteSet.Name = "btnDeleteSet"
         Me.btnDeleteSet.Size = New System.Drawing.Size(33, 33)
         Me.btnDeleteSet.TabIndex = 56
-        Me.btnDeleteSet.UseVisualStyleBackColor = false
+        Me.btnDeleteSet.UseVisualStyleBackColor = False
         '
         'btnClear_Set
         '
         Me.btnClear_Set.BackColor = System.Drawing.Color.White
-        Me.btnClear_Set.BackgroundImage = CType(resources.GetObject("btnClear_Set.BackgroundImage"),System.Drawing.Image)
+        Me.btnClear_Set.BackgroundImage = CType(resources.GetObject("btnClear_Set.BackgroundImage"), System.Drawing.Image)
         Me.btnClear_Set.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear_Set.ForeColor = System.Drawing.Color.White
         Me.btnClear_Set.Location = New System.Drawing.Point(159, 107)
         Me.btnClear_Set.Name = "btnClear_Set"
         Me.btnClear_Set.Size = New System.Drawing.Size(33, 33)
         Me.btnClear_Set.TabIndex = 55
-        Me.btnClear_Set.UseVisualStyleBackColor = false
+        Me.btnClear_Set.UseVisualStyleBackColor = False
         '
         'btnAdd_Set
         '
         Me.btnAdd_Set.BackColor = System.Drawing.Color.White
-        Me.btnAdd_Set.BackgroundImage = CType(resources.GetObject("btnAdd_Set.BackgroundImage"),System.Drawing.Image)
+        Me.btnAdd_Set.BackgroundImage = CType(resources.GetObject("btnAdd_Set.BackgroundImage"), System.Drawing.Image)
         Me.btnAdd_Set.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd_Set.ForeColor = System.Drawing.Color.White
         Me.btnAdd_Set.Location = New System.Drawing.Point(121, 107)
         Me.btnAdd_Set.Name = "btnAdd_Set"
         Me.btnAdd_Set.Size = New System.Drawing.Size(33, 33)
         Me.btnAdd_Set.TabIndex = 54
-        Me.btnAdd_Set.UseVisualStyleBackColor = false
+        Me.btnAdd_Set.UseVisualStyleBackColor = False
         '
         'DGWSet
         '
-        Me.DGWSet.AllowUserToAddRows = false
-        Me.DGWSet.AllowUserToResizeColumns = false
-        Me.DGWSet.AllowUserToResizeRows = false
+        Me.DGWSet.AllowUserToAddRows = False
+        Me.DGWSet.AllowUserToResizeColumns = False
+        Me.DGWSet.AllowUserToResizeRows = False
         Me.DGWSet.BackgroundColor = System.Drawing.Color.White
         Me.DGWSet.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DGWSet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.SkyBlue
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGWSet.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGWSet.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DGWSet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGWSet.GridColor = System.Drawing.Color.SteelBlue
         Me.DGWSet.Location = New System.Drawing.Point(243, 37)
         Me.DGWSet.Name = "DGWSet"
-        Me.DGWSet.ReadOnly = true
+        Me.DGWSet.ReadOnly = True
         Me.DGWSet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGWSet.Size = New System.Drawing.Size(193, 154)
         Me.DGWSet.TabIndex = 53
         '
         'Label32
         '
-        Me.Label32.AutoSize = true
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label32.Location = New System.Drawing.Point(243, 21)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(89, 12)
@@ -7179,8 +7177,8 @@ Partial Class FrmGeneral
         '
         'Label57
         '
-        Me.Label57.AutoSize = true
-        Me.Label57.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label57.AutoSize = True
+        Me.Label57.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label57.Location = New System.Drawing.Point(19, 66)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(59, 12)
@@ -7189,7 +7187,7 @@ Partial Class FrmGeneral
         '
         'txtProType_Set
         '
-        Me.txtProType_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtProType_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtProType_Set.Location = New System.Drawing.Point(19, 82)
         Me.txtProType_Set.Name = "txtProType_Set"
         Me.txtProType_Set.Size = New System.Drawing.Size(212, 20)
@@ -7198,8 +7196,8 @@ Partial Class FrmGeneral
         'cboProductName_Set
         '
         Me.cboProductName_Set.DropDownWidth = 100
-        Me.cboProductName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.cboProductName_Set.FormattingEnabled = true
+        Me.cboProductName_Set.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProductName_Set.FormattingEnabled = True
         Me.cboProductName_Set.Location = New System.Drawing.Point(19, 37)
         Me.cboProductName_Set.Name = "cboProductName_Set"
         Me.cboProductName_Set.Size = New System.Drawing.Size(212, 21)
@@ -7207,8 +7205,8 @@ Partial Class FrmGeneral
         '
         'Label68
         '
-        Me.Label68.AutoSize = true
-        Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label68.AutoSize = True
+        Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label68.Location = New System.Drawing.Point(19, 21)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(64, 12)
@@ -7244,47 +7242,47 @@ Partial Class FrmGeneral
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Size = New System.Drawing.Size(950, 476)
         Me.GroupBox13.TabIndex = 5
-        Me.GroupBox13.TabStop = false
+        Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Client List"
         '
         'DataGridClientList
         '
-        Me.DataGridClientList.AllowUserToAddRows = false
-        Me.DataGridClientList.AllowUserToResizeColumns = false
-        Me.DataGridClientList.AllowUserToResizeRows = false
+        Me.DataGridClientList.AllowUserToAddRows = False
+        Me.DataGridClientList.AllowUserToResizeColumns = False
+        Me.DataGridClientList.AllowUserToResizeRows = False
         Me.DataGridClientList.BackgroundColor = System.Drawing.Color.White
         Me.DataGridClientList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridClientList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DataGridClientList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Navy
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridClientList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.SkyBlue
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridClientList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridClientList.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridClientList.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridClientList.GridColor = System.Drawing.Color.SteelBlue
         Me.DataGridClientList.Location = New System.Drawing.Point(27, 74)
         Me.DataGridClientList.Name = "DataGridClientList"
-        Me.DataGridClientList.ReadOnly = true
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridClientList.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.DataGridClientList.ReadOnly = True
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridClientList.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridClientList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridClientList.Size = New System.Drawing.Size(874, 340)
         Me.DataGridClientList.TabIndex = 112
@@ -7296,36 +7294,36 @@ Partial Class FrmGeneral
         Me.btnSearchSortBy.Size = New System.Drawing.Size(52, 21)
         Me.btnSearchSortBy.TabIndex = 111
         Me.btnSearchSortBy.Text = "&Search"
-        Me.btnSearchSortBy.UseVisualStyleBackColor = true
+        Me.btnSearchSortBy.UseVisualStyleBackColor = True
         '
         'rdButtonClientName
         '
-        Me.rdButtonClientName.AutoSize = true
-        Me.rdButtonClientName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdButtonClientName.AutoSize = True
+        Me.rdButtonClientName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdButtonClientName.Location = New System.Drawing.Point(123, 442)
         Me.rdButtonClientName.Name = "rdButtonClientName"
         Me.rdButtonClientName.Size = New System.Drawing.Size(82, 17)
         Me.rdButtonClientName.TabIndex = 109
-        Me.rdButtonClientName.TabStop = true
+        Me.rdButtonClientName.TabStop = True
         Me.rdButtonClientName.Text = "Client Name"
-        Me.rdButtonClientName.UseVisualStyleBackColor = true
+        Me.rdButtonClientName.UseVisualStyleBackColor = True
         '
         'rdButtonClientN
         '
-        Me.rdButtonClientN.AutoSize = true
-        Me.rdButtonClientN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.rdButtonClientN.AutoSize = True
+        Me.rdButtonClientN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.rdButtonClientN.Location = New System.Drawing.Point(28, 442)
         Me.rdButtonClientN.Name = "rdButtonClientN"
         Me.rdButtonClientN.Size = New System.Drawing.Size(91, 17)
         Me.rdButtonClientN.TabIndex = 110
-        Me.rdButtonClientN.TabStop = true
+        Me.rdButtonClientN.TabStop = True
         Me.rdButtonClientN.Text = "Client Number"
-        Me.rdButtonClientN.UseVisualStyleBackColor = true
+        Me.rdButtonClientN.UseVisualStyleBackColor = True
         '
         'Label158
         '
-        Me.Label158.AutoSize = true
-        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label158.AutoSize = True
+        Me.Label158.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label158.Location = New System.Drawing.Point(23, 420)
         Me.Label158.Name = "Label158"
         Me.Label158.Size = New System.Drawing.Size(47, 13)
@@ -7341,8 +7339,8 @@ Partial Class FrmGeneral
         '
         'Label157
         '
-        Me.Label157.AutoSize = true
-        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label157.AutoSize = True
+        Me.Label157.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label157.Location = New System.Drawing.Point(27, 30)
         Me.Label157.Name = "Label157"
         Me.Label157.Size = New System.Drawing.Size(62, 13)
@@ -7351,7 +7349,7 @@ Partial Class FrmGeneral
         '
         'CcboClientOption
         '
-        Me.CcboClientOption.FormattingEnabled = true
+        Me.CcboClientOption.FormattingEnabled = True
         Me.CcboClientOption.Items.AddRange(New Object() {"Client Name", "Client Number"})
         Me.CcboClientOption.Location = New System.Drawing.Point(27, 47)
         Me.CcboClientOption.Name = "CcboClientOption"
@@ -7365,32 +7363,32 @@ Partial Class FrmGeneral
         Me.btnSearchClientList.Size = New System.Drawing.Size(52, 21)
         Me.btnSearchClientList.TabIndex = 4
         Me.btnSearchClientList.Text = "&Search"
-        Me.btnSearchClientList.UseVisualStyleBackColor = true
+        Me.btnSearchClientList.UseVisualStyleBackColor = True
         '
         'RdTaxable
         '
-        Me.RdTaxable.AutoSize = true
-        Me.RdTaxable.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdTaxable.AutoSize = True
+        Me.RdTaxable.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdTaxable.Location = New System.Drawing.Point(397, 442)
         Me.RdTaxable.Name = "RdTaxable"
         Me.RdTaxable.Size = New System.Drawing.Size(63, 17)
         Me.RdTaxable.TabIndex = 2
-        Me.RdTaxable.TabStop = true
+        Me.RdTaxable.TabStop = True
         Me.RdTaxable.Text = "Taxable"
-        Me.RdTaxable.UseVisualStyleBackColor = true
-        Me.RdTaxable.Visible = false
+        Me.RdTaxable.UseVisualStyleBackColor = True
+        Me.RdTaxable.Visible = False
         '
         'RdButtonNonTax
         '
-        Me.RdButtonNonTax.AutoSize = true
-        Me.RdButtonNonTax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdButtonNonTax.AutoSize = True
+        Me.RdButtonNonTax.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdButtonNonTax.Location = New System.Drawing.Point(208, 442)
         Me.RdButtonNonTax.Name = "RdButtonNonTax"
         Me.RdButtonNonTax.Size = New System.Drawing.Size(97, 17)
         Me.RdButtonNonTax.TabIndex = 3
-        Me.RdButtonNonTax.TabStop = true
+        Me.RdButtonNonTax.TabStop = True
         Me.RdButtonNonTax.Text = "Gov Tax on SF"
-        Me.RdButtonNonTax.UseVisualStyleBackColor = true
+        Me.RdButtonNonTax.UseVisualStyleBackColor = True
         '
         'RichTextBox2
         '
@@ -7399,12 +7397,11 @@ Partial Class FrmGeneral
         Me.RichTextBox2.Size = New System.Drawing.Size(10, 10)
         Me.RichTextBox2.TabIndex = 1
         Me.RichTextBox2.Text = ""
-        Me.RichTextBox2.Visible = false
+        Me.RichTextBox2.Visible = False
         '
         'TabPage9
         '
         Me.TabPage9.BackColor = System.Drawing.Color.White
-        Me.TabPage9.Controls.Add(Me.TravellerCreditAccess)
         Me.TabPage9.Controls.Add(Me.txtDateTime_CC)
         Me.TabPage9.Controls.Add(Me.Label172)
         Me.TabPage9.Controls.Add(Me.PdnLogOut)
@@ -7422,26 +7419,18 @@ Partial Class FrmGeneral
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Traveller Credit Info"
         '
-        'TravellerCreditAccess
-        '
-        Me.TravellerCreditAccess.Location = New System.Drawing.Point(7, 8)
-        Me.TravellerCreditAccess.Name = "TravellerCreditAccess"
-        Me.TravellerCreditAccess.Size = New System.Drawing.Size(982, 501)
-        Me.TravellerCreditAccess.TabIndex = 109
-        Me.TravellerCreditAccess.TabStop = false
-        '
         'txtDateTime_CC
         '
         Me.txtDateTime_CC.Location = New System.Drawing.Point(795, 465)
         Me.txtDateTime_CC.Name = "txtDateTime_CC"
-        Me.txtDateTime_CC.ReadOnly = true
+        Me.txtDateTime_CC.ReadOnly = True
         Me.txtDateTime_CC.Size = New System.Drawing.Size(159, 20)
         Me.txtDateTime_CC.TabIndex = 112
         '
         'Label172
         '
-        Me.Label172.AutoSize = true
-        Me.Label172.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label172.AutoSize = True
+        Me.Label172.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label172.Location = New System.Drawing.Point(702, 478)
         Me.Label172.Name = "Label172"
         Me.Label172.Size = New System.Drawing.Size(0, 13)
@@ -7454,7 +7443,7 @@ Partial Class FrmGeneral
         Me.PdnLogOut.Size = New System.Drawing.Size(59, 21)
         Me.PdnLogOut.TabIndex = 111
         Me.PdnLogOut.Text = "&Log-Out"
-        Me.PdnLogOut.UseVisualStyleBackColor = true
+        Me.PdnLogOut.UseVisualStyleBackColor = True
         '
         'pdnLogIn
         '
@@ -7463,7 +7452,7 @@ Partial Class FrmGeneral
         Me.pdnLogIn.Size = New System.Drawing.Size(59, 21)
         Me.pdnLogIn.TabIndex = 110
         Me.pdnLogIn.Text = "&Log-In"
-        Me.pdnLogIn.UseVisualStyleBackColor = true
+        Me.pdnLogIn.UseVisualStyleBackColor = True
         '
         'RT_TravTxt
         '
@@ -7472,7 +7461,7 @@ Partial Class FrmGeneral
         Me.RT_TravTxt.Size = New System.Drawing.Size(10, 10)
         Me.RT_TravTxt.TabIndex = 108
         Me.RT_TravTxt.Text = ""
-        Me.RT_TravTxt.Visible = false
+        Me.RT_TravTxt.Visible = False
         '
         'GroupBox15
         '
@@ -7487,49 +7476,49 @@ Partial Class FrmGeneral
         Me.GroupBox15.Controls.Add(Me.RdTrav_MoveUp)
         Me.GroupBox15.Controls.Add(Me.Trav_PDOk)
         Me.GroupBox15.Controls.Add(Me.RdTrav_MoveDown)
-        Me.GroupBox15.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox15.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox15.Location = New System.Drawing.Point(23, 17)
         Me.GroupBox15.Name = "GroupBox15"
         Me.GroupBox15.Size = New System.Drawing.Size(404, 372)
         Me.GroupBox15.TabIndex = 107
-        Me.GroupBox15.TabStop = false
+        Me.GroupBox15.TabStop = False
         Me.GroupBox15.Text = "SIMILAR TRAVELLER NAME LIST :"
         '
         'RdTrav_PDMoveDown
         '
-        Me.RdTrav_PDMoveDown.AutoSize = true
+        Me.RdTrav_PDMoveDown.AutoSize = True
         Me.RdTrav_PDMoveDown.BackColor = System.Drawing.Color.Transparent
-        Me.RdTrav_PDMoveDown.Enabled = false
-        Me.RdTrav_PDMoveDown.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdTrav_PDMoveDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdTrav_PDMoveDown.Enabled = False
+        Me.RdTrav_PDMoveDown.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdTrav_PDMoveDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdTrav_PDMoveDown.Location = New System.Drawing.Point(281, 337)
         Me.RdTrav_PDMoveDown.Name = "RdTrav_PDMoveDown"
         Me.RdTrav_PDMoveDown.Size = New System.Drawing.Size(56, 17)
         Me.RdTrav_PDMoveDown.TabIndex = 111
-        Me.RdTrav_PDMoveDown.TabStop = true
+        Me.RdTrav_PDMoveDown.TabStop = True
         Me.RdTrav_PDMoveDown.Text = "PD MD"
-        Me.RdTrav_PDMoveDown.UseVisualStyleBackColor = false
+        Me.RdTrav_PDMoveDown.UseVisualStyleBackColor = False
         '
         'RdTrav_PDMoveUp
         '
-        Me.RdTrav_PDMoveUp.AutoSize = true
+        Me.RdTrav_PDMoveUp.AutoSize = True
         Me.RdTrav_PDMoveUp.BackColor = System.Drawing.Color.Transparent
-        Me.RdTrav_PDMoveUp.Enabled = false
-        Me.RdTrav_PDMoveUp.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdTrav_PDMoveUp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdTrav_PDMoveUp.Enabled = False
+        Me.RdTrav_PDMoveUp.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdTrav_PDMoveUp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdTrav_PDMoveUp.Location = New System.Drawing.Point(281, 322)
         Me.RdTrav_PDMoveUp.Name = "RdTrav_PDMoveUp"
         Me.RdTrav_PDMoveUp.Size = New System.Drawing.Size(56, 17)
         Me.RdTrav_PDMoveUp.TabIndex = 110
-        Me.RdTrav_PDMoveUp.TabStop = true
+        Me.RdTrav_PDMoveUp.TabStop = True
         Me.RdTrav_PDMoveUp.Text = "PD MU"
-        Me.RdTrav_PDMoveUp.UseVisualStyleBackColor = false
+        Me.RdTrav_PDMoveUp.UseVisualStyleBackColor = False
         '
         'Label167
         '
-        Me.Label167.AutoSize = true
-        Me.Label167.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label167.AutoSize = True
+        Me.Label167.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label167.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label167.Location = New System.Drawing.Point(372, 334)
         Me.Label167.Name = "Label167"
@@ -7539,10 +7528,10 @@ Partial Class FrmGeneral
         '
         'Label168
         '
-        Me.Label168.AutoSize = true
+        Me.Label168.AutoSize = True
         Me.Label168.BackColor = System.Drawing.Color.Transparent
-        Me.Label168.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label168.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label168.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label168.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label168.Location = New System.Drawing.Point(12, 312)
         Me.Label168.Name = "Label168"
         Me.Label168.Size = New System.Drawing.Size(62, 13)
@@ -7552,8 +7541,8 @@ Partial Class FrmGeneral
         'TravPDN_LineNo
         '
         Me.TravPDN_LineNo.BackColor = System.Drawing.Color.White
-        Me.TravPDN_LineNo.Enabled = false
-        Me.TravPDN_LineNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TravPDN_LineNo.Enabled = False
+        Me.TravPDN_LineNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TravPDN_LineNo.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TravPDN_LineNo.Location = New System.Drawing.Point(15, 329)
         Me.TravPDN_LineNo.Name = "TravPDN_LineNo"
@@ -7563,25 +7552,25 @@ Partial Class FrmGeneral
         'PDN_TravEnter
         '
         Me.PDN_TravEnter.BackColor = System.Drawing.Color.Transparent
-        Me.PDN_TravEnter.Enabled = false
+        Me.PDN_TravEnter.Enabled = False
         Me.PDN_TravEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.PDN_TravEnter.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.PDN_TravEnter.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PDN_TravEnter.ForeColor = System.Drawing.Color.White
-        Me.PDN_TravEnter.Image = CType(resources.GetObject("PDN_TravEnter.Image"),System.Drawing.Image)
+        Me.PDN_TravEnter.Image = CType(resources.GetObject("PDN_TravEnter.Image"), System.Drawing.Image)
         Me.PDN_TravEnter.Location = New System.Drawing.Point(135, 325)
         Me.PDN_TravEnter.Name = "PDN_TravEnter"
         Me.PDN_TravEnter.Size = New System.Drawing.Size(37, 26)
         Me.PDN_TravEnter.TabIndex = 1
-        Me.PDN_TravEnter.UseVisualStyleBackColor = false
+        Me.PDN_TravEnter.UseVisualStyleBackColor = False
         '
         'LstTravellerCredit
         '
         Me.LstTravellerCredit.BackColor = System.Drawing.Color.White
         Me.LstTravellerCredit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LstTravellerCredit.Enabled = false
-        Me.LstTravellerCredit.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.LstTravellerCredit.Enabled = False
+        Me.LstTravellerCredit.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LstTravellerCredit.ForeColor = System.Drawing.Color.DarkBlue
-        Me.LstTravellerCredit.FormattingEnabled = true
+        Me.LstTravellerCredit.FormattingEnabled = True
         Me.LstTravellerCredit.ItemHeight = 14
         Me.LstTravellerCredit.Location = New System.Drawing.Point(15, 26)
         Me.LstTravellerCredit.Name = "LstTravellerCredit"
@@ -7590,63 +7579,63 @@ Partial Class FrmGeneral
         '
         'RdTrav_MoveUp
         '
-        Me.RdTrav_MoveUp.AutoSize = true
+        Me.RdTrav_MoveUp.AutoSize = True
         Me.RdTrav_MoveUp.BackColor = System.Drawing.Color.Transparent
-        Me.RdTrav_MoveUp.Enabled = false
-        Me.RdTrav_MoveUp.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdTrav_MoveUp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdTrav_MoveUp.Enabled = False
+        Me.RdTrav_MoveUp.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdTrav_MoveUp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdTrav_MoveUp.Location = New System.Drawing.Point(194, 320)
         Me.RdTrav_MoveUp.Name = "RdTrav_MoveUp"
         Me.RdTrav_MoveUp.Size = New System.Drawing.Size(65, 17)
         Me.RdTrav_MoveUp.TabIndex = 87
-        Me.RdTrav_MoveUp.TabStop = true
+        Me.RdTrav_MoveUp.TabStop = True
         Me.RdTrav_MoveUp.Text = "Move up"
-        Me.RdTrav_MoveUp.UseVisualStyleBackColor = false
+        Me.RdTrav_MoveUp.UseVisualStyleBackColor = False
         '
         'Trav_PDOk
         '
         Me.Trav_PDOk.BackColor = System.Drawing.Color.Transparent
-        Me.Trav_PDOk.Enabled = false
+        Me.Trav_PDOk.Enabled = False
         Me.Trav_PDOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Trav_PDOk.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Trav_PDOk.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Trav_PDOk.ForeColor = System.Drawing.Color.White
-        Me.Trav_PDOk.Image = CType(resources.GetObject("Trav_PDOk.Image"),System.Drawing.Image)
+        Me.Trav_PDOk.Image = CType(resources.GetObject("Trav_PDOk.Image"), System.Drawing.Image)
         Me.Trav_PDOk.Location = New System.Drawing.Point(346, 315)
         Me.Trav_PDOk.Name = "Trav_PDOk"
         Me.Trav_PDOk.Size = New System.Drawing.Size(39, 36)
         Me.Trav_PDOk.TabIndex = 86
-        Me.Trav_PDOk.UseVisualStyleBackColor = false
+        Me.Trav_PDOk.UseVisualStyleBackColor = False
         '
         'RdTrav_MoveDown
         '
-        Me.RdTrav_MoveDown.AutoSize = true
+        Me.RdTrav_MoveDown.AutoSize = True
         Me.RdTrav_MoveDown.BackColor = System.Drawing.Color.Transparent
-        Me.RdTrav_MoveDown.Enabled = false
-        Me.RdTrav_MoveDown.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.RdTrav_MoveDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.RdTrav_MoveDown.Enabled = False
+        Me.RdTrav_MoveDown.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RdTrav_MoveDown.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.RdTrav_MoveDown.Location = New System.Drawing.Point(194, 337)
         Me.RdTrav_MoveDown.Name = "RdTrav_MoveDown"
         Me.RdTrav_MoveDown.Size = New System.Drawing.Size(80, 17)
         Me.RdTrav_MoveDown.TabIndex = 88
-        Me.RdTrav_MoveDown.TabStop = true
+        Me.RdTrav_MoveDown.TabStop = True
         Me.RdTrav_MoveDown.Text = "Move Down"
-        Me.RdTrav_MoveDown.UseVisualStyleBackColor = false
+        Me.RdTrav_MoveDown.UseVisualStyleBackColor = False
         '
         'Btn_PDN
         '
         Me.Btn_PDN.BackColor = System.Drawing.Color.White
-        Me.Btn_PDN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Btn_PDN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Btn_PDN.Location = New System.Drawing.Point(350, 427)
         Me.Btn_PDN.Name = "Btn_PDN"
         Me.Btn_PDN.Size = New System.Drawing.Size(78, 22)
         Me.Btn_PDN.TabIndex = 12
         Me.Btn_PDN.Text = "PDN/-"
-        Me.Btn_PDN.UseVisualStyleBackColor = false
+        Me.Btn_PDN.UseVisualStyleBackColor = False
         '
         'Label166
         '
-        Me.Label166.AutoSize = true
-        Me.Label166.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label166.AutoSize = True
+        Me.Label166.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label166.Location = New System.Drawing.Point(25, 409)
         Me.Label166.Name = "Label166"
         Me.Label166.Size = New System.Drawing.Size(89, 13)
@@ -7674,27 +7663,27 @@ Partial Class FrmGeneral
         Me.GroupBox14.Controls.Add(Me.Label163)
         Me.GroupBox14.Controls.Add(Me.Label164)
         Me.GroupBox14.Controls.Add(Me.Label165)
-        Me.GroupBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.GroupBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox14.Location = New System.Drawing.Point(458, 20)
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.Size = New System.Drawing.Size(499, 429)
         Me.GroupBox14.TabIndex = 9
-        Me.GroupBox14.TabStop = false
+        Me.GroupBox14.TabStop = False
         Me.GroupBox14.Text = "Credit Card Info ;"
         '
         'CreditCardType
         '
-        Me.CreditCardType.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.CreditCardType.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CreditCardType.Location = New System.Drawing.Point(23, 97)
         Me.CreditCardType.Name = "CreditCardType"
-        Me.CreditCardType.ReadOnly = true
+        Me.CreditCardType.ReadOnly = True
         Me.CreditCardType.Size = New System.Drawing.Size(441, 24)
         Me.CreditCardType.TabIndex = 10
         '
         'Label169
         '
-        Me.Label169.AutoSize = true
+        Me.Label169.AutoSize = True
         Me.Label169.ForeColor = System.Drawing.Color.White
         Me.Label169.Location = New System.Drawing.Point(23, 81)
         Me.Label169.Name = "Label169"
@@ -7704,25 +7693,25 @@ Partial Class FrmGeneral
         '
         'CardHolderName
         '
-        Me.CardHolderName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.CardHolderName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CardHolderName.Location = New System.Drawing.Point(24, 52)
         Me.CardHolderName.Name = "CardHolderName"
-        Me.CardHolderName.ReadOnly = true
+        Me.CardHolderName.ReadOnly = True
         Me.CardHolderName.Size = New System.Drawing.Size(441, 24)
         Me.CardHolderName.TabIndex = 5
         '
         'TextBox8
         '
         Me.TextBox8.Location = New System.Drawing.Point(23, 222)
-        Me.TextBox8.Multiline = true
+        Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = true
+        Me.TextBox8.ReadOnly = True
         Me.TextBox8.Size = New System.Drawing.Size(441, 46)
         Me.TextBox8.TabIndex = 8
         '
         'Label161
         '
-        Me.Label161.AutoSize = true
+        Me.Label161.AutoSize = True
         Me.Label161.Location = New System.Drawing.Point(36, 10)
         Me.Label161.Name = "Label161"
         Me.Label161.Size = New System.Drawing.Size(0, 13)
@@ -7730,16 +7719,16 @@ Partial Class FrmGeneral
         '
         'CardExpirationDate
         '
-        Me.CardExpirationDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.CardExpirationDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CardExpirationDate.Location = New System.Drawing.Point(23, 181)
         Me.CardExpirationDate.Name = "CardExpirationDate"
-        Me.CardExpirationDate.ReadOnly = true
+        Me.CardExpirationDate.ReadOnly = True
         Me.CardExpirationDate.Size = New System.Drawing.Size(441, 24)
         Me.CardExpirationDate.TabIndex = 7
         '
         'Label162
         '
-        Me.Label162.AutoSize = true
+        Me.Label162.AutoSize = True
         Me.Label162.ForeColor = System.Drawing.Color.White
         Me.Label162.Location = New System.Drawing.Point(24, 36)
         Me.Label162.Name = "Label162"
@@ -7749,16 +7738,16 @@ Partial Class FrmGeneral
         '
         'CardNumber
         '
-        Me.CardNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.CardNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CardNumber.Location = New System.Drawing.Point(23, 138)
         Me.CardNumber.Name = "CardNumber"
-        Me.CardNumber.ReadOnly = true
+        Me.CardNumber.ReadOnly = True
         Me.CardNumber.Size = New System.Drawing.Size(441, 24)
         Me.CardNumber.TabIndex = 6
         '
         'Label163
         '
-        Me.Label163.AutoSize = true
+        Me.Label163.AutoSize = True
         Me.Label163.ForeColor = System.Drawing.Color.White
         Me.Label163.Location = New System.Drawing.Point(23, 122)
         Me.Label163.Name = "Label163"
@@ -7768,7 +7757,7 @@ Partial Class FrmGeneral
         '
         'Label164
         '
-        Me.Label164.AutoSize = true
+        Me.Label164.AutoSize = True
         Me.Label164.ForeColor = System.Drawing.Color.White
         Me.Label164.Location = New System.Drawing.Point(23, 165)
         Me.Label164.Name = "Label164"
@@ -7778,7 +7767,7 @@ Partial Class FrmGeneral
         '
         'Label165
         '
-        Me.Label165.AutoSize = true
+        Me.Label165.AutoSize = True
         Me.Label165.ForeColor = System.Drawing.Color.White
         Me.Label165.Location = New System.Drawing.Point(23, 206)
         Me.Label165.Name = "Label165"
@@ -7854,7 +7843,7 @@ Partial Class FrmGeneral
         Me.btGK.Size = New System.Drawing.Size(88, 27)
         Me.btGK.TabIndex = 90
         Me.btGK.Text = "GK"
-        Me.btGK.UseVisualStyleBackColor = true
+        Me.btGK.UseVisualStyleBackColor = True
         '
         'btnClearPax
         '
@@ -7863,11 +7852,11 @@ Partial Class FrmGeneral
         Me.btnClearPax.Size = New System.Drawing.Size(116, 21)
         Me.btnClearPax.TabIndex = 42
         Me.btnClearPax.Text = "&Clear Guest Details"
-        Me.btnClearPax.UseVisualStyleBackColor = true
+        Me.btnClearPax.UseVisualStyleBackColor = True
         '
         'txtPaymentTax2
         '
-        Me.txtPaymentTax2.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaymentTax2.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaymentTax2.Location = New System.Drawing.Point(380, 492)
         Me.txtPaymentTax2.Name = "txtPaymentTax2"
         Me.txtPaymentTax2.Size = New System.Drawing.Size(122, 20)
@@ -7875,7 +7864,7 @@ Partial Class FrmGeneral
         '
         'txtPaymentTax1
         '
-        Me.txtPaymentTax1.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaymentTax1.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaymentTax1.Location = New System.Drawing.Point(380, 471)
         Me.txtPaymentTax1.Name = "txtPaymentTax1"
         Me.txtPaymentTax1.Size = New System.Drawing.Size(122, 20)
@@ -7883,7 +7872,7 @@ Partial Class FrmGeneral
         '
         'txtPaymentSF
         '
-        Me.txtPaymentSF.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaymentSF.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaymentSF.Location = New System.Drawing.Point(380, 450)
         Me.txtPaymentSF.Name = "txtPaymentSF"
         Me.txtPaymentSF.Size = New System.Drawing.Size(122, 20)
@@ -7891,7 +7880,7 @@ Partial Class FrmGeneral
         '
         'txtPaymentPF
         '
-        Me.txtPaymentPF.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaymentPF.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaymentPF.Location = New System.Drawing.Point(380, 429)
         Me.txtPaymentPF.Name = "txtPaymentPF"
         Me.txtPaymentPF.Size = New System.Drawing.Size(122, 20)
@@ -7899,7 +7888,7 @@ Partial Class FrmGeneral
         '
         'Label217
         '
-        Me.Label217.AutoSize = true
+        Me.Label217.AutoSize = True
         Me.Label217.Location = New System.Drawing.Point(309, 454)
         Me.Label217.Name = "Label217"
         Me.Label217.Size = New System.Drawing.Size(68, 13)
@@ -7908,7 +7897,7 @@ Partial Class FrmGeneral
         '
         'Label216
         '
-        Me.Label216.AutoSize = true
+        Me.Label216.AutoSize = True
         Me.Label216.Location = New System.Drawing.Point(309, 496)
         Me.Label216.Name = "Label216"
         Me.Label216.Size = New System.Drawing.Size(40, 13)
@@ -7917,7 +7906,7 @@ Partial Class FrmGeneral
         '
         'Label215
         '
-        Me.Label215.AutoSize = true
+        Me.Label215.AutoSize = True
         Me.Label215.Location = New System.Drawing.Point(309, 475)
         Me.Label215.Name = "Label215"
         Me.Label215.Size = New System.Drawing.Size(40, 13)
@@ -7926,7 +7915,7 @@ Partial Class FrmGeneral
         '
         'Label214
         '
-        Me.Label214.AutoSize = true
+        Me.Label214.AutoSize = True
         Me.Label214.Location = New System.Drawing.Point(309, 431)
         Me.Label214.Name = "Label214"
         Me.Label214.Size = New System.Drawing.Size(71, 13)
@@ -7935,9 +7924,9 @@ Partial Class FrmGeneral
         '
         'LblBookingDes
         '
-        Me.LblBookingDes.AutoSize = true
-        Me.LblBookingDes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.LblBookingDes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.LblBookingDes.AutoSize = True
+        Me.LblBookingDes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBookingDes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.LblBookingDes.Location = New System.Drawing.Point(389, 30)
         Me.LblBookingDes.Name = "LblBookingDes"
         Me.LblBookingDes.Size = New System.Drawing.Size(65, 13)
@@ -7946,19 +7935,19 @@ Partial Class FrmGeneral
         '
         'Rd_Closed
         '
-        Me.Rd_Closed.AutoSize = true
+        Me.Rd_Closed.AutoSize = True
         Me.Rd_Closed.Location = New System.Drawing.Point(602, 9)
         Me.Rd_Closed.Name = "Rd_Closed"
         Me.Rd_Closed.Size = New System.Drawing.Size(57, 17)
         Me.Rd_Closed.TabIndex = 80
-        Me.Rd_Closed.TabStop = true
+        Me.Rd_Closed.TabStop = True
         Me.Rd_Closed.Text = "Closed"
-        Me.Rd_Closed.UseVisualStyleBackColor = true
+        Me.Rd_Closed.UseVisualStyleBackColor = True
         '
         'txtTransactionID
         '
-        Me.txtTransactionID.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.txtTransactionID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.txtTransactionID.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTransactionID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtTransactionID.Location = New System.Drawing.Point(621, 492)
         Me.txtTransactionID.Name = "txtTransactionID"
         Me.txtTransactionID.Size = New System.Drawing.Size(122, 20)
@@ -7975,8 +7964,8 @@ Partial Class FrmGeneral
         '
         'Label223
         '
-        Me.Label223.AutoSize = true
-        Me.Label223.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label223.AutoSize = True
+        Me.Label223.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label223.ForeColor = System.Drawing.Color.White
         Me.Label223.Location = New System.Drawing.Point(3, 3)
         Me.Label223.Name = "Label223"
@@ -7986,7 +7975,7 @@ Partial Class FrmGeneral
         '
         'TxtPaymentType
         '
-        Me.TxtPaymentType.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TxtPaymentType.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPaymentType.Location = New System.Drawing.Point(621, 429)
         Me.TxtPaymentType.Name = "TxtPaymentType"
         Me.TxtPaymentType.Size = New System.Drawing.Size(122, 20)
@@ -7994,7 +7983,7 @@ Partial Class FrmGeneral
         '
         'Label224
         '
-        Me.Label224.AutoSize = true
+        Me.Label224.AutoSize = True
         Me.Label224.Location = New System.Drawing.Point(524, 432)
         Me.Label224.Name = "Label224"
         Me.Label224.Size = New System.Drawing.Size(81, 13)
@@ -8003,7 +7992,7 @@ Partial Class FrmGeneral
         '
         'TxtPaymentAmount
         '
-        Me.TxtPaymentAmount.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TxtPaymentAmount.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPaymentAmount.Location = New System.Drawing.Point(621, 513)
         Me.TxtPaymentAmount.Name = "TxtPaymentAmount"
         Me.TxtPaymentAmount.Size = New System.Drawing.Size(122, 20)
@@ -8011,8 +8000,8 @@ Partial Class FrmGeneral
         '
         'Label225
         '
-        Me.Label225.AutoSize = true
-        Me.Label225.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label225.AutoSize = True
+        Me.Label225.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label225.Location = New System.Drawing.Point(524, 518)
         Me.Label225.Name = "Label225"
         Me.Label225.Size = New System.Drawing.Size(57, 13)
@@ -8021,7 +8010,7 @@ Partial Class FrmGeneral
         '
         'Label226
         '
-        Me.Label226.AutoSize = true
+        Me.Label226.AutoSize = True
         Me.Label226.Location = New System.Drawing.Point(524, 497)
         Me.Label226.Name = "Label226"
         Me.Label226.Size = New System.Drawing.Size(83, 13)
@@ -8030,7 +8019,7 @@ Partial Class FrmGeneral
         '
         'TxtPaymentStatus
         '
-        Me.TxtPaymentStatus.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TxtPaymentStatus.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPaymentStatus.Location = New System.Drawing.Point(621, 450)
         Me.TxtPaymentStatus.Name = "TxtPaymentStatus"
         Me.TxtPaymentStatus.Size = New System.Drawing.Size(122, 20)
@@ -8038,7 +8027,7 @@ Partial Class FrmGeneral
         '
         'Label227
         '
-        Me.Label227.AutoSize = true
+        Me.Label227.AutoSize = True
         Me.Label227.Location = New System.Drawing.Point(524, 455)
         Me.Label227.Name = "Label227"
         Me.Label227.Size = New System.Drawing.Size(43, 13)
@@ -8047,7 +8036,7 @@ Partial Class FrmGeneral
         '
         'TxtPaymentDate
         '
-        Me.TxtPaymentDate.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TxtPaymentDate.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPaymentDate.Location = New System.Drawing.Point(621, 471)
         Me.TxtPaymentDate.Name = "TxtPaymentDate"
         Me.TxtPaymentDate.Size = New System.Drawing.Size(122, 20)
@@ -8055,7 +8044,7 @@ Partial Class FrmGeneral
         '
         'Label228
         '
-        Me.Label228.AutoSize = true
+        Me.Label228.AutoSize = True
         Me.Label228.Location = New System.Drawing.Point(524, 477)
         Me.Label228.Name = "Label228"
         Me.Label228.Size = New System.Drawing.Size(36, 13)
@@ -8073,8 +8062,8 @@ Partial Class FrmGeneral
         '
         'Label219
         '
-        Me.Label219.AutoSize = true
-        Me.Label219.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label219.AutoSize = True
+        Me.Label219.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label219.ForeColor = System.Drawing.Color.White
         Me.Label219.Location = New System.Drawing.Point(2, 3)
         Me.Label219.Name = "Label219"
@@ -8084,8 +8073,8 @@ Partial Class FrmGeneral
         '
         'Label220
         '
-        Me.Label220.AutoSize = true
-        Me.Label220.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label220.AutoSize = True
+        Me.Label220.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label220.Location = New System.Drawing.Point(716, 371)
         Me.Label220.Name = "Label220"
         Me.Label220.Size = New System.Drawing.Size(44, 13)
@@ -8094,8 +8083,8 @@ Partial Class FrmGeneral
         '
         'Label221
         '
-        Me.Label221.AutoSize = true
-        Me.Label221.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label221.AutoSize = True
+        Me.Label221.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label221.Location = New System.Drawing.Point(531, 371)
         Me.Label221.Name = "Label221"
         Me.Label221.Size = New System.Drawing.Size(44, 13)
@@ -8104,8 +8093,8 @@ Partial Class FrmGeneral
         '
         'txtPhone
         '
-        Me.txtPhone.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.txtPhone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.txtPhone.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPhone.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtPhone.Location = New System.Drawing.Point(765, 368)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(128, 20)
@@ -8113,8 +8102,8 @@ Partial Class FrmGeneral
         '
         'txtEmailAdd
         '
-        Me.txtEmailAdd.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.txtEmailAdd.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.txtEmailAdd.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmailAdd.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtEmailAdd.Location = New System.Drawing.Point(388, 368)
         Me.txtEmailAdd.Name = "txtEmailAdd"
         Me.txtEmailAdd.Size = New System.Drawing.Size(128, 20)
@@ -8122,8 +8111,8 @@ Partial Class FrmGeneral
         '
         'txtMobile
         '
-        Me.txtMobile.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.txtMobile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.txtMobile.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMobile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtMobile.Location = New System.Drawing.Point(577, 368)
         Me.txtMobile.Name = "txtMobile"
         Me.txtMobile.Size = New System.Drawing.Size(128, 20)
@@ -8131,8 +8120,8 @@ Partial Class FrmGeneral
         '
         'Label222
         '
-        Me.Label222.AutoSize = true
-        Me.Label222.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label222.AutoSize = True
+        Me.Label222.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label222.Location = New System.Drawing.Point(306, 371)
         Me.Label222.Name = "Label222"
         Me.Label222.Size = New System.Drawing.Size(79, 13)
@@ -8143,16 +8132,16 @@ Partial Class FrmGeneral
         '
         Me.GroupBox17.Controls.Add(Me.rtdFlightDetails)
         Me.GroupBox17.Controls.Add(Me.Panel8)
-        Me.GroupBox17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox17.Location = New System.Drawing.Point(300, 215)
         Me.GroupBox17.Name = "GroupBox17"
         Me.GroupBox17.Size = New System.Drawing.Size(664, 121)
         Me.GroupBox17.TabIndex = 55
-        Me.GroupBox17.TabStop = false
+        Me.GroupBox17.TabStop = False
         '
         'rtdFlightDetails
         '
-        Me.rtdFlightDetails.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.rtdFlightDetails.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtdFlightDetails.Location = New System.Drawing.Point(15, 31)
         Me.rtdFlightDetails.Name = "rtdFlightDetails"
         Me.rtdFlightDetails.Size = New System.Drawing.Size(634, 82)
@@ -8170,9 +8159,9 @@ Partial Class FrmGeneral
         '
         'Label213
         '
-        Me.Label213.AutoSize = true
+        Me.Label213.AutoSize = True
         Me.Label213.BackColor = System.Drawing.Color.Transparent
-        Me.Label213.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label213.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label213.ForeColor = System.Drawing.Color.White
         Me.Label213.Location = New System.Drawing.Point(5, 4)
         Me.Label213.Name = "Label213"
@@ -8182,8 +8171,8 @@ Partial Class FrmGeneral
         '
         'LabelBookingRef
         '
-        Me.LabelBookingRef.AutoSize = true
-        Me.LabelBookingRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.LabelBookingRef.AutoSize = True
+        Me.LabelBookingRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelBookingRef.Location = New System.Drawing.Point(857, 29)
         Me.LabelBookingRef.Name = "LabelBookingRef"
         Me.LabelBookingRef.Size = New System.Drawing.Size(0, 15)
@@ -8191,7 +8180,7 @@ Partial Class FrmGeneral
         '
         'LabelBDate
         '
-        Me.LabelBDate.AutoSize = true
+        Me.LabelBDate.AutoSize = True
         Me.LabelBDate.Location = New System.Drawing.Point(391, 52)
         Me.LabelBDate.Name = "LabelBDate"
         Me.LabelBDate.Size = New System.Drawing.Size(0, 13)
@@ -8199,8 +8188,8 @@ Partial Class FrmGeneral
         '
         'BookingRef
         '
-        Me.BookingRef.AutoSize = true
-        Me.BookingRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.BookingRef.AutoSize = True
+        Me.BookingRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BookingRef.ForeColor = System.Drawing.Color.Black
         Me.BookingRef.Location = New System.Drawing.Point(863, 26)
         Me.BookingRef.Name = "BookingRef"
@@ -8209,8 +8198,8 @@ Partial Class FrmGeneral
         '
         'Label197
         '
-        Me.Label197.AutoSize = true
-        Me.Label197.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label197.AutoSize = True
+        Me.Label197.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label197.Location = New System.Drawing.Point(822, 9)
         Me.Label197.Name = "Label197"
         Me.Label197.Size = New System.Drawing.Size(142, 13)
@@ -8219,7 +8208,7 @@ Partial Class FrmGeneral
         '
         'BookingDate
         '
-        Me.BookingDate.AutoSize = true
+        Me.BookingDate.AutoSize = True
         Me.BookingDate.Location = New System.Drawing.Point(389, 52)
         Me.BookingDate.Name = "BookingDate"
         Me.BookingDate.Size = New System.Drawing.Size(0, 13)
@@ -8227,8 +8216,8 @@ Partial Class FrmGeneral
         '
         'Label198
         '
-        Me.Label198.AutoSize = true
-        Me.Label198.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label198.AutoSize = True
+        Me.Label198.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label198.Location = New System.Drawing.Point(303, 52)
         Me.Label198.Name = "Label198"
         Me.Label198.Size = New System.Drawing.Size(78, 13)
@@ -8237,19 +8226,19 @@ Partial Class FrmGeneral
         '
         'Rd_Cancelled
         '
-        Me.Rd_Cancelled.AutoSize = true
+        Me.Rd_Cancelled.AutoSize = True
         Me.Rd_Cancelled.Location = New System.Drawing.Point(524, 9)
         Me.Rd_Cancelled.Name = "Rd_Cancelled"
         Me.Rd_Cancelled.Size = New System.Drawing.Size(72, 17)
         Me.Rd_Cancelled.TabIndex = 48
-        Me.Rd_Cancelled.TabStop = true
+        Me.Rd_Cancelled.TabStop = True
         Me.Rd_Cancelled.Text = "Cancelled"
-        Me.Rd_Cancelled.UseVisualStyleBackColor = true
+        Me.Rd_Cancelled.UseVisualStyleBackColor = True
         '
         'Label199
         '
-        Me.Label199.AutoSize = true
-        Me.Label199.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label199.AutoSize = True
+        Me.Label199.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label199.Location = New System.Drawing.Point(303, 11)
         Me.Label199.Name = "Label199"
         Me.Label199.Size = New System.Drawing.Size(85, 13)
@@ -8258,25 +8247,25 @@ Partial Class FrmGeneral
         '
         'Rd_Onhold
         '
-        Me.Rd_Onhold.AutoSize = true
+        Me.Rd_Onhold.AutoSize = True
         Me.Rd_Onhold.Location = New System.Drawing.Point(467, 9)
         Me.Rd_Onhold.Name = "Rd_Onhold"
         Me.Rd_Onhold.Size = New System.Drawing.Size(47, 17)
         Me.Rd_Onhold.TabIndex = 46
-        Me.Rd_Onhold.TabStop = true
+        Me.Rd_Onhold.TabStop = True
         Me.Rd_Onhold.Text = "Hold"
-        Me.Rd_Onhold.UseVisualStyleBackColor = true
+        Me.Rd_Onhold.UseVisualStyleBackColor = True
         '
         'Rd_confirmed
         '
-        Me.Rd_confirmed.AutoSize = true
+        Me.Rd_confirmed.AutoSize = True
         Me.Rd_confirmed.Location = New System.Drawing.Point(389, 9)
         Me.Rd_confirmed.Name = "Rd_confirmed"
         Me.Rd_confirmed.Size = New System.Drawing.Size(72, 17)
         Me.Rd_confirmed.TabIndex = 45
-        Me.Rd_confirmed.TabStop = true
+        Me.Rd_confirmed.TabStop = True
         Me.Rd_confirmed.Text = "Confirmed"
-        Me.Rd_confirmed.UseVisualStyleBackColor = true
+        Me.Rd_confirmed.UseVisualStyleBackColor = True
         '
         'GroupBox16
         '
@@ -8303,25 +8292,25 @@ Partial Class FrmGeneral
         Me.GroupBox16.Controls.Add(Me.Label210)
         Me.GroupBox16.Controls.Add(Me.txtLastName)
         Me.GroupBox16.Controls.Add(Me.Label211)
-        Me.GroupBox16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.GroupBox16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.GroupBox16.Location = New System.Drawing.Point(302, 70)
         Me.GroupBox16.Name = "GroupBox16"
         Me.GroupBox16.Size = New System.Drawing.Size(662, 139)
         Me.GroupBox16.TabIndex = 44
-        Me.GroupBox16.TabStop = false
+        Me.GroupBox16.TabStop = False
         '
         'txtSuffix
         '
-        Me.txtSuffix.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtSuffix.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSuffix.Location = New System.Drawing.Point(584, 52)
         Me.txtSuffix.Name = "txtSuffix"
-        Me.txtSuffix.ReadOnly = true
+        Me.txtSuffix.ReadOnly = True
         Me.txtSuffix.Size = New System.Drawing.Size(48, 20)
         Me.txtSuffix.TabIndex = 35
         '
         'Label200
         '
-        Me.Label200.AutoSize = true
+        Me.Label200.AutoSize = True
         Me.Label200.Location = New System.Drawing.Point(581, 36)
         Me.Label200.Name = "Label200"
         Me.Label200.Size = New System.Drawing.Size(39, 13)
@@ -8339,8 +8328,8 @@ Partial Class FrmGeneral
         '
         'Label201
         '
-        Me.Label201.AutoSize = true
-        Me.Label201.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label201.AutoSize = True
+        Me.Label201.Font = New System.Drawing.Font("Lucida Calligraphy", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label201.ForeColor = System.Drawing.Color.White
         Me.Label201.Location = New System.Drawing.Point(7, 3)
         Me.Label201.Name = "Label201"
@@ -8350,8 +8339,8 @@ Partial Class FrmGeneral
         '
         'Label202
         '
-        Me.Label202.AutoSize = true
-        Me.Label202.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label202.AutoSize = True
+        Me.Label202.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label202.ForeColor = System.Drawing.Color.Gray
         Me.Label202.Location = New System.Drawing.Point(197, 120)
         Me.Label202.Name = "Label202"
@@ -8361,8 +8350,8 @@ Partial Class FrmGeneral
         '
         'Label203
         '
-        Me.Label203.AutoSize = true
-        Me.Label203.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label203.AutoSize = True
+        Me.Label203.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label203.ForeColor = System.Drawing.Color.Gray
         Me.Label203.Location = New System.Drawing.Point(124, 120)
         Me.Label203.Name = "Label203"
@@ -8372,8 +8361,8 @@ Partial Class FrmGeneral
         '
         'Label204
         '
-        Me.Label204.AutoSize = true
-        Me.Label204.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label204.AutoSize = True
+        Me.Label204.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label204.ForeColor = System.Drawing.Color.Gray
         Me.Label204.Location = New System.Drawing.Point(38, 119)
         Me.Label204.Name = "Label204"
@@ -8383,29 +8372,29 @@ Partial Class FrmGeneral
         '
         'rdFemale
         '
-        Me.rdFemale.AutoSize = true
+        Me.rdFemale.AutoSize = True
         Me.rdFemale.Location = New System.Drawing.Point(524, 97)
         Me.rdFemale.Name = "rdFemale"
         Me.rdFemale.Size = New System.Drawing.Size(59, 17)
         Me.rdFemale.TabIndex = 29
-        Me.rdFemale.TabStop = true
+        Me.rdFemale.TabStop = True
         Me.rdFemale.Text = "Female"
-        Me.rdFemale.UseVisualStyleBackColor = true
+        Me.rdFemale.UseVisualStyleBackColor = True
         '
         'rdMale
         '
-        Me.rdMale.AutoSize = true
+        Me.rdMale.AutoSize = True
         Me.rdMale.Location = New System.Drawing.Point(472, 98)
         Me.rdMale.Name = "rdMale"
         Me.rdMale.Size = New System.Drawing.Size(48, 17)
         Me.rdMale.TabIndex = 28
-        Me.rdMale.TabStop = true
+        Me.rdMale.TabStop = True
         Me.rdMale.Text = "Male"
-        Me.rdMale.UseVisualStyleBackColor = true
+        Me.rdMale.UseVisualStyleBackColor = True
         '
         'Label205
         '
-        Me.Label205.AutoSize = true
+        Me.Label205.AutoSize = True
         Me.Label205.Location = New System.Drawing.Point(445, 81)
         Me.Label205.Name = "Label205"
         Me.Label205.Size = New System.Drawing.Size(48, 13)
@@ -8414,16 +8403,16 @@ Partial Class FrmGeneral
         '
         'txtPaxType
         '
-        Me.txtPaxType.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPaxType.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPaxType.Location = New System.Drawing.Point(259, 97)
         Me.txtPaxType.Name = "txtPaxType"
-        Me.txtPaxType.ReadOnly = true
+        Me.txtPaxType.ReadOnly = True
         Me.txtPaxType.Size = New System.Drawing.Size(182, 20)
         Me.txtPaxType.TabIndex = 26
         '
         'Label206
         '
-        Me.Label206.AutoSize = true
+        Me.Label206.AutoSize = True
         Me.Label206.Location = New System.Drawing.Point(257, 81)
         Me.Label206.Name = "Label206"
         Me.Label206.Size = New System.Drawing.Size(58, 13)
@@ -8432,34 +8421,34 @@ Partial Class FrmGeneral
         '
         'txtyear
         '
-        Me.txtyear.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtyear.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtyear.Location = New System.Drawing.Point(175, 97)
         Me.txtyear.Name = "txtyear"
-        Me.txtyear.ReadOnly = true
+        Me.txtyear.ReadOnly = True
         Me.txtyear.Size = New System.Drawing.Size(79, 20)
         Me.txtyear.TabIndex = 24
         '
         'txtDay
         '
-        Me.txtDay.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDay.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDay.Location = New System.Drawing.Point(93, 97)
         Me.txtDay.Name = "txtDay"
-        Me.txtDay.ReadOnly = true
+        Me.txtDay.ReadOnly = True
         Me.txtDay.Size = New System.Drawing.Size(79, 20)
         Me.txtDay.TabIndex = 23
         '
         'TxtMonth
         '
-        Me.TxtMonth.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TxtMonth.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtMonth.Location = New System.Drawing.Point(15, 97)
         Me.TxtMonth.Name = "TxtMonth"
-        Me.TxtMonth.ReadOnly = true
+        Me.TxtMonth.ReadOnly = True
         Me.TxtMonth.Size = New System.Drawing.Size(72, 20)
         Me.TxtMonth.TabIndex = 22
         '
         'Label207
         '
-        Me.Label207.AutoSize = true
+        Me.Label207.AutoSize = True
         Me.Label207.Location = New System.Drawing.Point(12, 81)
         Me.Label207.Name = "Label207"
         Me.Label207.Size = New System.Drawing.Size(51, 13)
@@ -8468,16 +8457,16 @@ Partial Class FrmGeneral
         '
         'txtTitle
         '
-        Me.txtTitle.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtTitle.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTitle.Location = New System.Drawing.Point(15, 52)
         Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.ReadOnly = true
+        Me.txtTitle.ReadOnly = True
         Me.txtTitle.Size = New System.Drawing.Size(48, 20)
         Me.txtTitle.TabIndex = 19
         '
         'Label208
         '
-        Me.Label208.AutoSize = true
+        Me.Label208.AutoSize = True
         Me.Label208.Location = New System.Drawing.Point(12, 36)
         Me.Label208.Name = "Label208"
         Me.Label208.Size = New System.Drawing.Size(33, 13)
@@ -8486,16 +8475,16 @@ Partial Class FrmGeneral
         '
         'txtMiddleName
         '
-        Me.txtMiddleName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtMiddleName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMiddleName.Location = New System.Drawing.Point(399, 52)
         Me.txtMiddleName.Name = "txtMiddleName"
-        Me.txtMiddleName.ReadOnly = true
+        Me.txtMiddleName.ReadOnly = True
         Me.txtMiddleName.Size = New System.Drawing.Size(182, 20)
         Me.txtMiddleName.TabIndex = 16
         '
         'Label209
         '
-        Me.Label209.AutoSize = true
+        Me.Label209.AutoSize = True
         Me.Label209.Location = New System.Drawing.Point(396, 36)
         Me.Label209.Name = "Label209"
         Me.Label209.Size = New System.Drawing.Size(75, 13)
@@ -8504,16 +8493,16 @@ Partial Class FrmGeneral
         '
         'txtFirstName
         '
-        Me.txtFirstName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtFirstName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFirstName.Location = New System.Drawing.Point(214, 52)
         Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.ReadOnly = true
+        Me.txtFirstName.ReadOnly = True
         Me.txtFirstName.Size = New System.Drawing.Size(182, 20)
         Me.txtFirstName.TabIndex = 14
         '
         'Label210
         '
-        Me.Label210.AutoSize = true
+        Me.Label210.AutoSize = True
         Me.Label210.Location = New System.Drawing.Point(212, 36)
         Me.Label210.Name = "Label210"
         Me.Label210.Size = New System.Drawing.Size(63, 13)
@@ -8522,16 +8511,16 @@ Partial Class FrmGeneral
         '
         'txtLastName
         '
-        Me.txtLastName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtLastName.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLastName.Location = New System.Drawing.Point(66, 52)
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.ReadOnly = true
+        Me.txtLastName.ReadOnly = True
         Me.txtLastName.Size = New System.Drawing.Size(145, 20)
         Me.txtLastName.TabIndex = 12
         '
         'Label211
         '
-        Me.Label211.AutoSize = true
+        Me.Label211.AutoSize = True
         Me.Label211.Location = New System.Drawing.Point(63, 36)
         Me.Label211.Name = "Label211"
         Me.Label211.Size = New System.Drawing.Size(64, 13)
@@ -8540,8 +8529,8 @@ Partial Class FrmGeneral
         '
         'PaxList
         '
-        Me.PaxList.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.PaxList.FormattingEnabled = true
+        Me.PaxList.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaxList.FormattingEnabled = True
         Me.PaxList.ItemHeight = 14
         Me.PaxList.Location = New System.Drawing.Point(19, 82)
         Me.PaxList.Name = "PaxList"
@@ -8560,8 +8549,8 @@ Partial Class FrmGeneral
         '
         'LabelPaxCount
         '
-        Me.LabelPaxCount.AutoSize = true
-        Me.LabelPaxCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.LabelPaxCount.AutoSize = True
+        Me.LabelPaxCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelPaxCount.ForeColor = System.Drawing.Color.White
         Me.LabelPaxCount.Location = New System.Drawing.Point(85, 5)
         Me.LabelPaxCount.Name = "LabelPaxCount"
@@ -8570,9 +8559,9 @@ Partial Class FrmGeneral
         '
         'Label43
         '
-        Me.Label43.AutoSize = true
+        Me.Label43.AutoSize = True
         Me.Label43.BackColor = System.Drawing.Color.Transparent
-        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label43.ForeColor = System.Drawing.Color.White
         Me.Label43.Location = New System.Drawing.Point(2, 4)
         Me.Label43.Name = "Label43"
@@ -8587,7 +8576,7 @@ Partial Class FrmGeneral
         Me.btnClearDetails.Size = New System.Drawing.Size(88, 23)
         Me.btnClearDetails.TabIndex = 41
         Me.btnClearDetails.Text = "&Clear All Details"
-        Me.btnClearDetails.UseVisualStyleBackColor = true
+        Me.btnClearDetails.UseVisualStyleBackColor = True
         '
         'btnProcessAir
         '
@@ -8596,13 +8585,13 @@ Partial Class FrmGeneral
         Me.btnProcessAir.Size = New System.Drawing.Size(111, 23)
         Me.btnProcessAir.TabIndex = 40
         Me.btnProcessAir.Text = "&Process Air File"
-        Me.btnProcessAir.UseVisualStyleBackColor = true
+        Me.btnProcessAir.UseVisualStyleBackColor = True
         '
         'Label173
         '
-        Me.Label173.AutoSize = true
+        Me.Label173.AutoSize = True
         Me.Label173.BackColor = System.Drawing.Color.Transparent
-        Me.Label173.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label173.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label173.Location = New System.Drawing.Point(17, 284)
         Me.Label173.Name = "Label173"
         Me.Label173.Size = New System.Drawing.Size(61, 13)
@@ -8616,13 +8605,13 @@ Partial Class FrmGeneral
         Me.btnRetrieve.Size = New System.Drawing.Size(60, 23)
         Me.btnRetrieve.TabIndex = 38
         Me.btnRetrieve.Text = "&Retrieve"
-        Me.btnRetrieve.UseVisualStyleBackColor = true
+        Me.btnRetrieve.UseVisualStyleBackColor = True
         '
         'Label174
         '
-        Me.Label174.AutoSize = true
+        Me.Label174.AutoSize = True
         Me.Label174.BackColor = System.Drawing.Color.Transparent
-        Me.Label174.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label174.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label174.Location = New System.Drawing.Point(16, 15)
         Me.Label174.Name = "Label174"
         Me.Label174.Size = New System.Drawing.Size(87, 13)
@@ -8654,25 +8643,25 @@ Partial Class FrmGeneral
         '
         'RD_CEBBiz
         '
-        Me.RD_CEBBiz.AutoSize = true
+        Me.RD_CEBBiz.AutoSize = True
         Me.RD_CEBBiz.Location = New System.Drawing.Point(113, 11)
         Me.RD_CEBBiz.Name = "RD_CEBBiz"
         Me.RD_CEBBiz.Size = New System.Drawing.Size(103, 17)
         Me.RD_CEBBiz.TabIndex = 84
-        Me.RD_CEBBiz.TabStop = true
+        Me.RD_CEBBiz.TabStop = True
         Me.RD_CEBBiz.Text = "CEB BIZ Partner"
-        Me.RD_CEBBiz.UseVisualStyleBackColor = true
+        Me.RD_CEBBiz.UseVisualStyleBackColor = True
         '
         'RD_PartnerAgent
         '
-        Me.RD_PartnerAgent.AutoSize = true
+        Me.RD_PartnerAgent.AutoSize = True
         Me.RD_PartnerAgent.Location = New System.Drawing.Point(11, 11)
         Me.RD_PartnerAgent.Name = "RD_PartnerAgent"
         Me.RD_PartnerAgent.Size = New System.Drawing.Size(90, 17)
         Me.RD_PartnerAgent.TabIndex = 83
-        Me.RD_PartnerAgent.TabStop = true
+        Me.RD_PartnerAgent.TabStop = True
         Me.RD_PartnerAgent.Text = "Partner Agent"
-        Me.RD_PartnerAgent.UseVisualStyleBackColor = true
+        Me.RD_PartnerAgent.UseVisualStyleBackColor = True
         '
         'btnResetSession
         '
@@ -8681,8 +8670,8 @@ Partial Class FrmGeneral
         Me.btnResetSession.Size = New System.Drawing.Size(93, 23)
         Me.btnResetSession.TabIndex = 80
         Me.btnResetSession.Text = "&Reset Session"
-        Me.btnResetSession.UseVisualStyleBackColor = true
-        Me.btnResetSession.Visible = false
+        Me.btnResetSession.UseVisualStyleBackColor = True
+        Me.btnResetSession.Visible = False
         '
         'btnPWreset
         '
@@ -8691,18 +8680,18 @@ Partial Class FrmGeneral
         Me.btnPWreset.Size = New System.Drawing.Size(93, 23)
         Me.btnPWreset.TabIndex = 81
         Me.btnPWreset.Text = "&Reset Password"
-        Me.btnPWreset.UseVisualStyleBackColor = true
-        Me.btnPWreset.Visible = false
+        Me.btnPWreset.UseVisualStyleBackColor = True
+        Me.btnPWreset.Visible = False
         '
         'Label212
         '
-        Me.Label212.AutoSize = true
+        Me.Label212.AutoSize = True
         Me.Label212.Location = New System.Drawing.Point(7, 116)
         Me.Label212.Name = "Label212"
         Me.Label212.Size = New System.Drawing.Size(84, 13)
         Me.Label212.TabIndex = 82
         Me.Label212.Text = "New Password :"
-        Me.Label212.Visible = false
+        Me.Label212.Visible = False
         '
         'txtPWreset
         '
@@ -8711,12 +8700,12 @@ Partial Class FrmGeneral
         Me.txtPWreset.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPWreset.Size = New System.Drawing.Size(134, 20)
         Me.txtPWreset.TabIndex = 81
-        Me.txtPWreset.Visible = false
+        Me.txtPWreset.Visible = False
         '
         'LabelAirPath
         '
-        Me.LabelAirPath.AutoSize = true
-        Me.LabelAirPath.Font = New System.Drawing.Font("Courier New", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.LabelAirPath.AutoSize = True
+        Me.LabelAirPath.Font = New System.Drawing.Font("Courier New", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelAirPath.ForeColor = System.Drawing.Color.Silver
         Me.LabelAirPath.Location = New System.Drawing.Point(18, 142)
         Me.LabelAirPath.Name = "LabelAirPath"
@@ -8725,7 +8714,7 @@ Partial Class FrmGeneral
         '
         'Label175
         '
-        Me.Label175.AutoSize = true
+        Me.Label175.AutoSize = True
         Me.Label175.Location = New System.Drawing.Point(8, 94)
         Me.Label175.Name = "Label175"
         Me.Label175.Size = New System.Drawing.Size(58, 13)
@@ -8736,13 +8725,13 @@ Partial Class FrmGeneral
         '
         Me.txtUserId.Location = New System.Drawing.Point(93, 45)
         Me.txtUserId.Name = "txtUserId"
-        Me.txtUserId.ReadOnly = true
+        Me.txtUserId.ReadOnly = True
         Me.txtUserId.Size = New System.Drawing.Size(134, 20)
         Me.txtUserId.TabIndex = 1
         '
         'Label176
         '
-        Me.Label176.AutoSize = true
+        Me.Label176.AutoSize = True
         Me.Label176.Location = New System.Drawing.Point(8, 71)
         Me.Label176.Name = "Label176"
         Me.Label176.Size = New System.Drawing.Size(59, 13)
@@ -8754,13 +8743,13 @@ Partial Class FrmGeneral
         Me.txtPassword.Location = New System.Drawing.Point(93, 68)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.ReadOnly = true
+        Me.txtPassword.ReadOnly = True
         Me.txtPassword.Size = New System.Drawing.Size(134, 20)
         Me.txtPassword.TabIndex = 2
         '
         'Label195
         '
-        Me.Label195.AutoSize = true
+        Me.Label195.AutoSize = True
         Me.Label195.Location = New System.Drawing.Point(8, 49)
         Me.Label195.Name = "Label195"
         Me.Label195.Size = New System.Drawing.Size(49, 13)
@@ -8771,7 +8760,7 @@ Partial Class FrmGeneral
         '
         Me.txtOrgCode.Location = New System.Drawing.Point(93, 91)
         Me.txtOrgCode.Name = "txtOrgCode"
-        Me.txtOrgCode.ReadOnly = true
+        Me.txtOrgCode.ReadOnly = True
         Me.txtOrgCode.Size = New System.Drawing.Size(134, 20)
         Me.txtOrgCode.TabIndex = 3
         '
@@ -8782,7 +8771,7 @@ Partial Class FrmGeneral
         Me.btnLogOn.Size = New System.Drawing.Size(100, 23)
         Me.btnLogOn.TabIndex = 32
         Me.btnLogOn.Text = "&Log In"
-        Me.btnLogOn.UseVisualStyleBackColor = true
+        Me.btnLogOn.UseVisualStyleBackColor = True
         '
         'btnLogOut
         '
@@ -8791,7 +8780,7 @@ Partial Class FrmGeneral
         Me.btnLogOut.Size = New System.Drawing.Size(100, 23)
         Me.btnLogOut.TabIndex = 33
         Me.btnLogOut.Text = "&Log Out"
-        Me.btnLogOut.UseVisualStyleBackColor = true
+        Me.btnLogOut.UseVisualStyleBackColor = True
         '
         'txtReloc
         '
@@ -8811,7 +8800,7 @@ Partial Class FrmGeneral
         Me.TabPage11.Size = New System.Drawing.Size(996, 548)
         Me.TabPage11.TabIndex = 10
         Me.TabPage11.Text = "List of Service Fee"
-        Me.TabPage11.UseVisualStyleBackColor = true
+        Me.TabPage11.UseVisualStyleBackColor = True
         '
         'PanelServiceFee
         '
@@ -8847,7 +8836,7 @@ Partial Class FrmGeneral
         Me.PanelServiceFee.Name = "PanelServiceFee"
         Me.PanelServiceFee.Size = New System.Drawing.Size(538, 187)
         Me.PanelServiceFee.TabIndex = 2
-        Me.PanelServiceFee.Visible = false
+        Me.PanelServiceFee.Visible = False
         '
         'btnCancelSF
         '
@@ -8856,7 +8845,7 @@ Partial Class FrmGeneral
         Me.btnCancelSF.Size = New System.Drawing.Size(80, 23)
         Me.btnCancelSF.TabIndex = 28
         Me.btnCancelSF.Text = "Cancel"
-        Me.btnCancelSF.UseVisualStyleBackColor = true
+        Me.btnCancelSF.UseVisualStyleBackColor = True
         '
         'btnSaveSF
         '
@@ -8865,11 +8854,11 @@ Partial Class FrmGeneral
         Me.btnSaveSF.Size = New System.Drawing.Size(80, 23)
         Me.btnSaveSF.TabIndex = 27
         Me.btnSaveSF.Text = "Save/Update"
-        Me.btnSaveSF.UseVisualStyleBackColor = true
+        Me.btnSaveSF.UseVisualStyleBackColor = True
         '
         'Label245
         '
-        Me.Label245.AutoSize = true
+        Me.Label245.AutoSize = True
         Me.Label245.ForeColor = System.Drawing.Color.Red
         Me.Label245.Location = New System.Drawing.Point(327, 32)
         Me.Label245.Name = "Label245"
@@ -8879,7 +8868,7 @@ Partial Class FrmGeneral
         '
         'Label234
         '
-        Me.Label234.AutoSize = true
+        Me.Label234.AutoSize = True
         Me.Label234.ForeColor = System.Drawing.Color.Red
         Me.Label234.Location = New System.Drawing.Point(65, 32)
         Me.Label234.Name = "Label234"
@@ -8903,7 +8892,7 @@ Partial Class FrmGeneral
         '
         'Label243
         '
-        Me.Label243.AutoSize = true
+        Me.Label243.AutoSize = True
         Me.Label243.Location = New System.Drawing.Point(270, 126)
         Me.Label243.Name = "Label243"
         Me.Label243.Size = New System.Drawing.Size(30, 13)
@@ -8920,7 +8909,7 @@ Partial Class FrmGeneral
         '
         'Label244
         '
-        Me.Label244.AutoSize = true
+        Me.Label244.AutoSize = True
         Me.Label244.Location = New System.Drawing.Point(194, 126)
         Me.Label244.Name = "Label244"
         Me.Label244.Size = New System.Drawing.Size(49, 13)
@@ -8938,27 +8927,27 @@ Partial Class FrmGeneral
         '
         'checkBoxWithVAT
         '
-        Me.checkBoxWithVAT.AutoSize = true
+        Me.checkBoxWithVAT.AutoSize = True
         Me.checkBoxWithVAT.Location = New System.Drawing.Point(449, 105)
         Me.checkBoxWithVAT.Name = "checkBoxWithVAT"
         Me.checkBoxWithVAT.Size = New System.Drawing.Size(79, 17)
         Me.checkBoxWithVAT.TabIndex = 18
         Me.checkBoxWithVAT.Text = "WITH VAT"
-        Me.checkBoxWithVAT.UseVisualStyleBackColor = true
+        Me.checkBoxWithVAT.UseVisualStyleBackColor = True
         '
         'checkBoxIFConvert
         '
-        Me.checkBoxIFConvert.AutoSize = true
+        Me.checkBoxIFConvert.AutoSize = True
         Me.checkBoxIFConvert.Location = New System.Drawing.Point(353, 105)
         Me.checkBoxIFConvert.Name = "checkBoxIFConvert"
         Me.checkBoxIFConvert.Size = New System.Drawing.Size(90, 17)
         Me.checkBoxIFConvert.TabIndex = 17
         Me.checkBoxIFConvert.Text = "IF CONVERT"
-        Me.checkBoxIFConvert.UseVisualStyleBackColor = true
+        Me.checkBoxIFConvert.UseVisualStyleBackColor = True
         '
         'Label241
         '
-        Me.Label241.AutoSize = true
+        Me.Label241.AutoSize = True
         Me.Label241.Location = New System.Drawing.Point(73, 126)
         Me.Label241.Name = "Label241"
         Me.Label241.Size = New System.Drawing.Size(74, 13)
@@ -8975,7 +8964,7 @@ Partial Class FrmGeneral
         '
         'Label242
         '
-        Me.Label242.AutoSize = true
+        Me.Label242.AutoSize = True
         Me.Label242.Location = New System.Drawing.Point(6, 126)
         Me.Label242.Name = "Label242"
         Me.Label242.Size = New System.Drawing.Size(49, 13)
@@ -8993,7 +8982,7 @@ Partial Class FrmGeneral
         '
         'Label239
         '
-        Me.Label239.AutoSize = true
+        Me.Label239.AutoSize = True
         Me.Label239.Location = New System.Drawing.Point(449, 77)
         Me.Label239.Name = "Label239"
         Me.Label239.Size = New System.Drawing.Size(65, 13)
@@ -9010,7 +8999,7 @@ Partial Class FrmGeneral
         '
         'Label240
         '
-        Me.Label240.AutoSize = true
+        Me.Label240.AutoSize = True
         Me.Label240.Location = New System.Drawing.Point(382, 77)
         Me.Label240.Name = "Label240"
         Me.Label240.Size = New System.Drawing.Size(49, 13)
@@ -9028,7 +9017,7 @@ Partial Class FrmGeneral
         '
         'Label237
         '
-        Me.Label237.AutoSize = true
+        Me.Label237.AutoSize = True
         Me.Label237.Location = New System.Drawing.Point(261, 77)
         Me.Label237.Name = "Label237"
         Me.Label237.Size = New System.Drawing.Size(49, 13)
@@ -9044,7 +9033,7 @@ Partial Class FrmGeneral
         '
         'Label238
         '
-        Me.Label238.AutoSize = true
+        Me.Label238.AutoSize = True
         Me.Label238.Location = New System.Drawing.Point(194, 77)
         Me.Label238.Name = "Label238"
         Me.Label238.Size = New System.Drawing.Size(49, 13)
@@ -9062,7 +9051,7 @@ Partial Class FrmGeneral
         '
         'Label236
         '
-        Me.Label236.AutoSize = true
+        Me.Label236.AutoSize = True
         Me.Label236.Location = New System.Drawing.Point(73, 77)
         Me.Label236.Name = "Label236"
         Me.Label236.Size = New System.Drawing.Size(51, 13)
@@ -9079,7 +9068,7 @@ Partial Class FrmGeneral
         '
         'Label235
         '
-        Me.Label235.AutoSize = true
+        Me.Label235.AutoSize = True
         Me.Label235.Location = New System.Drawing.Point(6, 77)
         Me.Label235.Name = "Label235"
         Me.Label235.Size = New System.Drawing.Size(49, 13)
@@ -9097,14 +9086,14 @@ Partial Class FrmGeneral
         '
         'DGServiceFee
         '
-        Me.DGServiceFee.AllowUserToAddRows = false
-        Me.DGServiceFee.AllowUserToDeleteRows = false
+        Me.DGServiceFee.AllowUserToAddRows = False
+        Me.DGServiceFee.AllowUserToDeleteRows = False
         Me.DGServiceFee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGServiceFee.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProfileNo, Me.ProfileName, Me.DomCurrency, Me.SFDomestic, Me.SFLowCostCurrency, Me.SFLowCost, Me.SFRegionalCurrency, Me.SFRegional, Me.SFInternationalCurrency, Me.SFInternational, Me.AOHCurr, Me.AOH, Me.IFConvert, Me.WithVat})
         Me.DGServiceFee.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGServiceFee.Location = New System.Drawing.Point(3, 35)
         Me.DGServiceFee.Name = "DGServiceFee"
-        Me.DGServiceFee.ReadOnly = true
+        Me.DGServiceFee.ReadOnly = True
         Me.DGServiceFee.Size = New System.Drawing.Size(990, 510)
         Me.DGServiceFee.TabIndex = 0
         '
@@ -9112,95 +9101,95 @@ Partial Class FrmGeneral
         '
         Me.ProfileNo.HeaderText = "Profile No"
         Me.ProfileNo.Name = "ProfileNo"
-        Me.ProfileNo.ReadOnly = true
+        Me.ProfileNo.ReadOnly = True
         Me.ProfileNo.Width = 120
         '
         'ProfileName
         '
         Me.ProfileName.HeaderText = "Profile Name"
         Me.ProfileName.Name = "ProfileName"
-        Me.ProfileName.ReadOnly = true
+        Me.ProfileName.ReadOnly = True
         Me.ProfileName.Width = 350
         '
         'DomCurrency
         '
         Me.DomCurrency.HeaderText = "SF_DOM_CURR"
         Me.DomCurrency.Name = "DomCurrency"
-        Me.DomCurrency.ReadOnly = true
+        Me.DomCurrency.ReadOnly = True
         Me.DomCurrency.Width = 90
         '
         'SFDomestic
         '
         Me.SFDomestic.HeaderText = "SF_DOM"
         Me.SFDomestic.Name = "SFDomestic"
-        Me.SFDomestic.ReadOnly = true
+        Me.SFDomestic.ReadOnly = True
         Me.SFDomestic.Width = 80
         '
         'SFLowCostCurrency
         '
         Me.SFLowCostCurrency.HeaderText = "SF_LCC_CURR"
         Me.SFLowCostCurrency.Name = "SFLowCostCurrency"
-        Me.SFLowCostCurrency.ReadOnly = true
+        Me.SFLowCostCurrency.ReadOnly = True
         Me.SFLowCostCurrency.Width = 90
         '
         'SFLowCost
         '
         Me.SFLowCost.HeaderText = "SF_LCC"
         Me.SFLowCost.Name = "SFLowCost"
-        Me.SFLowCost.ReadOnly = true
+        Me.SFLowCost.ReadOnly = True
         Me.SFLowCost.Width = 80
         '
         'SFRegionalCurrency
         '
         Me.SFRegionalCurrency.HeaderText = "SF_REG_CURR"
         Me.SFRegionalCurrency.Name = "SFRegionalCurrency"
-        Me.SFRegionalCurrency.ReadOnly = true
+        Me.SFRegionalCurrency.ReadOnly = True
         Me.SFRegionalCurrency.Width = 90
         '
         'SFRegional
         '
         Me.SFRegional.HeaderText = "SF_REG"
         Me.SFRegional.Name = "SFRegional"
-        Me.SFRegional.ReadOnly = true
+        Me.SFRegional.ReadOnly = True
         Me.SFRegional.Width = 80
         '
         'SFInternationalCurrency
         '
         Me.SFInternationalCurrency.HeaderText = "SF_INTL_CURR"
         Me.SFInternationalCurrency.Name = "SFInternationalCurrency"
-        Me.SFInternationalCurrency.ReadOnly = true
+        Me.SFInternationalCurrency.ReadOnly = True
         Me.SFInternationalCurrency.Width = 90
         '
         'SFInternational
         '
         Me.SFInternational.HeaderText = "SF_INTL"
         Me.SFInternational.Name = "SFInternational"
-        Me.SFInternational.ReadOnly = true
+        Me.SFInternational.ReadOnly = True
         Me.SFInternational.Width = 80
         '
         'AOHCurr
         '
         Me.AOHCurr.HeaderText = "SF_AOH_CURR"
         Me.AOHCurr.Name = "AOHCurr"
-        Me.AOHCurr.ReadOnly = true
+        Me.AOHCurr.ReadOnly = True
         '
         'AOH
         '
         Me.AOH.HeaderText = "SF_AOH"
         Me.AOH.Name = "AOH"
-        Me.AOH.ReadOnly = true
+        Me.AOH.ReadOnly = True
         '
         'IFConvert
         '
         Me.IFConvert.HeaderText = "IF_CONVERT"
         Me.IFConvert.Name = "IFConvert"
-        Me.IFConvert.ReadOnly = true
+        Me.IFConvert.ReadOnly = True
         '
         'WithVat
         '
         Me.WithVat.HeaderText = "WITH_VAT"
         Me.WithVat.Name = "WithVat"
-        Me.WithVat.ReadOnly = true
+        Me.WithVat.ReadOnly = True
         '
         'Panel11
         '
@@ -9219,7 +9208,7 @@ Partial Class FrmGeneral
         Me.btnAddNew.Size = New System.Drawing.Size(111, 23)
         Me.btnAddNew.TabIndex = 1
         Me.btnAddNew.Text = "Add New"
-        Me.btnAddNew.UseVisualStyleBackColor = true
+        Me.btnAddNew.UseVisualStyleBackColor = True
         '
         'btnEditMode
         '
@@ -9228,33 +9217,33 @@ Partial Class FrmGeneral
         Me.btnEditMode.Size = New System.Drawing.Size(111, 23)
         Me.btnEditMode.TabIndex = 0
         Me.btnEditMode.Text = "Edit Mode"
-        Me.btnEditMode.UseVisualStyleBackColor = true
+        Me.btnEditMode.UseVisualStyleBackColor = True
         '
         'BtnPNRNon
         '
         Me.BtnPNRNon.BackColor = System.Drawing.Color.White
         Me.BtnPNRNon.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnPNRNon.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.BtnPNRNon.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnPNRNon.ForeColor = System.Drawing.Color.White
-        Me.BtnPNRNon.Image = CType(resources.GetObject("BtnPNRNon.Image"),System.Drawing.Image)
+        Me.BtnPNRNon.Image = CType(resources.GetObject("BtnPNRNon.Image"), System.Drawing.Image)
         Me.BtnPNRNon.Location = New System.Drawing.Point(434, 656)
         Me.BtnPNRNon.Name = "BtnPNRNon"
         Me.BtnPNRNon.Size = New System.Drawing.Size(145, 37)
         Me.BtnPNRNon.TabIndex = 385
-        Me.BtnPNRNon.UseVisualStyleBackColor = false
+        Me.BtnPNRNon.UseVisualStyleBackColor = False
         '
         'btnExit
         '
         Me.btnExit.BackColor = System.Drawing.Color.Transparent
-        Me.btnExit.BackgroundImage = CType(resources.GetObject("btnExit.BackgroundImage"),System.Drawing.Image)
+        Me.btnExit.BackgroundImage = CType(resources.GetObject("btnExit.BackgroundImage"), System.Drawing.Image)
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.ForeColor = System.Drawing.Color.White
         Me.btnExit.Location = New System.Drawing.Point(578, 653)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(51, 45)
         Me.btnExit.TabIndex = 102
-        Me.btnExit.UseVisualStyleBackColor = false
+        Me.btnExit.UseVisualStyleBackColor = False
         '
         'txtAgentId
         '
@@ -9268,20 +9257,20 @@ Partial Class FrmGeneral
         '
         Me.btnLogIn.BackColor = System.Drawing.Color.Teal
         Me.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnLogIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogIn.ForeColor = System.Drawing.Color.White
-        Me.btnLogIn.Image = CType(resources.GetObject("btnLogIn.Image"),System.Drawing.Image)
+        Me.btnLogIn.Image = CType(resources.GetObject("btnLogIn.Image"), System.Drawing.Image)
         Me.btnLogIn.Location = New System.Drawing.Point(958, 645)
         Me.btnLogIn.Name = "btnLogIn"
         Me.btnLogIn.Size = New System.Drawing.Size(50, 37)
         Me.btnLogIn.TabIndex = 1
-        Me.btnLogIn.UseVisualStyleBackColor = false
+        Me.btnLogIn.UseVisualStyleBackColor = False
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
+        Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
         Me.Label2.Location = New System.Drawing.Point(776, 663)
         Me.Label2.Name = "Label2"
@@ -9291,10 +9280,10 @@ Partial Class FrmGeneral
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
+        Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer))
+        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(787, 662)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(89, 14)
@@ -9303,9 +9292,9 @@ Partial Class FrmGeneral
         '
         'lblDivName
         '
-        Me.lblDivName.AutoSize = true
+        Me.lblDivName.AutoSize = True
         Me.lblDivName.BackColor = System.Drawing.Color.Transparent
-        Me.lblDivName.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblDivName.Font = New System.Drawing.Font("Arial", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDivName.ForeColor = System.Drawing.Color.White
         Me.lblDivName.Location = New System.Drawing.Point(719, 17)
         Me.lblDivName.Name = "lblDivName"
@@ -9316,11 +9305,11 @@ Partial Class FrmGeneral
         '
         Me.txtAccess.BackColor = System.Drawing.Color.White
         Me.txtAccess.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtAccess.Enabled = false
-        Me.txtAccess.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtAccess.Enabled = False
+        Me.txtAccess.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAccess.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtAccess.Location = New System.Drawing.Point(948, 24)
-        Me.txtAccess.Multiline = true
+        Me.txtAccess.Multiline = True
         Me.txtAccess.Name = "txtAccess"
         Me.txtAccess.Size = New System.Drawing.Size(25, 20)
         Me.txtAccess.TabIndex = 397
@@ -9328,10 +9317,10 @@ Partial Class FrmGeneral
         '
         'Label24
         '
-        Me.Label24.AutoSize = true
+        Me.Label24.AutoSize = True
         Me.Label24.BackColor = System.Drawing.Color.Transparent
-        Me.Label24.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255,Byte),Integer), CType(CType(255,Byte),Integer), CType(CType(128,Byte),Integer))
+        Me.Label24.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label24.Location = New System.Drawing.Point(921, 8)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(79, 14)
@@ -9340,9 +9329,9 @@ Partial Class FrmGeneral
         '
         'Label7
         '
-        Me.Label7.AutoSize = true
+        Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label7.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(240, 6)
         Me.Label7.Name = "Label7"
@@ -9353,8 +9342,8 @@ Partial Class FrmGeneral
         'txtDivNo
         '
         Me.txtDivNo.BackColor = System.Drawing.Color.White
-        Me.txtDivNo.Enabled = false
-        Me.txtDivNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtDivNo.Enabled = False
+        Me.txtDivNo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDivNo.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtDivNo.Location = New System.Drawing.Point(655, 21)
         Me.txtDivNo.Name = "txtDivNo"
@@ -9364,8 +9353,8 @@ Partial Class FrmGeneral
         'txtAPEle
         '
         Me.txtAPEle.BackColor = System.Drawing.Color.White
-        Me.txtAPEle.Enabled = false
-        Me.txtAPEle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtAPEle.Enabled = False
+        Me.txtAPEle.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAPEle.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtAPEle.Location = New System.Drawing.Point(12, 21)
         Me.txtAPEle.Name = "txtAPEle"
@@ -9374,9 +9363,9 @@ Partial Class FrmGeneral
         '
         'Label8
         '
-        Me.Label8.AutoSize = true
+        Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label8.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(654, 6)
         Me.Label8.Name = "Label8"
@@ -9386,9 +9375,9 @@ Partial Class FrmGeneral
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
+        Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label6.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(11, 6)
         Me.Label6.Name = "Label6"
@@ -9399,8 +9388,8 @@ Partial Class FrmGeneral
         'txtAP
         '
         Me.txtAP.BackColor = System.Drawing.Color.White
-        Me.txtAP.Enabled = false
-        Me.txtAP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtAP.Enabled = False
+        Me.txtAP.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAP.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.txtAP.Location = New System.Drawing.Point(241, 21)
         Me.txtAP.Name = "txtAP"
@@ -9409,8 +9398,8 @@ Partial Class FrmGeneral
         '
         'cboDiv
         '
-        Me.cboDiv.Enabled = false
-        Me.cboDiv.FormattingEnabled = true
+        Me.cboDiv.Enabled = False
+        Me.cboDiv.FormattingEnabled = True
         Me.cboDiv.Location = New System.Drawing.Point(734, 21)
         Me.cboDiv.Name = "cboDiv"
         Me.cboDiv.Size = New System.Drawing.Size(103, 21)
@@ -9419,86 +9408,86 @@ Partial Class FrmGeneral
         'btnBack
         '
         Me.btnBack.BackColor = System.Drawing.Color.Transparent
-        Me.btnBack.BackgroundImage = CType(resources.GetObject("btnBack.BackgroundImage"),System.Drawing.Image)
+        Me.btnBack.BackgroundImage = CType(resources.GetObject("btnBack.BackgroundImage"), System.Drawing.Image)
         Me.btnBack.Location = New System.Drawing.Point(331, 652)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(48, 46)
         Me.btnBack.TabIndex = 403
-        Me.btnBack.UseVisualStyleBackColor = false
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'btnNext
         '
         Me.btnNext.BackColor = System.Drawing.Color.Transparent
-        Me.btnNext.BackgroundImage = CType(resources.GetObject("btnNext.BackgroundImage"),System.Drawing.Image)
+        Me.btnNext.BackgroundImage = CType(resources.GetObject("btnNext.BackgroundImage"), System.Drawing.Image)
         Me.btnNext.Location = New System.Drawing.Point(380, 652)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(48, 46)
         Me.btnNext.TabIndex = 404
-        Me.btnNext.UseVisualStyleBackColor = false
+        Me.btnNext.UseVisualStyleBackColor = False
         '
         'ToolTip1
         '
         Me.ToolTip1.AutoPopDelay = 2000
         Me.ToolTip1.BackColor = System.Drawing.Color.Khaki
-        Me.ToolTip1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(64,Byte),Integer), CType(CType(0,Byte),Integer))
+        Me.ToolTip1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ToolTip1.InitialDelay = 50
         Me.ToolTip1.ReshowDelay = 40
         Me.ToolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
         '
         'RdBtnAllEntries
         '
-        Me.RdBtnAllEntries.AutoSize = true
+        Me.RdBtnAllEntries.AutoSize = True
         Me.RdBtnAllEntries.BackColor = System.Drawing.Color.Transparent
-        Me.RdBtnAllEntries.Checked = true
-        Me.RdBtnAllEntries.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.RdBtnAllEntries.Checked = True
+        Me.RdBtnAllEntries.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RdBtnAllEntries.ForeColor = System.Drawing.Color.White
         Me.RdBtnAllEntries.Location = New System.Drawing.Point(21, 649)
         Me.RdBtnAllEntries.Name = "RdBtnAllEntries"
         Me.RdBtnAllEntries.Size = New System.Drawing.Size(71, 17)
         Me.RdBtnAllEntries.TabIndex = 405
-        Me.RdBtnAllEntries.TabStop = true
+        Me.RdBtnAllEntries.TabStop = True
         Me.RdBtnAllEntries.Text = "All Entries"
-        Me.RdBtnAllEntries.UseVisualStyleBackColor = false
+        Me.RdBtnAllEntries.UseVisualStyleBackColor = False
         '
         'RdBtnReIssue
         '
-        Me.RdBtnReIssue.AutoSize = true
+        Me.RdBtnReIssue.AutoSize = True
         Me.RdBtnReIssue.BackColor = System.Drawing.Color.Transparent
-        Me.RdBtnReIssue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.RdBtnReIssue.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RdBtnReIssue.ForeColor = System.Drawing.Color.White
         Me.RdBtnReIssue.Location = New System.Drawing.Point(21, 681)
         Me.RdBtnReIssue.Name = "RdBtnReIssue"
         Me.RdBtnReIssue.Size = New System.Drawing.Size(143, 17)
         Me.RdBtnReIssue.TabIndex = 406
         Me.RdBtnReIssue.Text = "Non-Air/Re-Issue/Others"
-        Me.RdBtnReIssue.UseVisualStyleBackColor = false
+        Me.RdBtnReIssue.UseVisualStyleBackColor = False
         '
         'PrintDialog1
         '
-        Me.PrintDialog1.UseEXDialog = true
+        Me.PrintDialog1.UseEXDialog = True
         '
         'Timer1
         '
-        Me.Timer1.Enabled = true
+        Me.Timer1.Enabled = True
         '
         'Label233
         '
         Me.Label233.BackColor = System.Drawing.Color.Transparent
-        Me.Label233.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label233.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0,Byte),Integer), CType(CType(94,Byte),Integer), CType(CType(186,Byte),Integer))
+        Me.Label233.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label233.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(94, Byte), Integer), CType(CType(186, Byte), Integer))
         Me.Label233.Location = New System.Drawing.Point(974, 687)
         Me.Label233.Name = "Label233"
         Me.Label233.Size = New System.Drawing.Size(48, 15)
         Me.Label233.TabIndex = 407
-        Me.Label233.Text = "1.12"
+        Me.Label233.Text = "3.0"
         Me.Label233.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'FrmGeneral
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"),System.Drawing.Image)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1026, 705)
         Me.Controls.Add(Me.Label233)
         Me.Controls.Add(Me.RdBtnReIssue)
@@ -9523,71 +9512,70 @@ Partial Class FrmGeneral
         Me.Controls.Add(Me.BtnPNRNon)
         Me.Controls.Add(Me.TabCAPI)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.MaximizeBox = false
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FrmGeneral"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TravCom Amadeus Interface Script"
-        Me.TabCAPI.ResumeLayout(false)
-        Me.TabPage1.ResumeLayout(false)
-        Me.TabPage1.PerformLayout
-        Me.GroupBox8.ResumeLayout(false)
-        Me.GroupBox8.PerformLayout
-        Me.GroupBox12.ResumeLayout(false)
-        Me.GroupBox12.PerformLayout
-        Me.GroupBox11.ResumeLayout(false)
-        Me.GroupBox11.PerformLayout
-        Me.GroupBox9.ResumeLayout(false)
-        Me.GroupBox9.PerformLayout
-        Me.TabPage2.ResumeLayout(false)
-        Me.TabPage2.PerformLayout
-        Me.GroupBox10.ResumeLayout(false)
-        Me.GroupBox10.PerformLayout
-        Me.GroupBox3.ResumeLayout(false)
-        Me.GroupBox3.PerformLayout
-        Me.AirInformation.ResumeLayout(false)
-        Me.AirInformation.PerformLayout
-        Me.FlagSegment.ResumeLayout(false)
-        Me.FlagSegment.PerformLayout
-        Me.ChangeProductType.ResumeLayout(false)
-        Me.ChangeProductType.PerformLayout
-        Me.GroupBox2.ResumeLayout(false)
-        Me.GroupBox2.PerformLayout
-        Me.TravelType.ResumeLayout(false)
-        Me.TravelType.PerformLayout
-        Me.TabPage3.ResumeLayout(false)
-        Me.TabPage3.PerformLayout
-        Me.GroupBox7.ResumeLayout(false)
-        Me.GroupBox7.PerformLayout
-        CType(Me.DGW1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.Panel2.ResumeLayout(false)
-        Me.Panel2.PerformLayout
-        Me.TabPage8.ResumeLayout(false)
-        Me.TabPage8.PerformLayout
-        Me.TabPage4.ResumeLayout(false)
-        Me.TabPage4.PerformLayout
-        Me.TabPage5.ResumeLayout(false)
-        Me.TabPage5.PerformLayout
-        Me.ContextMenuStrip1.ResumeLayout(false)
-        Me.GroupBox1.ResumeLayout(false)
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.TabPage6.ResumeLayout(false)
-        CType(Me.ControlBox_Close,System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox5.ResumeLayout(false)
-        Me.GroupBox5.PerformLayout
-        Me.GroupBox6.ResumeLayout(false)
-        Me.GroupBox6.PerformLayout
-        Me.GroupBox4.ResumeLayout(false)
-        Me.GroupBox4.PerformLayout
-        CType(Me.DGWSet,System.ComponentModel.ISupportInitialize).EndInit
-        Me.TabPage7.ResumeLayout(false)
-        Me.GroupBox13.ResumeLayout(false)
-        Me.GroupBox13.PerformLayout
-        CType(Me.DataGridClientList,System.ComponentModel.ISupportInitialize).EndInit
-        Me.TabPage9.ResumeLayout(false)
-        Me.TabPage9.PerformLayout
-        CType(Me.TravellerCreditAccess,System.ComponentModel.ISupportInitialize).EndInit
-        Me.GroupBox15.ResumeLayout(false)
+        Me.TabCAPI.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox12.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.AirInformation.ResumeLayout(False)
+        Me.AirInformation.PerformLayout()
+        Me.FlagSegment.ResumeLayout(False)
+        Me.FlagSegment.PerformLayout()
+        Me.ChangeProductType.ResumeLayout(False)
+        Me.ChangeProductType.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.TravelType.ResumeLayout(False)
+        Me.TravelType.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        CType(Me.DGW1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.TabPage8.ResumeLayout(False)
+        Me.TabPage8.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage6.ResumeLayout(False)
+        CType(Me.ControlBox_Close, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.DGWSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage7.ResumeLayout(False)
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
+        CType(Me.DataGridClientList, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage9.ResumeLayout(False)
+        Me.TabPage9.PerformLayout()
+        Me.GroupBox15.ResumeLayout(False)
         Me.GroupBox15.PerformLayout
         Me.GroupBox14.ResumeLayout(false)
         Me.GroupBox14.PerformLayout
@@ -10124,7 +10112,6 @@ End Sub
     Friend WithEvents txtCreditAccess As System.Windows.Forms.TextBox
     Friend WithEvents Label171 As System.Windows.Forms.Label
     Friend WithEvents Label170 As System.Windows.Forms.Label
-    Friend WithEvents TravellerCreditAccess As System.Windows.Forms.PictureBox
     Friend WithEvents pdnLogIn As System.Windows.Forms.Button
     Friend WithEvents PdnLogOut As System.Windows.Forms.Button
     Friend WithEvents txtDateTime_CC As System.Windows.Forms.TextBox

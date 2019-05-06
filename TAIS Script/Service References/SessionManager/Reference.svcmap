@@ -21,13 +21,17 @@
     <MetadataSource Address="https://5jr3xapi.navitaire.com/SessionManager.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SessionManager.disco" MetadataType="Disco" ID="5fb65d15-bd8f-4151-933e-5c0ec9a48e1d" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?disco" />
-    <MetadataFile FileName="SessionManager.xsd" MetadataType="Schema" ID="1cebba83-ffcd-4d66-8449-b64b35a9e0ab" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd2" />
-    <MetadataFile FileName="SessionManager.wsdl" MetadataType="Wsdl" ID="52aa0df6-3538-4e69-8608-6f1e4bb59a4c" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?wsdl" />
-    <MetadataFile FileName="SessionManager1.xsd" MetadataType="Schema" ID="94e5e12e-461a-4144-b8c3-f68ad76bacca" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd0" />
-    <MetadataFile FileName="SessionManager2.xsd" MetadataType="Schema" ID="9cf4b82f-cb9c-4c5d-804c-35ea1fcb1aef" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd1" />
-    <MetadataFile FileName="SessionManager3.xsd" MetadataType="Schema" ID="c1025f2a-2dd8-4d54-ad67-a93a62e676d5" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd3" />
-    <MetadataFile FileName="SessionManager4.xsd" MetadataType="Schema" ID="487fc5ea-0bfb-4b4b-b4f3-bc8cf7083a36" SourceId="1" SourceUrl="https://5jr3xapi.navitaire.com/SessionManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="SessionManager1.disco" MetadataType="Disco" ID="c721c4f2-4826-46c0-b9df-fa6d8a43450b" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?disco" />
+    <MetadataFile FileName="SessionManager5.xsd" MetadataType="Schema" ID="88d3445d-f06e-4e58-bafa-725656cb306e" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="SessionManager51.xsd" MetadataType="Schema" ID="5b94512f-529a-4f0d-ad4a-d4a8ccf803a6" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd0" />
+    <MetadataFile FileName="SessionManager52.xsd" MetadataType="Schema" ID="ea99c2fc-abe8-4d9d-947f-689e9e68741c" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd3" />
+    <MetadataFile FileName="SessionManager53.xsd" MetadataType="Schema" ID="370fd9e6-ce0d-4115-b9bb-57aa4797108f" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd2" />
+    <MetadataFile FileName="SessionManager54.xsd" MetadataType="Schema" ID="94185ec3-bf4a-4758-9d2c-c9e7beface83" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd5" />
+    <MetadataFile FileName="SessionManager55.xsd" MetadataType="Schema" ID="1a4fd9a0-d3e9-4fce-add2-56c55725bb3a" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="SessionManager56.xsd" MetadataType="Schema" ID="94261184-2d89-4791-b7af-a6047042e6e0" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd7" />
+    <MetadataFile FileName="SessionManager57.xsd" MetadataType="Schema" ID="e0a38b43-d773-4e86-8429-06737d61af53" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd6" />
+    <MetadataFile FileName="SessionManager1.wsdl" MetadataType="Wsdl" ID="c43da80b-4fcd-41e6-a2fa-a766e5bba50e" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?wsdl" />
+    <MetadataFile FileName="SessionManager58.xsd" MetadataType="Schema" ID="19446d5c-c0a1-49c4-b3eb-7abe24cbba22" SourceId="1" SourceUrl="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd8" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

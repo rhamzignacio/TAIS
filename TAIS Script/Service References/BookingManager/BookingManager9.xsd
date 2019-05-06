@@ -1,549 +1,1382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Common" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://5jr3xapi.navitaire.com/BookingManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
-  <xs:import schemaLocation="https://5jr3xapi.navitaire.com/BookingManager.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="FlightDesignator">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CarrierCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OpSuffix" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="FlightDesignator" nillable="true" type="tns:FlightDesignator" />
-  <xs:complexType name="StateMessage">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="State" type="q1:MessageState" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StateMessage" nillable="true" type="tns:StateMessage" />
-  <xs:complexType name="ArrayOfOtherServiceInformation">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OtherServiceInformation" nillable="true" type="tns:OtherServiceInformation" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOtherServiceInformation" nillable="true" type="tns:ArrayOfOtherServiceInformation" />
-  <xs:complexType name="OtherServiceInformation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="OsiSeverity" type="q2:OSISeverity" />
-      <xs:element minOccurs="0" name="OSITypeCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SubType" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OtherServiceInformation" nillable="true" type="tns:OtherServiceInformation" />
-  <xs:complexType name="PointOfSale">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:StateMessage">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AgentCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OrganizationCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DomainCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LocationCode" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="PointOfSale" nillable="true" type="tns:PointOfSale" />
-  <xs:complexType name="ArrayOfRecordLocator">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecordLocator" nillable="true" type="tns:RecordLocator" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRecordLocator" nillable="true" type="tns:ArrayOfRecordLocator" />
-  <xs:complexType name="RecordLocator">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:StateMessage">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="SystemDomainCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RecordCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="InteractionPurpose" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="HostedCarrierCode" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="RecordLocator" nillable="true" type="tns:RecordLocator" />
-  <xs:complexType name="TCOrderItem">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:TCResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Payment" nillable="true" type="tns:OrderPayment" />
-          <xs:element minOccurs="0" name="CRL" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SupplierCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CorpDiscountCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RuleSetID" type="xs:int" />
-          <xs:element minOccurs="0" name="RatingCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="AllowsSku" type="xs:boolean" />
-          <xs:element minOccurs="0" name="AllowsGiftWrap" type="xs:boolean" />
-          <xs:element minOccurs="0" name="BasePrice" type="xs:decimal" />
-          <xs:element minOccurs="0" name="PreTaxTotalNow" type="xs:decimal" />
-          <xs:element minOccurs="0" name="PreTaxTotalLater" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TaxTotalLater" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TaxTotalNow" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TotalLater" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TotalNow" type="xs:decimal" />
-          <xs:element minOccurs="0" name="BasePriceTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DescriptionLong" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DisplayPrice" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DisplayPriceTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ThumbFilename" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="MarkupAmount" type="xs:decimal" />
-          <xs:element minOccurs="0" name="MarkupAmountTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="NewFlag" type="xs:boolean" />
-          <xs:element minOccurs="0" name="ActiveStatus" type="xs:boolean" />
-          <xs:element minOccurs="0" name="FeesTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Field1" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Field2" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Field3" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Field4" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Field5" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SkuExpectedDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ItemSequence" type="xs:int" />
-          <xs:element minOccurs="0" name="CatalogCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="VendorCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CategoryCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ItemTypeCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ItemId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SkuId" type="xs:int" />
-          <xs:element minOccurs="0" name="IsDueNow" type="xs:boolean" />
-          <xs:element minOccurs="0" name="ExternalSkuId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ExternalSkuCatalogId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="PurchaseDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UsageDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="ItemDescription" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SkuDescription" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="GiftWrapped" type="xs:boolean" />
-          <xs:element minOccurs="0" name="GiftWrapMessage" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RoleCodeSupplierPortal" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="WarningList" nillable="true" type="tns:ArrayOfTCWarning" />
-          <xs:element minOccurs="0" name="TermsConditionsList" nillable="true" type="tns:ArrayOfTermsConditions" />
-          <xs:element minOccurs="0" name="CancellationPolicies" nillable="true" type="tns:ArrayOfTermsConditions" />
-          <xs:element minOccurs="0" name="ParticipantList" nillable="true" type="tns:ArrayOfParticipant" />
-          <xs:element minOccurs="0" name="OrderCustomer" nillable="true" type="tns:OrderCustomer" />
-          <xs:element minOccurs="0" name="TaxExempt" type="xs:boolean" />
-          <xs:element minOccurs="0" name="OrderItemStatusCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="TaxAtUnitPrice" type="xs:boolean" />
-          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="PromoCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="SourceCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ContentType" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
-          <xs:element minOccurs="0" name="ListPrice" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ListPriceTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DiscountAmountTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="PersonalizationPriceTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="HandlingCharge" type="xs:decimal" />
-          <xs:element minOccurs="0" name="HandlingChargeTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="HandlingDiscount" type="xs:decimal" />
-          <xs:element minOccurs="0" name="HandlingDiscountTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DiscountedHandlingChargeTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DiscountedListPrice" type="xs:decimal" />
-          <xs:element minOccurs="0" name="DiscountedListPriceTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TaxableTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="TaxRate" type="xs:int" />
-          <xs:element minOccurs="0" name="ServicesTotal" type="xs:decimal" />
-          <xs:element minOccurs="0" name="Total" type="xs:decimal" />
-          <xs:element minOccurs="0" name="OrderHandling" nillable="true" type="tns:OrderHandling" />
-          <xs:element minOccurs="0" name="OrderItemAddress" nillable="true" type="tns:OrderItemAddress" />
-          <xs:element minOccurs="0" name="OrderItemPersonalizationList" nillable="true" type="tns:ArrayOfOrderItemPersonalization" />
-          <xs:element minOccurs="0" name="OrderItemSkuDetailValueList" nillable="true" type="tns:ArrayOfOrderItemSkuDetail" />
-          <xs:element minOccurs="0" name="OrderItemNoteList" nillable="true" type="tns:ArrayOfOrderItemNote" />
-          <xs:element minOccurs="0" name="OrderItemLocatorList" nillable="true" type="tns:ArrayOfOrderItemLocator" />
-          <xs:element minOccurs="0" name="OrderItemFeeList" nillable="true" type="tns:ArrayOfFee" />
-          <xs:element minOccurs="0" name="OrderItemLocationList" nillable="true" type="tns:ArrayOfOrderItemLocation" />
-          <xs:element minOccurs="0" name="OrderItemParameterList" nillable="true" type="tns:ArrayOfOrderItemParameter" />
-          <xs:element minOccurs="0" name="OrderItemStatusHistoryList" nillable="true" type="tns:ArrayOfOrderItemStatusHistory" />
-          <xs:element xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="PaymentOption" type="q3:PaymentOptions" />
-          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OrderItemOrderPaymentList" nillable="true" type="q4:ArrayOfint" />
-          <xs:element minOccurs="0" name="OrderItemElementList" nillable="true" type="tns:ArrayOfOrderItemElement" />
-          <xs:element minOccurs="0" name="CancellationNumber" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CancellationDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="ComparisonKey" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="TCOrderItem" nillable="true" type="tns:TCOrderItem" />
-  <xs:complexType name="TCResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="XML" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TCResponse" nillable="true" type="tns:TCResponse" />
-  <xs:complexType name="OrderPayment">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ForeignCurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PaymentSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="PaymentTypeCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CCName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CCNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AccountNumberID" type="xs:long" />
-      <xs:element minOccurs="0" name="CCExpiration" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CCCvv" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ForeignAmount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="IssueNumber" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderPayment" nillable="true" type="tns:OrderPayment" />
-  <xs:complexType name="ArrayOfTCWarning">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TCWarning" nillable="true" type="tns:TCWarning" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTCWarning" nillable="true" type="tns:ArrayOfTCWarning" />
-  <xs:complexType name="TCWarning">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="WarningCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="WarningText" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TCWarning" nillable="true" type="tns:TCWarning" />
-  <xs:complexType name="ArrayOfTermsConditions">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TermsConditions" nillable="true" type="tns:TermsConditions" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTermsConditions" nillable="true" type="tns:ArrayOfTermsConditions" />
-  <xs:complexType name="TermsConditions">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="TermsConditionsCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CultureCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Terms" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DisplaySequence" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TermsConditions" nillable="true" type="tns:TermsConditions" />
-  <xs:complexType name="ArrayOfParticipant">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Participant" nillable="true" type="tns:Participant" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfParticipant" nillable="true" type="tns:ArrayOfParticipant" />
-  <xs:complexType name="Participant">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ParticipantId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParticipantSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="PrimaryFlag" type="xs:boolean" />
-      <xs:element minOccurs="0" name="DocNumber" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="DocIssuedBy" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="DocTypeCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Address1" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Address2" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="City" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="StateCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="County" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneHome" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="BusOrRes" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneFax" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="tns:RequestedFieldOfdateTime" />
-      <xs:element minOccurs="0" name="ParticipantTypeCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="ParticipantTypeDescription" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Participant" nillable="true" type="tns:Participant" />
-  <xs:complexType name="RequestedFieldOfstring">
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://5jr3xapi.navitaire.com/BookingManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="MessageState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Clean" />
+      <xs:enumeration value="Modified" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageState" nillable="true" type="tns:MessageState" />
+  <xs:simpleType name="OSISeverity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="General" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Critical" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OSISeverity" nillable="true" type="tns:OSISeverity" />
+  <xs:simpleType name="FeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All" />
+      <xs:enumeration value="Tax" />
+      <xs:enumeration value="TravelFee" />
+      <xs:enumeration value="ServiceFee" />
+      <xs:enumeration value="PaymentFee" />
+      <xs:enumeration value="PenaltyFee" />
+      <xs:enumeration value="SSRFee" />
+      <xs:enumeration value="NonFlightServiceFee" />
+      <xs:enumeration value="UpgradeFee" />
+      <xs:enumeration value="SeatFee" />
+      <xs:enumeration value="BaseFare" />
+      <xs:enumeration value="SpoilageFee" />
+      <xs:enumeration value="NameChangeFee" />
+      <xs:enumeration value="ConvenienceFee" />
+      <xs:enumeration value="BaggageFee" />
+      <xs:enumeration value="FareSurcharge" />
+      <xs:enumeration value="PromotionDiscount" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FeeType" nillable="true" type="tns:FeeType" />
+  <xs:simpleType name="ChargeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FarePrice" />
+      <xs:enumeration value="Discount" />
+      <xs:enumeration value="IncludedTravelFee" />
+      <xs:enumeration value="IncludedTax" />
+      <xs:enumeration value="TravelFee" />
+      <xs:enumeration value="Tax" />
+      <xs:enumeration value="ServiceCharge" />
+      <xs:enumeration value="PromotionDiscount" />
+      <xs:enumeration value="ConnectionAdjustmentAmount" />
+      <xs:enumeration value="AddOnServicePrice" />
+      <xs:enumeration value="IncludedAddOnServiceFee" />
+      <xs:enumeration value="AddOnServiceFee" />
+      <xs:enumeration value="Calculated" />
+      <xs:enumeration value="Note" />
+      <xs:enumeration value="AddOnServiceMarkup" />
+      <xs:enumeration value="FareSurcharge" />
+      <xs:enumeration value="Loyalty" />
+      <xs:enumeration value="FarePoints" />
+      <xs:enumeration value="DiscountPoints" />
+      <xs:enumeration value="AddOnServiceCancelFee" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChargeType" nillable="true" type="tns:ChargeType" />
+  <xs:simpleType name="CollectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SellerChargeable" />
+      <xs:enumeration value="ExternalChargeable" />
+      <xs:enumeration value="SellerNonChargeable" />
+      <xs:enumeration value="ExternalNonChargeable" />
+      <xs:enumeration value="ExternalChargeableImmediate" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CollectType" nillable="true" type="tns:CollectType" />
+  <xs:simpleType name="FareStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="SameDayStandBy" />
+      <xs:enumeration value="FareOverrideConfirming" />
+      <xs:enumeration value="FareOverrideConfirmed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FareStatus" nillable="true" type="tns:FareStatus" />
+  <xs:simpleType name="FareApplicationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Route" />
+      <xs:enumeration value="Sector" />
+      <xs:enumeration value="Governing" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FareApplicationType" nillable="true" type="tns:FareApplicationType" />
+  <xs:simpleType name="InboundOutbound">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Inbound" />
+      <xs:enumeration value="Outbound" />
+      <xs:enumeration value="Both" />
+      <xs:enumeration value="RoundFrom" />
+      <xs:enumeration value="RoundTo" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InboundOutbound" nillable="true" type="tns:InboundOutbound" />
+  <xs:simpleType name="ClassStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="InActive" />
+      <xs:enumeration value="AVSOpen" />
+      <xs:enumeration value="AVSOnRequest" />
+      <xs:enumeration value="AVSClosed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClassStatus" nillable="true" type="tns:ClassStatus" />
+  <xs:simpleType name="LegStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="Canceled" />
+      <xs:enumeration value="Suspended" />
+      <xs:enumeration value="ClosedPending" />
+      <xs:enumeration value="BlockAllActivities" />
+      <xs:enumeration value="Mishap" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LegStatus" nillable="true" type="tns:LegStatus" />
+  <xs:simpleType name="NestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Net" />
+      <xs:enumeration value="Serial" />
+      <xs:enumeration value="OneBooking" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NestType" nillable="true" type="tns:NestType" />
+  <xs:simpleType name="ArrivalStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Arrived" />
+      <xs:enumeration value="SeeAgent" />
+      <xs:enumeration value="Delayed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ArrivalStatus" nillable="true" type="tns:ArrivalStatus" />
+  <xs:simpleType name="DepartureStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Boarding" />
+      <xs:enumeration value="SeeAgent" />
+      <xs:enumeration value="Delayed" />
+      <xs:enumeration value="Departed" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DepartureStatus" nillable="true" type="tns:DepartureStatus" />
+  <xs:simpleType name="BaggageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Checked" />
+      <xs:enumeration value="Removed" />
+      <xs:enumeration value="Added" />
+      <xs:enumeration value="AddedPrinted" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BaggageStatus" nillable="true" type="tns:BaggageStatus" />
+  <xs:simpleType name="SeatPreference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Window" />
+      <xs:enumeration value="Aisle" />
+      <xs:enumeration value="NoPreference" />
+      <xs:enumeration value="Front" />
+      <xs:enumeration value="Rear" />
+      <xs:enumeration value="WindowFront" />
+      <xs:enumeration value="WindowRear" />
+      <xs:enumeration value="AisleFront" />
+      <xs:enumeration value="AisleRear" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SeatPreference" nillable="true" type="tns:SeatPreference" />
+  <xs:simpleType name="LiftStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="CheckedIn" />
+      <xs:enumeration value="Boarded" />
+      <xs:enumeration value="NoShow" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LiftStatus" nillable="true" type="tns:LiftStatus" />
+  <xs:simpleType name="TripType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="OneWay">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="RoundTrip">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="HalfRound">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="OpenJaw">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="CircleTrip">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="All">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Unmapped">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="TripType" nillable="true" type="tns:TripType" />
+  <xs:simpleType name="WeightType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Pounds" />
+      <xs:enumeration value="Kilograms" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WeightType" nillable="true" type="tns:WeightType" />
+  <xs:simpleType name="ChannelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Direct" />
+      <xs:enumeration value="Web" />
+      <xs:enumeration value="GDS" />
+      <xs:enumeration value="API" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChannelType" nillable="true" type="tns:ChannelType" />
+  <xs:simpleType name="MovePassengerJourneyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="IROP" />
+      <xs:enumeration value="Diversion" />
+      <xs:enumeration value="FlightClose" />
+      <xs:enumeration value="FlyAhead" />
+      <xs:enumeration value="SplitJourney" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MovePassengerJourneyType" nillable="true" type="tns:MovePassengerJourneyType" />
+  <xs:simpleType name="IgnoreLiftStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IgnoreNotAllowed" />
+      <xs:enumeration value="IgnoreCheckin" />
+      <xs:enumeration value="IgnoreBoarded" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IgnoreLiftStatus" nillable="true" type="tns:IgnoreLiftStatus" />
+  <xs:simpleType name="SeatAvailability">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Reserved" />
+      <xs:enumeration value="Blocked" />
+      <xs:enumeration value="HeldForAnotherSession" />
+      <xs:enumeration value="HeldForThisSession" />
+      <xs:enumeration value="Open" />
+      <xs:enumeration value="Missing" />
+      <xs:enumeration value="NotVisible" />
+      <xs:enumeration value="CheckedIn" />
+      <xs:enumeration value="FleetBlocked" />
+      <xs:enumeration value="Restricted" />
+      <xs:enumeration value="Broken" />
+      <xs:enumeration value="ReservedForPNR" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SeatAvailability" nillable="true" type="tns:SeatAvailability" />
+  <xs:simpleType name="EquipmentCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="JetAircraft" />
+      <xs:enumeration value="PistonAircraft" />
+      <xs:enumeration value="TurbopropAircraft">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Helicopter">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Surface">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Train">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Bus">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AllCategories">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">127</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EquipmentCategory" nillable="true" type="tns:EquipmentCategory" />
+  <xs:simpleType name="BookingStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Hold" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="HoldCanceled" />
+      <xs:enumeration value="PendingArchive" />
+      <xs:enumeration value="Archived" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BookingStatus" nillable="true" type="tns:BookingStatus" />
+  <xs:simpleType name="PriceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Invalid" />
+      <xs:enumeration value="Override" />
+      <xs:enumeration value="Valid" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PriceStatus" nillable="true" type="tns:PriceStatus" />
+  <xs:simpleType name="BookingProfileStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="KnownIndividual" />
+      <xs:enumeration value="ResolutionGroup" />
+      <xs:enumeration value="SelecteeGroup" />
+      <xs:enumeration value="NotUsed" />
+      <xs:enumeration value="FailureGroup" />
+      <xs:enumeration value="RandomSelectee" />
+      <xs:enumeration value="Exempt" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BookingProfileStatus" nillable="true" type="tns:BookingProfileStatus" />
+  <xs:simpleType name="PaidStatus">
     <xs:annotation>
       <xs:appinfo>
-        <GenericType Name="RequestedFieldOf{0}{#}" Namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
-        </GenericType>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
       </xs:appinfo>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="UseStatus" type="q5:ParticipantDataUseStatus" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RequestedFieldOfstring" nillable="true" type="tns:RequestedFieldOfstring" />
-  <xs:complexType name="RequestedFieldOfdateTime">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnderPaid" />
+      <xs:enumeration value="PaidInFull" />
+      <xs:enumeration value="OverPaid" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaidStatus" nillable="true" type="tns:PaidStatus" />
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:simpleType name="WeightCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+      <xs:enumeration value="Child" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WeightCategory" nillable="true" type="tns:WeightCategory" />
+  <xs:simpleType name="CommentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Itinerary" />
+      <xs:enumeration value="Manifest" />
+      <xs:enumeration value="Alert" />
+      <xs:enumeration value="Archive" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommentType" nillable="true" type="tns:CommentType" />
+  <xs:simpleType name="QueueEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="BookingBalanceDue" />
+      <xs:enumeration value="BookingNegativeBalance" />
+      <xs:enumeration value="BookingCustomerComment" />
+      <xs:enumeration value="DeclinedPaymentInitial" />
+      <xs:enumeration value="DeclinedPaymentChange" />
+      <xs:enumeration value="FareOverride" />
+      <xs:enumeration value="ScheduleTimeChange" />
+      <xs:enumeration value="ScheduleTimeChangeMisconnect" />
+      <xs:enumeration value="ScheduleCancellation" />
+      <xs:enumeration value="FlightDesignatorChange" />
+      <xs:enumeration value="ReaccommodationMove" />
+      <xs:enumeration value="GDSCancelWithPendingPayment" />
+      <xs:enumeration value="InvalidPriceStatusOverride" />
+      <xs:enumeration value="FareRestrictionOverride" />
+      <xs:enumeration value="HeldBookings" />
+      <xs:enumeration value="InvalidPriceStatus" />
+      <xs:enumeration value="Watchlist" />
+      <xs:enumeration value="NonFlightServiceFee" />
+      <xs:enumeration value="NotAllTicketNumbersReceived" />
+      <xs:enumeration value="BookingSegmentOversold" />
+      <xs:enumeration value="ReaccommodationCancel" />
+      <xs:enumeration value="ExternalSSRAutoConfirmed" />
+      <xs:enumeration value="OpCarrierSegUpdate" />
+      <xs:enumeration value="OpCarrierSSRUpdate" />
+      <xs:enumeration value="OpCarrierOtherUpdate" />
+      <xs:enumeration value="NameChangeNotAllowed" />
+      <xs:enumeration value="InboundASCNotProcessed" />
+      <xs:enumeration value="OpCarrierInformationChange" />
+      <xs:enumeration value="BookingComponentUpdate" />
+      <xs:enumeration value="GroupBookings" />
+      <xs:enumeration value="BankDirectPNROutOfBalance" />
+      <xs:enumeration value="NoSeatAssigned" />
+      <xs:enumeration value="SeatNumberChange" />
+      <xs:enumeration value="SSRNotSupportedOnNewSeat" />
+      <xs:enumeration value="FewerSeatPreferencesMetOnNewSeat" />
+      <xs:enumeration value="AOSUnableToConfirmCancel" />
+      <xs:enumeration value="ETicketIssue" />
+      <xs:enumeration value="ETicketFollowup" />
+      <xs:enumeration value="InvoluntaryFlyAhead" />
+      <xs:enumeration value="ManualClearanceOnOutage" />
+      <xs:enumeration value="UnbalancedPoints" />
+      <xs:enumeration value="VoluntaryFlightChange" />
+      <xs:enumeration value="InvoluntaryFlightChange" />
+      <xs:enumeration value="OpCarrierTimeChange" />
+      <xs:enumeration value="OACarrierTimeChange" />
+      <xs:enumeration value="MustBeSeatGroupViolation" />
+      <xs:enumeration value="HoldCancellationFailed" />
+      <xs:enumeration value="ItineraryIntegrity" />
+      <xs:enumeration value="ScheduleTimeChangeWithDynamicQueueCode" />
+      <xs:enumeration value="ReaccommodationMoveWithDynamicQueueCode" />
+      <xs:enumeration value="ReducePartyNotProcessed" />
+      <xs:enumeration value="CheckedPassengerUpdate" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueueEventType" nillable="true" type="tns:QueueEventType" />
+  <xs:simpleType name="QueueAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Lock" />
+      <xs:enumeration value="DefaultAndNotify" />
+      <xs:enumeration value="WarningAndNotify" />
+      <xs:enumeration value="LockAndNotify" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueueAction" nillable="true" type="tns:QueueAction" />
+  <xs:simpleType name="QueueMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EnQueued" />
+      <xs:enumeration value="DeQueued" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QueueMode" nillable="true" type="tns:QueueMode" />
+  <xs:simpleType name="DistributionOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Mail" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Fax" />
+      <xs:enumeration value="MailFax" />
+      <xs:enumeration value="Airport" />
+      <xs:enumeration value="Hold" />
+      <xs:enumeration value="Print" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DistributionOption" nillable="true" type="tns:DistributionOption" />
+  <xs:simpleType name="NotificationPreference">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Promotional" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationPreference" nillable="true" type="tns:NotificationPreference" />
+  <xs:simpleType name="PaymentReferenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Booking" />
+      <xs:enumeration value="Session" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentReferenceType" nillable="true" type="tns:PaymentReferenceType" />
+  <xs:simpleType name="PaymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PrePaid" />
+      <xs:enumeration value="ExternalAccount" />
+      <xs:enumeration value="AgencyAccount" />
+      <xs:enumeration value="CustomerAccount" />
+      <xs:enumeration value="Voucher" />
+      <xs:enumeration value="Loyalty" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentMethodType" nillable="true" type="tns:PaymentMethodType" />
+  <xs:simpleType name="BookingPaymentStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="Received" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="Approved" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="PendingCustomerAction" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BookingPaymentStatus" nillable="true" type="tns:BookingPaymentStatus" />
+  <xs:simpleType name="AuthorizationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Acknowledged" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="InProcess" />
+      <xs:enumeration value="Approved" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="Referral" />
+      <xs:enumeration value="PickUpCard" />
+      <xs:enumeration value="HotCard" />
+      <xs:enumeration value="Voided" />
+      <xs:enumeration value="Retrieval" />
+      <xs:enumeration value="ChargedBack" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="ValidationFailed" />
+      <xs:enumeration value="Address" />
+      <xs:enumeration value="VerificationCode" />
+      <xs:enumeration value="FraudPrevention" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorizationStatus" nillable="true" type="tns:AuthorizationStatus" />
+  <xs:simpleType name="DCCStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DCCNotOffered" />
+      <xs:enumeration value="DCCOfferRejected" />
+      <xs:enumeration value="DCCOfferAccepted" />
+      <xs:enumeration value="DCCInitialValue" />
+      <xs:enumeration value="MCCInUse" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DCCStatus" nillable="true" type="tns:DCCStatus" />
+  <xs:simpleType name="ParticipantDataUseStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prompt" />
+      <xs:enumeration value="DoNotPrompt" />
+      <xs:enumeration value="Required" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ParticipantDataUseStatus" nillable="true" type="tns:ParticipantDataUseStatus" />
+  <xs:simpleType name="AOSFeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Tax" />
+      <xs:enumeration value="Markup" />
+      <xs:enumeration value="Discount">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AOSFeeType" nillable="true" type="tns:AOSFeeType" />
+  <xs:simpleType name="PaymentOptions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SellingSystemCollects">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PassThroughHold">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoPaymentRequired">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReferToSupplierMessage">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PassThroughCharge">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentOptions" nillable="true" type="tns:PaymentOptions" />
+  <xs:simpleType name="PricingType">
     <xs:annotation>
       <xs:appinfo>
-        <GenericType Name="RequestedFieldOf{0}{#}" Namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
-        </GenericType>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
       </xs:appinfo>
     </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Route" />
+      <xs:enumeration value="RouteAndSector" />
+      <xs:enumeration value="UseSystemSetting" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PricingType" nillable="true" type="tns:PricingType" />
+  <xs:simpleType name="BookingBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecordLocator" />
+      <xs:enumeration value="ID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BookingBy" nillable="true" type="tns:BookingBy" />
+  <xs:simpleType name="GetBookingFilteredBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecordLocator" />
+      <xs:enumeration value="ID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetBookingFilteredBy" nillable="true" type="tns:GetBookingFilteredBy" />
+  <xs:simpleType name="FlightType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="NonStop" />
+      <xs:enumeration value="Through" />
+      <xs:enumeration value="Direct" />
+      <xs:enumeration value="Connect" />
+      <xs:enumeration value="All" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlightType" nillable="true" type="tns:FlightType" />
+  <xs:simpleType name="DOW">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Monday" />
+      <xs:enumeration value="Tuesday" />
+      <xs:enumeration value="Wednesday" />
+      <xs:enumeration value="Thursday" />
+      <xs:enumeration value="Friday" />
+      <xs:enumeration value="WeekDay" />
+      <xs:enumeration value="Saturday" />
+      <xs:enumeration value="Sunday" />
+      <xs:enumeration value="WeekEnd" />
+      <xs:enumeration value="Daily" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DOW" nillable="true" type="tns:DOW" />
+  <xs:simpleType name="AvailabilityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Standby" />
+      <xs:enumeration value="Overbook" />
+      <xs:enumeration value="NoPricing" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AvailabilityType" nillable="true" type="tns:AvailabilityType" />
+  <xs:simpleType name="AvailabilityFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="ExcludeDeparted" />
+      <xs:enumeration value="ExcludeImminent" />
+      <xs:enumeration value="ExcludeUnavailable" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AvailabilityFilter" nillable="true" type="tns:AvailabilityFilter" />
+  <xs:simpleType name="FareClassControl">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LowestFareClass" />
+      <xs:enumeration value="CompressByProductClass" />
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FareClassControl" nillable="true" type="tns:FareClassControl" />
+  <xs:simpleType name="SSRCollectionsMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Leg" />
+      <xs:enumeration value="Segment" />
+      <xs:enumeration value="All" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SSRCollectionsMode" nillable="true" type="tns:SSRCollectionsMode" />
+  <xs:complexType name="ArrayOfJourneySortKey">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
-      <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="UseStatus" type="q6:ParticipantDataUseStatus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JourneySortKey" type="tns:JourneySortKey" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="RequestedFieldOfdateTime" nillable="true" type="tns:RequestedFieldOfdateTime" />
-  <xs:complexType name="OrderCustomer">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Address1" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Address2" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="City" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="StateCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="County" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneHome" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneFax" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="BusOrRes" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="tns:RequestedFieldOfstring" />
-      <xs:element minOccurs="0" name="Field1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Field2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Field3" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Field4" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Field5" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="tns:RequestedFieldOfdateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderCustomer" nillable="true" type="tns:OrderCustomer" />
-  <xs:complexType name="OrderHandling">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="HandlingCharge" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="OrderDiscount" nillable="true" type="tns:OrderDiscount" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderHandling" nillable="true" type="tns:OrderHandling" />
-  <xs:complexType name="ChargeableItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ForeignAmount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ForeignCurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsChargeable" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TypeCode" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ChargeableItem" nillable="true" type="tns:ChargeableItem" />
-  <xs:complexType name="OrderDiscount">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Discount" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Target" nillable="true" type="tns:DiscountTarget" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderDiscount" nillable="true" type="tns:OrderDiscount" />
-  <xs:complexType name="DiscountTarget">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ListPrice" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Fees" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Taxes" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Personalizations" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DiscountTarget" nillable="true" type="tns:DiscountTarget" />
-  <xs:complexType name="OrderItemAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ExternalCountryCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ExternalStateCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Longitude" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PhoneHome" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PhoneFax" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemAddress" nillable="true" type="tns:OrderItemAddress" />
-  <xs:complexType name="ArrayOfOrderItemPersonalization">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemPersonalization" nillable="true" type="tns:OrderItemPersonalization" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemPersonalization" nillable="true" type="tns:ArrayOfOrderItemPersonalization" />
-  <xs:complexType name="OrderItemPersonalization">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="PriceIsValid" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Required" type="xs:boolean" />
-      <xs:element minOccurs="0" name="PersonalizationCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PersonalizationDescription" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PersonalizationPrice" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="ParentSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="PersonalizationPriceTotal" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemPersonalization" nillable="true" type="tns:OrderItemPersonalization" />
-  <xs:complexType name="ArrayOfOrderItemSkuDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemSkuDetail" nillable="true" type="tns:OrderItemSkuDetail" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemSkuDetail" nillable="true" type="tns:ArrayOfOrderItemSkuDetail" />
-  <xs:complexType name="OrderItemSkuDetail">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="SkuStyleCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SkuDetailCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemSkuDetail" nillable="true" type="tns:OrderItemSkuDetail" />
-  <xs:complexType name="ArrayOfOrderItemNote">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemNote" nillable="true" type="tns:OrderItemNote" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemNote" nillable="true" type="tns:ArrayOfOrderItemNote" />
-  <xs:complexType name="OrderItemNote">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="NoteSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NoteText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DateChanged" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemNote" nillable="true" type="tns:OrderItemNote" />
-  <xs:complexType name="ArrayOfOrderItemLocator">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemLocator" nillable="true" type="tns:OrderItemLocator" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemLocator" nillable="true" type="tns:ArrayOfOrderItemLocator" />
-  <xs:complexType name="OrderItemLocator">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:TCResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ItemSequence" type="xs:int" />
-          <xs:element minOccurs="0" name="SystemCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Locator" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="OrderItemLocator" nillable="true" type="tns:OrderItemLocator" />
-  <xs:complexType name="ArrayOfFee">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fee" nillable="true" type="tns:Fee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFee" nillable="true" type="tns:ArrayOfFee" />
-  <xs:complexType name="Fee">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ParentSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="Sequence" type="xs:int" />
-      <xs:element minOccurs="0" name="AmountTotal" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ForeignAmountTotal" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RuleSetID" type="xs:int" />
-      <xs:element minOccurs="0" name="IsWaivable" type="xs:boolean" />
-      <xs:element xmlns:q7="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" minOccurs="0" name="FeeType" type="q7:AOSFeeType" />
-      <xs:element minOccurs="0" name="FromSku" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ForeignAmount" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ForeignCurrencyCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsChargeable" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TypeCode" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Fee" nillable="true" type="tns:Fee" />
-  <xs:complexType name="ArrayOfOrderItemLocation">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemLocation" nillable="true" type="tns:OrderItemLocation" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemLocation" nillable="true" type="tns:ArrayOfOrderItemLocation" />
-  <xs:complexType name="OrderItemLocation">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="LocationSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="LocationCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UsageDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UtcOffset" type="xs:float" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemLocation" nillable="true" type="tns:OrderItemLocation" />
-  <xs:complexType name="ArrayOfOrderItemParameter">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemParameter" nillable="true" type="tns:OrderItemParameter" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemParameter" nillable="true" type="tns:ArrayOfOrderItemParameter" />
-  <xs:complexType name="OrderItemParameter">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ParameterCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ParameterDescription" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemParameter" nillable="true" type="tns:OrderItemParameter" />
-  <xs:complexType name="ArrayOfOrderItemStatusHistory">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemStatusHistory" nillable="true" type="tns:OrderItemStatusHistory" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemStatusHistory" nillable="true" type="tns:ArrayOfOrderItemStatusHistory" />
-  <xs:complexType name="OrderItemStatusHistory">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="HistorySequence" type="xs:int" />
-      <xs:element minOccurs="0" name="OrderStatusCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NoteText" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="HasError" type="xs:boolean" />
-      <xs:element minOccurs="0" name="PreviousOrderStatusCode" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemStatusHistory" nillable="true" type="tns:OrderItemStatusHistory" />
-  <xs:complexType name="ArrayOfOrderItemElement">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderItemElement" nillable="true" type="tns:OrderItemElement" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrderItemElement" nillable="true" type="tns:ArrayOfOrderItemElement" />
-  <xs:complexType name="OrderItemElement">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BasePrice" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="ExternalInventoryId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="InventoryId" type="xs:int" />
-      <xs:element minOccurs="0" name="InventoryQuantity" type="xs:int" />
-      <xs:element minOccurs="0" name="ItemSkuCatalogSequence" type="xs:int" />
-      <xs:element minOccurs="0" name="Discount" nillable="true" type="tns:OrderDiscount" />
-      <xs:element minOccurs="0" name="Markup" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="ItemMarkup" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="VendorMarkup" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="RateMarkup" nillable="true" type="tns:ChargeableItem" />
-      <xs:element minOccurs="0" name="SellQuantity" type="xs:int" />
-      <xs:element minOccurs="0" name="UsageDate" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OrderItemElement" nillable="true" type="tns:OrderItemElement" />
-  <xs:complexType name="ArrayOfTCOrderItem">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TCOrderItem" nillable="true" type="tns:TCOrderItem" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTCOrderItem" nillable="true" type="tns:ArrayOfTCOrderItem" />
+  <xs:element name="ArrayOfJourneySortKey" nillable="true" type="tns:ArrayOfJourneySortKey" />
+  <xs:simpleType name="JourneySortKey">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ServiceType" />
+      <xs:enumeration value="ShortestTravelTime" />
+      <xs:enumeration value="LowestFare" />
+      <xs:enumeration value="HighestFare" />
+      <xs:enumeration value="EarliestDeparture" />
+      <xs:enumeration value="LatestDeparture" />
+      <xs:enumeration value="EarliestArrival" />
+      <xs:enumeration value="LatestArrival" />
+      <xs:enumeration value="NoSort" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="JourneySortKey" nillable="true" type="tns:JourneySortKey" />
+  <xs:simpleType name="FareRuleFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="TripPlanner" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FareRuleFilter" nillable="true" type="tns:FareRuleFilter" />
+  <xs:simpleType name="TicketReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="TicketNotFound" />
+      <xs:enumeration value="NotAuthorized" />
+      <xs:enumeration value="IssueRetrievingTicket" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TicketReturnCode" nillable="true" type="tns:TicketReturnCode" />
+  <xs:simpleType name="FlyAheadOfferStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Involuntary" />
+      <xs:enumeration value="Voluntary" />
+      <xs:enumeration value="DisabledIfFirstLeg" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FlyAheadOfferStatus" nillable="true" type="tns:FlyAheadOfferStatus" />
+  <xs:simpleType name="FindBookingBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecordLocator" />
+      <xs:enumeration value="Contact" />
+      <xs:enumeration value="ThirdPartyRecordLocator" />
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="AgentID" />
+      <xs:enumeration value="AgentName" />
+      <xs:enumeration value="AgencyNumber" />
+      <xs:enumeration value="EmailAddress" />
+      <xs:enumeration value="PhoneNumber" />
+      <xs:enumeration value="CreditCardNumber" />
+      <xs:enumeration value="CustomerNumber" />
+      <xs:enumeration value="ContactCustomerNumber" />
+      <xs:enumeration value="Customer" />
+      <xs:enumeration value="OSTag" />
+      <xs:enumeration value="TravelDocument" />
+      <xs:enumeration value="BookingDate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FindBookingBy" nillable="true" type="tns:FindBookingBy" />
+  <xs:simpleType name="GetBookingBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecordLocator" />
+      <xs:enumeration value="ThirdPartyRecordLocator" />
+      <xs:enumeration value="ID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetBookingBy" nillable="true" type="tns:GetBookingBy" />
+  <xs:simpleType name="CancelBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Journey" />
+      <xs:enumeration value="Fee" />
+      <xs:enumeration value="SSR" />
+      <xs:enumeration value="All" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CancelBy" nillable="true" type="tns:CancelBy" />
+  <xs:simpleType name="DivideAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Divide" />
+      <xs:enumeration value="DivideAndCancel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DivideAction" nillable="true" type="tns:DivideAction" />
+  <xs:simpleType name="RequestPaymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PrePaid" />
+      <xs:enumeration value="ExternalAccount" />
+      <xs:enumeration value="AgencyAccount" />
+      <xs:enumeration value="CreditShell" />
+      <xs:enumeration value="CreditFile" />
+      <xs:enumeration value="Voucher" />
+      <xs:enumeration value="Loyalty" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequestPaymentMethodType" nillable="true" type="tns:RequestPaymentMethodType" />
+  <xs:simpleType name="PaymentValidationErrorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="AccountNumber" />
+      <xs:enumeration value="Amount" />
+      <xs:enumeration value="ExpirationDate" />
+      <xs:enumeration value="RestrictionHours" />
+      <xs:enumeration value="MissingAccountNumber" />
+      <xs:enumeration value="MissingExpirationDate" />
+      <xs:enumeration value="PaymentSystemUnavailable" />
+      <xs:enumeration value="MissingParentPaymentID" />
+      <xs:enumeration value="InProcessPaymentChanged" />
+      <xs:enumeration value="InvalidNumberOfInstallments" />
+      <xs:enumeration value="CreditShellCommentRequired" />
+      <xs:enumeration value="NoQuotedCurrencyProvided" />
+      <xs:enumeration value="NoBaseCurrencyForBooking" />
+      <xs:enumeration value="QuotedCurrencyDoesNotMatchBaseCurrency" />
+      <xs:enumeration value="QuotedRefundAmountNotLessThanZero" />
+      <xs:enumeration value="QuotedPaymentAmountIsLessThanZero" />
+      <xs:enumeration value="RoleCodeNotFound" />
+      <xs:enumeration value="UnknownOrInactivePaymentMethod" />
+      <xs:enumeration value="DepositPaymentsNotAllowedForPaymentMethod" />
+      <xs:enumeration value="UnableToRetrieveRoleCodeSettings" />
+      <xs:enumeration value="DepositPaymentsNotAllowedForRole" />
+      <xs:enumeration value="PaymentMethodNotAllowedForRole" />
+      <xs:enumeration value="InvalidAccountNumberLength" />
+      <xs:enumeration value="PaymentTextIsRequired" />
+      <xs:enumeration value="InvalidPaymentTextLength" />
+      <xs:enumeration value="InvalidMiscPaymentFieldLength" />
+      <xs:enumeration value="MiscPaymentFieldRequired" />
+      <xs:enumeration value="BookingCurrencyIsInvalidForSkyPay" />
+      <xs:enumeration value="SkyPayExceptionThrown" />
+      <xs:enumeration value="InvalidAccountNumberForPaymentMethod" />
+      <xs:enumeration value="InvalidELVTransaction" />
+      <xs:enumeration value="BlackListedCard" />
+      <xs:enumeration value="InvalidPaymentAddress" />
+      <xs:enumeration value="InvalidSecurityCode" />
+      <xs:enumeration value="InvalidCurrencyCode" />
+      <xs:enumeration value="InvalidAmount" />
+      <xs:enumeration value="PossibleFraud" />
+      <xs:enumeration value="InvalidCustomerAccount" />
+      <xs:enumeration value="AccountHolderIsNotAnAgency" />
+      <xs:enumeration value="InvalidStartDate" />
+      <xs:enumeration value="InvalidInitialPaymentStatus" />
+      <xs:enumeration value="PaymentCurrencyMustMatchBookingCurrency" />
+      <xs:enumeration value="CollectedAmountMustMatchPaymentAmount" />
+      <xs:enumeration value="RefundsNotAllowedUsingThisPaymentMethod" />
+      <xs:enumeration value="CreditShellAmountGreaterThanOrEqualToZero" />
+      <xs:enumeration value="CreditFileAmountLessThanOrEqualToZero" />
+      <xs:enumeration value="InvalidPrepaidApprovalCodeLength" />
+      <xs:enumeration value="AccountNumberFailedModulousCheck" />
+      <xs:enumeration value="NoExternalRatesAvailable" />
+      <xs:enumeration value="ExternalCurrencyConversion" />
+      <xs:enumeration value="StoredCardSecurityViolation">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">53</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AccountNumberDecryptionFailure">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">54</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DirectCurrencyConversionIssueOnRefund">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">55</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentValidationErrorType" nillable="true" type="tns:PaymentValidationErrorType" />
+  <xs:simpleType name="SeatAssignmentMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AutoDetermine" />
+      <xs:enumeration value="PreSeatAssignment" />
+      <xs:enumeration value="WebCheckIn" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SeatAssignmentMode" nillable="true" type="tns:SeatAssignmentMode" />
+  <xs:simpleType name="UnitHoldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Session" />
+      <xs:enumeration value="Blocked" />
+      <xs:enumeration value="Broken" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UnitHoldType" nillable="true" type="tns:UnitHoldType" />
+  <xs:simpleType name="PriceItineraryBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="JourneyBySellKey" />
+      <xs:enumeration value="JourneyWithLegs">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PriceItineraryBy" nillable="true" type="tns:PriceItineraryBy" />
+  <xs:simpleType name="SellBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="JourneyBySellKey" />
+      <xs:enumeration value="Journey" />
+      <xs:enumeration value="SSR" />
+      <xs:enumeration value="Fee" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SellBy" nillable="true" type="tns:SellBy" />
+  <xs:simpleType name="SellFeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ServiceFee" />
+      <xs:enumeration value="PenaltyFee" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SellFeeType" nillable="true" type="tns:SellFeeType" />
 </xs:schema>

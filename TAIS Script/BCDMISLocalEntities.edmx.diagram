@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e96bc92483c4cdbbbd95fb295b0142c" Name="Diagram1" ZoomLevel="25">
+        <EntityTypeShape EntityType="BCDMISModel1.F_AccomodationReasonCD" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCDMISModel1.GRO_ClientProfile_CP" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_AccommodationReasonCode" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ApprovalCode" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_Approver" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_CarReasonCode" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData1" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData12" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData2" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData3" Width="1.5" PointX="11.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData4" Width="1.5" PointX="11.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData5" Width="1.5" PointX="9.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData6" Width="1.5" PointX="11.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData7" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ClientData8" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_CostCenterCode" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_DepartmentNumber" Width="1.5" PointX="13.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_EmployeeNumber" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_HotelBookedFlag" Width="1.5" PointX="13.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_HotelReasonCode" Width="1.5" PointX="13.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_MajorClass" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ManagerSuperior" Width="1.5" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_OrderReference" Width="1.5" PointX="15.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ProjectNumber" Width="1.5" PointX="15.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ReasonCodeDenied" Width="1.5" PointX="9.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ReasonCodes" Width="1.5" PointX="11.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_ReasonOfTrip" Width="1.5" PointX="15.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.C_TravellerStatus" Width="1.5" PointX="13.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.ClientListBI" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.DataFields" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ApprovalCode" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_Approver" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_CarBookedFlag" Width="1.5" PointX="17.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData2" Width="1.5" PointX="17.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData3" Width="1.5" PointX="17.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData4" Width="1.5" PointX="17.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData5" Width="1.5" PointX="17.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData6" Width="1.5" PointX="17.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData7" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData8" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_CostCenterCode" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_CustomerSpecRefFareAmount" Width="1.5" PointX="19.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_CustoSpecLowFare" Width="1.5" PointX="19.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_DepartmentNo" Width="1.5" PointX="19.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_HotelBookedFlag" Width="1.5" PointX="9.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_HotelReasonCode" Width="1.5" PointX="11.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_LowFare" Width="1.5" PointX="19.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_MajorClass" Width="1.5" PointX="13.75" PointY="19.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_MgrSuperior" Width="1.5" PointX="19.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_OrderReference" Width="1.5" PointX="19.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ProjectNumber" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ReasonCode" Width="1.5" PointX="21.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ReasonCodeDenied" Width="1.5" PointX="21.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ReasonOfTrip" Width="1.5" PointX="21.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_RecordType" Width="1.5" PointX="21.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ReferenceFare" Width="1.5" PointX="21.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_SalesChannel" Width="1.5" PointX="15.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_StopOverFlag" Width="1.5" PointX="17.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_TourCode" Width="1.5" PointX="21.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_TravellerStatus" Width="1.5" PointX="19.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.GROExtraction" Width="1.5" PointX="21.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.GROFileName" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.MIDFields" Width="1.5" PointX="2.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.S_TOEG" Width="1.5" PointX="9.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_AirNoAccomReasonCD" Width="1.5" PointX="11.75" PointY="22.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ApprovalCode" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_Approver" Width="1.5" PointX="23.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_CarBookedFlag" Width="1.5" PointX="23.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData1" Width="1.5" PointX="23.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData12" Width="1.5" PointX="23.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData2" Width="1.5" PointX="23.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData3" Width="1.5" PointX="23.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData4" Width="1.5" PointX="23.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData5" Width="1.5" PointX="4.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData6" Width="1.5" PointX="6.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData7" Width="1.5" PointX="13.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ClientData8" Width="1.5" PointX="15.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_CostCenter" Width="1.5" PointX="17.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_CurrCode" Width="1.5" PointX="19.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_DeptNo" Width="1.5" PointX="21.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_EmpNo" Width="1.5" PointX="23.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_FFlyrNo" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_GlobalCustNo" Width="1.5" PointX="25.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_HotelBookedFlag" Width="1.5" PointX="25.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_HotelReasonCode" Width="1.5" PointX="8.75" PointY="25.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_LocalCustNo" Width="1.5" PointX="25.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_LowFare" Width="1.5" PointX="10.75" PointY="25.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_MgrSup" Width="1.5" PointX="25.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_OrderRef" Width="1.5" PointX="25.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ProjNo" Width="1.5" PointX="25.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ReasonCode" Width="1.5" PointX="25.75" PointY="21.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ReasonCodeDen" Width="1.5" PointX="25.75" PointY="24.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_ReasonofTrip" Width="1.5" PointX="0.75" PointY="26.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_RecordType" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_SalesChannel" Width="1.5" PointX="2.75" PointY="27.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_StopOverFlag" Width="1.5" PointX="27.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_TourCode" Width="1.5" PointX="4.75" PointY="27.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_TravaName" Width="1.5" PointX="27.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_TravStatus" Width="1.5" PointX="27.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.ClientSpecific" Width="1.5" PointX="13.75" PointY="27.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.ClientSpecificFee" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData1" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_ClientData12" Width="1.5" PointX="5.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.F_EmployeeNo" Width="1.5" PointX="5.75" PointY="12.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.GRO_AgencyProfile_PP" Width="1.5" PointX="5.75" PointY="15.75" />
+        <EntityTypeShape EntityType="BCDMISModel1.T_MajorClass" Width="1.5" PointX="15.75" PointY="27.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

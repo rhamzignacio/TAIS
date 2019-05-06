@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TAISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CAPIAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="nchar" MaxLength="30" />
+          <Property Name="Password" Type="nchar" MaxLength="30" />
+          <Property Name="OrgCode" Type="nchar" MaxLength="10" />
+          <Property Name="Path" Type="nchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreditCardDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ClientName" Type="nchar" MaxLength="100" />
+          <Property Name="ClientNo" Type="nchar" MaxLength="20" />
+          <Property Name="CreditCardNo" Type="nchar" MaxLength="50" />
+          <Property Name="ExpirationDateMonth" Type="nchar" MaxLength="10" />
+          <Property Name="ExpirationDateYear" Type="nchar" MaxLength="10" />
+          <Property Name="ApproverNo" Type="nchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreditMonitoring">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserGDSId" Type="nchar" MaxLength="20" />
+          <Property Name="TravellerName" Type="nchar" MaxLength="100" />
+          <Property Name="DateRetrieved" Type="nchar" MaxLength="50" />
+          <Property Name="TimeRetrieved" Type="nchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NonAirTransactions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProductCode" Type="nchar" MaxLength="10" />
+          <Property Name="SubProduct" Type="nchar" MaxLength="15" />
+          <Property Name="CP" Type="nchar" MaxLength="10" />
+          <Property Name="CPAccess" Type="nchar" MaxLength="15" />
+          <Property Name="VendorCode" Type="nchar" MaxLength="150" />
+          <Property Name="VendorAccess" Type="nchar" MaxLength="15" />
+          <Property Name="Cost" Type="nchar" MaxLength="10" />
+          <Property Name="CostAccess" Type="nchar" MaxLength="15" />
+          <Property Name="SAAmount" Type="nchar" MaxLength="10" />
+          <Property Name="SAAccess" Type="nchar" MaxLength="15" />
+          <Property Name="Remarks" Type="nchar" MaxLength="200" />
+          <Property Name="travelType" Type="nchar" MaxLength="15" />
+          <Property Name="RefFare" Type="nchar" MaxLength="15" />
+          <Property Name="LowFare" Type="nchar" MaxLength="15" />
+          <Property Name="EC" Type="nchar" MaxLength="15" />
+          <Property Name="DateHotel" Type="nchar" MaxLength="15" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductSettings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProductName" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCategory" Type="varchar" MaxLength="100" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="SubProdAccess" Type="varchar" MaxLength="50" />
+          <Property Name="CommPercentage" Type="varchar" MaxLength="50" />
+          <Property Name="CommAccess" Type="varchar" MaxLength="50" />
+          <Property Name="Vendor" Type="varchar" MaxLength="50" />
+          <Property Name="VendorAccess" Type="varchar" MaxLength="50" />
+          <Property Name="CostAmount" Type="varchar" MaxLength="50" />
+          <Property Name="CostAccess" Type="varchar" MaxLength="50" />
+          <Property Name="SFAmount" Type="varchar" MaxLength="50" />
+          <Property Name="SFAccess" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileAgentInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="First_Name" Type="nchar" MaxLength="100" />
+          <Property Name="Last_Name" Type="nchar" MaxLength="100" />
+          <Property Name="InitialSignIn" Type="nchar" MaxLength="12" />
+          <Property Name="QueueNo" Type="nchar" MaxLength="10" />
+          <Property Name="TeamGroup" Type="nchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="nchar" MaxLength="20" />
+          <Property Name="AP" Type="nchar" MaxLength="100" />
+          <Property Name="Div" Type="nchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="nchar" MaxLength="150" />
+          <Property Name="Remarks" Type="nchar" MaxLength="150" />
+          <Property Name="Others" Type="nchar" MaxLength="150" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="AccessLevel" Type="nchar" MaxLength="5" />
+          <Property Name="CreditCardAccess" Type="nchar" MaxLength="10" />
+          <Property Name="GDSSignIn" Type="nchar" MaxLength="20" />
+          <Property Name="DivisionNo" Type="varchar" MaxLength="20" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transmittal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProfileNo" Type="nchar" MaxLength="10" />
+          <Property Name="InvoiceNo" Type="nchar" MaxLength="10" />
+          <Property Name="InvoiceDate" Type="date" />
+          <Property Name="InvoiceAmount" Type="nchar" MaxLength="15" />
+          <Property Name="AttentionTo" Type="nchar" MaxLength="50" />
+          <Property Name="PreparedBy" Type="nchar" MaxLength="50" />
+          <Property Name="ReceivedBy" Type="nchar" MaxLength="50" />
+          <Property Name="DateReleased" Type="date" />
+          <Property Name="DateReceived" Type="date" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="AccessLevel" Type="nchar" MaxLength="10" />
+          <Property Name="ClientNo" Type="nchar" MaxLength="10" />
+          <Property Name="DivisionNo" Type="nchar" MaxLength="10" />
+          <Property Name="BookingAgent" Type="nchar" MaxLength="10" />
+          <Property Name="VesselName" Type="nchar" MaxLength="10" />
+          <Property Name="PhoneElement" Type="nchar" MaxLength="10" />
+          <Property Name="Compleat" Type="nchar" MaxLength="10" />
+          <Property Name="ReceivedFrom" Type="nchar" MaxLength="10" />
+          <Property Name="TKTL" Type="nchar" MaxLength="10" />
+          <Property Name="ClientName" Type="nchar" MaxLength="10" />
+          <Property Name="VName" Type="nchar" MaxLength="10" />
+          <Property Name="BillTo" Type="nchar" MaxLength="10" />
+          <Property Name="Mandatory" Type="nchar" MaxLength="10" />
+          <Property Name="DivNo" Type="varchar" MaxLength="20" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="nchar" MaxLength="10" />
+          <Property Name="Name" Type="nchar" MaxLength="100" />
+          <Property Name="Password" Type="nchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vessel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VesselNo" Type="nchar" MaxLength="10" />
+          <Property Name="VesselName" Type="nchar" MaxLength="100" />
+          <Property Name="Principal" Type="nchar" MaxLength="100" />
+          <Property Name="SubPrincipal" Type="nchar" MaxLength="100" />
+          <Property Name="Remarks" Type="nchar" MaxLength="100" />
+          <Property Name="Others" Type="nchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TAISModelStoreContainer">
+          <EntitySet Name="CAPIAccess" EntityType="Self.CAPIAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreditCardDetails" EntityType="Self.CreditCardDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreditMonitoring" EntityType="Self.CreditMonitoring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NonAirTransactions" EntityType="Self.NonAirTransactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductSettings" EntityType="Self.ProductSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileAgentInfo" EntityType="Self.ProfileAgentInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transmittal" EntityType="Self.Transmittal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccess" EntityType="Self.UserAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vessel" EntityType="Self.Vessel" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TAISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TAISLocalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CAPIAccesses" EntityType="TAISModel.CAPIAccess" />
+          <EntitySet Name="CreditCardDetails" EntityType="TAISModel.CreditCardDetail" />
+          <EntitySet Name="CreditMonitorings" EntityType="TAISModel.CreditMonitoring" />
+          <EntitySet Name="NonAirTransactions" EntityType="TAISModel.NonAirTransaction" />
+          <EntitySet Name="ProductSettings" EntityType="TAISModel.ProductSetting" />
+          <EntitySet Name="ProfileAgentInfoes" EntityType="TAISModel.ProfileAgentInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="TAISModel.sysdiagram" />
+          <EntitySet Name="Transmittals" EntityType="TAISModel.Transmittal" />
+          <EntitySet Name="UserAccesses" EntityType="TAISModel.UserAccess" />
+          <EntitySet Name="Users" EntityType="TAISModel.User" />
+          <EntitySet Name="Vessels" EntityType="TAISModel.Vessel" />
+        </EntityContainer>
+        <EntityType Name="CAPIAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="OrgCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="CreditCardDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ClientName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ClientNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="CreditCardNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ExpirationDateMonth" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ExpirationDateYear" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ApproverNo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="CreditMonitoring">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserGDSId" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="TravellerName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DateRetrieved" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="TimeRetrieved" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="NonAirTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProductCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SubProduct" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="CP" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CPAccess" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="VendorCode" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="VendorAccess" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Cost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CostAccess" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="SAAmount" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SAAccess" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="travelType" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="RefFare" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="LowFare" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="EC" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="DateHotel" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ProductSetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SubProdAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommPercentage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VendorAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SFAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SFAccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ProfileAgentInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="InitialSignIn" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="QueueNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TeamGroup" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="AP" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Div" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Others" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AccessLevel" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="CreditCardAccess" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GDSSignIn" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="DivisionNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transmittal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ProfileNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+          <Property Name="InvoiceAmount" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="AttentionTo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="PreparedBy" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ReceivedBy" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DateReleased" Type="DateTime" Precision="0" />
+          <Property Name="DateReceived" Type="DateTime" Precision="0" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="UserAccess">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="AccessLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ClientNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DivisionNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BookingAgent" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VesselName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PhoneElement" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Compleat" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ReceivedFrom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TKTL" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ClientName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BillTo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Mandatory" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DivNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Vessel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VesselNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VesselName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Principal" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="SubPrincipal" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Others" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TAISModelStoreContainer" CdmEntityContainer="TAISLocalEntities">
+          <EntitySetMapping Name="CAPIAccesses">
+            <EntityTypeMapping TypeName="TAISModel.CAPIAccess">
+              <MappingFragment StoreEntitySet="CAPIAccess">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="OrgCode" ColumnName="OrgCode" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreditCardDetails">
+            <EntityTypeMapping TypeName="TAISModel.CreditCardDetail">
+              <MappingFragment StoreEntitySet="CreditCardDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ApproverNo" ColumnName="ApproverNo" />
+                <ScalarProperty Name="ExpirationDateYear" ColumnName="ExpirationDateYear" />
+                <ScalarProperty Name="ExpirationDateMonth" ColumnName="ExpirationDateMonth" />
+                <ScalarProperty Name="CreditCardNo" ColumnName="CreditCardNo" />
+                <ScalarProperty Name="ClientNo" ColumnName="ClientNo" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreditMonitorings">
+            <EntityTypeMapping TypeName="TAISModel.CreditMonitoring">
+              <MappingFragment StoreEntitySet="CreditMonitoring">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TimeRetrieved" ColumnName="TimeRetrieved" />
+                <ScalarProperty Name="DateRetrieved" ColumnName="DateRetrieved" />
+                <ScalarProperty Name="TravellerName" ColumnName="TravellerName" />
+                <ScalarProperty Name="UserGDSId" ColumnName="UserGDSId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NonAirTransactions">
+            <EntityTypeMapping TypeName="TAISModel.NonAirTransaction">
+              <MappingFragment StoreEntitySet="NonAirTransactions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateHotel" ColumnName="DateHotel" />
+                <ScalarProperty Name="EC" ColumnName="EC" />
+                <ScalarProperty Name="LowFare" ColumnName="LowFare" />
+                <ScalarProperty Name="RefFare" ColumnName="RefFare" />
+                <ScalarProperty Name="travelType" ColumnName="travelType" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SAAccess" ColumnName="SAAccess" />
+                <ScalarProperty Name="SAAmount" ColumnName="SAAmount" />
+                <ScalarProperty Name="CostAccess" ColumnName="CostAccess" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="VendorAccess" ColumnName="VendorAccess" />
+                <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+                <ScalarProperty Name="CPAccess" ColumnName="CPAccess" />
+                <ScalarProperty Name="CP" ColumnName="CP" />
+                <ScalarProperty Name="SubProduct" ColumnName="SubProduct" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSettings">
+            <EntityTypeMapping TypeName="TAISModel.ProductSetting">
+              <MappingFragment StoreEntitySet="ProductSettings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SFAccess" ColumnName="SFAccess" />
+                <ScalarProperty Name="SFAmount" ColumnName="SFAmount" />
+                <ScalarProperty Name="CostAccess" ColumnName="CostAccess" />
+                <ScalarProperty Name="CostAmount" ColumnName="CostAmount" />
+                <ScalarProperty Name="VendorAccess" ColumnName="VendorAccess" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="CommAccess" ColumnName="CommAccess" />
+                <ScalarProperty Name="CommPercentage" ColumnName="CommPercentage" />
+                <ScalarProperty Name="SubProdAccess" ColumnName="SubProdAccess" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileAgentInfoes">
+            <EntityTypeMapping TypeName="TAISModel.ProfileAgentInfo">
+              <MappingFragment StoreEntitySet="ProfileAgentInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DivisionNo" ColumnName="DivisionNo" />
+                <ScalarProperty Name="GDSSignIn" ColumnName="GDSSignIn" />
+                <ScalarProperty Name="CreditCardAccess" ColumnName="CreditCardAccess" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Div" ColumnName="Div" />
+                <ScalarProperty Name="AP" ColumnName="AP" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="TeamGroup" ColumnName="TeamGroup" />
+                <ScalarProperty Name="QueueNo" ColumnName="QueueNo" />
+                <ScalarProperty Name="InitialSignIn" ColumnName="InitialSignIn" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TAISModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transmittals">
+            <EntityTypeMapping TypeName="TAISModel.Transmittal">
+              <MappingFragment StoreEntitySet="Transmittal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="DateReleased" ColumnName="DateReleased" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+                <ScalarProperty Name="AttentionTo" ColumnName="AttentionTo" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="ProfileNo" ColumnName="ProfileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccesses">
+            <EntityTypeMapping TypeName="TAISModel.UserAccess">
+              <MappingFragment StoreEntitySet="UserAccess">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DivNo" ColumnName="DivNo" />
+                <ScalarProperty Name="Mandatory" ColumnName="Mandatory" />
+                <ScalarProperty Name="BillTo" ColumnName="BillTo" />
+                <ScalarProperty Name="VName" ColumnName="VName" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="TKTL" ColumnName="TKTL" />
+                <ScalarProperty Name="ReceivedFrom" ColumnName="ReceivedFrom" />
+                <ScalarProperty Name="Compleat" ColumnName="Compleat" />
+                <ScalarProperty Name="PhoneElement" ColumnName="PhoneElement" />
+                <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+                <ScalarProperty Name="BookingAgent" ColumnName="BookingAgent" />
+                <ScalarProperty Name="DivisionNo" ColumnName="DivisionNo" />
+                <ScalarProperty Name="ClientNo" ColumnName="ClientNo" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TAISModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vessels">
+            <EntityTypeMapping TypeName="TAISModel.Vessel">
+              <MappingFragment StoreEntitySet="Vessel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SubPrincipal" ColumnName="SubPrincipal" />
+                <ScalarProperty Name="Principal" ColumnName="Principal" />
+                <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+                <ScalarProperty Name="VesselNo" ColumnName="VesselNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -13,9 +13,10 @@
     <AssemblyName>TAISpost</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\inetpub\wwwroot\TAIS Script\</PublishUrl>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\192.168.0.43\wwwroot\TAIS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,21 +26,21 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://192.168.0.3:1004/</InstallUrl>
+    <InstallUrl>http://192.168.0.43:3001/</InstallUrl>
     <ProductName>TAIS Script</ProductName>
     <PublisherName>Philscan Travel and Tours</PublisherName>
-    <MinimumRequiredVersion>1.13.0.0</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2.2.0.0</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.13.0.0</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
+    <ApplicationVersion>2.2.0.0</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -47,6 +48,9 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>TAISpost.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>true</Prefer32Bit>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -57,6 +61,9 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>TAISpost.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -77,7 +84,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>576A2B5AAD513F7F16306FED5622A5D00A199A43</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>EF31B4592A6100CB8C590D0F7CDAA6FB832D20AB</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -89,14 +96,34 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>TAISpost_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>TAISpost_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.k1aHostConstantsLib">
+      <HintPath>..\..\..\..\AppData\Roaming\Amadeus\Interop.k1aHostConstantsLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.k1aHostToolKit">
+      <HintPath>..\..\..\..\AppData\Roaming\Amadeus\Interop.k1aHostToolKit.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.s1aPNR">
+      <HintPath>..\..\..\..\AppData\Roaming\Amadeus\Interop.s1aPNR.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -105,7 +132,11 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="k1aHostConstantsLib" />
+    <Import Include="k1aHostInterface" />
+    <Import Include="k1aHostToolKit" />
     <Import Include="Microsoft.VisualBasic" />
+    <Import Include="s1aPNR" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
@@ -117,7 +148,148 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airlines.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISEntities.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISEntities.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISEntities.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISLocalEntities.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISLocalEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISLocalEntities.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISLocalEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BCDMISLocalEntities.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAPIAccess.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class\ClassPNR.vb" />
+    <Compile Include="ClientListBI.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientSpecific.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientSpecificFee.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCardDetail.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditMonitoring.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Currencies.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_AccommodationReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ApprovalCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Approver.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_CarReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData1.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData12.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData2.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData3.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData4.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData5.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData6.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData7.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClientData8.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_CostCenterCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DepartmentNumber.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EmployeeNumber.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_HotelBookedFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_HotelReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MajorClass.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ManagerSuperior.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_OrderReference.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProjectNumber.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReasonCodeDenied.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReasonCodes.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReasonOfTrip.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TravellerStatus.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFields.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departments.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Divisions.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AliasAccount.vb" />
     <Compile Include="Forms\FrmFareType.Designer.vb">
       <DependentUpon>FrmFareType.vb</DependentUpon>
@@ -180,6 +352,138 @@
     <Compile Include="Forms\LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F_AccomodationReasonCD.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ApprovalCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_Approver.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_CarBookedFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData1.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData12.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData2.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData3.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData4.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData5.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData6.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData7.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ClientData8.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_CostCenterCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_CustomerSpecRefFareAmount.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_CustoSpecLowFare.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_DepartmentNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_EmployeeNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_HotelBookedFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_HotelReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_LowFare.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_MajorClass.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_MgrSuperior.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_OrderReference.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ProjectNumber.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ReasonCodeDenied.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ReasonOfTrip.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_RecordType.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_ReferenceFare.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_SalesChannel.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_StopOverFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_TourCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F_TravellerStatus.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GROExtraction.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GROFileName.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRO_AgencyProfile_PP.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRO_ClientProfile_CP.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocalTravcomEntiies.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalTravcomEntiies.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocalTravcomEntiies.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalTravcomEntiies.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalTravcomEntiies.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MIDFields.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModInit\ModAccess.vb" />
     <Compile Include="ModInit\ModDeclaration.vb" />
     <Compile Include="ModInit\ModuleConnectSQL.vb" />
@@ -200,7 +504,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NonAirTransaction.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCodes.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSetting.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileAgentInfo.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profiles.vb">
+      <DependentUpon>LocalTravcomEntiies.tt</DependentUpon>
+    </Compile>
     <Compile Include="Service References\BookingManager\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NewBookingManager\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NewSessionManager\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -209,6 +538,147 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="S_TOEG.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAISLocalEntities.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TAISLocalEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAISLocalEntities.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TAISLocalEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TAISLocalEntities.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transmittal.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_AirNoAccomReasonCD.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ApprovalCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Approver.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CarBookedFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData1.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData12.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData2.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData3.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData4.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData5.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData6.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData7.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ClientData8.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CostCenter.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CurrCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_DeptNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_EmpNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_FFlyrNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_GlobalCustNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_HotelBookedFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_HotelReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LocalCustNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_LowFare.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_MajorClass.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_MgrSup.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OrderRef.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ProjNo.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ReasonCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ReasonCodeDen.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_ReasonofTrip.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_RecordType.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_SalesChannel.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_StopOverFlag.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TourCode.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TravaName.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_TravStatus.vb">
+      <DependentUpon>BCDMISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccess.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vessel.vb">
+      <DependentUpon>TAISLocalEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -251,11 +721,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="BCDMISEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BCDMISEntities.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BCDMISEntities.edmx.diagram">
+      <DependentUpon>BCDMISEntities.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="BCDMISLocalEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BCDMISLocalEntities.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BCDMISLocalEntities.edmx.diagram">
+      <DependentUpon>BCDMISLocalEntities.edmx</DependentUpon>
+    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram3.cd" />
     <None Include="ClassDiagram4.cd" />
     <None Include="ClassDiagram5.cd" />
+    <EntityDeploy Include="LocalTravcomEntiies.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocalTravcomEntiies.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LocalTravcomEntiies.edmx.diagram">
+      <DependentUpon>LocalTravcomEntiies.edmx</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -266,6 +757,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="Service References\BookingManager\BookingManager.wsdl" />
     <None Include="Service References\BookingManager\BookingManager.xsd">
       <SubType>Designer</SubType>
@@ -300,6 +792,9 @@
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.AddPaymentToBookingResponseData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.AssignedSeatInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.AvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -315,16 +810,28 @@
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.EquipmentListResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.ETicketDisplayResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.FindBaggageEventResponseData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.FindBookingResponseData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.GetBookingFromStateFilteredResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.GetBookingHistoryResponseData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.GetBookingPaymentResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.GetBookingStatelessFilteredResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.LowFareAVSMessageResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.LowFareTripAvailabilityResponse.datasource">
@@ -366,36 +873,538 @@
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.TripAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BookingManager\TAIS_post.BookingManager.TripAvailabilityWithSSRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.UpgradeAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BookingManager\TAIS_post.BookingManager.ValidationPayment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\SessionManager\SessionManager.wsdl" />
-    <None Include="Service References\SessionManager\SessionManager.xsd">
+    <None Include="Service References\NewBookingManager\BookingManager.wsdl" />
+    <None Include="Service References\NewBookingManager\BookingManager.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SessionManager\SessionManager1.xsd">
+    <None Include="Service References\NewBookingManager\BookingManager1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SessionManager\SessionManager2.xsd">
+    <None Include="Service References\NewBookingManager\BookingManager10.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SessionManager\SessionManager3.xsd">
+    <None Include="Service References\NewBookingManager\BookingManager11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\SessionManager\SessionManager4.xsd">
+    <None Include="Service References\NewBookingManager\BookingManager12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AcceptScheduleChangesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AddBookingCommentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AddInProcessPaymentToBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AddPaymentToBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AddPaymentToBookingResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ApplyPromotionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AssignedSeatInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AssignSeatsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.AvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.Booking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.BookingCommitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.BookingUpdateResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CalculateGuestValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CancelInProcessPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CancelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CancelSegmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CaptureBaggageEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CaptureBaggageEventResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ChangeSourcePointOfSaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ClearResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.CommitResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.DCCPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.DCCQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.DivideResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.DowngradeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.EquipmentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ETicketDisplayResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FareOverrideResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBaggageEventResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBaggageEventResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBookingNotificationHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBookingNotificationHistoryResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.FindBookingResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetAvailabilityVer2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBaggageAllowancesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBaggageAllowancesResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingBaggageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingFromStateFilteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingFromStateFilteredResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingFromStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingHistoryResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingPaymentResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingPaymentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingStatelessFilteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetBookingStatelessFilteredResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetEquipmentPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetExternalTicketDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetGovernmentSecurityRequirementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetGovernmentSecurityRequirementsResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetHoldDateTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetHoldDateTimeResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetLowFareAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetLowFareAVSMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetLowFareTripAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetMoveAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetMoveAvailabilityVer2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetMoveFeePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetPaymentFeePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetPostCommitResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetRecordLocatorListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetSeatAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetServiceBundleOffersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetServiceBundleOffersResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetSSRAvailabilityForBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetSSRAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetStandByAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetTripAvailabilityWithSSRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.GetUpgradeAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.LowFareAVSMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.LowFareTripAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveAvailabilityResponseVer2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveFeePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveJourneyBookingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveJourneyBookingsResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MoveJourneyByKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MovePassengersToBaggageGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.MovePassengersToBaggageGroupResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.OverrideFeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PassengerBag.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PassengerBaggageGroupMembershipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PassengerBaggageGroupMembershipResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PassengerScoresResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.Payment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PaymentFeePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.PriceItineraryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ProcessBaggageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ProcessBaggageResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.RemovePaymentFromBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ResellSSRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ScorePassengersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SeatAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SellResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SellServiceBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SendItineraryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SeparateSegmentByEquipmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SeparateSegmentByEquipmentResponseData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SetSamplingRandomNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SSRAvailabilityForBookingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.SSRAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.TravelCommerceCancelServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.TravelCommerceSellResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.TripAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.TripAvailabilityResponseVer2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.TripAvailabilityWithSSRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UnassignSeatsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateBookingComponentDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateContactsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateFeeStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateGroupNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdatePassengersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdatePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateSSRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpdateTicketsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpgradeAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.UpgradeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewBookingManager\TAIS_post.NewBookingManager.ValidationPayment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager.wsdl" />
+    <None Include="Service References\NewSessionManager\SessionManager.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\SessionManager8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewSessionManager\TAIS_post.NewSessionManager.ChangePasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewSessionManager\TAIS_post.NewSessionManager.KeepAliveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewSessionManager\TAIS_post.NewSessionManager.LogonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewSessionManager\TAIS_post.NewSessionManager.LogoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NewSessionManager\TAIS_post.NewSessionManager.TransferSessionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager1.wsdl" />
+    <None Include="Service References\SessionManager\SessionManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager55.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager56.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager57.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SessionManager\SessionManager58.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SessionManager\TAIS_post.SessionManager.TransferSessionResponseData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <EntityDeploy Include="TAISLocalEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TAISLocalEntities.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TAISLocalEntities.edmx.diagram">
+      <DependentUpon>TAISLocalEntities.edmx</DependentUpon>
+    </None>
     <None Include="TAISpost_1_TemporaryKey.pfx" />
+    <None Include="TAISpost_2_TemporaryKey.pfx" />
     <None Include="TAISpost_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BCDMISEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BCDMISEntities.edmx</DependentUpon>
+      <LastGenOutput>BCDMISEntities.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="BCDMISEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BCDMISEntities.edmx</DependentUpon>
+      <LastGenOutput>BCDMISEntities.vb</LastGenOutput>
+    </Content>
+    <Content Include="BCDMISLocalEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BCDMISLocalEntities.edmx</DependentUpon>
+      <LastGenOutput>BCDMISLocalEntities.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="BCDMISLocalEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BCDMISLocalEntities.edmx</DependentUpon>
+      <LastGenOutput>BCDMISLocalEntities.vb</LastGenOutput>
+    </Content>
     <Content Include="Graphics\File-Command-icon.png" />
+    <Content Include="LocalTravcomEntiies.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalTravcomEntiies.edmx</DependentUpon>
+      <LastGenOutput>LocalTravcomEntiies.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="LocalTravcomEntiies.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalTravcomEntiies.edmx</DependentUpon>
+      <LastGenOutput>LocalTravcomEntiies.vb</LastGenOutput>
+    </Content>
     <Content Include="References\msado15.dll" />
     <None Include="Service References\BookingManager\BookingManager.disco" />
     <None Include="Service References\BookingManager\configuration91.svcinfo">
@@ -406,7 +1415,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <None Include="Service References\SessionManager\SessionManager.disco" />
     <None Include="Service References\SessionManager\configuration91.svcinfo">
       <SubType>Designer</SubType>
     </None>
@@ -415,6 +1423,31 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <None Include="Service References\SessionManager\SessionManager1.disco" />
+    <None Include="Service References\NewSessionManager\SessionManager.disco" />
+    <None Include="Service References\NewSessionManager\configuration91.svcinfo" />
+    <None Include="Service References\NewSessionManager\configuration.svcinfo" />
+    <None Include="Service References\NewSessionManager\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\NewBookingManager\BookingManager.disco" />
+    <None Include="Service References\NewBookingManager\configuration91.svcinfo" />
+    <None Include="Service References\NewBookingManager\configuration.svcinfo" />
+    <None Include="Service References\NewBookingManager\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="TAISLocalEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TAISLocalEntities.edmx</DependentUpon>
+      <LastGenOutput>TAISLocalEntities.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="TAISLocalEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TAISLocalEntities.edmx</DependentUpon>
+      <LastGenOutput>TAISLocalEntities.vb</LastGenOutput>
+    </Content>
     <Content Include="terminal.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -456,6 +1489,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -464,12 +1502,7 @@
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
+      <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
@@ -477,7 +1510,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BookingManager\" />
+    <WCFMetadataStorage Include="Service References\NewBookingManager\" />
+    <WCFMetadataStorage Include="Service References\NewSessionManager\" />
     <WCFMetadataStorage Include="Service References\SessionManager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

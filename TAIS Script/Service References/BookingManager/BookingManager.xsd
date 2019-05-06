@@ -22,4 +22,19 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="LoyaltyFilter" nillable="true" type="tns:LoyaltyFilter" />
+  <xs:simpleType name="LowFareFlightFilter">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoFlights" />
+      <xs:enumeration value="AllFlights" />
+      <xs:enumeration value="SelectedFlight" />
+      <xs:enumeration value="Unmapped">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LowFareFlightFilter" nillable="true" type="tns:LowFareFlightFilter" />
 </xs:schema>

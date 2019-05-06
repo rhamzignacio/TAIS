@@ -84,10 +84,73 @@ Public Class FrmGeneral
 
     Private Property FlightDetails As Object
 
+    'Database Connection
+    'Dim taisDB As New TAIS_SERVEREntities
+    'Dim dbMIS = New BCDMISEntities()
+
+    Dim taisDB As New TravComEntities()
+    Dim dbMIS As New BCDMISLocalEntities()
+    Dim taisLocal As New TAISLocalEntities()
+
 
 
     Public Sub FrmGeneral_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        taisDB = New TravComEntities()
+        dbMIS = New BCDMISLocalEntities()
+        taisLocal = New TAISLocalEntities()
+
+        'If Connected = False Then
+
+        '    If CONNECTDB() Then
+
+        '        objSession = New k1aHostToolKit.HostSession
+        '        Session = New k1aHostToolKit.HostSession
+
+        '        Connected = True
+        '        txtAgentId.Focus()
+
+        '        CNN.Open()
+        '        Call cltdropdown()              ' List of all clients
+        '        Call DivDropDown()              ' List of Divisions
+        '        Call Vesseldropdown()
+        '        Call load_ClientSpec()
+
+        '        '' Initialization for Pre and Post Script
+        '        Call FrmMainIni()
+
+        '        '' Initialization for MIS Data
+        '        Call FieldMapping()
+        '        Call MISINIT()
+        '        cboClientName.Text = Nothing
+        '        cboClientName.Enabled = True
+        '        Call Init_GlobalStrings()
+
+        '        ''===Load Entry for  Non Air Transactions
+        '        Call load_productCode()
+        '        Call load_VendorCode()
+        '        '   Call load_Booker()
+        '        Call load_AirlineCode()
+        '        Call load_ticketAgent()
+
+        '        Call AgentSet_MainInit()  ' Agent Init
+        '        Call AgentSet_AccessInit()
+        '        Call AgentSet_loadDivision()
+
+        '    Else
+        '        MsgBox("Data source name not found and no default driver specified..Please contact your administrator..", vbCritical, "Terminate")
+        '        End
+        '    End If
+
+        'End If
+
+
+    End Sub
+
+    Public Sub ConnectDatabase()
+        taisDB = New TravComEntities()
+        dbMIS = New BCDMISLocalEntities()
+        taisLocal = New TAISLocalEntities()
         If Connected = False Then
 
             If CONNECTDB() Then
@@ -131,8 +194,6 @@ Public Class FrmGeneral
             End If
 
         End If
-
-
     End Sub
 
 
@@ -503,25 +564,21 @@ Public Class FrmGeneral
     '======Client List =======
     Private Sub cltdropdown()
 
-        CHECK_RS1()
+        'CHECK_RS1()
 
-        SQL_QUERY = "Select * from TRAVCOM..PROFILES where profiletype= 0"
-        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        Dim profile As New List(Of String)
+        profile = (From prof In taisDB.Profiles
+                   Where prof.ProfileType = 0
+                   Order By prof.FullName Ascending
+                   Select prof.FullName).ToList()
 
-        With RS1
-
-            Do While Not RS1.EOF
-                col.Add(RS1.Fields("FullName").Value).ToString()
-                RS1.MoveNext()
-            Loop
-
-        End With
+        col.AddRange(profile.ToArray)
 
         cboClient.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboClient.AutoCompleteCustomSource = col
         cboClient.AutoCompleteMode = AutoCompleteMode.Suggest
 
-        RS1.Close()
+        'RS1.Close()
 
     End Sub
 
@@ -530,21 +587,29 @@ Public Class FrmGeneral
     '====List of Division=====
     Private Sub DivDropDown()
 
-        CHECK_RS1()
+        'CHECK_RS1()
 
-        SQL_QUERY = "Select * from TRAVCOM..Divisions"
-        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        Dim division As New List(Of String)
 
-        With RS1
+        division = (From d In taisDB.Divisions
+                    Order By d.Division Ascending
+                    Select d.Name).ToList()
 
-            Do While Not RS1.EOF
-                cboDiv.Items.Add(RS1.Fields("Division").Value).ToString()
-                RS1.MoveNext()
-            Loop
+        cboDiv.Items.AddRange(division.ToArray)
 
-        End With
+        'SQL_QUERY = "Select * from TAIS_SERVER..Divisions"
+        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
-        RS1.Close()
+        'With RS1
+
+        '    Do While Not RS1.EOF
+        '        cboDiv.Items.Add(RS1.Fields("Division").Value).ToString()
+        '        RS1.MoveNext()
+        '    Loop
+
+        'End With
+
+        'RS1.Close()
 
     End Sub
 
@@ -552,21 +617,30 @@ Public Class FrmGeneral
     '=====List of Vessel =====
     Private Sub Vesseldropdown()
 
-        CHECK_RS1()
+        'CHECK_RS1()
 
-        SQL_QUERY = "Select * from TRAVCOM..PROFILES where profiletype= 0 and ProfileNumber like '%100%' "
-        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        Dim profiles As New List(Of String)
 
-        With RS1
+        profiles = (From prof In taisDB.Profiles
+                    Where prof.ProfileType = 0 And prof.ProfileNumber.Contains("100")
+                    Order By prof.FullName Ascending
+                    Select prof.FullName).ToList()
 
-            Do While Not RS1.EOF
-                colVessel.Add(RS1.Fields("FullName").Value).ToString()
-                RS1.MoveNext()
-            Loop
+        colVessel.AddRange(profiles.ToArray)
 
-        End With
+        'SQL_QUERY = "Select * from TAIS_SERVER..PROFILES where profiletype= 0 and ProfileNumber like '%100%' "
+        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
-        RS1.Close()
+        'With RS1
+
+        '    Do While Not RS1.EOF
+        '        colVessel.Add(RS1.Fields("FullName").Value).ToString()
+        '        RS1.MoveNext()
+        '    Loop
+
+        'End With
+
+        'RS1.Close()
 
         cboBillTo.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboBillTo.AutoCompleteCustomSource = colVessel
@@ -593,7 +667,7 @@ Public Class FrmGeneral
 
             CHECK_RS()
 
-            SQL_QUERY = "Select * from TRAVCOM..PROFILES where profiletype= 0 and fullname = '" & strCmdVessel & "'"
+            SQL_QUERY = "Select * from TAIS_SERVER..PROFILES where profiletype= 0 and fullname = '" & strCmdVessel & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
             With RS
@@ -666,39 +740,54 @@ Public Class FrmGeneral
 
             strCommand = Trim(cboClient.SelectedText)
 
-            CHECK_RS()
+            'CHECK_RS()
 
-            SQL_QUERY = "Select * from TRAVCOM..PROFILES where profiletype= 0 and fullname = '" & strCommand & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            'SQL_QUERY = "Select * from TAIS_SERVER..PROFILES where profiletype= 0 and fullname = '" & strCommand & "'"
+            'RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
-            With RS
+            'With RS
 
-                If Not RS.EOF Then
-                    txtClientNo.Text = Trim("RM*CN/" & ((RS.Fields("ProfileNumber").Value)))
-                    strClientNumber = ((RS.Fields("ProfileNumber").Value))  'GLobal Customer Number
-                    strClientGlobalCustNo = ((RS.Fields("PhoneNumber4").Value))
-                    txtClientN.Text = strCommand
-                    FrmSpecSettings.txtClientNumber.Text = RS.Fields("ProfileNumber").Value
+            '    If Not RS.EOF Then
+            '        txtClientNo.Text = Trim("RM*CN/" & ((RS.Fields("ProfileNumber").Value)))
+            '        strClientNumber = ((RS.Fields("ProfileNumber").Value))  'GLobal Customer Number
+            '        strClientGlobalCustNo = ((RS.Fields("PhoneNumber4").Value))
+            '        txtClientN.Text = strCommand
+            '        FrmSpecSettings.txtClientNumber.Text = RS.Fields("ProfileNumber").Value
 
 
-                End If
+            '    End If
 
-            End With
+            'End With
 
-            RS.Close()
+            'RS.Close()
 
-            SQL_QUERY = "SELECT * FROM TAIS..ProfileAgentInfo where InitialSignIn='" & txtAgentId.Text & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            Dim clientProfile = taisDB.Profiles.FirstOrDefault(Function(n) n.ProfileType = 0 And n.FullName = strCommand)
 
-            With RS
-                If Not RS.EOF Then
-                    If (RS.Fields("Div").Value = "MICE") Then
-                        strClientGlobalCustNo = "400"
-                    End If
-                End If
-            End With
+            txtClientNo.Text = Trim("RM*CN/" & clientProfile.ProfileNumber)
+            strClientNumber = clientProfile.ProfileNumber
+            strClientGlobalCustNo = clientProfile.PhoneNumber4
+            txtClientN.Text = strCommand
+            FrmSpecSettings.txtClientNumber.Text = clientProfile.ProfileNumber
 
-            RS.Close()
+
+            'SQL_QUERY = "SELECT * FROM TAIS_SERVER..ProfileAgentInfo where InitialSignIn='" & txtAgentId.Text & "'"
+            'RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+
+            'With RS
+            '    If Not RS.EOF Then
+            '        If (RS.Fields("Div").Value = "MICE") Then
+            '            strClientGlobalCustNo = "400"
+            '        End If
+            '    End If
+            'End With
+
+            'RS.Close()
+
+            Dim agentProf = taisLocal.ProfileAgentInfoes.FirstOrDefault(Function(n) n.InitialSignIn = txtAgentId.Text)
+
+            If (agentProf.Div = "MICE") Then
+                strClientGlobalCustNo = "400"
+            End If
 
             Call BCDMISfields()
             Call load_Booker()
@@ -737,7 +826,7 @@ Public Class FrmGeneral
             If (IF_CONVERT = "Y") Then
                 Dim ExchangeRate As Decimal
 
-                SQL_QUERY = "Select * from TravCom..Currencies where CurrencyCode = 'USD'"
+                SQL_QUERY = "Select * from TAIS_SERVER..Currencies where CurrencyCode = 'USD'"
                 RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
                 With RS
@@ -819,7 +908,7 @@ Public Class FrmGeneral
 
         CHECK_RS()
 
-        SQL_QUERY = "Select * from TRAVCOM..Divisions where Division = '" & Trim(divName) & "'"
+        SQL_QUERY = "Select * from TAIS_SERVER..Divisions where Division = '" & Trim(divName) & "'"
         RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS
@@ -1234,249 +1323,289 @@ Public Class FrmGeneral
 
         If Trim(UCase(txtAgentId.Text)) <> Nothing Then
 
-            CHECK_RS1()
+            ConnectDatabase()
 
-            SQL_QUERY = "Select * from TAIS..profileAgentInfo where InitialSignIn = '" & Trim(txtAgentId.Text) & "'"
-            RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            Dim profileAgent = taisLocal.ProfileAgentInfoes.FirstOrDefault(Function(n) n.InitialSignIn = Trim(txtAgentId.Text))
 
-            With RS1
+            If Not profileAgent Is Nothing Then
+                ComName = profileAgent.CompanyName
 
-                If Not RS1.EOF Then
+                ContactNo = profileAgent.ContactNo
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("CompanyName").Value).ToString()) = False Then
-                        ComName = Trim(RS1.Fields("CompanyName").Value).ToString()
-                    Else
-                        ComName = Nothing
-                    End If
+                FirstName = profileAgent.First_Name
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("ContactNo").Value).ToString()) = False Then
-                        ContactNo = Trim(RS1.Fields("ContactNo").Value).ToString()
-                    Else
-                        ContactNo = Nothing
-                    End If
+                QueueNo = profileAgent.QueueNo
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("First_Name").Value).ToString()) = False Then
-                        FirstName = Trim(RS1.Fields("First_Name").Value).ToString()
-                    Else
-                        FirstName = Nothing
-                    End If
+                TeamGroup = profileAgent.TeamGroup
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("QueueNo").Value).ToString()) = False Then
-                        QueueNo = "q" & Trim(RS1.Fields("QueueNo").Value).ToString() & "-"
+                APEle = profileAgent.AP
 
-                    Else
-                        QueueNo = Nothing
-                    End If
+                Level = profileAgent.AccessLevel
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("TeamGroup").Value).ToString()) = False Then
-                        TeamGroup = Trim(RS1.Fields("TeamGroup").Value).ToString()
-                    Else
-                        TeamGroup = Nothing
-                    End If
+                DivGroup = profileAgent.Div
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("AP").Value).ToString()) = False Then
-                        APEle = Trim(RS1.Fields("AP").Value).ToString()
-                    Else
-                        APEle = Nothing
-                    End If
+                BA = profileAgent.Others
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("AccessLevel").Value).ToString()) = False Then
-                        Level = Trim(RS1.Fields("AccessLevel").Value).ToString()
-                    Else
-                        Level = Nothing
-                    End If
+                If BA <> Nothing Then
+                    txtBA.Text = Trim("RM*BA/" & BA)
+                End If
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("Div").Value).ToString()) = False Then
-                        DivGroup = Trim(RS1.Fields("Div").Value).ToString()
-                    Else
-                        DivGroup = Nothing
-                    End If
+                txtAP.Text = Trim(ComName) & " " & Trim(ContactNo) & " " & Trim(FirstName) & " " & Trim(QueueNo) & " " & Trim(TeamGroup)
+                txtAPEle.Text = Trim(APEle)
+                txtAccess.Text = Level
+            End If
+            '==========================================================================================
+            '================================== Access Level ==========================================
+            '==========================================================================================
 
-                    If String.IsNullOrEmpty(Trim(RS1.Fields("Others").Value).ToString()) = False Then
-                        BA = Trim(RS1.Fields("Others").Value).ToString()
-                        txtBA.Text = Trim("RM*BA/" & BA)
-                    Else
-                        BA = Nothing
-                        txtBA.Text = Nothing
-                    End If
+            'If Trim(Level) <> Nothing Then
 
-                    txtAP.Text = Trim(ComName) & " " & Trim(ContactNo) & " " & Trim(FirstName) & " " & Trim(QueueNo) & " " & Trim(TeamGroup)
-                    txtAPEle.Text = Trim(APEle)
-                    txtAccess.Text = Level
+            '        CHECK_RS2()
 
-                    '==========================================================================================
-                    '================================== Access Level ==========================================
-                    '==========================================================================================
+            '        SQL_QUERY = "Select * from TAIS_SERVER..UserAccess where ltrim(Accesslevel) = '" & Trim(Level) & "'"
+            '        RS2.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
-                    If Trim(Level) <> Nothing Then
+            '        With RS2
 
-                        CHECK_RS2()
+            '            If Not RS2.EOF Then
 
-                        SQL_QUERY = "Select * from TAIS..UserAccess where ltrim(Accesslevel) = '" & Trim(Level) & "'"
-                        RS2.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            '                If Trim((RS2.Fields("ClientNo").Value).ToString()) = "True" Then
+            '                    chkClientNo.Checked = True
+            '                    chkClientNo.Enabled = False
 
-                        With RS2
+            '                Else
+            '                    chkClientNo.Checked = False
+            '                    chkClientNo.Enabled = False
+            '                End If
 
-                            If Not RS2.EOF Then
+            '                If Trim((RS2.Fields("DivisionNo").Value).ToString()) = "True" Then
+            '                    DivNo.Checked = True
+            '                    DivNo.Enabled = False
+            '                Else
+            '                    DivNo.Checked = False
+            '                    DivNo.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("ClientNo").Value).ToString()) = "True" Then
-                                    chkClientNo.Checked = True
-                                    chkClientNo.Enabled = False
+            '                If Trim((RS2.Fields("BookingAgent").Value).ToString()) = "True" Then
+            '                    BookingAgent.Checked = True
+            '                    BookingAgent.Enabled = False
+            '                Else
+            '                    BookingAgent.Checked = False
+            '                    BookingAgent.Enabled = False
+            '                End If
 
-                                Else
-                                    chkClientNo.Checked = False
-                                    chkClientNo.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("VesselName").Value).ToString()) = "True" Then
+            '                    VesselName.Checked = True
+            '                    VesselName.Enabled = False
+            '                Else
+            '                    VesselName.Checked = False
+            '                    VesselName.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("DivisionNo").Value).ToString()) = "True" Then
-                                    DivNo.Checked = True
-                                    DivNo.Enabled = False
-                                Else
-                                    DivNo.Checked = False
-                                    DivNo.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("PhoneElement").Value).ToString()) = "True" Then
+            '                    PhoneEle.Checked = True
+            '                    PhoneEle.Enabled = False
+            '                Else
+            '                    PhoneEle.Checked = False
+            '                    PhoneEle.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("BookingAgent").Value).ToString()) = "True" Then
-                                    BookingAgent.Checked = True
-                                    BookingAgent.Enabled = False
-                                Else
-                                    BookingAgent.Checked = False
-                                    BookingAgent.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("Compleat").Value).ToString()) = "True" Then
+            '                    Compleat.Checked = True
+            '                    Compleat.Enabled = False
+            '                Else
+            '                    Compleat.Checked = False
+            '                    Compleat.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("VesselName").Value).ToString()) = "True" Then
-                                    VesselName.Checked = True
-                                    VesselName.Enabled = False
-                                Else
-                                    VesselName.Checked = False
-                                    VesselName.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("ReceivedFrom").Value).ToString()) = "True" Then
+            '                    RF.Checked = True
+            '                    RF.Enabled = False
+            '                    txtRF.Enabled = True
+            '                Else
+            '                    txtRF.Enabled = False
+            '                    RF.Checked = False
+            '                    RF.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("PhoneElement").Value).ToString()) = "True" Then
-                                    PhoneEle.Checked = True
-                                    PhoneEle.Enabled = False
-                                Else
-                                    PhoneEle.Checked = False
-                                    PhoneEle.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("TKTL").Value).ToString()) = "True" Then
+            '                    TKTL.Checked = True
+            '                    TKTL.Enabled = False
+            '                Else
+            '                    TKTL.Checked = False
+            '                    TKTL.Enabled = False
+            '                End If
 
-                                If Trim((RS2.Fields("Compleat").Value).ToString()) = "True" Then
-                                    Compleat.Checked = True
-                                    Compleat.Enabled = False
-                                Else
-                                    Compleat.Checked = False
-                                    Compleat.Enabled = False
-                                End If
+            '                If Trim((RS2.Fields("ClientName").Value).ToString()) = "True" Then
+            '                    cboClient.Enabled = True
+            '                    cmdSend.Enabled = True
 
-                                If Trim((RS2.Fields("ReceivedFrom").Value).ToString()) = "True" Then
-                                    RF.Checked = True
-                                    RF.Enabled = False
-                                    txtRF.Enabled = True
-                                Else
-                                    txtRF.Enabled = False
-                                    RF.Checked = False
-                                    RF.Enabled = False
-                                End If
+            '                Else
+            '                    cboClient.Enabled = False
+            '                    cmdSend.Enabled = False
 
-                                If Trim((RS2.Fields("TKTL").Value).ToString()) = "True" Then
-                                    TKTL.Checked = True
-                                    TKTL.Enabled = False
-                                Else
-                                    TKTL.Checked = False
-                                    TKTL.Enabled = False
-                                End If
+            '                End If
 
-                                If Trim((RS2.Fields("ClientName").Value).ToString()) = "True" Then
-                                    cboClient.Enabled = True
-                                    cmdSend.Enabled = True
+            '                If Trim((RS2.Fields("VName").Value).ToString()) = "True" Then
+            '                    cboVessel.Enabled = True
+            '                    btnVessel.Enabled = True
+            '                Else
+            '                    cboVessel.Enabled = False
+            '                    btnVessel.Enabled = False
+            '                End If
 
-                                Else
-                                    cboClient.Enabled = False
-                                    cmdSend.Enabled = False
+            '                If Trim((RS2.Fields("BillTo").Value).ToString()) = "True" Then
+            '                    cboBillTo.Enabled = True
+            '                Else
+            '                    cboBillTo.Enabled = False
+            '                End If
 
-                                End If
-
-                                If Trim((RS2.Fields("VName").Value).ToString()) = "True" Then
-                                    cboVessel.Enabled = True
-                                    btnVessel.Enabled = True
-                                Else
-                                    cboVessel.Enabled = False
-                                    btnVessel.Enabled = False
-                                End If
-
-                                If Trim((RS2.Fields("BillTo").Value).ToString()) = "True" Then
-                                    cboBillTo.Enabled = True
-                                Else
-                                    cboBillTo.Enabled = False
-                                End If
-
-                                txtRF.Enabled = True
+            '                txtRF.Enabled = True
 
 
-                            End If
+            '            End If
 
-                        End With
+            '        End With
 
-                        RS2.Close()
-                    End If
+            '        RS2.Close()
+            '    End If
 
-                    '==========================================================================================
-                    '================================== END of Access Level ===================================
-                    '==========================================================================================
+            Dim userAccess = taisLocal.UserAccesses.FirstOrDefault(Function(n) n.AccessLevel = Trim(Level))
 
-                    If Trim(DivGroup) <> Nothing Then
+            If Not userAccess Is Nothing Then
+                If userAccess.ClientNo <> Nothing Then
+                    chkClientNo.Checked = True
+                    chkClientNo.Enabled = False
+                Else
+                    chkClientNo.Checked = False
+                    chkClientNo.Enabled = False
+                End If
 
-                        CHECK_RS()
-
-                        SQL_QUERY = "Select * from TRAVCOM..Divisions where ltrim(Name) = '" & Trim(DivGroup) & "'"
-                        RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        With RS
-
-                            If Not RS.EOF Then
-
-                                If String.IsNullOrEmpty(Trim(RS.Fields("Division").Value).ToString()) = False Then
-                                    txtDivNo.Text = Trim(RS.Fields("Division").Value).ToString()
-                                    DivNumberPer = Trim(RS.Fields("Division").Value).ToString()
-                                    txtDiv.Text = Trim("RM*DIV/" & Trim(RS.Fields("Division").Value).ToString())
-                                End If
-
-                            End If
-                        End With
-
-                        RS.Close()
-
-                    End If
-
-                    lstClient.Enabled = True
-
-
-
-
-                   
-
-
-
-
-
+                If userAccess.BookingAgent <> Nothing Then
+                    DivNo.Checked = True
+                    DivNo.Enabled = False
 
                 Else
-                    MsgBox("Agent Sign-In ID not found!..", , "Log-In Failed!")
+                    DivNo.Checked = False
+                    DivNo.Enabled = False
+                End If
+
+                If userAccess.VesselName <> Nothing Then
+                    VesselName.Checked = True
+                    VesselName.Enabled = False
+                Else
+                    VesselName.Checked = False
+                    VesselName.Enabled = False
+                End If
+
+                If userAccess.PhoneElement <> Nothing Then
+                    PhoneEle.Checked = True
+                    PhoneEle.Enabled = False
+                Else
+                    PhoneEle.Checked = False
+                    PhoneEle.Enabled = False
+                End If
+
+                If userAccess.Compleat <> Nothing Then
+                    Compleat.Checked = True
+                    Compleat.Enabled = False
+                Else
+                    Compleat.Checked = False
+                    Compleat.Enabled = False
+                End If
+
+                If userAccess.ReceivedFrom <> Nothing Then
+                    RF.Checked = True
+                    RF.Enabled = False
+                    txtRF.Enabled = True
+                Else
+                    RF.Checked = False
+                    RF.Enabled = False
+                    txtRF.Enabled = False
+                End If
+
+                If userAccess.TKTL <> Nothing Then
+                    TKTL.Checked = True
+                    TKTL.Enabled = False
+                Else
+                    TKTL.Checked = False
+                    TKTL.Enabled = False
+                End If
+
+                If userAccess.ClientName <> Nothing Then
+                    cboClient.Enabled = True
+                    cmdSend.Enabled = True
+                Else
+                    cboClient.Enabled = False
+                    cmdSend.Enabled = False
+                End If
+
+                If userAccess.VName <> Nothing Then
+                    cboVessel.Enabled = True
+                    btnVessel.Enabled = True
+                Else
+                    cboVessel.Enabled = False
+                    btnVessel.Enabled = False
+                End If
+
+                If userAccess.BillTo <> Nothing Then
+                    cboBillTo.Enabled = True
+                Else
+                    cboBillTo.Enabled = False
+                End If
+                txtRF.Enabled = True
+            End If
+
+            '==========================================================================================
+            '================================== END of Access Level ===================================
+            '==========================================================================================
+
+            If Trim(DivGroup) <> Nothing Then
+
+                '    CHECK_RS()
+
+                '    SQL_QUERY = "Select * from TAIS_SERVER..Divisions where ltrim(Name) = '" & Trim(DivGroup) & "'"
+                '    RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+
+                '    With RS
+
+                '        If Not RS.EOF Then
+
+                '            If String.IsNullOrEmpty(Trim(RS.Fields("Division").Value).ToString()) = False Then
+                '                txtDivNo.Text = Trim(RS.Fields("Division").Value).ToString()
+                '                DivNumberPer = Trim(RS.Fields("Division").Value).ToString()
+                '                txtDiv.Text = Trim("RM*DIV/" & Trim(RS.Fields("Division").Value).ToString())
+                '            End If
+
+                '        End If
+                '    End With
+
+                '    RS.Close()
+
+                Dim division = taisDB.Divisions.FirstOrDefault(Function(n) n.Name = Trim(DivGroup))
+
+                If Not division Is Nothing Then
+                    txtDivNo.Text = division.Division
+                    DivNumberPer = division.Division
+                    txtDiv.Text = Trim("RM*DIV/" & division.Division)
+                End If
+            End If
+
+
+            lstClient.Enabled = True
+
+
+        Else
+                MsgBox("Agent Sign-In ID not found!..", , "Log-In Failed!")
                     txtAgentId.Text = ""
                     txtAgentId.Focus()
 
                 End If
 
-            End With
 
             cboDiv.Enabled = True
 
-            RS1.Close()
-        Else
-            MsgBox("GDS Sign-In ID must not be empty!..", , "Log-In Failed!")
-            txtAgentId.Text = ""
-            txtAgentId.Focus()
-        End If
+        'RS1.Close()
 
 
     End Sub
@@ -1551,52 +1680,53 @@ Public Class FrmGeneral
 
         If Trim(txtClientNo.Text) <> Nothing Then
 
+
             Me.Cursor = Cursors.WaitCursor
 
-        If IsNumeric(Trim(txtPaxNo.Text)) = True Then
+            If IsNumeric(Trim(txtPaxNo.Text)) = True Then
 
-            objResponse = objSession.Send("PD" + txtPaxNo.Text)
-            strErrorCheck = objResponse.GetLineFromBuffer(2)
+                objResponse = objSession.Send("PD" + txtPaxNo.Text)
+                strErrorCheck = objResponse.GetLineFromBuffer(2)
 
-            RichTextBox2.Text = objResponse.Text
+                RichTextBox2.Text = objResponse.Text
 
-            strStatus = strErrorCheck.Split(" ")
+                strStatus = strErrorCheck.Split(" ")
 
-            If Trim(UCase(strStatus(0).ToString)) = "ELEMENT" Then
-                MsgBox("Element does not exist..", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-                txtLineNo.Text = ""
-                txtLineNo.Focus()
-            ElseIf Trim(UCase(strStatus(0).ToString)) = "CHECK" Then
-                MsgBox("Invalid input..Please check your entry..", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-                txtLineNo.Text = ""
-                txtLineNo.Focus()
-            ElseIf Trim(UCase(strStatus(0).ToString)) = "NO" Then
-                MsgBox("No Profile Found....", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-                txtLineNo.Text = ""
-                txtLineNo.Focus()
-            ElseIf Trim(UCase(strStatus(0).ToString)) = "REQUESTED" Then
-                MsgBox("Requested Display Not Scrollable...", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-            ElseIf Trim(UCase(strStatus(0).ToString)) = "TRANSACTION" Then
-                MsgBox("Transaction Code Not Supported...", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-            ElseIf Trim(UCase(strStatus(0).ToString)) = "CHECK" Then
-                MsgBox("Check Transaction Code...", MsgBoxStyle.OkOnly, ":::TAIS:::")
-                objSession.Send("IG")
-            Else
+                If Trim(UCase(strStatus(0).ToString)) = "ELEMENT" Then
+                    MsgBox("Element does not exist..", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                    txtLineNo.Text = ""
+                    txtLineNo.Focus()
+                ElseIf Trim(UCase(strStatus(0).ToString)) = "CHECK" Then
+                    MsgBox("Invalid input..Please check your entry..", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                    txtLineNo.Text = ""
+                    txtLineNo.Focus()
+                ElseIf Trim(UCase(strStatus(0).ToString)) = "NO" Then
+                    MsgBox("No Profile Found....", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                    txtLineNo.Text = ""
+                    txtLineNo.Focus()
+                ElseIf Trim(UCase(strStatus(0).ToString)) = "REQUESTED" Then
+                    MsgBox("Requested Display Not Scrollable...", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                ElseIf Trim(UCase(strStatus(0).ToString)) = "TRANSACTION" Then
+                    MsgBox("Transaction Code Not Supported...", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                ElseIf Trim(UCase(strStatus(0).ToString)) = "CHECK" Then
+                    MsgBox("Check Transaction Code...", MsgBoxStyle.OkOnly, ":::TAIS:::")
+                    objSession.Send("IG")
+                Else
 
-                '========BL Department=====
-                'If Trim(txtAccess.Text) = "1" Then
+                    '========BL Department=====
+                    'If Trim(txtAccess.Text) = "1" Then
 
-                Dim i As Integer
-                Dim x As Integer
+                    Dim i As Integer
+                    Dim x As Integer
 
-                x = RichTextBox2.Lines.Length - 1
+                    x = RichTextBox2.Lines.Length - 1
 
-                For i = 0 To x - 2
+                    For i = 0 To x - 2
 
                         COD1 = Trim((RichTextBox2.Lines(i)).IndexOf("COD1*"))
                         COD2 = Trim((RichTextBox2.Lines(i)).IndexOf("COD2*"))
@@ -1620,108 +1750,108 @@ Public Class FrmGeneral
                         COD20 = Trim((RichTextBox2.Lines(i)).IndexOf("COD20*"))
                         COD21 = Trim((RichTextBox2.Lines(i)).IndexOf("TOEG"))
 
-                    If COD1 > 0 Then
-                        Dim C1 As Integer
-                        C1 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD1 > 0 Then
+                            Dim C1 As Integer
+                            C1 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD1 = (Mid(RichTextBox2.Lines(i), C1 + 2))
                             COD = COD + "COD1"
                         End If
 
-                    If COD2 > 0 Then
-                        Dim C2 As Integer
-                        C2 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD2 > 0 Then
+                            Dim C2 As Integer
+                            C2 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD2 = (Mid(RichTextBox2.Lines(i), C2 + 2))
                             COD = COD + "COD2"
                         End If
 
-                    If COD3 > 0 Then
-                        Dim C3 As Integer
-                        C3 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD3 > 0 Then
+                            Dim C3 As Integer
+                            C3 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD3 = (Mid(RichTextBox2.Lines(i), C3 + 2))
                             COD = COD + "COD3"
                         End If
 
-                    If COD4 > 0 Then
-                        Dim C4 As Integer
-                        C4 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD4 > 0 Then
+                            Dim C4 As Integer
+                            C4 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD4 = (Mid(RichTextBox2.Lines(i), C4 + 2))
                             COD = COD + "COD4"
 
-                    End If
+                        End If
 
-                    If COD5 > 0 Then
-                        Dim C5 As Integer
-                        C5 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD5 > 0 Then
+                            Dim C5 As Integer
+                            C5 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD5 = (Mid(RichTextBox2.Lines(i), C5 + 2))
                             COD = COD + "COD5"
-                    End If
+                        End If
 
 
-                    If COD6 > 0 Then
-                        Dim C6 As Integer
-                        C6 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD6 > 0 Then
+                            Dim C6 As Integer
+                            C6 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD6 = (Mid(RichTextBox2.Lines(i), C6 + 2))
                             COD = COD + "COD6"
                         End If
 
 
-                    If COD7 > 0 Then
-                        Dim C7 As Integer
-                        C7 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD7 > 0 Then
+                            Dim C7 As Integer
+                            C7 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD7 = (Mid(RichTextBox2.Lines(i), C7 + 2))
                             COD = COD + "COD7"
-                    End If
+                        End If
 
-                    If COD8 > 0 Then
-                        Dim C8 As Integer
-                        C8 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD8 > 0 Then
+                            Dim C8 As Integer
+                            C8 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD8 = (Mid(RichTextBox2.Lines(i), C8 + 2))
                             COD = COD + "COD8"
-                    End If
+                        End If
 
-                    If COD9 > 0 Then
-                        Dim C9 As Integer
-                        C9 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD9 > 0 Then
+                            Dim C9 As Integer
+                            C9 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD9 = (Mid(RichTextBox2.Lines(i), C9 + 2))
                             COD = COD + "COD9"
                         End If
 
-                    If COD10 > 0 Then
-                        Dim C10 As Integer
-                        C10 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD10 > 0 Then
+                            Dim C10 As Integer
+                            C10 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD10 = (Mid(RichTextBox2.Lines(i), C10 + 2))
                             COD = COD + "COD10"
                         End If
 
 
-                    If COD11 > 0 Then
-                        Dim C11 As Integer
-                        C11 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD11 > 0 Then
+                            Dim C11 As Integer
+                            C11 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD11 = (Mid(RichTextBox2.Lines(i), C11 + 2))
                             COD = COD + "COD11"
-                    End If
+                        End If
 
-                    If COD12 > 0 Then
-                        Dim C12 As Integer
-                        C12 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD12 > 0 Then
+                            Dim C12 As Integer
+                            C12 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD12 = (Mid(RichTextBox2.Lines(i), C12 + 2))
                             COD = COD + "COD12"
-                    End If
+                        End If
 
 
-                    If COD13 > 0 Then
-                        Dim C13 As Integer
-                        C13 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD13 > 0 Then
+                            Dim C13 As Integer
+                            C13 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD13 = (Mid(RichTextBox2.Lines(i), C13 + 2))
                             COD = COD + "COD13"
-                    End If
+                        End If
 
-                    If COD14 > 0 Then
-                        Dim C14 As Integer
-                        C14 = RichTextBox2.Lines(i).LastIndexOf("/")
+                        If COD14 > 0 Then
+                            Dim C14 As Integer
+                            C14 = RichTextBox2.Lines(i).LastIndexOf("/")
                             strCOD14 = (Mid(RichTextBox2.Lines(i), C14 + 2))
                             COD = COD + "COD14"
-                    End If
+                        End If
 
                         If COD15 > 0 Then
                             Dim C15 As Integer
@@ -1780,1183 +1910,875 @@ Public Class FrmGeneral
 
 
 
-                    If i = x - 2 And RichTextBox2.Lines(i) = "END OF DISPLAY" Then
+                        If i = x - 2 And RichTextBox2.Lines(i) = "END OF DISPLAY" Then
 
                             'Call TOEG_Trav()
-                        objResponse = objSession.Send("PT*")
-                        strErrorCheck = objResponse.GetLineFromBuffer(1)
-                        strStatus = strErrorCheck.Split(" ")
+                            objResponse = objSession.Send("PT*")
+                            strErrorCheck = objResponse.GetLineFromBuffer(1)
+                            strStatus = strErrorCheck.Split(" ")
 
-                        If Trim(UCase(strStatus(0).ToString)) = "INVALID/NOT" Then
-                            objResponse = objSession.Send("RT")
-                            Me.Cursor = Cursors.Default
-                        End If
-
-                    ElseIf i = x - 2 And RichTextBox2.Lines(i) <> "END OF DISPLAY" Then
-                        objResponse = objSession.Send("MD")
-                        RichTextBox2.Text = objResponse.Text
-                        x = RichTextBox2.Lines.Length - 1
-                        i = 0
-                    End If
-
-                Next
-
-
-
-                '===== Accomodation Reason Code
-
-                    Check_RS_AReasonCode()
-                    SQL_QUERY = "Select * from BCDMIS..F_AccomodationReasonCD where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_AReasonCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_AReasonCode
-
-                        If Not RS_AReasonCode.EOF Then
-
-
-                            If Trim((RS_AReasonCode.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_AReasonCode.Fields("Required").Value).ToString()) = "Required" Then
-                                txtAirNoReasonCD.BackColor = Color.Yellow
+                            If Trim(UCase(strStatus(0).ToString)) = "INVALID/NOT" Then
+                                objResponse = objSession.Send("RT")
+                                Me.Cursor = Cursors.Default
                             End If
 
-                            If Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD1" Then
+                        ElseIf i = x - 2 And RichTextBox2.Lines(i) <> "END OF DISPLAY" Then
+                            objResponse = objSession.Send("MD")
+                            RichTextBox2.Text = objResponse.Text
+                            x = RichTextBox2.Lines.Length - 1
+                            i = 0
+                        End If
+
+                    Next
+
+                    Dim fAccomodatkonReasonCD = dbMIS.F_AccomodationReasonCD.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
+
+                    If Not fAccomodatkonReasonCD Is Nothing Then
+                        If (Trim(fAccomodatkonReasonCD.Required) = "Mandatory" Or Trim(fAccomodatkonReasonCD.Required) = "Required") Then
+                            txtAirNoReasonCD.BackColor = Color.Yellow
+                        End If
+
+                        Select Case fAccomodatkonReasonCD.CODs
+                            Case "COD1"
                                 txtAirNoReasonCD.Text = strCOD1
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD2" Then
+                            Case "COD2"
                                 txtAirNoReasonCD.Text = strCOD2
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD3" Then
+                            Case "COD3"
                                 txtAirNoReasonCD.Text = strCOD3
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD4" Then
+                            Case "COD4"
                                 txtAirNoReasonCD.Text = strCOD4
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD5" Then
+                            Case "COD4"
+                                txtAirNoReasonCD.Text = strCOD4
+                            Case "COD5"
                                 txtAirNoReasonCD.Text = strCOD5
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD6" Then
+                            Case "COD6"
                                 txtAirNoReasonCD.Text = strCOD6
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD7" Then
+                            Case "COD7"
                                 txtAirNoReasonCD.Text = strCOD7
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD8" Then
+                            Case "COD8"
                                 txtAirNoReasonCD.Text = strCOD8
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD9" Then
+                            Case "COD9"
                                 txtAirNoReasonCD.Text = strCOD9
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD10" Then
+                            Case "COD10"
                                 txtAirNoReasonCD.Text = strCOD10
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD11" Then
+                            Case "COD11"
                                 txtAirNoReasonCD.Text = strCOD11
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD12" Then
+                            Case "COD12"
                                 txtAirNoReasonCD.Text = strCOD12
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD13" Then
+                            Case "COD13"
                                 txtAirNoReasonCD.Text = strCOD13
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD14" Then
+                            Case "COD14"
                                 txtAirNoReasonCD.Text = strCOD14
-                            ElseIf Trim((RS_AReasonCode.Fields("CODS").Value).ToString()) = "COD15" Then
+                            Case "COD15"
                                 txtAirNoReasonCD.Text = strCOD15
-                            End If
+                        End Select
 
-                            RS_AReasonCode.MoveNext()
-                        End If
+                        Dim fApprover = dbMIS.F_Approver.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                        RS_AReasonCode.Close()
-
-                    End With
-
-
-
-
-                '====Approver Field
-                    check_RS_Approver()
-                    SQL_QUERY = "Select * from BCDMIS..F_Approver where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_Approver.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_Approver
-                        If Not RS_Approver.EOF Then
-
-                            If Trim((RS_Approver.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_Approver.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fApprover Is Nothing Then
+                            If Trim(fApprover.Required) = "Mandatory" Or Trim(fApprover.Required) = "Required" Then
                                 txtApprover.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtApprover.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtApprover.Text = strCOD2
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtApprover.Text = strCOD3
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtApprover.Text = strCOD4
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtApprover.Text = strCOD5
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtApprover.Text = strCOD6
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtApprover.Text = strCOD7
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtApprover.Text = strCOD8
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtApprover.Text = strCOD9
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtApprover.Text = strCOD10
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtApprover.Text = strCOD11
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtApprover.Text = strCOD12
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtApprover.Text = strCOD13
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtApprover.Text = strCOD14
-                            ElseIf Trim((RS_Approver.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtApprover.Text = strCOD15
-                            End If
+                            Select Case fApprover.CODs
+                                Case "COD1"
+                                    txtApprover.Text = strCOD1
+                                Case "COD2"
+                                    txtApprover.Text = strCOD2
+                                Case "COD3"
+                                    txtApprover.Text = strCOD3
+                                Case "COD4"
+                                    txtApprover.Text = strCOD4
+                                Case "COD5"
+                                    txtApprover.Text = strCOD5
+                                Case "COD6"
+                                    txtApprover.Text = strCOD6
+                                Case "COD7"
+                                    txtApprover.Text = strCOD7
+                                Case "COD8"
+                                    txtApprover.Text = strCOD8
+                                Case "COD9"
+                                    txtApprover.Text = strCOD9
+                                Case "COD10"
+                                    txtApprover.Text = strCOD10
+                                Case "COD11"
+                                    txtApprover.Text = strCOD11
+                                Case "COD12"
+                                    txtApprover.Text = strCOD12
+                                Case "COD13"
+                                    txtApprover.Text = strCOD13
+                                Case "COD14"
+                                    txtApprover.Text = strCOD14
+                                Case "COD15"
+                                    txtApprover.Text = strCOD15
 
-                            RS_Approver.MoveNext()
-
+                            End Select
                         End If
-                        RS_Approver.Close()
-                    End With
 
+                        Dim fApprovalCode = dbMIS.F_ApprovalCode.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-                '====Approvel Code Field
-
-                    check_RS_AppovalCode()
-                    SQL_QUERY = "Select * from BCDMIS..F_ApprovalCode where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_AppovalCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_AppovalCode
-                        If Not RS_AppovalCode.EOF Then
-
-
-                            If Trim((RS_AppovalCode.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_AppovalCode.Fields("Required").Value).ToString()) = "Required" Then
-                                txtApproverCode.BackColor = Color.Yellow
+                        If Not fApprovalCode Is Nothing Then
+                            If Trim(fApprovalCode.Required) = "Mandatory" Or Trim(fApprovalCode.Required) = "Required" Then
+                                txtApprover.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtApproverCode.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtApproverCode.Text = strCOD2
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtApproverCode.Text = strCOD3
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtApproverCode.Text = strCOD4
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtApproverCode.Text = strCOD5
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtApproverCode.Text = strCOD6
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtApproverCode.Text = strCOD7
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtApproverCode.Text = strCOD8
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtApproverCode.Text = strCOD9
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtApproverCode.Text = strCOD10
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtApproverCode.Text = strCOD11
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtApproverCode.Text = strCOD12
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtApproverCode.Text = strCOD13
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtApproverCode.Text = strCOD14
-                            ElseIf Trim((RS_AppovalCode.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtApproverCode.Text = strCOD15
-                            End If
-
-                            RS_AppovalCode.MoveNext()
-
+                            Select Case Trim(fApprovalCode.CODS)
+                                Case "COD1"
+                                    txtApproverCode.Text = strCOD1
+                                Case "COD2"
+                                    txtApproverCode.Text = strCOD2
+                                Case "COD3"
+                                    txtApproverCode.Text = strCOD3
+                                Case "COD4"
+                                    txtApproverCode.Text = strCOD4
+                                Case "COD5"
+                                    txtApproverCode.Text = strCOD5
+                                Case "COD6"
+                                    txtApproverCode.Text = strCOD6
+                                Case "COD7"
+                                    txtApproverCode.Text = strCOD7
+                                Case "COD8"
+                                    txtApproverCode.Text = strCOD8
+                                Case "COD9"
+                                    txtApproverCode.Text = strCOD9
+                                Case "COD10"
+                                    txtApproverCode.Text = strCOD10
+                                Case "COD11"
+                                    txtApproverCode.Text = strCOD11
+                                Case "COD12"
+                                    txtApproverCode.Text = strCOD12
+                                Case "COD13"
+                                    txtApproverCode.Text = strCOD13
+                                Case "COD14"
+                                    txtApproverCode.Text = strCOD14
+                                Case "COD15"
+                                    txtApproverCode.Text = strCOD15
+                            End Select
                         End If
-                        RS_AppovalCode.Close()
-                    End With
 
 
+                        Dim fCostCenterCode = dbMIS.F_CostCenterCode.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
+                        If Not fCostCenterCode Is Nothing Then
 
-                '====Cost Center Code Field
-
-                    check_RS_CCGL()
-                    SQL_QUERY = "Select * from BCDMIS..F_CostCenterCode where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CCGL.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CCGL
-
-                        If Not RS_CCGL.EOF Then
-
-
-                            If Trim((RS_CCGL.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CCGL.Fields("Required").Value).ToString()) = "Required" Then
+                            If Trim(fCostCenterCode.Required) = "Mandatory" Or Trim(fCostCenterCode.Required) = "Required" Then
                                 txtCostCenterCode.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCostCenterCode.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCostCenterCode.Text = strCOD2
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCostCenterCode.Text = strCOD3
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCostCenterCode.Text = strCOD4
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCostCenterCode.Text = strCOD5
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCostCenterCode.Text = strCOD6
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCostCenterCode.Text = strCOD7
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCostCenterCode.Text = strCOD8
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCostCenterCode.Text = strCOD9
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCostCenterCode.Text = strCOD10
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCostCenterCode.Text = strCOD11
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCostCenterCode.Text = strCOD12
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCostCenterCode.Text = strCOD13
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCostCenterCode.Text = strCOD14
-                            ElseIf Trim((RS_CCGL.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCostCenterCode.Text = strCOD15
-                            End If
-                            RS_CCGL.MoveNext()
-
+                            Select Case Trim(fCostCenterCode.CODs)
+                                Case "COD1"
+                                    txtCostCenterCode.Text = strCOD1
+                                Case "COD2"
+                                    txtCostCenterCode.Text = strCOD2
+                                Case "COD3"
+                                    txtCostCenterCode.Text = strCOD3
+                                Case "COD4"
+                                    txtCostCenterCode.Text = strCOD4
+                                Case "COD5"
+                                    txtCostCenterCode.Text = strCOD5
+                                Case "COD6"
+                                    txtCostCenterCode.Text = strCOD6
+                                Case "COD7"
+                                    txtCostCenterCode.Text = strCOD7
+                                Case "COD8"
+                                    txtCostCenterCode.Text = strCOD8
+                                Case "COD9"
+                                    txtCostCenterCode.Text = strCOD9
+                                Case "COD10"
+                                    txtCostCenterCode.Text = strCOD10
+                                Case "COD11"
+                                    txtCostCenterCode.Text = strCOD11
+                                Case "COD12"
+                                    txtCostCenterCode.Text = strCOD12
+                                Case "COD13"
+                                    txtCostCenterCode.Text = strCOD13
+                                Case "COD14"
+                                    txtCostCenterCode.Text = strCOD14
+                                Case "COD15"
+                                    txtCostCenterCode.Text = strCOD15
+                            End Select
                         End If
-                        RS_CCGL.Close()
-                    End With
 
+                        Dim fDepartmentNo = dbMIS.F_DepartmentNo.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-                '====Department Field
-
-                    check_RS_DeptNo()
-                    SQL_QUERY = "Select * from BCDMIS..F_DepartmentNo where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_DeptNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_DeptNo
-                        If Not RS_DeptNo.EOF Then
-
-
-                            If Trim((RS_DeptNo.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_DeptNo.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fDepartmentNo Is Nothing Then
+                            If Trim(fDepartmentNo.Required) = "Mandatory" Or Trim(fDepartmentNo.Required) = "Required" Then
                                 txtDeptNo.BackColor = Color.Yellow
                             End If
 
-
-                            If Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtDeptNo.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtDeptNo.Text = strCOD2
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtDeptNo.Text = strCOD3
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtDeptNo.Text = strCOD4
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtDeptNo.Text = strCOD5
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtDeptNo.Text = strCOD6
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtDeptNo.Text = strCOD7
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtDeptNo.Text = strCOD8
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtDeptNo.Text = strCOD9
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtDeptNo.Text = strCOD10
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtDeptNo.Text = strCOD11
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtDeptNo.Text = strCOD12
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtDeptNo.Text = strCOD13
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtDeptNo.Text = strCOD14
-                            ElseIf Trim((RS_DeptNo.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtDeptNo.Text = strCOD15
-                            End If
-
-                            RS_DeptNo.MoveNext()
-                        End If
-                        RS_DeptNo.Close()
-                    End With
-
-
-
-
-
-                '====Employee No Field
-
-                    check_RS_EmpNo()
-                    SQL_QUERY = "Select * from BCDMIS..F_EmployeeNo where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_EmpNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_EmpNo
-                        If Not RS_EmpNo.EOF Then
-
-
-                            If Trim((RS_EmpNo.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_EmpNo.Fields("Required").Value).ToString()) = "Required" Then
-                                txtEmployeeNo.BackColor = Color.Yellow
-                            End If
-
-
-                            If Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtEmployeeNo.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtEmployeeNo.Text = strCOD2
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtEmployeeNo.Text = strCOD3
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtEmployeeNo.Text = strCOD4
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtEmployeeNo.Text = strCOD5
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtEmployeeNo.Text = strCOD6
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtEmployeeNo.Text = strCOD7
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtEmployeeNo.Text = strCOD8
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtEmployeeNo.Text = strCOD9
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtEmployeeNo.Text = strCOD10
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtEmployeeNo.Text = strCOD11
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtEmployeeNo.Text = strCOD12
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtEmployeeNo.Text = strCOD13
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtEmployeeNo.Text = strCOD14
-                            ElseIf Trim((RS_EmpNo.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtEmployeeNo.Text = strCOD15
-                            End If
-
-                            RS_EmpNo.MoveNext()
-
+                            Select Case Trim(fDepartmentNo.CODs)
+                                Case "COD1"
+                                    txtDeptNo.Text = strCOD1
+                                Case "COD2"
+                                    txtDeptNo.Text = strCOD2
+                                Case "COD3"
+                                    txtDeptNo.Text = strCOD3
+                                Case "COD4"
+                                    txtDeptNo.Text = strCOD4
+                                Case "COD5"
+                                    txtDeptNo.Text = strCOD5
+                                Case "COD6"
+                                    txtDeptNo.Text = strCOD6
+                                Case "COD7"
+                                    txtDeptNo.Text = strCOD7
+                                Case "COD8"
+                                    txtDeptNo.Text = strCOD8
+                                Case "COD9"
+                                    txtDeptNo.Text = strCOD9
+                                Case "COD10"
+                                    txtDeptNo.Text = strCOD10
+                                Case "COD11"
+                                    txtDeptNo.Text = strCOD11
+                                Case "COD12"
+                                    txtDeptNo.Text = strCOD12
+                                Case "COD13"
+                                    txtDeptNo.Text = strCOD13
+                                Case "COD14"
+                                    txtDeptNo.Text = strCOD14
+                                Case "COD15"
+                                    txtDeptNo.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_EmpNo.Close()
+                        Dim fEmployeeNo = dbMIS.F_EmployeeNo.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
+                        If Not fEmployeeNo Is Nothing Then
+                            If Trim(fEmployeeNo.Required) = "Mandatory" Or Trim(fEmployeeNo.Required) = "Required" Then
+                                txtEmployee.BackColor = Color.Yellow
+                            End If
 
+                            Select Case Trim(fEmployeeNo.CODs)
+                                Case "COD1"
+                                    txtEmployee.Text = strCOD1
+                                Case "COD2"
+                                    txtEmployee.Text = strCOD2
+                                Case "COD3"
+                                    txtEmployee.Text = strCOD3
+                                Case "COD4"
+                                    txtEmployee.Text = strCOD4
+                                Case "COD5"
+                                    txtEmployee.Text = strCOD5
+                                Case "COD6"
+                                    txtEmployee.Text = strCOD6
+                                Case "COD7"
+                                    txtEmployee.Text = strCOD7
+                                Case "COD8"
+                                    txtEmployee.Text = strCOD8
+                                Case "COD9"
+                                    txtEmployee.Text = strCOD9
+                                Case "COD10"
+                                    txtEmployee.Text = strCOD10
+                                Case "COD11"
+                                    txtEmployee.Text = strCOD11
+                                Case "COD12"
+                                    txtEmployee.Text = strCOD12
+                                Case "COD13"
+                                    txtEmployee.Text = strCOD13
+                                Case "COD14"
+                                    txtEmployee.Text = strCOD14
+                                Case "COD15"
+                                    txtEmployee.Text = strCOD15
+                            End Select
+                        End If
 
+                        Dim fMgrSuperior = dbMIS.F_MgrSuperior.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-
-                '====Manager Superior No Field
-
-                    check_rs_mgrsup()
-                    SQL_QUERY = "Select * from BCDMIS..F_MgrSuperior where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_MgrSup.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_MgrSup
-                        If Not RS_MgrSup.EOF Then
-
-
-                            If Trim((RS_MgrSup.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_MgrSup.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fMgrSuperior Is Nothing Then
+                            If Trim(fMgrSuperior.CODs) Then
                                 txtMgrSuperior.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtMgrSuperior.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtMgrSuperior.Text = strCOD2
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtMgrSuperior.Text = strCOD3
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtMgrSuperior.Text = strCOD4
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtMgrSuperior.Text = strCOD5
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtMgrSuperior.Text = strCOD6
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtMgrSuperior.Text = strCOD7
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtMgrSuperior.Text = strCOD8
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtMgrSuperior.Text = strCOD9
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtMgrSuperior.Text = strCOD10
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtMgrSuperior.Text = strCOD11
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtMgrSuperior.Text = strCOD12
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtMgrSuperior.Text = strCOD13
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtMgrSuperior.Text = strCOD14
-                            ElseIf Trim((RS_MgrSup.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtMgrSuperior.Text = strCOD15
-                            End If
-
-                            RS_MgrSup.MoveNext()
-
+                            Select Case Trim(fMgrSuperior.CODs)
+                                Case "COD1"
+                                    txtMgrSuperior.Text = strCOD1
+                                Case "COD2"
+                                    txtMgrSuperior.Text = strCOD2
+                                Case "COD3"
+                                    txtMgrSuperior.Text = strCOD3
+                                Case "COD4"
+                                    txtMgrSuperior.Text = strCOD4
+                                Case "COD5"
+                                    txtMgrSuperior.Text = strCOD5
+                                Case "COD6"
+                                    txtMgrSuperior.Text = strCOD6
+                                Case "COD7"
+                                    txtMgrSuperior.Text = strCOD7
+                                Case "COD8"
+                                    txtMgrSuperior.Text = strCOD8
+                                Case "COD9"
+                                    txtMgrSuperior.Text = strCOD9
+                                Case "COD10"
+                                    txtMgrSuperior.Text = strCOD10
+                                Case "COD11"
+                                    txtMgrSuperior.Text = strCOD11
+                                Case "COD12"
+                                    txtMgrSuperior.Text = strCOD12
+                                Case "COD13"
+                                    txtMgrSuperior.Text = strCOD13
+                                Case "COD14"
+                                    txtMgrSuperior.Text = strCOD14
+                                Case "COD15"
+                                    txtMgrSuperior.Text = strCOD15
+                            End Select
                         End If
-                        RS_MgrSup.Close()
-                    End With
 
 
+                        Dim fOrderReference = dbMIS.F_OrderReference.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-
-                '====Order Reference Field
-
-                    check_RS_OrdrRef()
-                    SQL_QUERY = "Select * from BCDMIS..F_OrderReference where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_OrdrRef.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_OrdrRef
-
-                        If Not RS_OrdrRef.EOF Then
-
-                            If Trim((RS_OrdrRef.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_OrdrRef.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fOrderReference Is Nothing Then
+                            If Trim(fOrderReference.Required) = "Mandatory" Or Trim(fOrderReference.Required) = "Required" Then
                                 txtOrderRef.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtOrderRef.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtOrderRef.Text = strCOD2
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtOrderRef.Text = strCOD3
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtOrderRef.Text = strCOD4
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtOrderRef.Text = strCOD5
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtOrderRef.Text = strCOD6
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtOrderRef.Text = strCOD7
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtOrderRef.Text = strCOD8
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtOrderRef.Text = strCOD9
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtOrderRef.Text = strCOD10
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtOrderRef.Text = strCOD11
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtOrderRef.Text = strCOD12
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtOrderRef.Text = strCOD13
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtOrderRef.Text = strCOD14
-                            ElseIf Trim((RS_OrdrRef.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtOrderRef.Text = strCOD15
-                            End If
-
-                            RS_OrdrRef.MoveNext()
-
+                            Select Case Trim(fOrderReference.CODs)
+                                Case "COD1"
+                                    txtOrderRef.Text = strCOD1
+                                Case "COD2"
+                                    txtOrderRef.Text = strCOD2
+                                Case "COD3"
+                                    txtOrderRef.Text = strCOD3
+                                Case "COD4"
+                                    txtOrderRef.Text = strCOD4
+                                Case "COD5"
+                                    txtOrderRef.Text = strCOD5
+                                Case "COD6"
+                                    txtOrderRef.Text = strCOD6
+                                Case "COD7"
+                                    txtOrderRef.Text = strCOD7
+                                Case "COD8"
+                                    txtOrderRef.Text = strCOD8
+                                Case "COD9"
+                                    txtOrderRef.Text = strCOD9
+                                Case "COD10"
+                                    txtOrderRef.Text = strCOD10
+                                Case "COD11"
+                                    txtOrderRef.Text = strCOD11
+                                Case "COD12"
+                                    txtOrderRef.Text = strCOD12
+                                Case "COD13"
+                                    txtOrderRef.Text = strCOD13
+                                Case "COD14"
+                                    txtOrderRef.Text = strCOD14
+                                Case "COD15"
+                                    txtOrderRef.Text = strCOD15
+                            End Select
                         End If
-                        RS_OrdrRef.Close()
-                    End With
 
 
+                        Dim fProjectNo = dbMIS.F_ProjectNumber.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-                '====Project Number Field
-
-                    check_RS_ProjNo()
-                    SQL_QUERY = "Select * from BCDMIS..F_ProjectNumber where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_ProjNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_ProjNo
-                        If Not RS_ProjNo.EOF Then
-
-
-                            If Trim((RS_ProjNo.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_ProjNo.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fProjectNo Is Nothing Then
+                            If Trim(fProjectNo.Required) = "Mandatory" Or Trim(fProjectNo.Required) = "Required" Then
                                 txtProjectNo.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtProjectNo.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtProjectNo.Text = strCOD2
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtProjectNo.Text = strCOD3
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtProjectNo.Text = strCOD4
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtProjectNo.Text = strCOD5
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtProjectNo.Text = strCOD6
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtProjectNo.Text = strCOD7
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtProjectNo.Text = strCOD8
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtProjectNo.Text = strCOD9
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtProjectNo.Text = strCOD10
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtProjectNo.Text = strCOD11
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtProjectNo.Text = strCOD12
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtProjectNo.Text = strCOD13
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtProjectNo.Text = strCOD14
-                            ElseIf Trim((RS_ProjNo.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtProjectNo.Text = strCOD15
-                            End If
-                            RS_ProjNo.MoveNext()
+                            Select Case Trim(fProjectNo.CODs)
+                                Case "COD1"
+                                    txtProjectNo.Text = strCOD1
+                                Case "COD2"
+                                    txtProjectNo.Text = strCOD2
+                                Case "COD3"
+                                    txtProjectNo.Text = strCOD3
+                                Case "COD4"
+                                    txtProjectNo.Text = strCOD4
+                                Case "COD5"
+                                    txtProjectNo.Text = strCOD5
+                                Case "COD6"
+                                    txtProjectNo.Text = strCOD6
+                                Case "COD7"
+                                    txtProjectNo.Text = strCOD7
+                                Case "COD8"
+                                    txtProjectNo.Text = strCOD8
+                                Case "COD9"
+                                    txtProjectNo.Text = strCOD9
+                                Case "COD10"
+                                    txtProjectNo.Text = strCOD10
+                                Case "COD11"
+                                    txtProjectNo.Text = strCOD11
+                                Case "COD12"
+                                    txtProjectNo.Text = strCOD12
+                                Case "COD13"
+                                    txtProjectNo.Text = strCOD13
+                                Case "COD14"
+                                    txtProjectNo.Text = strCOD14
+                                Case "COD15"
+                                    txtProjectNo.Text = strCOD15
+                            End Select
                         End If
-                        RS_ProjNo.Close()
-                    End With
 
 
+                        Dim fReasonTrip = dbMIS.F_ReasonOfTrip.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-
-                '====Reason Trip Field
-
-                    check_RS_ReasnofTrip()
-                    SQL_QUERY = "Select * from BCDMIS..F_ReasonOfTrip where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_ReasnofTrip.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_ReasnofTrip
-                        If Not RS_ReasnofTrip.EOF Then
-
-
-                            If Trim((RS_ReasnofTrip.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_ReasnofTrip.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fReasonTrip Is Nothing Then
+                            If Trim(fReasonTrip.Required) = "Mandatory" Or Trim(fReasonTrip.Required) = "Required" Then
                                 txtReasonofTrip.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtReasonofTrip.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtReasonofTrip.Text = strCOD2
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtReasonofTrip.Text = strCOD3
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtReasonofTrip.Text = strCOD4
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtReasonofTrip.Text = strCOD5
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtReasonofTrip.Text = strCOD6
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtReasonofTrip.Text = strCOD7
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtReasonofTrip.Text = strCOD8
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtReasonofTrip.Text = strCOD9
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtReasonofTrip.Text = strCOD10
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtReasonofTrip.Text = strCOD11
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtReasonofTrip.Text = strCOD12
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtReasonofTrip.Text = strCOD13
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtReasonofTrip.Text = strCOD14
-                            ElseIf Trim((RS_ReasnofTrip.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtReasonofTrip.Text = strCOD15
-                            End If
-
-                            RS_ReasnofTrip.MoveNext()
-
+                            Select Case Trim(fReasonTrip.CODs)
+                                Case "COD1"
+                                    txtReasonofTrip.Text = strCOD1
+                                Case "COD2"
+                                    txtReasonofTrip.Text = strCOD2
+                                Case "COD3"
+                                    txtReasonofTrip.Text = strCOD3
+                                Case "COD4"
+                                    txtReasonofTrip.Text = strCOD4
+                                Case "COD5"
+                                    txtReasonofTrip.Text = strCOD5
+                                Case "COD6"
+                                    txtReasonofTrip.Text = strCOD6
+                                Case "COD7"
+                                    txtReasonofTrip.Text = strCOD7
+                                Case "COD8"
+                                    txtReasonofTrip.Text = strCOD8
+                                Case "COD9"
+                                    txtReasonofTrip.Text = strCOD9
+                                Case "COD10"
+                                    txtReasonofTrip.Text = strCOD10
+                                Case "COD11"
+                                    txtReasonofTrip.Text = strCOD11
+                                Case "COD12"
+                                    txtReasonofTrip.Text = strCOD12
+                                Case "COD13"
+                                    txtReasonofTrip.Text = strCOD13
+                                Case "COD14"
+                                    txtReasonofTrip.Text = strCOD14
+                                Case "COD15"
+                                    txtReasonofTrip.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_ReasnofTrip.Close()
+                        Dim fTravellerStatus = dbMIS.F_TravellerStatus.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-
-
-
-                '====Traveller Status Field
-
-                    check_RS_TravStat()
-                    SQL_QUERY = "Select * from BCDMIS..F_TravellerStatus where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_TravStat.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_TravStat
-                        If Not RS_TravStat.EOF Then
-
-
-                            If Trim((RS_TravStat.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_TravStat.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fTravellerStatus Is Nothing Then
+                            If Trim(fTravellerStatus.Required) = "Mandatory" Or Trim(fTravellerStatus.Required) = "Required" Then
                                 txtTravellerStat.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtTravellerStat.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtTravellerStat.Text = strCOD2
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtTravellerStat.Text = strCOD3
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtTravellerStat.Text = strCOD4
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtTravellerStat.Text = strCOD5
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtTravellerStat.Text = strCOD6
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtTravellerStat.Text = strCOD7
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtTravellerStat.Text = strCOD8
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtTravellerStat.Text = strCOD9
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtTravellerStat.Text = strCOD10
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtTravellerStat.Text = strCOD11
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtTravellerStat.Text = strCOD12
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtTravellerStat.Text = strCOD13
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtTravellerStat.Text = strCOD14
-                            ElseIf Trim((RS_TravStat.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtTravellerStat.Text = strCOD15
-                            End If
-
-                            RS_TravStat.MoveNext()
-
+                            Select Case Trim(fTravellerStatus.CODs)
+                                Case "COD1"
+                                    txtTravellerStat.Text = strCOD1
+                                Case "COD2"
+                                    txtTravellerStat.Text = strCOD2
+                                Case "COD3"
+                                    txtTravellerStat.Text = strCOD3
+                                Case "COD4"
+                                    txtTravellerStat.Text = strCOD4
+                                Case "COD5"
+                                    txtTravellerStat.Text = strCOD5
+                                Case "COD6"
+                                    txtTravellerStat.Text = strCOD6
+                                Case "COD7"
+                                    txtTravellerStat.Text = strCOD7
+                                Case "COD8"
+                                    txtTravellerStat.Text = strCOD8
+                                Case "COD9"
+                                    txtTravellerStat.Text = strCOD9
+                                Case "COD10"
+                                    txtTravellerStat.Text = strCOD10
+                                Case "COD11"
+                                    txtTravellerStat.Text = strCOD11
+                                Case "COD12"
+                                    txtTravellerStat.Text = strCOD12
+                                Case "COD13"
+                                    txtTravellerStat.Text = strCOD13
+                                Case "COD14"
+                                    txtTravellerStat.Text = strCOD14
+                                Case "COD15"
+                                    txtTravellerStat.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_TravStat.Close()
 
-                    End With
+                        Dim fClientData1 = dbMIS.F_ClientData1.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-
-
-                '====Client Data 1 Field
-
-                    check_RS_CSData1()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData1 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData1
-                        If Not RS_CSData1.EOF Then
-
-
-                            If Trim((RS_CSData1.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData1.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData1 Is Nothing Then
+                            If Trim(fClientData1.Required) = "Mandatory" Or Trim(fClientData1.Required) = "Required" Then
                                 txtCSData1.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData1.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData1.Text = strCOD2
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData1.Text = strCOD3
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData1.Text = strCOD4
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData1.Text = strCOD5
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData1.Text = strCOD6
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData1.Text = strCOD7
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData1.Text = strCOD8
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData1.Text = strCOD9
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData1.Text = strCOD10
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData1.Text = strCOD11
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData1.Text = strCOD12
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData1.Text = strCOD13
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData1.Text = strCOD14
-                            ElseIf Trim((RS_CSData1.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData1.Text = strCOD15
-                            End If
-
-                            RS_CSData1.MoveNext()
-
+                            Select Case Trim(fClientData1.CODs)
+                                Case "COD1"
+                                    txtCSData1.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData1.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData1.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData1.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData1.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData1.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData1.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData1.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData1.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData1.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData1.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData1.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData1.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData1.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData1.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData1.Close()
+                        Dim fClientData2 = dbMIS.F_ClientData2.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-               
-
-
-                '====Client Data 2 Field
-
-                    check_RS_CSData2()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData2 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData2.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData2
-                        If Not RS_CSData2.EOF Then
-
-
-                            If Trim((RS_CSData2.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData2.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData2 Is Nothing Then
+                            If Trim(fClientData2.Required) = "Mandatory" Or Trim(fClientData2.Required) = "Required" Then
                                 txtCSData2.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData2.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData2.Text = strCOD2
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData2.Text = strCOD3
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData2.Text = strCOD4
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData2.Text = strCOD5
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData2.Text = strCOD6
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData2.Text = strCOD7
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData2.Text = strCOD8
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData2.Text = strCOD9
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData2.Text = strCOD10
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData2.Text = strCOD11
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData2.Text = strCOD12
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData2.Text = strCOD13
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData2.Text = strCOD14
-                            ElseIf Trim((RS_CSData2.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData2.Text = strCOD15
-                            End If
-
-                            RS_CSData2.MoveNext()
-
+                            Select Case Trim(fClientData2.CODs)
+                                Case "COD1"
+                                    txtCSData2.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData2.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData2.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData2.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData2.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData2.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData2.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData2.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData2.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData2.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData2.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData2.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData2.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData2.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData2.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData2.Close()
-                    End With
+                        Dim fClientData3 = dbMIS.F_ClientData3.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-
-
-                '====Client Data 3 Field
-
-                    check_RS_CSData3()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData3 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData3
-
-                        If Not RS_CSData3.EOF Then
-
-                            If Trim((RS_CSData3.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData3.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData3 Is Nothing Then
+                            If Trim(fClientData3.Required) = "Mandatory" Or Trim(fClientData3.Required) = "Required" Then
                                 txtCSData3.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData3.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData3.Text = strCOD2
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData3.Text = strCOD3
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData3.Text = strCOD4
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData3.Text = strCOD5
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData3.Text = strCOD6
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData3.Text = strCOD7
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData3.Text = strCOD8
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData3.Text = strCOD9
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData3.Text = strCOD10
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData3.Text = strCOD11
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData3.Text = strCOD12
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData3.Text = strCOD13
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData3.Text = strCOD14
-                            ElseIf Trim((RS_CSData3.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData3.Text = strCOD15
-                            End If
-
-                            RS_CSData3.MoveNext()
-
+                            Select Case Trim(fClientData3.CODs)
+                                Case "COD1"
+                                    txtCSData3.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData3.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData3.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData3.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData3.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData3.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData3.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData3.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData3.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData3.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData3.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData3.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData3.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData3.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData3.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData3.Close()
+                        Dim fClientData4 = dbMIS.F_ClientData4.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-
-
-
-                '====Client Data 4 Field
-
-                    check_RS_CSData4()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData4 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData4.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData4
-                        If Not RS_CSData4.EOF Then
-
-
-                            If Trim((RS_CSData4.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData4.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData4 Is Nothing Then
+                            If Trim(fClientData4.Required) = "Mandatory" Or Trim(fClientData4.Required) = "Required" Then
                                 txtCSData4.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData4.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData4.Text = strCOD2
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData4.Text = strCOD3
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData4.Text = strCOD4
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData4.Text = strCOD5
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData4.Text = strCOD6
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData4.Text = strCOD7
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData4.Text = strCOD8
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData4.Text = strCOD9
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData4.Text = strCOD10
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData4.Text = strCOD11
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData4.Text = strCOD12
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData4.Text = strCOD13
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData4.Text = strCOD14
-                            ElseIf Trim((RS_CSData4.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData4.Text = strCOD15
-                            End If
-
-                            RS_CSData4.MoveNext()
-
+                            Select Case Trim(fClientData4.CODs)
+                                Case "COD1"
+                                    txtCSData4.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData4.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData4.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData4.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData4.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData4.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData4.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData4.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData4.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData4.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData4.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData4.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData4.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData4.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData4.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData4.Close()
 
-                    End With
+                        Dim fClientData5 = dbMIS.F_ClientData5.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-                    '====Client Data 5 Field
-
-                    check_RS_CSData5()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData5 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData5.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData5
-                        If Not RS_CSData5.EOF Then
-
-
-                            If Trim((RS_CSData5.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData5.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData5 Is Nothing Then
+                            If Trim(fClientData5.Required) = "Mandatory" Or Trim(fClientData5.Required) = "Required" Then
                                 txtCSData5.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData5.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData5.Text = strCOD2
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData5.Text = strCOD3
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData5.Text = strCOD4
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData5.Text = strCOD5
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData5.Text = strCOD6
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData5.Text = strCOD7
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData5.Text = strCOD8
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData5.Text = strCOD9
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData5.Text = strCOD10
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData5.Text = strCOD11
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData5.Text = strCOD12
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData5.Text = strCOD13
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData5.Text = strCOD14
-                            ElseIf Trim((RS_CSData5.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData5.Text = strCOD15
-                            End If
-
-                            RS_CSData5.MoveNext()
-
+                            Select Case Trim(fClientData5.CODs)
+                                Case "COD1"
+                                    txtCSData5.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData5.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData5.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData5.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData5.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData5.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData5.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData5.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData5.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData5.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData5.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData5.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData5.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData5.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData5.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData5.Close()
+                        Dim fClientData6 = dbMIS.F_ClientData6.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-
-                    ' CS Data 6
-
-
-                    '====Client Data 6 Field
-
-                    check_RS_CSData6()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData6 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData6.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData6
-                        If Not RS_CSData6.EOF Then
-
-
-                            If Trim((RS_CSData6.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData6.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData6 Is Nothing Then
+                            If Trim(fClientData6.Required) = "Mandatory" Or Trim(fClientData6.Required) = "Required" Then
                                 txtCSData6.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData6.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData6.Text = strCOD2
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData6.Text = strCOD3
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData6.Text = strCOD4
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData6.Text = strCOD5
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData6.Text = strCOD6
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData6.Text = strCOD7
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData6.Text = strCOD8
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData6.Text = strCOD9
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData6.Text = strCOD10
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData6.Text = strCOD11
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData6.Text = strCOD12
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData6.Text = strCOD13
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData6.Text = strCOD14
-                            ElseIf Trim((RS_CSData6.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData6.Text = strCOD15
-                            End If
-
-                            RS_CSData6.MoveNext()
-
+                            Select Case Trim(fClientData6.CODs)
+                                Case "COD1"
+                                    txtCSData6.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData6.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData6.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData6.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData6.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData6.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData6.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData6.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData6.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData6.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData6.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData6.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData6.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData6.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData6.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData6.Close()
+                        Dim fClientData7 = dbMIS.F_ClientData7.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-
-
-
-                    '====Client Data 7 Field
-
-                    check_RS_CSData7()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData7 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData7.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData7
-                        If Not RS_CSData7.EOF Then
-
-
-                            If Trim((RS_CSData7.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData7.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData7 Is Nothing Then
+                            If Trim(fClientData7.Required) = "Mandatory" Or Trim(fClientData7.Required) = "Required" Then
                                 txtCSData7.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData7.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData7.Text = strCOD2
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData7.Text = strCOD3
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData7.Text = strCOD4
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData7.Text = strCOD5
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData7.Text = strCOD6
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData7.Text = strCOD7
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData7.Text = strCOD8
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData7.Text = strCOD9
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData7.Text = strCOD10
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData7.Text = strCOD11
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData7.Text = strCOD12
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData7.Text = strCOD13
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData7.Text = strCOD14
-                            ElseIf Trim((RS_CSData7.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData7.Text = strCOD15
-                            End If
-
-                            RS_CSData7.MoveNext()
-
+                            Select Case Trim(fClientData7.CODs)
+                                Case "COD1"
+                                    txtCSData7.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData7.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData7.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData7.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData7.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData7.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData7.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData7.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData7.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData7.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData7.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData7.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData7.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData7.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData7.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData7.Close()
+                        Dim fClientData8 = dbMIS.F_ClientData8.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-                    End With
-
-
-
-
-
-
-
-                    '====Client Data 8 Field
-
-                    check_RS_CSData8()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData8 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData8.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData8
-                        If Not RS_CSData8.EOF Then
-
-
-                            If Trim((RS_CSData8.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData8.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData8 Is Nothing Then
+                            If Trim(fClientData8.Required) = "Mandatory" Or Trim(fClientData8.Required) = "Required" Then
                                 txtCSData8.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData8.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData8.Text = strCOD2
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData8.Text = strCOD3
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData8.Text = strCOD4
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData8.Text = strCOD5
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData8.Text = strCOD6
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData8.Text = strCOD7
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData8.Text = strCOD8
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData8.Text = strCOD9
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData8.Text = strCOD10
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData8.Text = strCOD11
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData8.Text = strCOD12
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData8.Text = strCOD13
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData8.Text = strCOD14
-                            ElseIf Trim((RS_CSData8.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData8.Text = strCOD15
-                            End If
-
-                            RS_CSData8.MoveNext()
-
+                            Select Case Trim(fClientData8.CODs)
+                                Case "COD1"
+                                    txtCSData8.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData8.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData8.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData8.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData8.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData8.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData8.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData8.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData8.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData8.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData8.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData8.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData8.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData8.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData8.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData8.Close()
 
-                    End With
+                        Dim fClientData12 = dbMIS.F_ClientData12.FirstOrDefault(Function(n) n.GlobalCustNo = Trim(txtGlobalCustNo.Text))
 
-
-
-                    '====Client Data 12 Field
-
-                    check_RS_CSData12()
-                    SQL_QUERY = "Select * from BCDMIS..F_ClientData12 where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    RS_CSData12.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS_CSData12
-                        If Not RS_CSData12.EOF Then
-
-
-                            If Trim((RS_CSData12.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS_CSData12.Fields("Required").Value).ToString()) = "Required" Then
+                        If Not fClientData12 Is Nothing Then
+                            If Trim(fClientData12.Required) = "Mandatory" Or Trim(fClientData12.Required) = "Required" Then
                                 txtCSData12.BackColor = Color.Yellow
                             End If
 
-                            If Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD1" Then
-                                txtCSData12.Text = strCOD1  'Field Mapping
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD2" Then
-                                txtCSData12.Text = strCOD2
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD3" Then
-                                txtCSData12.Text = strCOD3
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD4" Then
-                                txtCSData12.Text = strCOD4
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD5" Then
-                                txtCSData12.Text = strCOD5
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD6" Then
-                                txtCSData12.Text = strCOD6
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD7" Then
-                                txtCSData12.Text = strCOD7
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD8" Then
-                                txtCSData12.Text = strCOD8
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD9" Then
-                                txtCSData12.Text = strCOD9
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD10" Then
-                                txtCSData12.Text = strCOD10
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD11" Then
-                                txtCSData12.Text = strCOD11
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD12" Then
-                                txtCSData12.Text = strCOD12
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD13" Then
-                                txtCSData12.Text = strCOD13
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD14" Then
-                                txtCSData12.Text = strCOD14
-                            ElseIf Trim((RS_CSData12.Fields("CODS").Value).ToString()) = "COD15" Then
-                                txtCSData12.Text = strCOD15
-                            End If
-
-                            RS_CSData12.MoveNext()
-
+                            Select Case Trim(fClientData12.CODs)
+                                Case "COD1"
+                                    txtCSData12.Text = strCOD1
+                                Case "COD2"
+                                    txtCSData12.Text = strCOD2
+                                Case "COD3"
+                                    txtCSData12.Text = strCOD3
+                                Case "COD4"
+                                    txtCSData12.Text = strCOD4
+                                Case "COD5"
+                                    txtCSData12.Text = strCOD5
+                                Case "COD6"
+                                    txtCSData12.Text = strCOD6
+                                Case "COD7"
+                                    txtCSData12.Text = strCOD7
+                                Case "COD8"
+                                    txtCSData12.Text = strCOD8
+                                Case "COD9"
+                                    txtCSData12.Text = strCOD9
+                                Case "COD10"
+                                    txtCSData12.Text = strCOD10
+                                Case "COD11"
+                                    txtCSData12.Text = strCOD11
+                                Case "COD12"
+                                    txtCSData12.Text = strCOD12
+                                Case "COD13"
+                                    txtCSData12.Text = strCOD13
+                                Case "COD14"
+                                    txtCSData12.Text = strCOD14
+                                Case "COD15"
+                                    txtCSData12.Text = strCOD15
+                            End Select
                         End If
 
-                        RS_CSData12.Close()
-
-                    End With
 
 
-                    '   Call TOEG_Trav()
+                        Me.Cursor = Cursors.Default
 
 
+                        MsgBox("Invalid input..Please check your entry..", MsgBoxStyle.OkOnly, " TAIS - Traveller Profile?")
+                        Me.Cursor = Cursors.Default
+                        txtLineNo.Text = ""
+                        txtLineNo.Focus()
+                    End If
                 End If
 
-
-            Me.Cursor = Cursors.Default
-
-            Else
-                MsgBox("Invalid input..Please check your entry..", MsgBoxStyle.OkOnly, " TAIS - Traveller Profile?")
-                Me.Cursor = Cursors.Default
-                txtLineNo.Text = ""
-                txtLineNo.Focus()
             End If
 
         Else
             MsgBox("Please select Client Name..", MsgBoxStyle.Information + vbOKOnly, ":::TAIS:::")
             cboClient.Focus()
         End If
-
-
-
     End Sub
 
     '=====Move button from the Traveller's List
@@ -3023,25 +2845,6 @@ Public Class FrmGeneral
         End If
 
     End Sub
-
-    '                              ===================End Traveller Profile=============================
-
-
-    'Private Sub FrmGeneral_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles FrmGeneral.FormClosing
-
-    '    Dim response As MsgBoxResult
-    '    response = MsgBox("Are you sure you want to close?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, ":::TAIS:::")
-    '    If response = MsgBoxResult.Yes Then
-    '        Me.Dispose()
-    '        End
-    '    ElseIf response = MsgBoxResult.No Then
-    '        e.Cancel = True
-    '        Exit Sub
-    '    End If
-
-    'End Sub
-
-    '                              =================== Client List =============================  
 
 
     Private Sub lstClient_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstClient.SelectedIndexChanged
@@ -3392,21 +3195,14 @@ Public Class FrmGeneral
         Dim pc As String = "0"
         Dim pcDisable = "25"
 
-        CHECK_RS1()
+        Dim descriptions As New List(Of String)
 
-        SQL_QUERY = "Select productcodes.description from TRAVCOM..ProductCodes where productcode <>'" & pc & "' and productcode<>'" & pcDisable & "'"
-        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        descriptions = (From desc In taisDB.ProductCodes
+                        Where desc.ProductCode <> 0 And desc.ProductCode <> 25
+                        Order By desc.Description Ascending
+                        Select desc.Description).ToList()
 
-        With RS1
-
-            Do While Not RS1.EOF
-                ProductCode.Add(RS1.Fields("Description").Value).ToString()
-                RS1.MoveNext()
-            Loop
-
-        End With
-
-        RS1.Close()
+        ProductCode.AddRange(descriptions.ToArray)
 
         cboProductCode.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboProductCode.AutoCompleteCustomSource = ProductCode
@@ -3428,138 +3224,83 @@ Public Class FrmGeneral
 
             PCode = Trim(cboProductCode.SelectedText).Replace("'", " ")
 
-            CHECK_RS()
+            Dim prodCode = taisDB.ProductCodes.FirstOrDefault(Function(n) n.Description.Replace("", " ") = PCode)
 
-            SQL_QUERY = " Select productcodes.productcode from travcom..productcodes where replace(description,'''',' ') = '" & PCode & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            If Not prodCode Is Nothing Then
+                cboProductCode.Text = prodCode.ProductCode
 
-            With RS
+                If Trim(PCode) <> "" Or Trim(PCode) <> Nothing Then
+                    Dim nonAirTrans = taisLocal.NonAirTransactions.FirstOrDefault(Function(n) n.ProductCode = Trim(cboProductCode.Text))
 
-                If Not RS.EOF Then
+                    If Not nonAirTrans Is Nothing Then
+                        cboProdTYpe.Enabled = If(Trim(nonAirTrans.SubProduct) = "Enabled", True, False)
 
-                    cboProductCode.Text = (RS.Fields("ProductCode").Value).ToString()
+                        If Trim(nonAirTrans.VendorAccess) = "Enabled" Then
+                            cboVendorCode.Enabled = True
+                        Else
+                            cboVendorCode.Enabled = False
+                            cboVendorCode.Text = nonAirTrans.VendorCode
+                        End If
 
+                        If Trim(nonAirTrans.CostAccess) = "Enabled" Then
+                            txtComP.Enabled = True
+                        Else
+                            txtComP.Enabled = False
+                            txtComP.Text = Trim(nonAirTrans.Cost)
+                        End If
 
+                        If Trim(nonAirTrans.SAAccess) = "Enabled" Then
+                            txtSFAmt.Enabled = True
+                        Else
+                            txtSFAmt.Enabled = False
+                            txtSFAmt.Text = Trim(nonAirTrans.SAAmount)
+                        End If
 
-                    If Trim(PCode) <> "" Or Trim(PCode) <> Nothing Then
-
-                        SQL_QUERY = " Select * from TAIS..NonAirTransactions where ProductCode = '" & Trim(cboProductCode.Text) & "'"
-                        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        With RS1
-
-                            If Not RS1.EOF Then
-
-                                If Trim((RS1.Fields("SubProduct").Value).ToString()) = "Enabled" Then
-                                    cboProdTYpe.Enabled = True
-                                Else
-                                    cboProdTYpe.Enabled = False
-                                End If
-
-                                If Trim((RS1.Fields("VendorAccess").Value).ToString()) = "Enabled" Then
-                                    cboVendorCode.Enabled = True
-                                Else
-                                    cboVendorCode.Text = (RS1.Fields("VendorCode").Value).ToString()
-                                    cboVendorCode.Enabled = False
-                                End If
-
-                                If Trim((RS1.Fields("CostAccess").Value).ToString()) = "Enabled" Then
-                                    txtComP.Enabled = True
-                                Else
-                                    txtComP.Enabled = False
-                                    txtComP.Text = Trim((RS1.Fields("Cost").Value).ToString())
-                                End If
-
-                                If Trim((RS1.Fields("SAAccess").Value).ToString()) = "Enabled" Then
-                                    txtSFAmt.Enabled = True
-                                Else
-                                    txtSFAmt.Enabled = False
-                                    txtSFAmt.Text = Trim((RS1.Fields("SAAmount").Value).ToString())
-                                End If
+                        If Trim(nonAirTrans.CPAccess) = "Enabled" Then
+                            txtComP.Enabled = True
+                        Else
+                            txtComP.Enabled = False
+                            txtComP.Text = Trim(nonAirTrans.CP)
+                        End If
 
 
-                                If Trim((RS1.Fields("CPAccess").Value).ToString()) = "Enabled" Then
-                                    txtComP.Enabled = True
-                                Else
-                                    txtComP.Enabled = False
-                                    txtComP.Text = Trim((RS1.Fields("CP").Value).ToString())
-                                End If
+                        MRdom.Checked = False
+                        MRIntl.Checked = False
+                        MRReg.Checked = False
 
+                        If Trim(nonAirTrans.travelType) = "Enabled" Then
+                            MRdom.Enabled = True
+                            MRIntl.Enabled = True
+                            MRReg.Enabled = True
+                        Else
+                            MRdom.Enabled = False
+                            MRIntl.Enabled = False
+                            MRReg.Enabled = False
+                        End If
 
-                                If Trim((RS1.Fields("TravelType").Value).ToString()) = "Enabled" Then
-                                    MRdom.Enabled = True
-                                    MRIntl.Enabled = True
-                                    MRReg.Enabled = True
-                                    MRdom.Checked = False
-                                    MRIntl.Checked = False
-                                    MRReg.Checked = False
-                                Else
-                                    MRdom.Enabled = False
-                                    MRIntl.Enabled = False
-                                    MRReg.Enabled = False
-                                    MRdom.Checked = False
-                                    MRIntl.Checked = False
-                                    MRReg.Checked = False
+                        txtRMRefFare.Enabled = If(Trim(nonAirTrans.RefFare) = "Enabled", True, False)
+                        txtRMLF.Enabled = If(Trim(nonAirTrans.LowFare) = "Enabled", True, False)
+                        txtRMExpCode.Enabled = If(Trim(nonAirTrans.EC) = "Enabled", True, False)
 
-                                End If
-
-                                If Trim((RS1.Fields("RefFare").Value).ToString()) = "Enabled" Then
-                                    txtRMRefFare.Enabled = True
-                                Else
-                                    txtRMRefFare.Enabled = False
-                                End If
-
-                                If Trim((RS1.Fields("LowFare").Value).ToString()) = "Enabled" Then
-                                    txtRMLF.Enabled = True
-                                Else
-                                    txtRMLF.Enabled = False
-                                End If
-
-                                If Trim((RS1.Fields("EC").Value).ToString()) = "Enabled" Then
-                                    txtRMExpCode.Enabled = True
-                                Else
-                                    txtRMExpCode.Enabled = False
-                                End If
-
-                                If Trim((RS1.Fields("DateHotel").Value).ToString()) = "Enabled" Then
-                                    DTCheckIn.Enabled = True
-                                    DTCheckOut.Enabled = True
-                                    txtDatein.Text = Nothing
-                                    txtDateOut.Text = Nothing
-                                    txtDatein.Enabled = False
-                                    txtDateOut.Enabled = False
-                                Else
-                                    DTCheckIn.Enabled = False
-                                    DTCheckOut.Enabled = False
-                                    txtDatein.Text = Nothing
-                                    txtDateOut.Text = Nothing
-                                    txtDatein.Enabled = False
-                                    txtDateOut.Enabled = False
-                                End If
-
-                            End If
-
-                            RS1.Close()
-
-                        End With
-
+                        txtDatein.Enabled = False
+                        txtDateOut.Enabled = False
+                        txtDatein.Text = Nothing
+                        txtDateOut.Text = Nothing
+                        If Trim(nonAirTrans.DateHotel) = "Enabled" Then
+                            DTCheckIn.Enabled = True
+                            DTCheckOut.Enabled = True
+                        Else
+                            DTCheckIn.Enabled = False
+                            DTCheckOut.Enabled = False
+                        End If
                     End If
-
-                    RS.MoveNext()
-
                 End If
-
-            End With
-
-            RS.Close()
+            End If
 
             Call protypeload()
-
-
         End If
 
     End Sub
-
 
 
     Private Sub protypeload()
@@ -3567,52 +3308,31 @@ Public Class FrmGeneral
         cboProdTYpe.Text = ""
         cboProdTYpe.Items.Clear()
 
+        Dim taisLocal = New TAISLocalEntities()
+
         Dim ProductCodePType As New AutoCompleteStringCollection
 
-        CHECK_RS()
+        Dim prodSetting = (From prod In taisLocal.ProductSettings
+                           Where prod.ProductCategory = Trim(cboProductCode.Text)
+                           Order By prod.ProductName
+                           Select prod.ProductName).ToList()
 
-        SQL_QUERY = "select distinct * from TAIS..productSettings where productcategory = '" & Trim(cboProductCode.Text) & "'"
-        RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        cboProdTYpe.Items.AddRange(prodSetting.ToArray)
 
-        With RS
-
-            If Not RS.EOF Then
-
-                Do While Not RS.EOF
-                    cboProdTYpe.Items.Add(RS.Fields("ProductName").Value).ToString()
-                    RS.MoveNext()
-                Loop
-
-            Else
-                cboProdTYpe.Text = ""
-                cboProdTYpe.Items.Clear()
-
-            End If
-
-        End With
-
-        RS.Close()
 
     End Sub
 
     '=====Get all the vendor code from Travcom database
     Public Sub load_VendorCode()
 
-        CHECK_RS()
+        Dim profile As New List(Of String)
 
-        SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType=2 "
-        RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        profile = (From prof In taisDB.Profiles
+                   Where prof.ProfileType = 2
+                   Order By prof.FullName Ascending
+                   Select prof.FullName).ToList()
 
-        With RS
-
-            Do While Not RS.EOF
-                VendorCode.Add(RS.Fields("FullName").Value).ToString()
-                RS.MoveNext()
-            Loop
-
-        End With
-
-        RS.Close()
+        VendorCode.AddRange(profile.ToArray)
 
         cboVendorCode.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboVendorCode.AutoCompleteCustomSource = VendorCode
@@ -3637,19 +3357,9 @@ Public Class FrmGeneral
 
             VCode = Trim(cboVendorCode.SelectedText).Replace("'", " ")
 
-            CHECK_RS()
+            Dim profileNo = taisDB.Profiles.FirstOrDefault(Function(n) n.ProfileType = 2 And n.FullName = VCode)
 
-            SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType=2 and replace(Fullname,'''', ' ') = '" & VCode & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-            With RS
-                If Not RS.EOF Then
-                    cboVendorCode.Text = (RS.Fields("ProfileNumber").Value).ToString
-                    RS.MoveNext()
-                End If
-            End With
-
-            RS.Close()
+            cboVendorCode.Text = profileNo.ProfileNumber
 
         End If
 
@@ -3665,7 +3375,7 @@ Public Class FrmGeneral
 
         CHECK_RS()
 
-        SQL_QUERY = "Select DepartmentName from TRAVCOM..Departments where profilenumber ='" & PN & "' "
+        SQL_QUERY = "Select DepartmentName from TAIS_SERVER..Departments where profilenumber ='" & PN & "' "
         RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS
@@ -3694,7 +3404,7 @@ Public Class FrmGeneral
 
             CHECK_RS()
 
-            SQL_QUERY = "Select departmentcode,departmentname from TRAVCOM..departments where replace(departmentname,'''', ' ') = '" & BCODE & "'"
+            SQL_QUERY = "Select departmentcode,departmentname from TAIS_SERVER..departments where replace(departmentname,'''', ' ') = '" & BCODE & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
             With RS
@@ -3713,22 +3423,14 @@ Public Class FrmGeneral
 
     '======Airline List =======
     Private Sub load_AirlineCode()
+        Dim airlines As New List(Of String)
 
-        CHECK_RS1()
+        airlines = (From air In taisDB.Airlines
+                    Order By air.AirlineName Ascending
+                    Select air.AirlineName).ToList()
 
-        SQL_QUERY = "Select * from TRAVCOM..Airlines"
-        RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        ColAir.AddRange(airlines.ToArray)
 
-        With RS1
-
-            Do While Not RS1.EOF
-                ColAir.Add(RS1.Fields("AirlineName").Value).ToString()
-                RS1.MoveNext()
-            Loop
-
-        End With
-
-        RS1.Close()
         cboAirlineCode.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboAirlineCode.AutoCompleteCustomSource = ColAir
         cboAirlineCode.AutoCompleteMode = AutoCompleteMode.Suggest
@@ -3744,19 +3446,11 @@ Public Class FrmGeneral
 
         If e.KeyCode = 13 Then
 
-            CHECK_RS()
+            Dim airlineNo = taisDB.Airlines.FirstOrDefault(Function(n) n.AirlineName = Trim(cboAirlineCode.SelectedText))
 
-            SQL_QUERY = "Select AirlineNumber, AirlineName from TRAVCOM..Airlines where AirlineName = '" & Trim(cboAirlineCode.SelectedText) & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-            With RS
-                If Not RS.EOF Then
-                    cboAirlineCode.Text = (RS.Fields("AirlineNumber").Value).ToString
-                    RS.MoveNext()
-                End If
-            End With
-
-            RS.Close()
+            If Not airlineNo Is Nothing Then
+                cboAirlineCode.Text = airlineNo.AirlineNumber
+            End If
 
         End If
 
@@ -3766,25 +3460,6 @@ Public Class FrmGeneral
     '======Airline List =======
     Private Sub load_AlineCode()
 
-        'CHECK_RS1()
-
-        'SQL_QUERY = "Select * from TRAVCOM..Airlines"
-        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-        'With RS1
-
-        '    Do While Not RS1.EOF
-        '        ColAirLine.Add(RS1.Fields("AirlineName").Value).ToString()
-        '        RS1.MoveNext()
-        '    Loop
-
-        'End With
-
-        'RS1.Close()
-        'cboAlineCode.AutoCompleteSource = AutoCompleteSource.CustomSource
-        'cboAlineCode.AutoCompleteCustomSource = ColAirLine
-        'cboAlineCode.AutoCompleteMode = AutoCompleteMode.Suggest
-
     End Sub
 
 
@@ -3793,19 +3468,12 @@ Public Class FrmGeneral
 
         If e.KeyCode = 13 Then
 
-            CHECK_RS()
+            Dim airlineNo = taisDB.Airlines.FirstOrDefault(Function(n) n.AirlineName = Trim(cboAirlineCode.SelectedText))
 
-            SQL_QUERY = "Select AirlineNumber, AirlineName from TRAVCOM..Airlines where AirlineName = '" & Trim(cboAlineCode.SelectedText) & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+            If Not airlineNo Is Nothing Then
+                cboAirlineCode.Text = airlineNo.AirlineNumber
+            End If
 
-            With RS
-                If Not RS.EOF Then
-                    cboAlineCode.Text = (RS.Fields("AirlineNumber").Value).ToString
-                    RS.MoveNext()
-                End If
-            End With
-
-            RS.Close()
 
         End If
 
@@ -3817,20 +3485,11 @@ Public Class FrmGeneral
 
         If e.KeyCode = 13 Then
 
+            Dim profileNo = taisDB.Profiles.FirstOrDefault(Function(n) n.ProfileType = 2 And n.FullName = Trim(cboSupplierCode.SelectedText))
 
-            CHECK_RS()
-
-            SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType='2' and replace(Fullname,'''', ' ') = '" & Trim(cboSupplierCode.SelectedText).Replace("'", " ") & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-            With RS
-                If Not RS.EOF Then
-                    cboSupplierCode.Text = (RS.Fields("ProfileNumber").Value).ToString
-                    RS.MoveNext()
-                End If
-            End With
-
-            RS.Close()
+            If Not profileNo Is Nothing Then
+                cboSupplierCode.Text = profileNo.ProfileNumber
+            End If
 
         End If
 
@@ -3840,21 +3499,14 @@ Public Class FrmGeneral
     '=====Get all the vendor code from Travcom database
     Public Sub load_ticketAgent()
 
-        CHECK_RS()
+        Dim tktAgents As New List(Of String)
 
-        SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType='3'"
-        RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        tktAgents = (From agent In taisDB.Profiles
+                     Where agent.ProfileType = 3
+                     Order By agent.FullName Ascending
+                     Select agent.FullName).ToList()
 
-        With RS
-
-            Do While Not RS.EOF
-                TicketAgentCode.Add(RS.Fields("FullName").Value).ToString()
-                RS.MoveNext()
-            Loop
-
-        End With
-
-        RS.Close()
+        TicketAgentCode.AddRange(tktAgents.ToArray)
 
         cboTicketingAgent.AutoCompleteSource = AutoCompleteSource.CustomSource
         cboTicketingAgent.AutoCompleteCustomSource = TicketAgentCode
@@ -3867,20 +3519,11 @@ Public Class FrmGeneral
     Public Sub cboTicketingAgent_keydown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboTicketingAgent.KeyDown
 
         If e.KeyCode = 13 Then
+            Dim profileNo = taisDB.Profiles.FirstOrDefault(Function(n) n.ProfileType = 3 And n.FullName = Trim(cboTicketingAgent.Text))
 
-            CHECK_RS()
-
-            SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType='3' and replace(Fullname,'''', ' ') = '" & Trim(cboTicketingAgent.SelectedText).Replace("'", " ") & "'"
-            RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-            With RS
-                If Not RS.EOF Then
-                    cboTicketingAgent.Text = (RS.Fields("ProfileNumber").Value).ToString
-                    RS.MoveNext()
-                End If
-            End With
-
-            RS.Close()
+            If Not profileNo Is Nothing Then
+                cboTicketingAgent.Text = profileNo.ProfileNumber
+            End If
 
         End If
 
@@ -4128,7 +3771,7 @@ Public Class FrmGeneral
 
     End Sub
 
-   
+
 
     '===Check entry for Segment value (only numeric value is acceptable)
     Private Sub txtSFSegment_keypress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSFSegment.KeyPress
@@ -5344,2371 +4987,883 @@ Public Class FrmGeneral
 
                 End If
 
-
+                Dim classPNR = New ClassPNR
+                Dim trimGCN = Trim(GlobalCustNO)
+                'RAMPENDING
                 If sendpnrError <> 1 Then
 
                     If COD <> Nothing Then
 
                         If COD.Length > 0 Then
 
-                            CHECK_RS3()
+                            Dim midField = dbMIS.MIDFields.Where(Function(n) n.ClientGCN = trimGCN).ToList()
 
-                            SQL_QUERY = "Select * from BCDMIS..MIDFields where clientGCN  = '" & Trim(GlobalCustNO) & "'" ' order by gems"
-                            RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+                            For Each item As MIDFields In midField
 
-                            With RS3
+                                If COD.IndexOf(UCase(Trim(item.Gems))) < 0 Then
+                                    'LOW FARE
 
-                                If Not RS3.EOF Then
+                                    If Trim(item.DataItem) = "D19" Then
+                                        If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
 
-                                    Do While Not RS3.EOF
+                                            Dim tLowFare = dbMIS.T_LowFare.FirstOrDefault(Function(n) n.GCN = trimGCN)
 
+                                            If Not tLowFare Is Nothing Then
+                                                classPNR.sendFares = Trim(tLowFare.BCD_Code & cboCurrAir.Text & "/" & txtSellingFare.Text & "/" &
+                                                                  txtLowFare.Text)
 
-                                        If COD.IndexOf(UCase(Trim(RS3.Fields("GEMS").Value))) < 0 Then
-
-                                            If Trim(RS3.Fields("Required").Value) = "Mandatory" Then
-
-
-                                                ' Low Fare
-
-                                                If Trim(RS3.Fields("DataItem").Value) = "D19" Then
-
-                                                    If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                                        check_RS_LowFare()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_LowFare where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                        RS_LowFare.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_LowFare
-
-                                                            If Not RS_LowFare.EOF Then
-
-                                                                Dim CoD_lowFare As String
-                                                                CoD_lowFare = Trim(Trim(RS_LowFare.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                                Dim CoD_lowFareSnd As ClassPNR
-                                                                CoD_lowFareSnd = New ClassPNR
-                                                                CoD_lowFareSnd.sendFares = CoD_lowFare
-
-                                                                Dim CoD_lowFareAddtl As String
-                                                                CoD_lowFareAddtl = "RM*LOW FARE*/" & Trim(cboCurrAir.Text) & "/" & Trim(txtLowFare.Text)
-                                                                Dim CoD_lowFareSndAddtl As ClassPNR
-                                                                CoD_lowFareSndAddtl = New ClassPNR
-                                                                CoD_lowFareSndAddtl.sendFaresAddtl = CoD_lowFareAddtl
-
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_LowFare.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-
-
-                                                ' Curr Code
-
-                                                If Trim(RS3.Fields("DataItem").Value) = "D18" Then
-
-                                                    If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                                        check_RS_CurrCode()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_CurrCode where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                        RS_CurrCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CurrCode
-
-                                                            If Not RS_CurrCode.EOF Then
-                                                                Dim CoD_CurrCode As String
-                                                                CoD_CurrCode = Trim(Trim(RS_CurrCode.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                                Dim CoD_CurrCodeSnd As ClassPNR
-                                                                CoD_CurrCodeSnd = New ClassPNR
-                                                                CoD_CurrCodeSnd.sendCurrCode = CoD_CurrCode
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CurrCode.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                ' Reason Code Den
-
-                                                If Trim(RS3.Fields("DataItem").Value) = "D17" Then
-
-                                                    If Trim(txtRCodeDenied.Text) <> Nothing Then
-
-                                                        check_RS_Rcode()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ReasonCodeDen where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                        RS_Rcode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_Rcode
-
-                                                            If Not RS_Rcode.EOF Then
-                                                                Dim CoD_RCodeDenied As String
-                                                                CoD_RCodeDenied = Trim(Trim(RS_Rcode.Fields("BCD_Code").Value) & Trim(txtRCodeDenied.Text)) ' & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                                Dim CoD_RCodeDeniedSnd As ClassPNR
-                                                                CoD_RCodeDeniedSnd = New ClassPNR
-                                                                CoD_RCodeDeniedSnd.sendReasonCodeDen = CoD_RCodeDenied
-                                                            End If
-
-                                                        End With
-
-                                                        RS_Rcode.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                ' Accomodation Reason Code'
-                                                If Trim(RS3.Fields("DataItem").Value) = "D01" Then
-
-                                                    If Trim(txtAirNoReasonCD.Text) <> Nothing Then
-
-                                                        Check_RS_AReasonCode()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_AirNoAccomReasonCD where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_AReasonCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_AReasonCode
-                                                            If Not RS_AReasonCode.EOF Then
-                                                                Dim strAccomRCode As String
-                                                                strAccomRCode = Trim(RS_AReasonCode.Fields("BCD_Code").Value) & Trim(txtAirNoReasonCD.Text)                                                ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtAirNoReasonCD.Text)
-                                                                Dim AccomReasonCode As ClassPNR
-                                                                AccomReasonCode = New ClassPNR
-                                                                AccomReasonCode.SendPNR_strAccomCode = strAccomRCode
-                                                            End If
-                                                        End With
-
-                                                        RS_AReasonCode.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Approval Code
-
-                                                If Trim(RS3.Fields("DataItem").Value) = "D02" Then
-
-                                                    If Trim(txtApproverCode.Text) <> Nothing Then
-
-
-                                                        check_RS_AppovalCode()
-                                                        SQL_QUERY = "Select * from BCDMIS..T_ApprovalCode where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_AppovalCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_AppovalCode
-                                                            If Not RS_AppovalCode.EOF Then
-                                                                Dim strApprvlCode As String
-                                                                strApprvlCode = Trim(RS_AppovalCode.Fields("BCD_Code").Value) & Trim(txtApproverCode.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtApproverCode.Text)
-                                                                Dim ApprvlCode As ClassPNR
-                                                                ApprvlCode = New ClassPNR
-                                                                ApprvlCode.SendPNR_ApprovalCode = strApprvlCode
-                                                            End If
-                                                        End With
-
-                                                        RS_AppovalCode.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Approver
-                                                If Trim(RS3.Fields("DataItem").Value) = "D03" Then
-
-                                                    If Trim(txtApprover.Text) <> Nothing Then
-
-                                                        check_RS_Approver()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_Approver where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_Approver.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_Approver
-
-                                                            If Not RS_Approver.EOF Then
-                                                                Dim strApprv As String
-                                                                strApprv = Trim(RS_Approver.Fields("BCD_Code").Value) & Trim(txtApprover.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtApprover.Text)
-                                                                Dim ApprvlCode As ClassPNR
-                                                                ApprvlCode = New ClassPNR
-                                                                ApprvlCode.SendPNR_Approver = strApprv
-                                                            End If
-
-                                                        End With
-
-                                                        RS_Approver.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Client Data 1
-                                                If Trim(RS3.Fields("DataItem").Value) = "D04" Then
-
-                                                    If Trim(txtCSData1.Text) <> Nothing Then
-
-                                                        check_RS_CSData1()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData1 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData1
-
-                                                            If Not RS_CSData1.EOF Then
-                                                                Dim CoD_CSData1 As String
-                                                                CoD_CSData1 = Trim(RS_CSData1.Fields("BCD_Code").Value) & Trim(txtCSData1.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData1.Text)
-                                                                Dim COD_Data1 As ClassPNR
-                                                                COD_Data1 = New ClassPNR
-                                                                COD_Data1.SendPNR_CODData1 = CoD_CSData1
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData1.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Client Data 2
-
-                                                If Trim(RS3.Fields("DataItem").Value) = "D05" Then
-
-                                                    If Trim(txtCSData2.Text) <> Nothing Then
-
-                                                        check_RS_CSData2()
-
-                                                        SQL_QUERY = " Select * From BCDMIS..T_ClientData2 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData2.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData2
-
-                                                            If Not RS_CSData2.EOF Then
-                                                                Dim CoD_CSData2 As String
-                                                                CoD_CSData2 = Trim(RS_CSData2.Fields("BCD_Code").Value) & Trim(txtCSData2.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData2.Text)
-                                                                Dim COD_Data2 As ClassPNR
-                                                                COD_Data2 = New ClassPNR
-                                                                COD_Data2.SendPNR_CODData2 = CoD_CSData2
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData2.Close()
-
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Client Data 3
-                                                If Trim(RS3.Fields("DataItem").Value) = "D06" Then
-
-                                                    If Trim(txtCSData3.Text) <> Nothing Then
-
-                                                        check_RS_CSData3()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData3 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData3
-
-                                                            If Not RS_CSData3.EOF Then
-                                                                Dim CoD_CSData3 As String
-                                                                CoD_CSData3 = Trim(RS_CSData3.Fields("BCD_Code").Value) & Trim(txtCSData3.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData3.Text)
-                                                                Dim COD_Data3 As ClassPNR
-                                                                COD_Data3 = New ClassPNR
-                                                                COD_Data3.SendPNR_CODData2 = CoD_CSData3
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData3.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Client Data 4
-                                                If Trim(RS3.Fields("DataItem").Value) = "D07" Then
-
-                                                    If Trim(txtCSData4.Text) <> Nothing Then
-
-                                                        check_RS_CSData4()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData3 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData4.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData4
-
-                                                            If Not RS_CSData4.EOF Then
-
-                                                                Dim CoD_CSData4 As String
-                                                                CoD_CSData4 = Trim(RS_CSData4.Fields("BCD_Code").Value) & Trim(txtCSData4.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data4 As ClassPNR
-                                                                COD_Data4 = New ClassPNR
-                                                                COD_Data4.SendPNR_CODData4 = CoD_CSData4
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData4.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Client Data 5
-                                                If Trim(RS3.Fields("DataItem").Value) = "D20" Then
-
-                                                    If Trim(txtCSData5.Text) <> Nothing Then
-
-                                                        check_RS_CSData5()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData5 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData5.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData5
-
-                                                            If Not RS_CSData5.EOF Then
-
-                                                                Dim CoD_CSData5 As String
-                                                                CoD_CSData5 = Trim(RS_CSData5.Fields("BCD_Code").Value) & Trim(txtCSData5.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data5 As ClassPNR
-                                                                COD_Data5 = New ClassPNR
-                                                                COD_Data5.SendPNR_CODData5 = CoD_CSData5
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData5.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-
-                                                'Client Data 6
-                                                If Trim(RS3.Fields("DataItem").Value) = "D21" Then
-
-                                                    If Trim(txtCSData6.Text) <> Nothing Then
-
-                                                        check_RS_CSData6()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData6 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData6.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData6
-
-                                                            If Not RS_CSData6.EOF Then
-
-                                                                Dim CoD_CSData6 As String
-                                                                CoD_CSData6 = Trim(RS_CSData6.Fields("BCD_Code").Value) & Trim(txtCSData6.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data6 As ClassPNR
-                                                                COD_Data6 = New ClassPNR
-                                                                COD_Data6.SendPNR_CODData6 = CoD_CSData6
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData6.Close()
-
-                                                    End If
-
-                                                End If
-
-                                                'Client Data 7
-                                                If Trim(RS3.Fields("DataItem").Value) = "D22" Then
-
-                                                    If Trim(txtCSData7.Text) <> Nothing Then
-
-                                                        check_RS_CSData7()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData7 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData7.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData7
-
-                                                            If Not RS_CSData7.EOF Then
-
-                                                                Dim CoD_CSData7 As String
-                                                                CoD_CSData7 = Trim(RS_CSData7.Fields("BCD_Code").Value) & Trim(txtCSData7.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data7 As ClassPNR
-                                                                COD_Data7 = New ClassPNR
-                                                                COD_Data7.SendPNR_CODData7 = CoD_CSData7
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData7.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Client Data 8
-                                                If Trim(RS3.Fields("DataItem").Value) = "D23" Then
-
-                                                    If Trim(txtCSData8.Text) <> Nothing Then
-
-                                                        check_RS_CSData8()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData8 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData8.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData8
-
-                                                            If Not RS_CSData8.EOF Then
-
-                                                                Dim CoD_CSData8 As String
-                                                                CoD_CSData8 = Trim(RS_CSData8.Fields("BCD_Code").Value) & Trim(txtCSData8.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data8 As ClassPNR
-                                                                COD_Data8 = New ClassPNR
-                                                                COD_Data8.SendPNR_CODData8 = CoD_CSData8
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData8.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Client Data 12
-                                                If Trim(RS3.Fields("DataItem").Value) = "D24" Then
-
-                                                    If Trim(txtCSData12.Text) <> Nothing Then
-
-                                                        check_RS_CSData12()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ClientData12 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_CSData12.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CSData12
-
-                                                            If Not RS_CSData12.EOF Then
-
-                                                                Dim CoD_CSData12 As String
-                                                                CoD_CSData12 = Trim(RS_CSData12.Fields("BCD_Code").Value) & Trim(txtCSData12.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                                Dim COD_Data12 As ClassPNR
-                                                                COD_Data12 = New ClassPNR
-                                                                COD_Data12.SendPNR_CODData12 = CoD_CSData12
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CSData12.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Cost Center Code ++
-                                                If Trim(RS3.Fields("DataItem").Value) = "D08" Then
-
-                                                    If Trim(txtCostCenterCode.Text) <> Nothing Then
-
-                                                        check_RS_CCGL()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_CostCenter where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_CCGL.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_CCGL
-
-                                                            If Not RS_CCGL.EOF Then
-
-                                                                Dim CoD_CCGL As String
-                                                                CoD_CCGL = Trim(RS_CCGL.Fields("BCD_Code").Value) & Trim(txtCostCenterCode.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCostCenterCode.Text)
-                                                                Dim COD_CCG As ClassPNR
-                                                                COD_CCG = New ClassPNR
-                                                                COD_CCG.SendPNR_CODCCGL = CoD_CCGL
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_CCGL.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Department Number
-                                                If Trim(RS3.Fields("DataItem").Value) = "D09" Then
-                                                    If Trim(txtDeptNo.Text) <> Nothing Then
-
-                                                        check_RS_DeptNo()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_DeptNo where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_DeptNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_DeptNo
-
-                                                            If Not RS_DeptNo.EOF Then
-
-                                                                Dim CoD_DepNo As String
-                                                                CoD_DepNo = Trim(RS_DeptNo.Fields("BCD_Code").Value) & Trim(txtDeptNo.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtDeptNo.Text)
-                                                                Dim COD_DeptNo As ClassPNR
-                                                                COD_DeptNo = New ClassPNR
-                                                                COD_DeptNo.SendPNR_DeptNo = CoD_DepNo
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_DeptNo.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Employee Number
-                                                If Trim(RS3.Fields("DataItem").Value) = "D10" Then
-                                                    If Trim(txtEmployeeNo.Text) <> Nothing Then
-
-                                                        check_RS_EmpNo()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_EmpNo where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_EmpNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_EmpNo
-
-                                                            If Not RS_EmpNo.EOF Then
-
-                                                                Dim CoD_EmpNo As String
-                                                                CoD_EmpNo = Trim(RS_EmpNo.Fields("BCD_Code").Value) & Trim(txtEmployeeNo.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtEmployeeNo.Text)
-                                                                Dim COD_EmpNumber As ClassPNR
-                                                                COD_EmpNumber = New ClassPNR
-                                                                COD_EmpNumber.SendPNR_EmptNo = CoD_EmpNo
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_EmpNo.Close()
-
-                                                    End If
-
-
-                                                End If
-
-
-
-
-
-                                                'Manager Superior
-                                                If Trim(RS3.Fields("DataItem").Value) = "D11" Then
-
-                                                    If Trim(txtMgrSuperior.Text) <> Nothing Then
-
-                                                        check_rs_mgrsup()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_MgrSup where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_MgrSup.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_MgrSup
-
-                                                            If Not RS_MgrSup.EOF Then
-                                                                Dim CoD_MgrSup As String
-                                                                CoD_MgrSup = Trim(RS_MgrSup.Fields("BCD_Code").Value) & Trim(txtMgrSuperior.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtMgrSuperior.Text)
-                                                                Dim COD_MgrSupr As ClassPNR
-                                                                COD_MgrSupr = New ClassPNR
-                                                                COD_MgrSupr.SendPNR_MgrSup = CoD_MgrSup
-                                                            End If
-
-                                                        End With
-
-                                                        RS_MgrSup.Close()
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Order Reference
-                                                If Trim(RS3.Fields("DataItem").Value) = "D12" Then
-
-                                                    If Trim(txtOrderRef.Text) <> Nothing Then
-
-                                                        check_RS_OrdrRef()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_OrderRef where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_OrdrRef.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_OrdrRef
-
-                                                            If Not RS_OrdrRef.EOF Then
-
-                                                                Dim CoD_OrderRef As String
-                                                                CoD_OrderRef = Trim(RS_OrdrRef.Fields("BCD_Code").Value) & Trim(txtOrderRef.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtOrderRef.Text)
-                                                                Dim COD_OrderRe As ClassPNR
-                                                                COD_OrderRe = New ClassPNR
-                                                                COD_OrderRe.SendPNR_Ordr = CoD_OrderRef
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_OrdrRef.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'Project Number
-                                                If Trim(RS3.Fields("DataItem").Value) = "D13" Then
-
-                                                    If Trim(txtProjectNo.Text) <> Nothing Then
-
-                                                        check_RS_ProjNo()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_Projno where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                        RS_ProjNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_ProjNo
-
-                                                            If Not RS_ProjNo.EOF Then
-
-                                                                Dim CoD_ProjNumber As String
-                                                                CoD_ProjNumber = Trim(RS_ProjNo.Fields("BCD_Code").Value) & Trim(txtProjectNo.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtProjectNo.Text)
-                                                                Dim COD_ProjNum As ClassPNR
-                                                                COD_ProjNum = New ClassPNR
-                                                                COD_ProjNum.SendPNR_ProjNo = CoD_ProjNumber
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_ProjNo.Close()
-
-                                                    End If
-
-                                                End If
-
-
-                                                'ReasonofTrip
-                                                If Trim(RS3.Fields("DataItem").Value) = "D14" Then
-
-                                                    If Trim(txtReasonofTrip.Text) <> Nothing Then
-
-                                                        check_RS_ReasnofTrip()
-                                                        SQL_QUERY = " Select * from BCDMIS..T_ReasonofTrip where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                        RS_ReasnofTrip.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-
-                                                        With RS_ReasnofTrip
-
-                                                            If Not RS_ReasnofTrip.EOF Then
-
-                                                                Dim CoD_RTrip As String
-                                                                CoD_RTrip = Trim(RS_ReasnofTrip.Fields("BCD_Code").Value) & Trim(txtReasonofTrip.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtReasonofTrip.Text)
-                                                                Dim COD_ReasonTrip As ClassPNR
-                                                                COD_ReasonTrip = New ClassPNR
-                                                                COD_ReasonTrip.SendPNR_ReasonTrip = CoD_RTrip
-
-                                                            End If
-
-                                                        End With
-
-                                                        RS_ReasnofTrip.Close()
-
-
-                                                    End If
-
-                                                End If
-
-
-
-                                                'Traveller Status
-                                                If Trim(RS3.Fields("DataItem").Value) = "D15" Then
-
-                                                    If Trim(txtTravellerStat.Text) <> Nothing Then
-
-                                                        check_RS_TravStat()
-
-                                                        SQL_QUERY = " Select * from BCDMIS..T_TravStatus where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                        RS_TravStat.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                        With RS_TravStat
-
-                                                            If Not RS_TravStat.EOF Then
-                                                                Dim CoD_TravStatus As String
-                                                                CoD_TravStatus = RS_TravStat.Fields("BCD_Code").Value & Trim(txtTravellerStat.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                                Dim COD_TravStat As ClassPNR
-                                                                COD_TravStat = New ClassPNR
-                                                                COD_TravStat.SendPNR_ReasonTrip = CoD_TravStatus
-                                                            End If
-
-                                                        End With
-
-                                                        RS_TravStat.Close()
-
-                                                    End If
-
-                                                End If
-
-
+                                                classPNR.sendFaresAddtl = "RM*LOW FARE*/" & Trim(cboCurrAir.Text) & "/" & Trim(txtLowFare.Text)
                                             End If
 
                                         End If
-
-                                        RS3.MoveNext()
-
-                                    Loop
-
-                                End If
-
-                            End With
-
-                            RS3.Close()
-
-                        End If
-
-
-
-                    Else
-
-
-                        CHECK_RS3()
-
-                        SQL_QUERY = "Select * from BCDMIS..MIDFields where clientGCN  = '" & Trim(GlobalCustNO) & "' order by gems"
-                        RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        With RS3
-
-                            If Not RS3.EOF Then
-
-                                Do While Not RS3.EOF
-
-                                    If Trim(RS3.Fields("Required").Value) = "Mandatory" Then
-
-
-
-                                        ' Low Fare
-
-                                        If Trim(RS3.Fields("DataItem").Value) = "D19" Then
-
-                                            If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                                check_RS_LowFare()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_LowFare where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                RS_LowFare.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_LowFare
-
-                                                    If Not RS_LowFare.EOF Then
-                                                        Dim CoD_lowFare As String
-                                                        CoD_lowFare = Trim(Trim(RS_LowFare.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                        Dim CoD_lowFareSnd As ClassPNR
-                                                        CoD_lowFareSnd = New ClassPNR
-                                                        CoD_lowFareSnd.sendFares = CoD_lowFare
-                                                    End If
-
-                                                End With
-
-                                                RS_LowFare.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-
-
-                                        ' Curr Code
-
-                                        If Trim(RS3.Fields("DataItem").Value) = "D18" Then
-
-                                            If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                                check_RS_CurrCode()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_CurrCode where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                RS_CurrCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CurrCode
-
-                                                    If Not RS_CurrCode.EOF Then
-                                                        Dim CoD_CurrCode As String
-                                                        CoD_CurrCode = Trim(Trim(RS_CurrCode.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                        Dim CoD_CurrCodeSnd As ClassPNR
-                                                        CoD_CurrCodeSnd = New ClassPNR
-                                                        CoD_CurrCodeSnd.sendCurrCode = CoD_CurrCode
-                                                    End If
-
-                                                End With
-
-                                                RS_CurrCode.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-                                        ' Reason Code Den
-
-                                        If Trim(RS3.Fields("DataItem").Value) = "D17" Then
-
-                                            If Trim(txtRCodeDenied.Text) <> Nothing Then
-
-                                                check_RS_Rcode()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ReasonCodeDen where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                RS_Rcode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_Rcode
-
-                                                    If Not RS_Rcode.EOF Then
-                                                        Dim CoD_RCodeDenied As String
-                                                        CoD_RCodeDenied = Trim(Trim(RS_Rcode.Fields("BCD_Code").Value) & Trim(txtRCodeDenied.Text)) ' & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                        Dim CoD_RCodeDeniedSnd As ClassPNR
-                                                        CoD_RCodeDeniedSnd = New ClassPNR
-                                                        CoD_RCodeDeniedSnd.sendReasonCodeDen = CoD_RCodeDenied
-                                                    End If
-
-                                                End With
-
-                                                RS_Rcode.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-                                        ' Accomodation Reason Code'
-                                        If Trim(RS3.Fields("DataItem").Value) = "D01" Then
-
-                                            If Trim(txtAirNoReasonCD.Text) <> Nothing Then
-
-                                                Check_RS_AReasonCode()
-                                                SQL_QUERY = " Select * from BCDMIS..T_AirNoAccomReasonCD where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_AReasonCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_AReasonCode
-                                                    If Not RS_AReasonCode.EOF Then
-                                                        Dim strAccomRCode As String
-                                                        strAccomRCode = Trim(RS_AReasonCode.Fields("BCD_Code").Value) & Trim(txtAirNoReasonCD.Text)                                                ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtAirNoReasonCD.Text)
-                                                        Dim AccomReasonCode As ClassPNR
-                                                        AccomReasonCode = New ClassPNR
-                                                        AccomReasonCode.SendPNR_strAccomCode = strAccomRCode
-                                                    End If
-                                                End With
-
-                                                RS_AReasonCode.Close()
-                                            End If
-
-
-                                        End If
-
-                                        'Approval Code
-                                        If Trim(RS3.Fields("DataItem").Value) = "D02" Then
-
-                                            If Trim(txtApproverCode.Text) <> Nothing Then
-                                                check_RS_AppovalCode()
-                                                SQL_QUERY = "Select * from BCDMIS..T_ApprovalCode where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_AppovalCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_AppovalCode
-                                                    If Not RS_AppovalCode.EOF Then
-                                                        Dim strApprvlCode As String
-                                                        strApprvlCode = Trim(RS_AppovalCode.Fields("BCD_Code").Value) & Trim(txtApproverCode.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtApproverCode.Text)
-                                                        Dim ApprvlCode As ClassPNR
-                                                        ApprvlCode = New ClassPNR
-                                                        ApprvlCode.SendPNR_ApprovalCode = strApprvlCode
-                                                    End If
-                                                End With
-
-                                                RS_AReasonCode.Close()
-                                            End If
-
-                                        End If
-
-
-                                        'Approver
-                                        If Trim(RS3.Fields("DataItem").Value) = "D03" Then
-
-                                            If Trim(txtApprover.Text) < Nothing Then
-                                                check_RS_Approver()
-                                                SQL_QUERY = " Select * from BCDMIS..T_Approver where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_Approver.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_Approver
-
-                                                    If Not RS_Approver.EOF Then
-                                                        Dim strApprv As String
-                                                        strApprv = Trim(RS_Approver.Fields("BCD_Code").Value) & Trim(txtApprover.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtApprover.Text)
-                                                        Dim ApprvlCode As ClassPNR
-                                                        ApprvlCode = New ClassPNR
-                                                        ApprvlCode.SendPNR_Approver = strApprv
-                                                    End If
-
-                                                End With
-
-                                                RS_Approver.Close()
-                                            End If
-
-                                        End If
-
-
-                                        'Client Data 1
-                                        If Trim(RS3.Fields("DataItem").Value) = "D04" Then
-
-                                            If Trim(txtCSData1.Text) <> Nothing Then
-                                                check_RS_CSData1()
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData1 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData1
-
-                                                    If Not RS_CSData1.EOF Then
-                                                        Dim CoD_CSData1 As String
-                                                        CoD_CSData1 = Trim(RS_CSData1.Fields("BCD_Code").Value) & Trim(txtCSData1.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData1.Text)
-                                                        Dim COD_Data1 As ClassPNR
-                                                        COD_Data1 = New ClassPNR
-                                                        COD_Data1.SendPNR_CODData1 = CoD_CSData1
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData1.Close()
-
-                                            End If
-
-                                        End If
-
-
-                                        'Client Data 2
-                                        If Trim(RS3.Fields("DataItem").Value) = "D05" Then
-
-                                            If Trim(txtCSData2.Text) <> Nothing Then
-
-                                                check_RS_CSData2()
-                                                SQL_QUERY = " Select * From BCDMIS..T_ClientData2 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData2.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData2
-
-                                                    If Not RS_CSData2.EOF Then
-                                                        Dim CoD_CSData2 As String
-                                                        CoD_CSData2 = Trim(RS_CSData2.Fields("BCD_Code").Value) & Trim(txtCSData2.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData2.Text)
-                                                        Dim COD_Data2 As ClassPNR
-                                                        COD_Data2 = New ClassPNR
-                                                        COD_Data2.SendPNR_CODData2 = CoD_CSData2
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData2.Close()
-                                            End If
-
-                                        End If
-
-
-                                        'Client Data 3
-                                        If Trim(RS3.Fields("DataItem").Value) = "D06" Then
-
-                                            If Trim(txtCSData3.Text) <> Nothing Then
-
-                                                check_RS_CSData3()
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData3 where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData3
-
-                                                    If Not RS_CSData3.EOF Then
-                                                        Dim CoD_CSData3 As String
-                                                        CoD_CSData3 = Trim(RS_CSData3.Fields("BCD_Code").Value) & Trim(txtCSData3.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData3.Text)
-                                                        Dim COD_Data3 As ClassPNR
-                                                        COD_Data3 = New ClassPNR
-                                                        COD_Data3.SendPNR_CODData2 = CoD_CSData3
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData3.Close()
-
-                                            End If
-
-
-                                        End If
-
-
-                                        'Client Data 4
-                                        If Trim(RS3.Fields("DataItem").Value) = "D07" Then
-
-                                            If Trim(txtCSData4.Text) <> Nothing Then
-
-                                                check_RS_CSData4()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData4 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData4.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData4
-
-                                                    If Not RS_CSData4.EOF Then
-
-                                                        Dim CoD_CSData4 As String
-                                                        CoD_CSData4 = Trim(RS_CSData4.Fields("BCD_Code").Value) & Trim(txtCSData4.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data4 As ClassPNR
-                                                        COD_Data4 = New ClassPNR
-                                                        COD_Data4.SendPNR_CODData4 = CoD_CSData4
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData4.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-
-                                        'Client Data 5
-                                        If Trim(RS3.Fields("DataItem").Value) = "D20" Then
-
-                                            If Trim(txtCSData5.Text) <> Nothing Then
-
-                                                check_RS_CSData5()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData5 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData5.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData5
-
-                                                    If Not RS_CSData5.EOF Then
-
-                                                        Dim CoD_CSData5 As String
-                                                        CoD_CSData5 = Trim(RS_CSData5.Fields("BCD_Code").Value) & Trim(txtCSData5.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data5 As ClassPNR
-                                                        COD_Data5 = New ClassPNR
-                                                        COD_Data5.SendPNR_CODData5 = CoD_CSData5
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData5.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-
-                                        'Client Data 6
-                                        If Trim(RS3.Fields("DataItem").Value) = "D21" Then
-
-                                            If Trim(txtCSData6.Text) <> Nothing Then
-
-                                                check_RS_CSData6()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData6 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData6.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData6
-
-                                                    If Not RS_CSData6.EOF Then
-
-                                                        Dim CoD_CSData6 As String
-                                                        CoD_CSData6 = Trim(RS_CSData6.Fields("BCD_Code").Value) & Trim(txtCSData6.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data6 As ClassPNR
-                                                        COD_Data6 = New ClassPNR
-                                                        COD_Data6.SendPNR_CODData6 = CoD_CSData6
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData6.Close()
-
-                                            End If
-
-                                        End If
-
-                                        'Client Data 7
-                                        If Trim(RS3.Fields("DataItem").Value) = "D22" Then
-
-                                            If Trim(txtCSData7.Text) <> Nothing Then
-
-                                                check_RS_CSData7()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData7 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData7.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData7
-
-                                                    If Not RS_CSData7.EOF Then
-
-                                                        Dim CoD_CSData7 As String
-                                                        CoD_CSData7 = Trim(RS_CSData7.Fields("BCD_Code").Value) & Trim(txtCSData7.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data7 As ClassPNR
-                                                        COD_Data7 = New ClassPNR
-                                                        COD_Data7.SendPNR_CODData7 = CoD_CSData7
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData7.Close()
-
-                                            End If
-
-                                        End If
-
-
-                                        'Client Data 8
-                                        If Trim(RS3.Fields("DataItem").Value) = "D23" Then
-
-                                            If Trim(txtCSData8.Text) <> Nothing Then
-
-                                                check_RS_CSData8()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData8 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData8.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData8
-
-                                                    If Not RS_CSData8.EOF Then
-
-                                                        Dim CoD_CSData8 As String
-                                                        CoD_CSData8 = Trim(RS_CSData8.Fields("BCD_Code").Value) & Trim(txtCSData8.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data8 As ClassPNR
-                                                        COD_Data8 = New ClassPNR
-                                                        COD_Data8.SendPNR_CODData8 = CoD_CSData8
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData8.Close()
-
-                                            End If
-
-                                        End If
-
-
-                                        'Client Data 12
-                                        If Trim(RS3.Fields("DataItem").Value) = "D24" Then
-
-                                            If Trim(txtCSData12.Text) <> Nothing Then
-
-                                                check_RS_CSData12()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_ClientData12 where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_CSData12.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CSData12
-
-                                                    If Not RS_CSData12.EOF Then
-
-                                                        Dim CoD_CSData12 As String
-                                                        CoD_CSData12 = Trim(RS_CSData12.Fields("BCD_Code").Value) & Trim(txtCSData12.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCSData4.Text)
-                                                        Dim COD_Data12 As ClassPNR
-                                                        COD_Data12 = New ClassPNR
-                                                        COD_Data12.SendPNR_CODData12 = CoD_CSData12
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CSData12.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-
-                                        'Cost Center Code
-                                        If Trim(RS3.Fields("DataItem").Value) = "D08" Then
-
-                                            If Trim(txtCostCenterCode.Text) <> Nothing Then
-
-                                                check_RS_CCGL()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_CostCenter where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_CCGL.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_CCGL
-
-                                                    If Not RS_CCGL.EOF Then
-
-                                                        Dim CoD_CCGL As String
-                                                        CoD_CCGL = Trim(RS_CCGL.Fields("BCD_Code").Value) & Trim(txtCostCenterCode.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtCostCenterCode.Text)
-                                                        Dim COD_CCG As ClassPNR
-                                                        COD_CCG = New ClassPNR
-                                                        COD_CCG.SendPNR_CODCCGL = CoD_CCGL
-
-                                                    End If
-
-                                                End With
-
-                                                RS_CCGL.Close()
-
-                                            End If
-
-                                        End If
-
-
-
-                                        'Department Number
-                                        If Trim(RS3.Fields("DataItem").Value) = "D09" Then
-
-                                            If Trim(txtDeptNo.Text) <> Nothing Then
-
-                                                check_RS_DeptNo()
-                                                SQL_QUERY = " Select * from BCDMIS..T_DeptNo where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_DeptNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_DeptNo
-
-                                                    If Not RS_DeptNo.EOF Then
-
-                                                        Dim CoD_DepNo As String
-                                                        CoD_DepNo = Trim(Trim(RS_DeptNo.Fields("BCD_Code").Value) & Trim(txtDeptNo.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtDeptNo.Text)
-                                                        Dim COD_DeptNo As ClassPNR
-                                                        COD_DeptNo = New ClassPNR
-                                                        COD_DeptNo.SendPNR_DeptNo = CoD_DepNo
-
-                                                    End If
-
-                                                End With
-
-                                                RS_DeptNo.Close()
-                                            End If
-
-                                        End If
-
-                                        'Employee Number
-                                        If Trim(RS3.Fields("DataItem").Value) = "D10" Then
-
-                                            If Trim(txtEmployeeNo.Text) <> Nothing Then
-
-                                                check_RS_EmpNo()
-                                                SQL_QUERY = " Select * from BCDMIS..T_EmpNo where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_EmpNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_EmpNo
-
-                                                    If Not RS_EmpNo.EOF Then
-
-                                                        Dim CoD_EmpNo As String
-                                                        CoD_EmpNo = Trim(Trim(RS_EmpNo.Fields("BCD_Code").Value) & Trim(txtEmployeeNo.Text)) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtEmployeeNo.Text)
-                                                        Dim COD_EmpNumber As ClassPNR
-                                                        COD_EmpNumber = New ClassPNR
-                                                        COD_EmpNumber.SendPNR_EmptNo = CoD_EmpNo
-
-                                                    End If
-
-                                                End With
-
-                                                RS_EmpNo.Close()
-                                            End If
-
-                                        End If
-
-
-                                        'Manager Superior
-                                        If Trim(RS3.Fields("DataItem").Value) = "D11" Then
-
-                                            If Trim(txtMgrSuperior.Text) <> Nothing Then
-
-                                                check_rs_mgrsup()
-                                                SQL_QUERY = " Select * from BCDMIS..T_MgrSup where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_MgrSup.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_MgrSup
-
-                                                    If Not RS_MgrSup.EOF Then
-                                                        Dim CoD_MgrSup As String
-                                                        CoD_MgrSup = Trim(RS_MgrSup.Fields("BCD_Code").Value) & Trim(txtMgrSuperior.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtMgrSuperior.Text)
-                                                        Dim COD_MgrSupr As ClassPNR
-                                                        COD_MgrSupr = New ClassPNR
-                                                        COD_MgrSupr.SendPNR_MgrSup = CoD_MgrSup
-                                                    End If
-
-                                                End With
-
-                                                RS_MgrSup.Close()
-                                            End If
-
-
-                                        End If
-
-
-                                        'Order Reference
-                                        If Trim(RS3.Fields("DataItem").Value) = "D12" Then
-
-                                            If Trim(txtOrderRef.Text) <> Nothing Then
-
-                                                check_RS_OrdrRef()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_OrderRef where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_OrdrRef.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_OrdrRef
-
-                                                    If Not RS_OrdrRef.EOF Then
-
-                                                        Dim CoD_OrderRef As String
-                                                        CoD_OrderRef = Trim(RS_OrdrRef.Fields("BCD_Code").Value) & Trim(txtOrderRef.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtOrderRef.Text)
-                                                        Dim COD_OrderRe As ClassPNR
-                                                        COD_OrderRe = New ClassPNR
-                                                        COD_OrderRe.SendPNR_Ordr = CoD_OrderRef
-
-                                                    End If
-
-                                                End With
-
-                                                RS_OrdrRef.Close()
-                                            End If
-
-                                        End If
-
-
-                                        'Project Number
-                                        If Trim(RS3.Fields("DataItem").Value) = "D13" Then
-
-                                            If Trim(txtProjectNo.Text) <> Nothing Then
-
-                                                check_RS_ProjNo()
-                                                SQL_QUERY = " Select * from BCDMIS..T_Projno where GCN = '" & Trim(GlobalCustNO) & "'"
-                                                RS_ProjNo.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_ProjNo
-
-                                                    If Not RS_ProjNo.EOF Then
-
-                                                        Dim CoD_ProjNumber As String
-                                                        CoD_ProjNumber = Trim(RS_ProjNo.Fields("BCD_Code").Value) & Trim(txtProjectNo.Text) ' Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtProjectNo.Text)
-                                                        Dim COD_ProjNum As ClassPNR
-                                                        COD_ProjNum = New ClassPNR
-                                                        COD_ProjNum.SendPNR_ProjNo = CoD_ProjNumber
-
-                                                    End If
-
-                                                End With
-
-                                                RS_ProjNo.Close()
-                                            End If
-
-                                        End If
-
-                                        'ReasonofTrip
-                                        If Trim(RS3.Fields("DataItem").Value) = "D14" Then
-
-                                            If Trim(txtReasonofTrip.Text) <> Nothing Then
-
-                                                check_RS_ReasnofTrip()
-                                                SQL_QUERY = " Select * from BCDMIS..T_ReasonofTrip where GCN ='" & Trim(GlobalCustNO) & "'"
-                                                RS_ReasnofTrip.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-
-                                                With RS_ReasnofTrip
-
-                                                    If Not RS_ReasnofTrip.EOF Then
-
-                                                        Dim CoD_RTrip As String
-                                                        CoD_RTrip = Trim(RS_ReasnofTrip.Fields("BCD_Code").Value) & Trim(txtReasonofTrip.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtReasonofTrip.Text)
-                                                        Dim COD_ReasonTrip As ClassPNR
-                                                        COD_ReasonTrip = New ClassPNR
-                                                        COD_ReasonTrip.SendPNR_ReasonTrip = CoD_RTrip
-
-                                                    End If
-
-                                                End With
-
-                                                RS_ReasnofTrip.Close()
-                                            End If
-
-                                        End If
-
-                                        'Traveller Status
-                                        If Trim(RS3.Fields("DataItem").Value) = "D15" Then
-
-                                            If Trim(txtTravellerStat.Text) <> Nothing Then
-
-                                                check_RS_TravStat()
-
-                                                SQL_QUERY = " Select * from BCDMIS..T_TravStatus where GCN = '" & Trim(GlobalCustNO) & "' "
-                                                RS_TravStat.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                                With RS_TravStat
-
-                                                    If Not RS_TravStat.EOF Then
-                                                        Dim CoD_TravStatus As String
-                                                        CoD_TravStatus = RS_TravStat.Fields("BCD_Code").Value & Trim(txtTravellerStat.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                                        Dim COD_TravStat As ClassPNR
-                                                        COD_TravStat = New ClassPNR
-                                                        COD_TravStat.SendPNR_ReasonTrip = CoD_TravStatus
-                                                    End If
-
-                                                End With
-
-                                                RS_TravStat.Close()
-
-                                            End If
-
-                                        End If
-
-
-                                        '' Low Fare
-
-                                        'If Trim(RS3.Fields("DataItem").Value) = "D19" Then
-
-                                        '    If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                        '        check_RS_LowFare()
-
-                                        '        SQL_QUERY = " Select * from BCDMIS..T_LowFare where GCN = '" & Trim(GlobalCustNO) & "' "
-                                        '        RS_LowFare.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                        '        With RS_LowFare
-
-                                        '            If Not RS_LowFare.EOF Then
-                                        '                Dim CoD_lowFare As String
-                                        '                CoD_lowFare = Trim(Trim(RS_LowFare.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                        '                Dim CoD_lowFareSnd As ClassPNR
-                                        '                CoD_lowFareSnd = New ClassPNR
-                                        '                CoD_lowFareSnd.sendFares = CoD_lowFare
-                                        '            End If
-
-                                        '        End With
-
-                                        '        RS_LowFare.Close()
-
-                                        '    End If
-
-                                        'End If
-
-
-
-
-                                        '' Curr Code
-
-                                        'If Trim(RS3.Fields("DataItem").Value) = "D18" Then
-
-                                        '    If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
-
-                                        '        check_RS_CurrCode()
-
-                                        '        SQL_QUERY = " Select * from BCDMIS..T_CurrCode where GCN = '" & Trim(GlobalCustNO) & "' "
-                                        '        RS_CurrCode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                        '        With RS_CurrCode
-
-                                        '            If Not RS_CurrCode.EOF Then
-                                        '                Dim CoD_CurrCode As String
-                                        '                CoD_CurrCode = Trim(Trim(RS_CurrCode.Fields("BCD_Code").Value) & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                        '                Dim CoD_CurrCodeSnd As ClassPNR
-                                        '                CoD_CurrCodeSnd = New ClassPNR
-                                        '                CoD_CurrCodeSnd.sendCurrCode = CoD_CurrCode
-                                        '            End If
-
-                                        '        End With
-
-                                        '        RS_CurrCode.Close()
-
-                                        '    End If
-
-                                        'End If
-
-
-                                        '' Reason Code Den
-
-                                        'If Trim(RS3.Fields("DataItem").Value) = "D17" Then
-
-                                        '    If Trim(txtRCodeDenied.Text) <> Nothing Then
-
-                                        '        check_RS_Rcode()
-
-                                        '        SQL_QUERY = " Select * from BCDMIS..T_ReasonCodeDen where GCN = '" & Trim(GlobalCustNO) & "' "
-                                        '        RS_Rcode.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                                        '        With RS_Rcode
-
-                                        '            If Not RS_Rcode.EOF Then
-                                        '                Dim CoD_RCodeDenied As String
-                                        '                CoD_RCodeDenied = Trim(Trim(RS_Rcode.Fields("BCD_Code").Value) & Trim(txtRCodeDenied.Text)) ' & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text) 'Trim(RS3.Fields("GEMS").Value) & "*BCD/" & Trim((RS3.Fields("CustomerFieldName").Value).Replace(" ", "")) & "/" & Trim(txtTravellerStat.Text)
-                                        '                Dim CoD_RCodeDeniedSnd As ClassPNR
-                                        '                CoD_RCodeDeniedSnd = New ClassPNR
-                                        '                CoD_RCodeDeniedSnd.sendReasonCodeDen = CoD_RCodeDenied
-                                        '            End If
-
-                                        '        End With
-
-                                        '        RS_Rcode.Close()
-
-                                        '    End If
-
-                                        'End If
-
-
-
-
-
                                     End If
 
-                                    RS3.MoveNext()
-
-                                Loop
-
-
-                            End If
-
-                        End With
-
-                        RS3.Close()
-
-
-
-
-                    End If
-
-
-
-                    'If (Trim(txtSellingFare.Text) <> "" Or Trim(txtSellingFare.Text) <> Nothing) And (Trim(txtLowFare.Text) <> "" Or Trim(txtLowFare.Text) <> Nothing) And (Trim(cboCurrAir.Text) <> "" Or Trim(cboCurrAir.Text) <> Nothing) Then
-                    '    CompFares = Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" & Trim(txtLowFare.Text)
-                    '    Dim CPfares As ClassPNR
-                    '    CPfares = New ClassPNR
-                    '    CPfares.sendFares = CompFares
-                    'End If
-
-                    'If Trim(txtRCodeDenied.Text) <> Nothing Or Trim(txtRCodeDenied.Text) = "" Then
-                    '    CompAirCode = Trim(txtRCodeDenied.Text)
-                    '    Dim CPAirCode As ClassPNR
-                    '    CPAirCode = New ClassPNR
-                    '    CPAirCode.sendAirCode = CompAirCode
-                    'End If
-
-                    If TOEGCheck <> 1 Then
-                        SendMsg = 1
-                        Dim profTOEG As ClassPNR
-                        profTOEG = New ClassPNR
-                        profTOEG = New ClassPNR
-                        profTOEG.sendTOEG = TOEG
-                    End If
-
-
-                    If RF.Checked = True Then
-                        If Trim(ReceiveFrm) <> Nothing And iCtr <> 1 Then
-                            Dim p_ReceivedFrom As ClassPNR
-                            p_ReceivedFrom = New ClassPNR
-                            p_ReceivedFrom.SendPNR_CReceivedFrom = ReceiveFrm
-                        End If
-                    End If
-
-
-
-                    If chkClientNo.Checked = True Then
-                        If Trim(ClientNo) <> Nothing And iCtr <> 1 Then
-                            Dim p_Client As ClassPNR
-                            p_Client = New ClassPNR
-                            p_Client.SendPNR_CClientNo = ClientNo
-                        End If
-                    End If
-
-                    If DivNo.Checked = True Then
-                        If Trim(DivNumber) <> Nothing Then
-                            Dim p_DivNO As ClassPNR
-                            p_DivNO = New ClassPNR
-                            p_DivNO.SendPNR_CDivNumber = DivNumber
-                        End If
-                    End If
-
-                    If BookingAgent.Checked = True Then
-                        If Trim(BAgent) <> Nothing Then
-                            Dim p_BookingAgent As ClassPNR
-                            p_BookingAgent = New ClassPNR
-                            p_BookingAgent.SendPNR_CBookingAgent = BAgent
-                        End If
-                    End If
-
-                    If Trim(TA) <> "" Or Trim(TA) <> Nothing Then
-                        SendMsg = 1
-                        Dim TAResult As ClassPNR
-                        TAResult = New ClassPNR
-                        TAResult.sendPNR_TA = TA
-                    End If
-
-                    If VesselName.Checked = True And iCtr <> 1 Then
-                        If Trim(VName) <> Nothing Then
-                            Dim p_VesselName As ClassPNR
-                            p_VesselName = New ClassPNR
-                            p_VesselName.SendPNR_CVesselName = VName
-                        End If
-                    End If
-
-                    If TKTL.Checked = True Then                   'TKTL Element
-                        Dim p_TicketTL As ClassPNR
-                        p_TicketTL = New ClassPNR
-                        p_TicketTL.SendPNR_CTicketTL = TicketTL
-                    End If
-
-
-                    If IsNumeric(Trim(B_PF)) = True Then
-                        Dim pfResult As ClassPNR
-                        pfResult = New ClassPNR
-                        pfResult.SendPNR_PF = B_PF
-                    End If
-
-
-                    If IsNumeric(Trim(B_SF)) = True Then
-                        Dim sfResult As ClassPNR
-                        sfResult = New ClassPNR
-                        sfResult.SendPNR_SF = B_SF
-                    End If
-
-                    If Segment.Count > 0 Then                      ' Per Segment
-                        For i = 0 To Segment.Count - 1
-                            Dim bsfResult As ClassPNR
-                            bsfResult = New ClassPNR
-                            BF_SF = Segment(i)
-                            bsfResult.SendPNR_BSF = BF_SF
-                        Next
-                    End If
-
-
-
-                    If TicketSegment.Count > 0 Then                ' TicketNumber
-                        For i = 0 To TicketSegment.Count - 1
-                            Dim tckResult As ClassPNR
-                            tckResult = New ClassPNR
-                            ETCK = TicketSegment(i)
-                            tckResult.SendPNR_ETCK = ETCK
-                        Next
-                    End If
-
-                    If NonBSP <> Nothing Then
-                        Dim tckNonBSP As ClassPNR
-                        tckNonBSP = New ClassPNR
-                        tckNonBSP.SendPNR_NonBSP = NonBSP
-                    End If
-
-
-                    If IsNumeric(Trim(B_RF)) = True Then
-                        Dim rfResult As ClassPNR
-                        rfResult = New ClassPNR
-                        rfResult.SendPNR_RF = B_RF
-                    End If
-
-                    If IsNumeric(Trim(B_LF)) = True Then
-                        Dim lfResult As ClassPNR
-                        lfResult = New ClassPNR
-                        lfResult.SendPNR_LF = B_LF
-                    End If
-
-                    If Trim(B_EC) <> "" Or Trim(B_EC) <> Nothing Then
-                        Dim ecResult As ClassPNR
-                        ecResult = New ClassPNR
-                        ecResult.sendPNR_EC = B_EC
-                    End If
-
-
-                    If Trim(Com_A) <> "" Or Trim(Com_A) <> Nothing Then
-                        Dim caResult As ClassPNR
-                        caResult = New ClassPNR
-                        caResult.sendPNR_CA = Com_A
-                    End If
-
-
-                    If Trim(Com_P) <> "" Or Trim(Com_P) <> Nothing Then
-                        Dim cpResult As ClassPNR
-                        cpResult = New ClassPNR
-                        cpResult.sendPNR_CP = Com_P
-                    End If
-
-                    If SegmentFareCode.Count > 0 Then                      ' Per Segment Fares
-                        For i = 0 To SegmentFareCode.Count - 1
-                            Dim SgmentFaresResult As ClassPNR
-                            SgmentFaresResult = New ClassPNR
-                            BF_FTypes = SegmentFareCode(i)
-                            SgmentFaresResult.SendPNR_Ftypes = BF_FTypes
-                        Next
-                    End If
-
-
-                    '================================
-                    '           REMARKS
-                    '================================
-
-
-
-                    '=================================
-                    '  MISCELLANEOUS TRANSACTIONS
-                    '=================================
-                    If DGW1.Rows.Count <> 0 And DGW1.Columns.Count <> 0 And sendpnrError <> 1 Then
-
-                        For i = 0 To DGW1.Rows.Count - 1
-
-                            For x = 0 To DGW1.Columns.Count - 1
-
-                                If x = 0 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    NoPax = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 0 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    NoPax = ""
-                                End If
-
-                                If x = 1 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFPCode = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 1 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFPCode = ""
-                                End If
-
-                                If x = 2 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFVCode = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 2 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFVCode = ""
-                                End If
-
-                                If x = 3 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFCPercentage = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 3 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFCPercentage = ""
-
-                                End If
-
-                                If x = 4 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFCurr = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 4 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFCurr = ""
-                                End If
-
-                                If x = 5 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFCostAmt = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 5 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFCostAmt = ""
-
-                                End If
-
-                                If x = 6 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    TFSFAmt = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 6 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    TFSFAmt = ""
-                                End If
-
-                                If x = 7 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    DIn = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf (x = 7 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "") Then
-                                    DIn = ""
-                                End If
-
-                                If x = 8 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    Dout = Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 8 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    Dout = ""
-                                End If
-
-
-                                If DIn <> "" And Dout <> "" Then
-                                    DTvl = "/TVL" & Trim(DIn) & "-" & Trim(Dout)
-                                ElseIf DIn <> "" And Dout = "" Then
-                                    DTvl = "/TVL" & Trim(DIn)
-                                Else
-                                    DTvl = ""
-                                End If
-
-
-                                If x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    MSRf = "/R" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    MSRf = ""
-                                End If
-
-                                If x = 10 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    MSLf = "/L" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    MSLf = ""
-                                End If
-
-                                If x = 11 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    MSEc = "/E" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
-                                ElseIf x = 11 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
-                                    MSEc = ""
-                                End If
-
-                                If x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-
-                                    proType = "*" & Trim(txtNoofTkt.Text) + i + 1 & "/" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
-
-                                ElseIf x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    proType = ""
-                                End If
-
-
-                                If x = 12 Then
-
-                                    TF = Trim("PC" & TFPCode & "/V" & TFVCode & "/CP" & TFCPercentage & "/A" & TFCurr & TFCostAmt & "/SF" & TFSFAmt & MSRf & MSLf & MSEc & DTvl & "/NP" & NoPax)
-
-                                    Dim tfResult As ClassPNR
-                                    tfResult = New ClassPNR
-                                    tfResult.sendPNR_TFs = TF
-
-                                    If Trim(proType) <> Nothing Then
-                                        Dim ProTResult As ClassPNR
-                                        ProTResult = New ClassPNR
-                                        ProTResult.sendPNR_ProTypeName = proType
-                                        SendMsg = 1
+                                    If Trim(item.DataItem) = "D18" Then
+                                        If Trim(txtSellingFare.Text) <> Nothing And Trim(txtLowFare.Text) <> Nothing Then
+                                            Dim tCurrCode = dbMIS.T_CurrCode.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tCurrCode Is Nothing Then
+                                                classPNR.sendCurrCode = Trim(tCurrCode.BCD_Code) & "/" & Trim(cboCurrAir.Text) & "/" & Trim(txtSellingFare.Text) & "/" &
+                                                    Trim(txtLowFare.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    If Trim(item.DataItem) = "D17" Then
+                                        If Trim(txtRCodeDenied.Text) <> Nothing Then
+                                            Dim tReasonCodeDen = dbMIS.T_ReasonCodeDen.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tReasonCodeDen Is Nothing Then
+                                                classPNR.sendReasonCodeDen = Trim(tReasonCodeDen.BCD_Code) & Trim(txtRCodeDenied.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    If Trim(item.DataItem) = "D01" Then
+                                        If Trim(txtAirNoReasonCD.Text) <> Nothing Then
+                                            Dim tAirNoAccomReasonCode = dbMIS.T_AirNoAccomReasonCD.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tAirNoAccomReasonCode Is Nothing Then
+                                                classPNR.SendPNR_strAccomCode = Trim(tAirNoAccomReasonCode.BCD_Code) & Trim(txtAirNoReasonCD.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    If Trim(item.DataItem) = "D02" Then
+                                        If Trim(txtApproverCode.Text) <> Nothing Then
+                                            Dim tApprovalCode = dbMIS.T_ApprovalCode.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tApprovalCode Is Nothing Then
+                                                classPNR.SendPNR_ApprovalCode = Trim(tApprovalCode.BCD_Code) & Trim(txtApproverCode.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    If Trim(item.DataItem) = "D03" Then
+                                        If Trim(txtApprover.Text) <> Nothing Then
+                                            Dim tApprover = dbMIS.T_Approver.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tApprover Is Nothing Then
+                                                classPNR.SendPNR_Approver = Trim(tApprover.BCD_Code) & Trim(txtApprover.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Client Data 1
+                                    If Trim(item.DataItem) = "D04" Then
+                                        If Trim(txtCSData1.Text) <> Nothing Then
+                                            Dim tClientData1 = dbMIS.T_ClientData1.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData1 Is Nothing Then
+                                                classPNR.SendPNR_CODData1 = Trim(tClientData1.BCD_Code) & Trim(txtCSData1.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Client Data 2
+                                    If Trim(item.DataItem) = "D05" Then
+                                        If Trim(txtCSData2.Text) <> Nothing Then
+                                            Dim tClientData2 = dbMIS.T_ClientData2.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData2 Is Nothing Then
+                                                classPNR.SendPNR_CODData2 = Trim(tClientData2.BCD_Code) & Trim(txtCSData2.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 3
+                                    If Trim(item.DataItem) = "D06" Then
+                                        If Trim(txtCSData3.Text) <> Nothing Then
+                                            Dim tClientData3 = dbMIS.T_ClientData3.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData3 Is Nothing Then
+                                                classPNR.SendPNR_CODData3 = Trim(tClientData3.BCD_Code) & Trim(txtCSData3.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 4
+                                    If Trim(item.DataItem) = "D07" Then
+                                        If Trim(txtCSData4.Text) <> Nothing Then
+                                            Dim tClientData4 = dbMIS.T_ClientData4.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData4 Is Nothing Then
+                                                classPNR.SendPNR_CODData4 = Trim(tClientData4.BCD_Code) & Trim(txtCSData4.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 5
+                                    If Trim(item.DataItem) = "D20" Then
+                                        If Trim(txtCSData5.Text) <> Nothing Then
+                                            Dim tClientData5 = dbMIS.T_ClientData5.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData5 Is Nothing Then
+                                                classPNR.SendPNR_CODData5 = Trim(tClientData5.BCD_Code) & Trim(txtCSData5.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 6
+                                    If Trim(item.DataItem) = "D21" Then
+                                        If Trim(txtCSData6.Text) <> Nothing Then
+                                            Dim tClientData6 = dbMIS.T_ClientData6.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData6 Is Nothing Then
+                                                classPNR.SendPNR_CODData6 = Trim(tClientData6.BCD_Code) & Trim(txtCSData6.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 7
+                                    If Trim(item.DataItem) = "D22" Then
+                                        If Trim(txtCSData7.Text) <> Nothing Then
+                                            Dim tClientData7 = dbMIS.T_ClientData7.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData7 Is Nothing Then
+                                                classPNR.SendPNR_CODData7 = Trim(tClientData7.BCD_Code) & Trim(txtCSData7.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 8
+                                    If Trim(item.DataItem) = "D23" Then
+                                        If Trim(txtCSData8.Text) <> Nothing Then
+                                            Dim tClientData8 = dbMIS.T_ClientData8.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData8 Is Nothing Then
+                                                classPNR.SendPNR_CODData8 = Trim(tClientData8.BCD_Code) & Trim(txtCSData8.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'ClientData 12
+                                    If Trim(item.DataItem) = "D24" Then
+                                        If Trim(txtCSData12.Text) <> Nothing Then
+                                            Dim tClientData12 = dbMIS.T_ClientData12.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tClientData12 Is Nothing Then
+                                                classPNR.SendPNR_CODData12 = Trim(tClientData12.BCD_Code) & Trim(txtCSData12.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Cost Center Code
+                                    If Trim(item.DataItem) = "D08" Then
+                                        If Trim(txtCostCenterCode.Text) <> Nothing Then
+                                            Dim tCostCenter = dbMIS.T_CostCenter.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tCostCenter Is Nothing Then
+                                                classPNR.SendPNR_DeptNo = Trim(tCostCenter.BCD_Code) & Trim(txtDeptNo.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Manager Superior
+                                    If Trim(item.DataItem) = "D11" Then
+                                        If Trim(txtMgrSuperior.Text) <> Nothing Then
+                                            Dim tMgrSup = dbMIS.T_MgrSup.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tMgrSup Is Nothing Then
+                                                classPNR.SendPNR_MgrSup = Trim(tMgrSup.BCD_Code) & Trim(txtMgrSuperior.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Order Reference
+                                    If Trim(item.DataItem) = "D12" Then
+                                        If Trim(txtOrderRef.Text) <> Nothing Then
+                                            Dim tOrderRef = dbMIS.T_OrderRef.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not tOrderRef Is Nothing Then
+                                                classPNR.SendPNR_Ordr = Trim(tOrderRef.BCD_Code) & Trim(txtOrderRef.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Project Number
+                                    If Trim(item.DataItem) = "D13" Then
+                                        If Trim(txtProjectNo.Text) <> Nothing Then
+                                            Dim tProjNo = dbMIS.T_ProjNo.FirstOrDefault(Function(n) n.GCN)
+
+                                            If Not tProjNo Is Nothing Then
+                                                classPNR.SendPNR_ProjNo = Trim(tProjNo.BCD_Code) & Trim(txtProjectNo.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Reason Of Trip
+                                    If Trim(item.DataItem) = "D14" Then
+                                        If Trim(txtReasonofTrip.Text) <> Nothing Then
+                                            Dim reasonOfTrip = dbMIS.T_ReasonofTrip.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not reasonOfTrip Is Nothing Then
+                                                classPNR.SendPNR_ReasonTrip = Trim(reasonOfTrip.BCD_CODE) & Trim(txtReasonofTrip.Text)
+                                            End If
+                                        End If
+                                    End If
+
+                                    'Traveller Status
+                                    If Trim(item.DataItem) = "D15" Then
+                                        If Trim(txtTravellerStat.Text) <> Nothing Then
+                                            Dim travStat = dbMIS.T_TravStatus.FirstOrDefault(Function(n) n.GCN = trimGCN)
+
+                                            If Not travStat Is Nothing Then
+                                                classPNR.SendPNR_ReasonTrip = Trim(travStat.BCD_Code) & Trim(txtTravellerStat.Text)
+                                            End If
+                                        End If
                                     End If
 
                                 End If
-
-
-
-                                If x = 13 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-
-                                    FSegmentType = "*" & Trim(txtNoofTkt.Text) + i + 1 & "/" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
-
-                                    If Trim(FSegmentType) <> Nothing Then
-
-                                        Dim nontktResult As ClassPNR
-                                        nontktResult = New ClassPNR
-                                        nontktResult.sendPNR_NonTkt = FSegmentType
-                                        SendMsg = 1
-
-                                    End If
-
-                                ElseIf x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
-                                    FSegmentType = ""
-                                End If
-
-                                proType = ""
-
                             Next
-
-                        Next
-
-                    Else
-                        sendpnrError = 0
+                        End If
                     End If
 
-                    '=================================
-                    '  END MISCELLANEOUS TRANSACTIONS
-                    '=================================
-
-
-                    If Trim(ConName) <> "" Or Trim(ConName) <> Nothing Then
-                        SendMsg = 1
-                        Dim cnResult As ClassPNR
-                        cnResult = New ClassPNR
-                        cnResult.sendPNR_CName = ConName
-                    End If
-
-                    If Trim(HotelName) <> "" Or Trim(HotelName) <> Nothing Then
-                        SendMsg = 1
-                        Dim hNameResult As ClassPNR
-                        hNameResult = New ClassPNR
-                        hNameResult.sendPNR_hName = HotelName
-                    End If
-
-                    If Trim(ConPlace) <> "" Or Trim(ConPlace) <> Nothing Then
-                        SendMsg = 1
-                        Dim conResult As ClassPNR
-                        conResult = New ClassPNR
-                        conResult.sendPNR_ConPlace = ConPlace
-                    End If
-
-                    If Trim(ConDate) <> "" Or Trim(ConDate) <> Nothing Then
-                        SendMsg = 1
-                        Dim conDResult As ClassPNR
-                        conDResult = New ClassPNR
-                        conDResult.sendPNR_ConDate = ConDate
-                    End If
-
-
-                    If Trim(CCGL) <> "" Or Trim(CCGL) <> Nothing Then
-                        SendMsg = 1
-                        Dim ccglResult As ClassPNR
-                        ccglResult = New ClassPNR
-                        ccglResult.sendPNR_CCGL = CCGL
-                    End If
-
-
-                    If Trim(LinNo) <> "" Or Trim(LinNo) <> Nothing Then
-                        SendMsg = 1
-                        Dim lnResult As ClassPNR
-                        lnResult = New ClassPNR
-                        lnResult.sendPNR_lineNo = LinNo
-                    End If
-
-
-                    If Trim(BookName) <> "" Or Trim(BookName) <> Nothing Then
-                        SendMsg = 1
-                        Dim bnResult As ClassPNR
-                        bnResult = New ClassPNR
-                        bnResult.sendPNR_BName = BookName
-                    End If
-
-
-                    If Trim(Autho) <> "" Or Trim(Autho) <> Nothing Then
-                        SendMsg = 1
-                        Dim auResult As ClassPNR
-                        auResult = New ClassPNR
-                        auResult.sendPNR_AuthoName = Autho
-                    End If
-
-
-                    If Trim(Tkt) <> "" Or Trim(Tkt) <> Nothing Then
-                        SendMsg = 1
-                        Dim tktResult As ClassPNR
-                        tktResult = New ClassPNR
-                        tktResult.sendPNR_Tkt = Tkt
-                    End If
-
-
-                    'If Trim(Non_Tkt) <> "" Or Trim(Non_Tkt) <> Nothing Then
-                    '    SendMsg = 1
-                    '    Dim nontktResult As ClassPNR
-                    '    nontktResult = New ClassPNR
-                    '    nontktResult.sendPNR_NonTkt = Non_Tkt
-                    'End If
-
-
-                    If Trim(TBS) <> "" Or Trim(TBS) <> Nothing Then
-                        SendMsg = 1
-                        Dim tbsResult As ClassPNR
-                        tbsResult = New ClassPNR
-                        tbsResult.sendPNR_TBS = TBS
-                    End If
-
-
-                    If Trim(EmpNo) <> "" Or Trim(EmpNo) <> Nothing Then
-                        SendMsg = 1
-                        Dim empResult As ClassPNR
-                        empResult = New ClassPNR
-                        empResult.sendPNR_EMP = EmpNo
-                    End If
-
-
-                    If Trim(FlagS) <> "" Or Trim(FlagS) <> Nothing Then
-                        SendMsg = 1
-                        Dim nontktFlag As ClassPNR
-                        nontktFlag = New ClassPNR
-                        nontktFlag.sendPNR_FlagS = FlagS
-                    End If
-
-
-                    If Trim(ccDetailsNew) <> "" Or Trim(ccDetailsNew) <> Nothing Then
-                        SendMsg = 1
-                        Dim ccDetails As ClassPNR
-                        ccDetails = New ClassPNR
-                        ccDetails.sendPNR_CDetails = ccDetailsNew
-                    End If
-
-
-                    If (Trim(PNRDate) <> "" Or Trim(PNRDate) <> Nothing) And (Trim(PNRNoPax) <> "" Or Trim(PNRNoPax) <> Nothing) Then
-                        SendMsg = 1
-                        PNRSegment = Trim("RU 1A HK" & Trim(PNRNoPax) & " MNL" & Trim(PNRDate) & "/RETAIN SEGMENT")
-                        Dim dResult As ClassPNR
-                        dResult = New ClassPNR
-                        dResult.sendPNR_PNRDate = PNRSegment
-                    End If
-
-                    '=================================
-                    '             END REMARKS
-                    '=================================
-
-                    If strAccess <> 4 Then
-
-                        '==============================================
-                        ' BCD MIS Fields
-                        '==============================================
-
-
-                        M_GC = Trim(txtGlobalCustNo.Text)
-                        M_LCNo = Trim(txtLocalCustNo.Text)
-                        M_EmpNo = Trim(txtEmployeeNo.Text)
-                        M_TravName = Trim(txtTravellerName.Text)
-                        M_TravStat = Trim(txtTravellerStat.Text)
-                        M_CCC = Trim(txtCostCenterCode.Text)
-                        M_ProjNo = Trim(txtProjectNo.Text)
-                        M_DeptNo = Trim(txtDeptNo.Text)
-                        M_OrderRed = Trim(txtOrderRef.Text)
-                        M_Approver = Trim(txtApprover.Text)
-                        M_ApproverCode = Trim(txtApproverCode.Text)
-                        M_MgrSup = Trim(txtMgrSuperior.Text)
-                        M_RTrip = Trim(txtReasonofTrip.Text)
-                        M_MClass = Trim(txtMajorClass.Text)
-                        M_SOT = Trim(txtStopOverTRF.Text)
-                        M_TourCode = Trim(txtTourCode.Text)
-                        M_RCode = Trim(txtReasonCode.Text)
-                        M_RCodeDenied = Trim(txtRCodeDenied.Text)
-                        M_FFlyr = Trim(txtFFLYR.Text)
-                        M_HotelReasonCode = Trim(txtHotelReasonCD.Text)
-                        M_HotelBookedF = Trim(txtHotelBookedF_N.Text)
-                        M_AirNoReasonCode = Trim(txtAirNoReasonCD.Text)
-                        M_CarBookedFlag = Trim(txtCarBookedFlag.Text)
-                        M_SalesChannel = Trim(txtSalesChannel.Text)
-                        M_RecordType = Trim(txtRecordType.Text)
-                        M_CSData1 = Trim(txtCSData1.Text)
-                        M_CSData2 = Trim(txtCSData2.Text)
-                        M_CSData3 = Trim(txtCSData3.Text)
-                        M_CSData4 = Trim(txtCSData4.Text)
-                        M_CSData5 = Trim(txtCSData5.Text)
-                        M_CSData6 = Trim(txtCSData6.Text)
-                        M_CSData7 = Trim(txtCSData7.Text)
-                        M_CSData8 = Trim(txtCSData8.Text)
-                        M_CSData12 = Trim(txtCSData12.Text)
-
-                        '===================================================
-                        '===================FOR BCD ========================
-                        '===================================================
-
-
-                        '===================================================
-                        '==============MIS ENTRY FOR TRAVCOM ===============
-                        '===================================================
-
-
-                        If Trim(M_GC) <> "" Or Trim(M_GC) <> Nothing Then
-                            Dim GCResult As ClassPNR
-                            GCResult = New ClassPNR
-                            GCResult.SendPNR_MIS_GC = M_GC
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_LCNo) <> "" Or Trim(M_LCNo) <> Nothing Then
-                            Dim LCResult As ClassPNR
-                            LCResult = New ClassPNR
-                            LCResult.SendPNR_MIS_LC = M_LCNo
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_EmpNo) <> "" Or Trim(M_EmpNo) <> Nothing Then
-                            Dim ENResult As ClassPNR
-                            ENResult = New ClassPNR
-                            ENResult.SendPNR_MIS_EN = M_EmpNo
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_TravStat) <> "" Or Trim(M_TravStat) <> Nothing Then
-                            Dim TSResult As ClassPNR
-                            TSResult = New ClassPNR
-                            TSResult.SendPNR_MIS_TVS = M_TravStat
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CCC) <> "" Or Trim(M_CCC) <> Nothing Then
-                            Dim CCResult As ClassPNR
-                            CCResult = New ClassPNR
-                            CCResult.SendPNR_MIS_CCC = M_CCC
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_ProjNo) <> "" Or Trim(M_ProjNo) <> Nothing Then
-                            Dim PNResult As ClassPNR
-                            PNResult = New ClassPNR
-                            PNResult.SendPNR_MIS_ProjNo = M_ProjNo
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_DeptNo) <> "" Or Trim(M_DeptNo) <> Nothing Then
-                            Dim DNResult As ClassPNR
-                            DNResult = New ClassPNR
-                            DNResult.SendPNR_MIS_DeptNo = M_DeptNo
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_OrderRed) <> "" Or Trim(M_OrderRed) <> Nothing Then
-                            Dim ORResult As ClassPNR
-                            ORResult = New ClassPNR
-                            ORResult.SendPNR_MIS_OrderRef = M_OrderRed
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_Approver) <> "" Or Trim(M_Approver) <> Nothing Then
-                            Dim AppResult As ClassPNR
-                            AppResult = New ClassPNR
-                            AppResult.SendPNR_MIS_Approver = M_Approver
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_ApproverCode) <> "" Or Trim(M_ApproverCode) <> Nothing Then
-                            Dim ACodeResult As ClassPNR
-                            ACodeResult = New ClassPNR
-                            ACodeResult.SendPNR_MIS_ApproverCode = M_ApproverCode
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_MgrSup) <> "" Or Trim(M_MgrSup) <> Nothing Then
-                            Dim MgrResult As ClassPNR
-                            MgrResult = New ClassPNR
-                            MgrResult.SendPNR_MIS_MgrSup = M_MgrSup
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_RTrip) <> "" Or Trim(M_RTrip) <> Nothing Then
-                            Dim RtResult As ClassPNR
-                            RtResult = New ClassPNR
-                            RtResult.SendPNR_MIS_RTrip = M_RTrip
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_MClass) <> "" Or Trim(M_MClass) <> Nothing Then
-                            Dim MCResult As ClassPNR
-                            MCResult = New ClassPNR
-                            MCResult.SendPNR_MIS_MClass = M_MClass
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_SOT) <> "" Or Trim(M_SOT) <> Nothing Then
-                            Dim SotResult As ClassPNR
-                            SotResult = New ClassPNR
-                            SotResult.SendPNR_MIS_SOT = M_SOT
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_TourCode) <> "" Or Trim(M_TourCode) <> Nothing Then
-                            Dim TCResult As ClassPNR
-                            TCResult = New ClassPNR
-                            TCResult.SendPNR_MIS_TCode = M_TourCode
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_RCode) <> "" Or Trim(M_RCode) <> Nothing Then
-                            Dim RCResult As ClassPNR
-                            RCResult = New ClassPNR
-                            RCResult.SendPNR_MIS_RCode = M_RCode
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_RCodeDenied) <> "" Or Trim(M_RCodeDenied) <> Nothing Then
-                            Dim RCodeDenResult As ClassPNR
-                            RCodeDenResult = New ClassPNR
-                            RCodeDenResult.SendPNR_MIS_RCodeDen = M_RCodeDenied
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_FFlyr) <> "" Or Trim(M_FFlyr) <> Nothing Then
-                            Dim FFlyrResult As ClassPNR
-                            FFlyrResult = New ClassPNR
-                            FFlyrResult.SendPNR_MIS_FFLyr = M_FFlyr
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_HotelReasonCode) <> "" Or Trim(M_HotelReasonCode) <> Nothing Then
-                            Dim HotelResult As ClassPNR
-                            HotelResult = New ClassPNR
-                            HotelResult.SendPNR_MIS_HotelRC = M_HotelReasonCode
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_HotelBookedF) <> "" Or Trim(M_HotelBookedF) <> Nothing Then
-                            Dim HBResult As ClassPNR
-                            HBResult = New ClassPNR
-                            HBResult.SendPNR_MIS_HB = M_HotelBookedF
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_AirNoReasonCode) <> "" Or Trim(M_AirNoReasonCode) <> Nothing Then
-                            Dim ANRResult As ClassPNR
-                            ANRResult = New ClassPNR
-                            ANRResult.SendPNR_MIS_ANRC = M_AirNoReasonCode
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CarBookedFlag) <> "" Or Trim(M_CarBookedFlag) <> Nothing Then
-                            Dim CBFResult As ClassPNR
-                            CBFResult = New ClassPNR
-                            CBFResult.SendPNR_MIS_CBF = M_CarBookedFlag
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_SalesChannel) <> "" Or Trim(M_SalesChannel) <> Nothing Then
-                            Dim SCResult As ClassPNR
-                            SCResult = New ClassPNR
-                            SCResult.SendPNR_MIS_SC = M_SalesChannel
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_RecordType) <> "" Or Trim(M_RecordType) <> Nothing Then
-                            Dim RTypeResult As ClassPNR
-                            RTypeResult = New ClassPNR
-                            RTypeResult.SendPNR_MIS_RT = M_RecordType
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData1) <> "" Or Trim(M_CSData1) <> Nothing Then
-                            Dim CSD1Result As ClassPNR
-                            CSD1Result = New ClassPNR
-                            CSD1Result.SendPNR_MIS_CS1 = M_CSData1
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData2) <> "" Or Trim(M_CSData2) <> Nothing Then
-                            Dim CSD2Result As ClassPNR
-                            CSD2Result = New ClassPNR
-                            CSD2Result.SendPNR_MIS_CS2 = M_CSData2
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData3) <> "" Or Trim(M_CSData3) <> Nothing Then
-                            Dim CSD3Result As ClassPNR
-                            CSD3Result = New ClassPNR
-                            CSD3Result.SendPNR_MIS_CS3 = M_CSData3
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData4) <> "" Or Trim(M_CSData4) <> Nothing Then
-                            Dim CSD4Result As ClassPNR
-                            CSD4Result = New ClassPNR
-                            CSD4Result.SendPNR_MIS_CS4 = M_CSData4
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData5) <> "" Or Trim(M_CSData5) <> Nothing Then
-                            Dim CSD5Result As ClassPNR
-                            CSD5Result = New ClassPNR
-                            CSD5Result.SendPNR_MIS_CS5 = M_CSData5
-                            SendMsgMIS = 1
-                        End If
-
-
-                        If Trim(M_CSData6) <> "" Or Trim(M_CSData6) <> Nothing Then
-                            Dim CSD6Result As ClassPNR
-                            CSD6Result = New ClassPNR
-                            CSD6Result.SendPNR_MIS_CS6 = M_CSData6
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_CSData7) <> "" Or Trim(M_CSData7) <> Nothing Then
-                            Dim CSD7Result As ClassPNR
-                            CSD7Result = New ClassPNR
-                            CSD7Result.SendPNR_MIS_CS7 = M_CSData7
-                            SendMsgMIS = 1
-                        End If
-
-                        If Trim(M_CSData8) <> "" Or Trim(M_CSData8) <> Nothing Then
-                            Dim CSD8Result As ClassPNR
-                            CSD8Result = New ClassPNR
-                            CSD8Result.SendPNR_MIS_CS8 = M_CSData8
-                            SendMsgMIS = 1
-                        End If
-
-
-
-                        If Trim(M_CSData12) <> "" Or Trim(M_CSData12) <> Nothing Then
-                            Dim CSD12Result As ClassPNR
-                            CSD12Result = New ClassPNR
-                            CSD12Result.SendPNR_MIS_CS12 = M_CSData12
-                            SendMsgMIS = 1
-                        End If
-
-
-                        'Trip Type
-                        If Trim(TripType) <> "" Or Trim(TripType) <> Nothing Then
-                            Dim re_TripType As ClassPNR
-                            re_TripType = New ClassPNR
-                            re_TripType.sendPNR_TripType = TripType
-                            SendMsgMIS = 1
-                        End If
-
-                        'Net Ticket
-                        If Trim(NetTicket) <> "" Or Trim(NetTicket) <> Nothing Then
-                            Dim re_NetTicket As ClassPNR
-                            re_NetTicket = New ClassPNR
-                            re_NetTicket.sendPNR_NetTicket = NetTicket
-                            SendMsgMIS = 1
-                        End If
-
-
-                        'Customer Spec Low Fare
-                        If Trim(custSpecLowFare) <> "" Or Trim(custSpecLowFare) <> Nothing Then
-                            Dim re_CustSpecLowF As ClassPNR
-                            re_CustSpecLowF = New ClassPNR
-                            re_CustSpecLowF.sendPNR_custSLowFare = custSpecLowFare
-                            SendMsgMIS = 1
-                        End If
-
-                        ' Customer Spec High Fare
-                        If Trim(custSpecHighFare) <> "" Or Trim(custSpecHighFare) <> Nothing Then
-                            Dim re_CustSpechighF As ClassPNR
-                            re_CustSpechighF = New ClassPNR
-                            re_CustSpechighF.sendPNR_custSHighFare = custSpecHighFare
-                            SendMsgMIS = 1
-                        End If
-
-
-                        ''Eticket Indicator
-
-                        If Trim(eticket) <> "" Or Trim(eticket) <> Nothing Then
-                            SendMsg = 1
-                            Dim re_eticket As ClassPNR
-                            re_eticket = New ClassPNR
-                            re_eticket.sendPNR_eticket = eticket
-                        End If
-
-
-                    End If
-
+                Else
 
 
                 End If
 
+                If TOEGCheck <> 1 Then
+                    SendMsg = 1
+                    classPNR.sendTOEG = TOEG
+                End If
 
 
+                If RF.Checked = True Then
+                    If Trim(ReceiveFrm) <> Nothing And iCtr <> 1 Then
+                        classPNR.SendPNR_CReceivedFrom = ReceiveFrm
+                    End If
+                End If
+
+
+
+                If chkClientNo.Checked = True Then
+                    If Trim(ClientNo) <> Nothing And iCtr <> 1 Then
+                        classPNR.SendPNR_CClientNo = ClientNo
+                    End If
+                End If
+
+                If DivNo.Checked = True Then
+                    If Trim(DivNumber) <> Nothing Then
+                        classPNR.SendPNR_CDivNumber = DivNumber
+                    End If
+                End If
+
+                If BookingAgent.Checked = True Then
+                    If Trim(BAgent) <> Nothing Then
+                        classPNR.SendPNR_CBookingAgent = BAgent
+                    End If
+                End If
+
+                If Trim(TA) <> "" Or Trim(TA) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_TA = TA
+                End If
+
+                If VesselName.Checked = True And iCtr <> 1 Then
+                    If Trim(VName) <> Nothing Then
+                        classPNR.SendPNR_CVesselName = VName
+                    End If
+                End If
+
+                If TKTL.Checked = True Then                   'TKTL Element
+                    classPNR.SendPNR_CTicketTL = TicketTL
+                End If
+
+
+                If IsNumeric(Trim(B_PF)) = True Then
+                    classPNR.SendPNR_PF = B_PF
+                End If
+
+
+                If IsNumeric(Trim(B_SF)) = True Then
+                    classPNR.SendPNR_SF = B_SF
+                End If
+
+                If Segment.Count > 0 Then                      ' Per Segment
+                    For i = 0 To Segment.Count - 1
+                        BF_SF = Segment(i)
+                        classPNR.SendPNR_BSF = BF_SF
+                    Next
+                End If
+
+
+
+                If TicketSegment.Count > 0 Then                ' TicketNumber
+                    For i = 0 To TicketSegment.Count - 1
+                        ETCK = TicketSegment(i)
+                        classPNR.SendPNR_ETCK = ETCK
+                    Next
+                End If
+
+                If NonBSP <> Nothing Then
+                    classPNR.SendPNR_NonBSP = NonBSP
+                End If
+
+
+                If IsNumeric(Trim(B_RF)) = True Then
+                    classPNR.SendPNR_RF = B_RF
+                End If
+
+                If IsNumeric(Trim(B_LF)) = True Then
+                    classPNR.SendPNR_LF = B_LF
+                End If
+
+                If Trim(B_EC) <> "" Or Trim(B_EC) <> Nothing Then
+                    classPNR.sendPNR_EC = B_EC
+                End If
+
+
+                If Trim(Com_A) <> "" Or Trim(Com_A) <> Nothing Then
+                    classPNR.sendPNR_CA = Com_A
+                End If
+
+
+                If Trim(Com_P) <> "" Or Trim(Com_P) <> Nothing Then
+                    classPNR.sendPNR_CP = Com_P
+                End If
+
+                If SegmentFareCode.Count > 0 Then                      ' Per Segment Fares
+                    For i = 0 To SegmentFareCode.Count - 1
+                        BF_FTypes = SegmentFareCode(i)
+                        classPNR.SendPNR_Ftypes = BF_FTypes
+                    Next
+                End If
+
+
+                '================================
+                '           REMARKS
+                '================================
+
+
+
+                '=================================
+                '  MISCELLANEOUS TRANSACTIONS
+                '=================================
+                If DGW1.Rows.Count <> 0 And DGW1.Columns.Count <> 0 And sendpnrError <> 1 Then
+
+                    For i = 0 To DGW1.Rows.Count - 1
+
+                        For x = 0 To DGW1.Columns.Count - 1
+
+                            If x = 0 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                NoPax = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 0 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                NoPax = ""
+                            End If
+
+                            If x = 1 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFPCode = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 1 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFPCode = ""
+                            End If
+
+                            If x = 2 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFVCode = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 2 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFVCode = ""
+                            End If
+
+                            If x = 3 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFCPercentage = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 3 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFCPercentage = ""
+
+                            End If
+
+                            If x = 4 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFCurr = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 4 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFCurr = ""
+                            End If
+
+                            If x = 5 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFCostAmt = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 5 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFCostAmt = ""
+
+                            End If
+
+                            If x = 6 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                TFSFAmt = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 6 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                TFSFAmt = ""
+                            End If
+
+                            If x = 7 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                DIn = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf (x = 7 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "") Then
+                                DIn = ""
+                            End If
+
+                            If x = 8 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                Dout = Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 8 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                Dout = ""
+                            End If
+
+
+                            If DIn <> "" And Dout <> "" Then
+                                DTvl = "/TVL" & Trim(DIn) & "-" & Trim(Dout)
+                            ElseIf DIn <> "" And Dout = "" Then
+                                DTvl = "/TVL" & Trim(DIn)
+                            Else
+                                DTvl = ""
+                            End If
+
+
+                            If x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                MSRf = "/R" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                MSRf = ""
+                            End If
+
+                            If x = 10 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                MSLf = "/L" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 9 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                MSLf = ""
+                            End If
+
+                            If x = 11 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                MSEc = "/E" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
+                            ElseIf x = 11 And Trim(DGW1.Rows.Item(i).Cells(x).Value) = "" Then
+                                MSEc = ""
+                            End If
+
+                            If x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+
+                                proType = "*" & Trim(txtNoofTkt.Text) + i + 1 & "/" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
+
+                            ElseIf x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                proType = ""
+                            End If
+
+
+                            If x = 12 Then
+
+                                TF = Trim("PC" & TFPCode & "/V" & TFVCode & "/CP" & TFCPercentage & "/A" & TFCurr & TFCostAmt & "/SF" & TFSFAmt & MSRf & MSLf & MSEc & DTvl & "/NP" & NoPax)
+
+                                classPNR.sendPNR_TFs = TF
+
+                                If Trim(proType) <> Nothing Then
+                                    classPNR.sendPNR_ProTypeName = proType
+                                    SendMsg = 1
+                                End If
+
+                            End If
+
+
+
+                            If x = 13 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+
+                                FSegmentType = "*" & Trim(txtNoofTkt.Text) + i + 1 & "/" & Trim(DGW1.Rows.Item(i).Cells(x).Value)
+
+                                If Trim(FSegmentType) <> Nothing Then
+                                    classPNR.sendPNR_NonTkt = FSegmentType
+                                    SendMsg = 1
+
+                                End If
+
+                            ElseIf x = 12 And Trim(DGW1.Rows.Item(i).Cells(x).Value) <> "" Then
+                                FSegmentType = ""
+                            End If
+
+                            proType = ""
+
+                        Next
+
+                    Next
+
+                Else
+                    sendpnrError = 0
+                End If
+
+                '=================================
+                '  END MISCELLANEOUS TRANSACTIONS
+                '=================================
+
+
+                If Trim(ConName) <> "" Or Trim(ConName) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_CName = ConName
+                End If
+
+                If Trim(HotelName) <> "" Or Trim(HotelName) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_hName = HotelName
+                End If
+
+                If Trim(ConPlace) <> "" Or Trim(ConPlace) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_ConPlace = ConPlace
+                End If
+
+                If Trim(ConDate) <> "" Or Trim(ConDate) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_ConDate = ConDate
+                End If
+
+
+                If Trim(CCGL) <> "" Or Trim(CCGL) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_CCGL = CCGL
+                End If
+
+
+                If Trim(LinNo) <> "" Or Trim(LinNo) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_lineNo = LinNo
+                End If
+
+
+                If Trim(BookName) <> "" Or Trim(BookName) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_BName = BookName
+                End If
+
+
+                If Trim(Autho) <> "" Or Trim(Autho) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_AuthoName = Autho
+                End If
+
+
+                If Trim(Tkt) <> "" Or Trim(Tkt) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_Tkt = Tkt
+                End If
+
+                If Trim(TBS) <> "" Or Trim(TBS) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_TBS = TBS
+                End If
+
+
+                If Trim(EmpNo) <> "" Or Trim(EmpNo) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_EMP = EmpNo
+                End If
+
+
+                If Trim(FlagS) <> "" Or Trim(FlagS) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_FlagS = FlagS
+                End If
+
+
+                If Trim(ccDetailsNew) <> "" Or Trim(ccDetailsNew) <> Nothing Then
+                    SendMsg = 1
+                    classPNR.sendPNR_CDetails = ccDetailsNew
+                End If
+
+
+                If (Trim(PNRDate) <> "" Or Trim(PNRDate) <> Nothing) And (Trim(PNRNoPax) <> "" Or Trim(PNRNoPax) <> Nothing) Then
+                    SendMsg = 1
+                    PNRSegment = Trim("RU 1A HK" & Trim(PNRNoPax) & " MNL" & Trim(PNRDate) & "/RETAIN SEGMENT")
+                    classPNR.sendPNR_PNRDate = PNRSegment
+                End If
+
+                '=================================
+                '             END REMARKS
+                '=================================
+
+                If strAccess <> 4 Then
+
+                    '==============================================
+                    ' BCD MIS Fields
+                    '==============================================
+
+
+                    M_GC = Trim(txtGlobalCustNo.Text)
+                    M_LCNo = Trim(txtLocalCustNo.Text)
+                    M_EmpNo = Trim(txtEmployeeNo.Text)
+                    M_TravName = Trim(txtTravellerName.Text)
+                    M_TravStat = Trim(txtTravellerStat.Text)
+                    M_CCC = Trim(txtCostCenterCode.Text)
+                    M_ProjNo = Trim(txtProjectNo.Text)
+                    M_DeptNo = Trim(txtDeptNo.Text)
+                    M_OrderRed = Trim(txtOrderRef.Text)
+                    M_Approver = Trim(txtApprover.Text)
+                    M_ApproverCode = Trim(txtApproverCode.Text)
+                    M_MgrSup = Trim(txtMgrSuperior.Text)
+                    M_RTrip = Trim(txtReasonofTrip.Text)
+                    M_MClass = Trim(txtMajorClass.Text)
+                    M_SOT = Trim(txtStopOverTRF.Text)
+                    M_TourCode = Trim(txtTourCode.Text)
+                    M_RCode = Trim(txtReasonCode.Text)
+                    M_RCodeDenied = Trim(txtRCodeDenied.Text)
+                    M_FFlyr = Trim(txtFFLYR.Text)
+                    M_HotelReasonCode = Trim(txtHotelReasonCD.Text)
+                    M_HotelBookedF = Trim(txtHotelBookedF_N.Text)
+                    M_AirNoReasonCode = Trim(txtAirNoReasonCD.Text)
+                    M_CarBookedFlag = Trim(txtCarBookedFlag.Text)
+                    M_SalesChannel = Trim(txtSalesChannel.Text)
+                    M_RecordType = Trim(txtRecordType.Text)
+                    M_CSData1 = Trim(txtCSData1.Text)
+                    M_CSData2 = Trim(txtCSData2.Text)
+                    M_CSData3 = Trim(txtCSData3.Text)
+                    M_CSData4 = Trim(txtCSData4.Text)
+                    M_CSData5 = Trim(txtCSData5.Text)
+                    M_CSData6 = Trim(txtCSData6.Text)
+                    M_CSData7 = Trim(txtCSData7.Text)
+                    M_CSData8 = Trim(txtCSData8.Text)
+                    M_CSData12 = Trim(txtCSData12.Text)
+
+                    '===================================================
+                    '===================FOR BCD ========================
+                    '===================================================
+
+
+                    '===================================================
+                    '==============MIS ENTRY FOR TRAVCOM ===============
+                    '===================================================
+
+
+                    If Trim(M_GC) <> "" Or Trim(M_GC) <> Nothing Then
+                        classPNR.SendPNR_MIS_GC = M_GC
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_LCNo) <> "" Or Trim(M_LCNo) <> Nothing Then
+                        classPNR.SendPNR_MIS_LC = M_LCNo
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_EmpNo) <> "" Or Trim(M_EmpNo) <> Nothing Then
+                        classPNR.SendPNR_MIS_EN = M_EmpNo
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_TravStat) <> "" Or Trim(M_TravStat) <> Nothing Then
+                        classPNR.SendPNR_MIS_TVS = M_TravStat
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CCC) <> "" Or Trim(M_CCC) <> Nothing Then
+                        classPNR.SendPNR_MIS_CCC = M_CCC
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_ProjNo) <> "" Or Trim(M_ProjNo) <> Nothing Then
+                        classPNR.SendPNR_MIS_ProjNo = M_ProjNo
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_DeptNo) <> "" Or Trim(M_DeptNo) <> Nothing Then
+                        classPNR.SendPNR_MIS_DeptNo = M_DeptNo
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_OrderRed) <> "" Or Trim(M_OrderRed) <> Nothing Then
+                        classPNR.SendPNR_MIS_OrderRef = M_OrderRed
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_Approver) <> "" Or Trim(M_Approver) <> Nothing Then
+                        classPNR.SendPNR_MIS_Approver = M_Approver
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_ApproverCode) <> "" Or Trim(M_ApproverCode) <> Nothing Then
+                        classPNR.SendPNR_MIS_ApproverCode = M_ApproverCode
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_MgrSup) <> "" Or Trim(M_MgrSup) <> Nothing Then
+                        classPNR.SendPNR_MIS_MgrSup = M_MgrSup
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_RTrip) <> "" Or Trim(M_RTrip) <> Nothing Then
+                        classPNR.SendPNR_MIS_RTrip = M_RTrip
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_MClass) <> "" Or Trim(M_MClass) <> Nothing Then
+                        classPNR.SendPNR_MIS_MClass = M_MClass
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_SOT) <> "" Or Trim(M_SOT) <> Nothing Then
+                        classPNR.SendPNR_MIS_SOT = M_SOT
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_TourCode) <> "" Or Trim(M_TourCode) <> Nothing Then
+                        classPNR.SendPNR_MIS_TCode = M_TourCode
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_RCode) <> "" Or Trim(M_RCode) <> Nothing Then
+                        classPNR.SendPNR_MIS_RCode = M_RCode
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_RCodeDenied) <> "" Or Trim(M_RCodeDenied) <> Nothing Then
+                        classPNR.SendPNR_MIS_RCodeDen = M_RCodeDenied
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_FFlyr) <> "" Or Trim(M_FFlyr) <> Nothing Then
+                        classPNR.SendPNR_MIS_FFLyr = M_FFlyr
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_HotelReasonCode) <> "" Or Trim(M_HotelReasonCode) <> Nothing Then
+                        classPNR.SendPNR_MIS_HotelRC = M_HotelReasonCode
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_HotelBookedF) <> "" Or Trim(M_HotelBookedF) <> Nothing Then
+                        classPNR.SendPNR_MIS_HB = M_HotelBookedF
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_AirNoReasonCode) <> "" Or Trim(M_AirNoReasonCode) <> Nothing Then
+                        classPNR.SendPNR_MIS_ANRC = M_AirNoReasonCode
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CarBookedFlag) <> "" Or Trim(M_CarBookedFlag) <> Nothing Then
+                        classPNR.SendPNR_MIS_CBF = M_CarBookedFlag
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_SalesChannel) <> "" Or Trim(M_SalesChannel) <> Nothing Then
+                        classPNR.SendPNR_MIS_SC = M_SalesChannel
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_RecordType) <> "" Or Trim(M_RecordType) <> Nothing Then
+                        classPNR.SendPNR_MIS_RT = M_RecordType
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData1) <> "" Or Trim(M_CSData1) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS1 = M_CSData1
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData2) <> "" Or Trim(M_CSData2) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS2 = M_CSData2
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData3) <> "" Or Trim(M_CSData3) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS3 = M_CSData3
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData4) <> "" Or Trim(M_CSData4) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS4 = M_CSData4
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData5) <> "" Or Trim(M_CSData5) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS5 = M_CSData5
+                        SendMsgMIS = 1
+                    End If
+
+
+                    If Trim(M_CSData6) <> "" Or Trim(M_CSData6) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS6 = M_CSData6
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_CSData7) <> "" Or Trim(M_CSData7) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS7 = M_CSData7
+                        SendMsgMIS = 1
+                    End If
+
+                    If Trim(M_CSData8) <> "" Or Trim(M_CSData8) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS8 = M_CSData8
+                        SendMsgMIS = 1
+                    End If
+
+
+
+                    If Trim(M_CSData12) <> "" Or Trim(M_CSData12) <> Nothing Then
+                        classPNR.SendPNR_MIS_CS12 = M_CSData12
+                        SendMsgMIS = 1
+                    End If
+
+
+                    'Trip Type
+                    If Trim(TripType) <> "" Or Trim(TripType) <> Nothing Then
+                        classPNR.sendPNR_TripType = TripType
+                        SendMsgMIS = 1
+                    End If
+
+                    'Net Ticket
+                    If Trim(NetTicket) <> "" Or Trim(NetTicket) <> Nothing Then
+                        classPNR.sendPNR_NetTicket = NetTicket
+                        SendMsgMIS = 1
+                    End If
+
+
+                    'Customer Spec Low Fare
+                    If Trim(custSpecLowFare) <> "" Or Trim(custSpecLowFare) <> Nothing Then
+                        classPNR.sendPNR_custSLowFare = custSpecLowFare
+                        SendMsgMIS = 1
+                    End If
+
+                    ' Customer Spec High Fare
+                    If Trim(custSpecHighFare) <> "" Or Trim(custSpecHighFare) <> Nothing Then
+                        classPNR.sendPNR_custSHighFare = custSpecHighFare
+                        SendMsgMIS = 1
+                    End If
+
+
+                    ''Eticket Indicator
+
+                    If Trim(eticket) <> "" Or Trim(eticket) <> Nothing Then
+                        SendMsg = 1
+                        classPNR.sendPNR_eticket = eticket
+                    End If
+                End If
             End If
-
         End If
 
 
@@ -7923,84 +6078,61 @@ Public Class FrmGeneral
                         txtAgentId.Focus()
 
                     Else
-
                         If Trim(txtAgentId.Text) <> "" Or Trim(txtAgentId.Text) <> Nothing Then
+                            Dim profAgentInfo = taisLocal.ProfileAgentInfoes.FirstOrDefault(Function(n) n.InitialSignIn = Trim(txtAgentId.Text))
 
-                            CHECK_RS3()
+                            If Trim(profAgentInfo.CreditCardAccess) = "Allowed" Then
+                                txtDateTime_CC.Text = DateAndTime.Now
 
-                            SQL_QUERY = "Select * from TAIS..ProfileAgentInfo where InitialSignIn = '" & Trim(txtAgentId.Text) & "'"
-                            RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+                                objResponse = objSession.Send("JD")
 
-                            With RS3
+                                strErrorCheck = objResponse.GetLineFromBuffer(4)
+                                strErrorCheckNew = objResponse.GetLineFromBuffer(2)
 
-                                If Not RS3.EOF Then
+                                Dim r = strErrorCheck.IndexOf("MNLPH210M")
+                                Dim rIndex = strErrorCheckNew.IndexOf("MNLPH27FB")
 
-                                    If Trim(RS3.Fields("CreditCardAccess").Value) = "Allowed" Then
+                                If r > 0 Then
+                                    If objResponse.GetLineFromBuffer(6).IndexOf("A-IN") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("A-IN") > 0 Then
 
-                                        txtDateTime_CC.Text = DateAndTime.Now
-
-                                        objResponse = objSession.Send("JD")
-                                        strErrorCheck = objResponse.GetLineFromBuffer(4)
-                                        strErrorCheckNew = objResponse.GetLineFromBuffer(2)
-
-                                        Dim r As Integer
-                                        Dim rIndex As Integer
-                                        r = Trim(strErrorCheckNew.IndexOf("MNLPH210M"))
-                                        rIndex = Trim(strErrorCheckNew.IndexOf("MNLPH27FB"))
-
-                                        If r > 0 Then
-                                            ' rIndex = objResponse.GetLineFromBuffer(6).IndexOf("A-IN")
-                                            If objResponse.GetLineFromBuffer(6).IndexOf("A-IN") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("A-IN") > 0 Then
-                                                TravellerCreditAccess.Visible = True
-                                                'objResponse = objSession.Send("JO*")
-                                            Else
-                                                objResponse = objSession.Send("JUI/O-MNLPH27FB/JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
-                                                If objResponse.GetLineFromBuffer(2).IndexOf("SIGN") > 0 Then
-                                                    TravellerCreditAccess.Visible = False
-                                                    CC_TravllerName.Text = Nothing
-                                                    CC_TravllerName.Focus()
-                                                End If
-                                            End If
-
-                                        End If
-
-
-                                        If objResponse.GetLineFromBuffer(2).IndexOf("MNLPH27FB") > 0 Or objResponse.GetLineFromBuffer(3).IndexOf("MNLPH27FB") > 0 Then
-
-                                            If objResponse.GetLineFromBuffer(7).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("PRD") > 0 Then
-                                                TravellerCreditAccess.Visible = False
-                                                CC_TravllerName.Text = Nothing
-                                                CC_TravllerName.Focus()
-                                            ElseIf objResponse.GetLineFromBuffer(7).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("NOT") > 0 Then
-                                                TravellerCreditAccess.Visible = True
-                                                objResponse = objSession.Send("JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
-                                                If objResponse.GetLineFromBuffer(2).IndexOf("COMPLETE") > 0 Or objResponse.GetLineFromBuffer(1).IndexOf("COMPLETE") > 0 Then
-                                                    TravellerCreditAccess.Visible = False
-                                                    CC_TravllerName.Text = Nothing
-                                                    CC_TravllerName.Focus()
-                                                End If
-                                            End If
-                                        End If
-
+                                        'objResponse = objSession.Send("JO*")
                                     Else
-                                        MsgBox("You do not have access to this Module...Please contact administrator...", vbCritical + vbOKOnly, " :: TAIS::")
-                                        TravellerCreditAccess.Visible = True
+                                        objResponse = objSession.Send("JUI/O-MNLPH27FB/JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
+                                        If objResponse.GetLineFromBuffer(2).IndexOf("SIGN") > 0 Then
+
+                                            CC_TravllerName.Text = Nothing
+                                            CC_TravllerName.Focus()
+                                        End If
                                     End If
-                                Else
-                                    MsgBox("User ID not found..", , ":::Security Check::")
-                                    TravellerCreditAccess.Visible = True
-                                    txtAgentId.Text = Nothing
-                                    txtAgentId.Focus()
                                 End If
 
-                            End With
+                                If objResponse.GetLineFromBuffer(2).IndexOf("MNLPH27FB") > 0 Or objResponse.GetLineFromBuffer(3).IndexOf("MNLPH27FB") > 0 Then
 
+                                    If objResponse.GetLineFromBuffer(7).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("PRD") > 0 Then
+
+                                        CC_TravllerName.Text = Nothing
+                                        CC_TravllerName.Focus()
+                                    ElseIf objResponse.GetLineFromBuffer(7).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("NOT") > 0 Then
+
+                                        objResponse = objSession.Send("JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
+                                        If objResponse.GetLineFromBuffer(2).IndexOf("COMPLETE") > 0 Or objResponse.GetLineFromBuffer(1).IndexOf("COMPLETE") > 0 Then
+
+                                            CC_TravllerName.Text = Nothing
+                                            CC_TravllerName.Focus()
+                                        End If
+                                    End If
+                                End If
+                            Else
+                                MsgBox("You do not have access to this Module...Please contact administrator...", vbCritical + vbOKOnly, " :: TAIS::")
+
+                            End If
                         Else
                             MsgBox("Agent ID must not be empty..", , ":::Security Check::")
-                            TravellerCreditAccess.Visible = True
+                            txtAgentId.Text = Nothing
+                            txtAgentId.Focus()
                         End If
 
-                        RS3.Close()
+
 
                     End If
                     '======================SERVICE FEE TAB=====================
@@ -8022,63 +6154,14 @@ Public Class FrmGeneral
                     Dim DG_SF_AOH_CURR As String
 
                     '================GET EXCHANGE RATE===================
-                    SQL_QUERY = "Select * from TravCom..Currencies where CurrencyCode='USD'"
-                    RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    With RS3
-                        If Not RS3.EOF Then
-                            ExchangeRate = RS3.Fields("ExchangeRate").Value - 1.5
-                        End If
-                    End With
-                    RS3.Close()
+                    Dim curr = taisDB.Currencies.FirstOrDefault(Function(n) n.CurrencyCode = "USD")
+                    ExchangeRate = curr.ExchangeRate - 1.5
 
                     '================GET TABLE VALUES====================
-                    SQL_QUERY = "Select * from BCDMIS..ClientSpecificFee where ProfileNumber <> ''"
-                    RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+                    Dim clientSpecificFee = dbMIS.ClientSpecificFee.Where(Function(n) n.ProfileNumber <> "").ToList()
 
-                    With RS3
-                        Do While Not RS3.EOF
-                            DG_SF_DOM = RS3.Fields("SF_DOM").Value
-                            DG_SF_DOM_CURR = RS3.Fields("SF_DOM_CURR").Value
-                            DG_SF_DOM_LCC = RS3.Fields("SF_DOM_LCC").Value
-                            DG_SF_DOM_LCC_CURR = RS3.Fields("SF_DOM_LCC_CURR").Value
-                            DG_SF_REG = RS3.Fields("SF_REG").Value
-                            DG_SF_REG_CURR = RS3.Fields("SF_REG_CURR").Value
-                            DG_SF_INTL = RS3.Fields("SF_INTL").Value
-                            DG_SF_INTL_CURR = RS3.Fields("SF_INTL_CURR").Value
-                            DG_WITH_VAT = RS3.Fields("WITH_VAT").Value
-                            DG_IF_CONVERT = RS3.Fields("IF_CONVERT").Value
-                            DG_SF_AOH = If(IsDBNull(RS3.Fields("SF_AOH").Value), 0, RS3.Fields("SF_AOH").Value)
-                            DG_SF_AOH_CURR = If(IsDBNull(RS3.Fields("SF_AOH_CURR").Value), "", RS3.Fields("SF_AOH_CURR").Value)
 
-                            '==============PHP TO USD==================
-                            If (DG_IF_CONVERT = "Y") Then
-                                If (DG_SF_DOM_CURR = "USD") Then
-                                    DG_SF_DOM = Math.Round((DG_SF_DOM / ExchangeRate), 2)
-                                End If
 
-                                If (DG_SF_DOM_LCC_CURR = "USD") Then
-                                    DG_SF_DOM_LCC = Math.Round((DG_SF_DOM_LCC / ExchangeRate), 2)
-                                End If
-
-                                If (DG_SF_REG_CURR = "USD") Then
-                                    DG_SF_REG = Math.Round((DG_SF_REG / ExchangeRate), 2)
-                                End If
-
-                                If (DG_SF_INTL_CURR = "USD") Then
-                                    DG_SF_INTL = Math.Round((DG_SF_INTL / ExchangeRate), 2)
-                                End If
-                            End If
-
-                            DGServiceFee.Rows.Add(New String() {RS3.Fields("ProfileNumber").Value, RS3.Fields("FullName").Value, DG_SF_DOM_CURR, DG_SF_DOM, DG_SF_DOM_LCC_CURR,
-                                                                DG_SF_DOM_LCC, DG_SF_REG_CURR, DG_SF_REG, DG_SF_INTL_CURR, DG_SF_INTL, DG_SF_AOH_CURR, DG_SF_AOH,
-                                                                DG_IF_CONVERT, DG_WITH_VAT})
-
-                            RS3.MoveNext()
-                        Loop
-                    End With
-
-                    RS3.Close()
             End Select
 
         End If
@@ -8275,315 +6358,6 @@ Public Class FrmGeneral
                         AbacusSmartKeys.Text = AbacusSmartKeys.Text + "5¥TID-" & Trim((RS.Fields("TSPID").Value).ToString()) & "-" & Trim((RS.Fields("SMDID").Value).ToString()) & "-" & Trim((RS.Fields("GlobalCustNo").Value).ToString()) + "^e"
 
 
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_AirNoAccomReasonCD where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) & Trim(txtAirNoReasonCD.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) & Trim(txtAirNoReasonCD.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ApprovalCode where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) & Trim(txtApproverCode.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) & Trim(txtApproverCode.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_Approver where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtApprover.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtApprover.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_CarBookedFlag where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCarBookedFlag.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCarBookedFlag.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ClientData1 where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData1.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData1.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ClientData12 where clientID  ='" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData12.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData12.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ClientData2 where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData2.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData2.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ClientData3 where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData3.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData3.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ClientData4 where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData4.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCSData4.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_CostCenter where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCostCenterCode.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtCostCenterCode.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_DeptNo where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtDeptNo.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtDeptNo.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_EmpNo where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtEmployeeNo.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtEmployeeNo.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_FFlyrNo where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtFFLYR.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtFFLYR.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_GlobalCustNo where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtGlobalCustNo.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtGlobalCustNo.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_HotelBookedFlag where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtHotelBookedF_N.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtHotelBookedF_N.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_HotelReasonCode where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtHotelReasonCD.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtHotelReasonCD.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_MgrSup where clientID = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtMgrSuperior.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtMgrSuperior.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_OrderRef where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtOrderRef.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtOrderRef.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ProjNo where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtProjectNo.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtProjectNo.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_ReasonofTrip where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtReasonofTrip.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtReasonofTrip.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_SalesChannel where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtSalesChannel.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim(((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtSalesChannel.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
-
-
-                        'CHECK_RS1()
-                        'SQL_QUERY = "Select * from BCDMIS..T_TravStatus where clientID  = '" & Trim(RS.Fields("ClientID").Value).ToString() & "'"
-                        'RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                        'With RS1
-                        '    If Not RS1.EOF Then
-                        '        rtxtAbacus.Text = rtxtAbacus.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtTravellerStat.Text) + vbCrLf
-                        '        AbacusSmartKeys.Text = AbacusSmartKeys.Text + Trim((RS1.Fields("ABR_Code").Value).ToString()) + Trim(txtTravellerStat.Text) + "^e"
-                        '        RS1.MoveNext()
-                        '    End If
-                        '    RS1.Close()
-                        'End With
-
 
                     End If
 
@@ -8591,7 +6365,7 @@ Public Class FrmGeneral
 
                 End With
 
-                
+
 
 
                 CHECK_RS3()
@@ -9134,7 +6908,7 @@ Public Class FrmGeneral
                 'End If
 
 
-              
+
 
 
                 If Trim(txtClientNo.Text) <> Nothing Then
@@ -9167,7 +6941,7 @@ Public Class FrmGeneral
                 End If
 
 
-              
+
 
 
 
@@ -10191,19 +7965,27 @@ Public Class FrmGeneral
 
     Public Sub AgentSet_loadDivision()
 
-        CHECK_RS()
+        'CHECK_RS()
 
-        SQL_QUERY = "Select * from TRAVCOM..Divisions "
-        RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
+        'SQL_QUERY = "Select * from TAIS_SERVER..Divisions "
+        'RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
-        With RS
-            Do While Not RS.EOF
-                cboDiv_AgentSet.Items.Add(RS.Fields("Name").Value).ToString()
-                RS.MoveNext()
-            Loop
-        End With
+        'With RS
+        '    Do While Not RS.EOF
+        '        cboDiv_AgentSet.Items.Add(RS.Fields("Name").Value).ToString()
+        '        RS.MoveNext()
+        '    Loop
+        'End With
 
-        RS.Close()
+        'RS.Close()
+
+        Dim divisions As New List(Of String)
+
+        divisions = (From div In taisDB.Divisions
+                     Order By div.Name Ascending
+                     Select div.Name).ToList()
+
+        cboDiv_AgentSet.Items.AddRange(divisions.ToArray)
 
     End Sub
 
@@ -10228,7 +8010,7 @@ Public Class FrmGeneral
             If Trim(txtProType_Set.Text) <> " " Or Trim(txtProType_Set.Text) <> Nothing Then
 
                 CHECK_RS()
-                SQL_QUERY = "Select * from TAIS..productSettings where ProductCategory = '" & Trim(PCode) & "' and ltrim(ProductName) = '" & Trim(txtProType_Set.Text) & "'" ' order by ProductCategory"
+                SQL_QUERY = "Select * from TAIS_SERVER..productSettings where ProductCategory = '" & Trim(PCode) & "' and ltrim(ProductName) = '" & Trim(txtProType_Set.Text) & "'" ' order by ProductCategory"
                 RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
                 With RS
@@ -10247,7 +8029,7 @@ Public Class FrmGeneral
 
                         DGWSet.Rows.Item(ctrNew).Cells(0).Value = Trim(txtProType_Set.Text)
 
-                        INS_QUERY = "insert into TAIS..productsettings(ProductCategory,ProductName)" _
+                        INS_QUERY = "insert into TAIS_SERVER..productsettings(ProductCategory,ProductName)" _
                         & " values ('" & Trim(PCode) & "', '" & Trim(txtProType_Set.Text) & "') "
 
                         CNN.Execute(INS_QUERY)
@@ -10342,7 +8124,7 @@ Public Class FrmGeneral
 
             CHECK_RS()
 
-            SQL_QUERY = "Select * from TAIS..ProfileAgentInfo where InitialSignIn = '" & Trim(txtGDS_AgentSet.Text) & "'"
+            SQL_QUERY = "Select * from TAIS_SERVER..ProfileAgentInfo where InitialSignIn = '" & Trim(txtGDS_AgentSet.Text) & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
             With RS
@@ -10353,7 +8135,7 @@ Public Class FrmGeneral
 
                     If res = MsgBoxResult.Yes Then
 
-                        UPD_QUERY = "update TAIS..ProfileAgentInfo set " _
+                        UPD_QUERY = "update TAIS_SERVER..ProfileAgentInfo set " _
                                        & " First_Name = '" & Trim(txtFirstName_AgentSet.Text) & "'" _
                                        & ",last_name = '" & Trim(txtLastName_AgentSet.Text) & "'" _
                                        & ",QueueNo = '" & Trim(txtQueueNo_AgentSet.Text) & "'" _
@@ -10382,7 +8164,7 @@ Public Class FrmGeneral
 
                 Else
 
-                    INS_QUERY = "insert into TAIS..ProfileAgentInfo(First_Name, Last_Name, InitialSignIn, QueueNo, TeamGroup, ContactNo, AP, Div, CompanyName, Remarks, Others, Status,AccessLevel,CreditCardAccess,GDSSignIn)" _
+                    INS_QUERY = "insert into TAIS_SERVER..ProfileAgentInfo(First_Name, Last_Name, InitialSignIn, QueueNo, TeamGroup, ContactNo, AP, Div, CompanyName, Remarks, Others, Status,AccessLevel,CreditCardAccess,GDSSignIn)" _
                     & " values ('" & Trim(txtFirstName_AgentSet.Text) & "', '" & Trim(txtLastName_AgentSet.Text) & "', '" & Trim(txtGDS_AgentSet.Text) & "', '" & Trim(txtQueueNo_AgentSet.Text) & "','" & Trim(txtGroup_AgentSet.Text) & "','" & Trim(txtContactNo_AgentSet.Text) & "','" & Trim(txtPhoneField1_AgentSet.Text) & "','" & Trim(cboDiv_AgentSet.Text) & "', '" & Trim(txtPhoneField2_AgentSet.Text) & "','" & Trim(txtRemarks_AgentSet.Text) & "', '" & Trim(txtOthers_AgentSet.Text) & "','" & Trim(cboStatus_AgentSet.Text) & "','" & Trim(cboLevel_AgentSet.Text) & "','" & Trim(txtCreditAccess.Text) & "','" & Trim(txtGDSPassword.Text) & "')"
 
                     CNN.Execute(INS_QUERY)
@@ -10430,7 +8212,7 @@ Public Class FrmGeneral
                 delType = (FrmAgentList.DGW_AgentSet.Item("GDS Sign-In", FrmAgentList.DGW_AgentSet.CurrentCell.RowIndex).Value.ToString())
                 FrmAgentList.DGW_AgentSet.Rows.Remove(FrmAgentList.DGW_AgentSet.SelectedRows(0))
 
-                DEL_QUERY = "delete from TAIS..ProfileAgentInfo where InitialSignIn = '" & Trim(delType) & "'"
+                DEL_QUERY = "delete from TAIS_SERVER..ProfileAgentInfo where InitialSignIn = '" & Trim(delType) & "'"
                 CNN.Execute(DEL_QUERY)
 
                 MsgBox("Agent has been deleted successfully..", , ":::TAIS::")
@@ -10453,7 +8235,7 @@ Public Class FrmGeneral
 
         Dim i As Integer = 0
 
-        SQL_QUERY = " Select * from TAIS..ProfileAgentInfo order by First_Name"
+        SQL_QUERY = " Select * from TAIS_SERVER..ProfileAgentInfo order by First_Name"
         RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS1
@@ -10600,7 +8382,7 @@ Public Class FrmGeneral
 
         If Trim(cboAccessLevel.Text) <> Nothing Then
 
-            UPD_QUERY = "update TAIS..UserAccess set " _
+            UPD_QUERY = "update TAIS_SERVER..UserAccess set " _
                         & " ClientNo = '" & Trim(strClientNo_A) & "'" _
                         & ",DivisionNo = '" & Trim(strDivNo_A) & "'" _
                         & ",BookingAgent = '" & Trim(strBA_A) & "'" _
@@ -10639,7 +8421,7 @@ Public Class FrmGeneral
 
             CHECK_RS()
 
-            SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TRAVCOM..Profiles where profileType='2' and replace(Fullname,'''', ' ') = '" & VCode & "'"
+            SQL_QUERY = "Select profiles.profilenumber, profiles.FullName from TAIS_SERVER..Profiles where profileType='2' and replace(Fullname,'''', ' ') = '" & VCode & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
             With RS
@@ -10673,7 +8455,7 @@ Public Class FrmGeneral
 
             CHECK_RS()
 
-            SQL_QUERY = " Select productcodes.productcode from travcom..productcodes where replace(description,'''',' ') = '" & PType & "'"
+            SQL_QUERY = " Select productcodes.productcode from TAIS_SERVER..productcodes where replace(description,'''',' ') = '" & PType & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
             With RS
                 If Not RS.EOF Then
@@ -10684,7 +8466,7 @@ Public Class FrmGeneral
 
             If Trim(PCode) <> "" Or Trim(PCode) <> Nothing Then
 
-                SQL_QUERY = " Select * from TAIS..productSettings where ProductCategory = '" & PCode & "'"
+                SQL_QUERY = " Select * from TAIS_SERVER..productSettings where ProductCategory = '" & PCode & "'"
                 RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
                 With RS1
@@ -10709,7 +8491,7 @@ Public Class FrmGeneral
 
             If Trim(PCode) <> "" Or Trim(PCode) <> Nothing Then
 
-                SQL_QUERY = " Select * from TAIS..NonAirTransactions where ProductCode = '" & PCode & "'"
+                SQL_QUERY = " Select * from TAIS_SERVER..NonAirTransactions where ProductCode = '" & PCode & "'"
                 RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
                 With RS1
@@ -10781,7 +8563,7 @@ Public Class FrmGeneral
                 delType = (DGWSet.Item("Product Type", DGWSet.CurrentCell.RowIndex).Value.ToString())
                 DGWSet.Rows.Remove(DGWSet.SelectedRows(0))
 
-                DEL_QUERY = "delete from TAIS..ProductSettings where Productname = '" & Trim(delType) & "' and ProductCategory = '" & Trim(PCode) & "'"
+                DEL_QUERY = "delete from TAIS_SERVER..ProductSettings where Productname = '" & Trim(delType) & "' and ProductCategory = '" & Trim(PCode) & "'"
                 CNN.Execute(DEL_QUERY)
 
                 MsgBox("Product Type has been deleted successfully..", , ":::TAIS::")
@@ -10824,7 +8606,7 @@ Public Class FrmGeneral
 
 
             CHECK_RS()
-            SQL_QUERY = "Select * from TAIS..NonAirTransactions where ProductCode = '" & Trim(PCode) & "'"
+            SQL_QUERY = "Select * from TAIS_SERVER..NonAirTransactions where ProductCode = '" & Trim(PCode) & "'"
             RS.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
             With RS
@@ -10832,7 +8614,7 @@ Public Class FrmGeneral
                 If Not RS.EOF Then
 
 
-                    UPD_QUERY = "update TAIS..NonAirTransactions set " _
+                    UPD_QUERY = "update TAIS_SERVER..NonAirTransactions set " _
                             & "VendorCode = '" & Trim(cboVendorName_Set.Text) & "'" _
                             & ",VendorAccess = '" & Trim(cboVAccess_Set.Text) & "'" _
                             & ",SubProduct = '" & Trim(cboProdAccess_Set.Text) & "'" _
@@ -10856,7 +8638,7 @@ Public Class FrmGeneral
                     MsgBox("Non Air Product Transaction has been successfully updated...", , ":::TAIS::")
 
                 Else
-                    INS_QUERY = "insert into TAIS..NonAirTransactions(ProductCode,VendorCode, VendorAccess,SubProduct,CP,CPAccess,Cost,CostAccess,SAAmount,SAAccess,travelType,RefFare,LowFare,EC,DateHotel )" _
+                    INS_QUERY = "insert into TAIS_SERVER..NonAirTransactions(ProductCode,VendorCode, VendorAccess,SubProduct,CP,CPAccess,Cost,CostAccess,SAAmount,SAAccess,travelType,RefFare,LowFare,EC,DateHotel )" _
                    & " values ('" & Trim(PCode) & "','" & Trim(cboVendorName_Set.Text) & "', '" & Trim(cboVAccess_Set.Text) & "', '" & Trim(cboProdAccess_Set.Text) & "', '" & Trim(txtCP_Set.Text) & "','" & Trim(cboCPAccess_Set.Text) & "','" & Trim(txtCostAmount_Set.Text) & "','" & Trim(cboCAAccess_Set.Text) & "','" & Trim(txtSF_set.Text) & "', '" & Trim(cboSAAccess_Set.Text) & "', '" & Trim(cboTravelType_Set.Text) & "', '" & Trim(cboRefFare_Set.Text) & "', '" & Trim(CboLowFare_Set.Text) & "', '" & Trim(cboEC_Set.Text) & "', '" & Trim(CboDate_Set.Text) & "')"
 
                     CNN.Execute(INS_QUERY)
@@ -10901,7 +8683,7 @@ Public Class FrmGeneral
 
         CHECK_RS1()
 
-        SQL_QUERY = "Select * from TAIS..UserAccess where ltrim(Accesslevel) = '" & Trim(tmpVal) & "'"
+        SQL_QUERY = "Select * from TAIS_SERVER..UserAccess where ltrim(Accesslevel) = '" & Trim(tmpVal) & "'"
         RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS1
@@ -11637,7 +9419,7 @@ Public Class FrmGeneral
                                 ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Conditional" Then
                                     Me.ToolTip1.SetToolTip(Me.txtApprover, RS1.Fields("Remarks").Value)
                                     txtApprover.BackColor = Color.Orange
-                                   
+
                                 End If
 
 
@@ -17327,229 +15109,6 @@ Public Class FrmGeneral
                     '====End 
 
 
-                    '==Reason Code
-
-                    ''If (UCase(Trim((RS.Fields("ReasonCode").Value).ToString()))) = "TRUE" Then
-                    ''    txtReasonCode.Enabled = True
-                    ''    txtReasonCode.BackColor = Color.White
-                    ''    btnReasonCD.Enabled = True
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..T_ReasonCode where clientID  = '" & (RS.Fields("ClientID").Value).ToString() & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            Txt14.Text = (RS1.Fields("FieldName").Value).ToString()   'Field Mapping
-                    ''            RS1.MoveNext()
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''    '====Reason Trip Field
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..F_ReasonCode where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            If Trim((RS1.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS1.Fields("Required").Value).ToString()) = "Required" Then
-                    ''                txtReasonCode.BackColor = Color.Yellow
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Optional" Then
-                    ''                txtReasonCode.BackColor = Color.AntiqueWhite
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Conditional" Then
-                    ''                txtReasonCode.BackColor = Color.Orange
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-                    ''            End If
-
-                    ''            RS1.MoveNext()
-
-
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''End If
-
-
-
-                    ''If Not IsDBNull(Trim((RS.Fields("ReasonCode").Value).ToString())) And (UCase(Trim((RS.Fields("ReasonCode").Value).ToString()))) <> "TRUE" Then
-
-                    ''    txtReasonCode.Text = (RS.Fields("ReasonCode").Value).ToString()
-                    ''    txtReasonCode.Enabled = True
-                    ''    txtReasonCode.BackColor = Color.White
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..T_ReasonCode where clientID  = '" & (RS.Fields("ClientID").Value).ToString() & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            Txt14.Text = (RS1.Fields("FieldName").Value).ToString()   'Field Mapping
-                    ''            RS1.MoveNext()
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''    '====Reason Trip Field
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..F_ReasonCode where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            If Trim((RS1.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS1.Fields("Required").Value).ToString()) = "Required" Then
-                    ''                txtReasonCode.BackColor = Color.Yellow
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Optional" Then
-                    ''                txtReasonCode.BackColor = Color.AntiqueWhite
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Conditional" Then
-                    ''                txtReasonCode.BackColor = Color.Orange
-                    ''                Me.ToolTip1.SetToolTip(Me.txtReasonCode, RS1.Fields("Remarks").Value)
-
-                    ''            End If
-
-                    ''            RS1.MoveNext()
-
-
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''End If
-
-
-
-                    ''If (UCase(Trim((RS.Fields("ReasonCode").Value).ToString()))) = "" Or IsDBNull(Trim((RS.Fields("ReasonCode").Value).ToString())) Or (Trim((RS.Fields("ReasonCode").Value).ToString())) Is Nothing Then
-                    ''    txtReasonCode.Enabled = False
-                    ''    txtReasonCode.Text = Nothing
-                    ''    txtDescRCode.Text = Nothing
-
-                    ''    txtReasonCode.BackColor = Color.SkyBlue
-                    ''    btnReasonCD.Enabled = False
-                    ''End If
-
-                    ' ''==End
-
-
-
-                    ' ''===Reason Code Denied
-
-                    ''If (UCase(Trim((RS.Fields("ReasonCodeDenied").Value).ToString()))) = "TRUE" Then
-
-                    ''    txtRCodeDenied.Enabled = True
-                    ''    txtRCodeDenied.BackColor = Color.White
-                    ''    btnReasonCodeDen.Enabled = True
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..T_ReasonCodeDen where clientID  = '" & (RS.Fields("ClientID").Value).ToString() & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            Txt15.Text = (RS1.Fields("FieldName").Value).ToString()   'Field Mapping
-                    ''            RS1.MoveNext()
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''    '====Reason Trip Field
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..F_ReasonCodeDenied where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            If Trim((RS1.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS1.Fields("Required").Value).ToString()) = "Required" Then
-                    ''                txtRCodeDenied.BackColor = Color.Yellow
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Optional" Then
-                    ''                txtRCodeDenied.BackColor = Color.AntiqueWhite
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Conditional" Then
-                    ''                txtRCodeDenied.BackColor = Color.Orange
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            End If
-
-                    ''            RS1.MoveNext()
-
-
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''End If
-
-
-                    ''If Not IsDBNull(Trim((RS.Fields("ReasonCodeDenied").Value).ToString())) And (UCase(Trim((RS.Fields("ReasonCodeDenied").Value).ToString()))) <> "TRUE" Then
-
-                    ''    txtRCodeDenied.Text = (RS.Fields("ReasonCodeDenied").Value).ToString()
-                    ''    txtRCodeDenied.Enabled = True
-                    ''    txtRCodeDenied.BackColor = Color.White
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..T_ReasonCodeDen where clientID  = '" & (RS.Fields("ClientID").Value).ToString() & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            Txt15.Text = (RS1.Fields("FieldName").Value).ToString()   'Field Mapping
-                    ''            RS1.MoveNext()
-                    ''        End If
-                    ''    End With
-
-                    ''    RS1.Close()
-
-                    ''    '====Reason Trip Field
-
-                    ''    CHECK_RS1()
-                    ''    SQL_QUERY = "Select * from BCDMIS..F_ReasonCodeDenied where GlobalCustNo  = '" & Trim(txtGlobalCustNo.Text) & "'"
-                    ''    RS1.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
-
-                    ''    With RS1
-                    ''        If Not RS1.EOF Then
-                    ''            If Trim((RS1.Fields("Required").Value).ToString()) = "Mandatory" Or Trim((RS1.Fields("Required").Value).ToString()) = "Required" Then
-                    ''                txtRCodeDenied.BackColor = Color.Yellow
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Optional" Then
-                    ''                txtRCodeDenied.BackColor = Color.AntiqueWhite
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            ElseIf Trim((RS1.Fields("Required").Value).ToString()) = "Conditional" Then
-                    ''                txtRCodeDenied.BackColor = Color.Orange
-                    ''                Me.ToolTip1.SetToolTip(Me.txtRCodeDenied, RS1.Fields("Remarks").Value)
-                    ''            End If
-
-                    ''            RS1.MoveNext()
-
-
-                    ''        End If
-                    ''    End With
-
-                    ''End If
-
-                    ''If (UCase(Trim((RS.Fields("ReasonCodeDenied").Value).ToString()))) = "" Or IsDBNull(Trim((RS.Fields("ReasonCodeDenied").Value).ToString())) Or (Trim((RS.Fields("ReasonCodeDenied").Value).ToString())) Is Nothing Then
-                    ''    txtRCodeDenied.Enabled = False
-                    ''    txtRCodeDenied.Text = Nothing
-                    ''    txtRCodeDenied.BackColor = Color.SkyBlue
-                    ''    btnReasonCodeDen.Enabled = False
-                    ''End If
-
-                    ' ''==End
-
-
-
                     '====Stop Over Flag
 
                     If (UCase(Trim((RS.Fields("StopOvrFlag").Value).ToString()))) = "TRUE" Then
@@ -18429,7 +15988,7 @@ Public Class FrmGeneral
 
 
 
-                RS.MoveNext()
+                    RS.MoveNext()
 
                 End If
 
@@ -21091,7 +18650,7 @@ Public Class FrmGeneral
                 FrmFieldMap.txtBCDEntry.Text = Trim(((RS1.Fields("BCD_Code").Value).ToString()).Replace(" ", ""))
                 FrmFieldMap.txtAbacusEntry.Text = Trim(((RS1.Fields("ABR_Code").Value).ToString()).Replace(" ", ""))
                 FrmFieldMap.txtFieldMapping.Text = Trim(RS1.Fields("FieldName").Value).ToString()
-                
+
                 RS1.MoveNext()
             Else
                 FrmFieldMap.txtBCDEntry.Text = Nothing
@@ -21938,7 +19497,7 @@ Public Class FrmGeneral
         End With
     End Sub
 
-  
+
 
     Private Sub btnCSData4Mis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCSData4Mis.Click
 
@@ -22606,7 +20165,7 @@ Public Class FrmGeneral
         txtTourCode.Text = Trim(txtTourCode_N.Text)
     End Sub
 
-    
+
 
 
     'Private Sub btnRetrieve_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRetrieve.Click
@@ -23371,10 +20930,10 @@ Public Class FrmGeneral
 
                             End If
                         End If
-                    
+
                     End If ' End MH
 
-  If Trim((RT_TravTxt.Lines(i)).IndexOf("FP")) > 0 And Trim((RT_TravTxt.Lines(i)).IndexOf("(T)FP")) < 0 Then
+                    If Trim((RT_TravTxt.Lines(i)).IndexOf("FP")) > 0 And Trim((RT_TravTxt.Lines(i)).IndexOf("(T)FP")) < 0 Then
 
                         strFP = RT_TravTxt.Lines(i).Split("FP")
                         strFPNo = strFP(1).split("EXP")
@@ -23684,7 +21243,7 @@ Public Class FrmGeneral
                Trim(CardNumber.Text) <> Nothing And
                Trim(CardExpirationDate.Text) <> Nothing Then
 
-                INS_QUERY = "insert into TAIS..CreditMonitoring(UserGDSId, TravellerName, DateRetrieved)" _
+                INS_QUERY = "insert into TAIS_SERVER..CreditMonitoring(UserGDSId, TravellerName, DateRetrieved)" _
                 & " values ('" & Trim(txtAgentId.Text) & "', '" & Trim(CardHolderName.Text) & "', '" & Trim(txtDateTime_CC.Text) & "')"
 
                 CNN.Execute(INS_QUERY)
@@ -23734,7 +21293,7 @@ Public Class FrmGeneral
 
     End Sub
 
-   
+
 
     Private Sub PDN_TravEnter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PDN_TravEnter.Click
 
@@ -24012,7 +21571,7 @@ Public Class FrmGeneral
                    Trim(CardNumber.Text) <> Nothing And
                    Trim(CardExpirationDate.Text) <> Nothing Then
 
-                    INS_QUERY = "insert into TAIS..CreditMonitoring(UserGDSId, TravellerName, DateRetrieved)" _
+                    INS_QUERY = "insert into TAIS_SERVER..CreditMonitoring(UserGDSId, TravellerName, DateRetrieved)" _
                     & " values ('" & Trim(txtAgentId.Text) & "', '" & Trim(CardHolderName.Text) & "', '" & Trim(txtDateTime_CC.Text) & "')"
 
                     CNN.Execute(INS_QUERY)
@@ -24120,7 +21679,7 @@ Public Class FrmGeneral
 
     Private Sub initCreditAccess()
 
-        TravellerCreditAccess.Visible = True
+
         LstTravellerCredit.Items.Clear()
         TravPDN_LineNo.Text = Nothing
         CardNumber.Text = Nothing
@@ -24154,7 +21713,7 @@ Public Class FrmGeneral
 
                 CHECK_RS3()
 
-                SQL_QUERY = "Select * from TAIS..ProfileAgentInfo where InitialSignIn = '" & Trim(txtAgentId.Text) & "'"
+                SQL_QUERY = "Select * from TAIS_SERVER..ProfileAgentInfo where InitialSignIn = '" & Trim(txtAgentId.Text) & "'"
                 RS3.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
                 With RS3
@@ -24175,12 +21734,12 @@ Public Class FrmGeneral
                             If r > 0 Then
                                 ' rIndex = objResponse.GetLineFromBuffer(6).IndexOf("A-IN")
                                 If objResponse.GetLineFromBuffer(6).IndexOf("A-IN") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("A-IN") > 0 Then
-                                    TravellerCreditAccess.Visible = True
+
                                     'objResponse = objSession.Send("JO*")
                                 Else
                                     objResponse = objSession.Send("JUI/O-MNLPH27FB/JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
                                     If objResponse.GetLineFromBuffer(2).IndexOf("SIGN") > 0 Then
-                                        TravellerCreditAccess.Visible = False
+
                                         CC_TravllerName.Text = Nothing
                                         CC_TravllerName.Focus()
                                     End If
@@ -24192,14 +21751,14 @@ Public Class FrmGeneral
                             If objResponse.GetLineFromBuffer(2).IndexOf("MNLPH27FB") > 0 Or objResponse.GetLineFromBuffer(3).IndexOf("MNLPH27FB") > 0 Then
 
                                 If objResponse.GetLineFromBuffer(7).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("PRD") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("PRD") > 0 Then
-                                    TravellerCreditAccess.Visible = False
+
                                     CC_TravllerName.Text = Nothing
                                     CC_TravllerName.Focus()
                                 ElseIf objResponse.GetLineFromBuffer(7).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(6).IndexOf("NOT") > 0 Or objResponse.GetLineFromBuffer(5).IndexOf("NOT") > 0 Then
-                                    TravellerCreditAccess.Visible = True
+
                                     objResponse = objSession.Send("JI" & Trim(txtAgentId.Text) & "-" & RS3.Fields("GDSSignIn").Value)
                                     If objResponse.GetLineFromBuffer(2).IndexOf("COMPLETE") > 0 Or objResponse.GetLineFromBuffer(1).IndexOf("COMPLETE") > 0 Then
-                                        TravellerCreditAccess.Visible = False
+
                                         CC_TravllerName.Text = Nothing
                                         CC_TravllerName.Focus()
                                     End If
@@ -24208,11 +21767,11 @@ Public Class FrmGeneral
 
                         Else
                             MsgBox("You do not have access to this Module...Please contact administrator...", vbCritical + vbOKOnly, " :: TAIS::")
-                            TravellerCreditAccess.Visible = True
+
                         End If
                     Else
                         MsgBox("User ID not found..", , ":::Security Check::")
-                        TravellerCreditAccess.Visible = True
+
                         txtAgentId.Text = Nothing
                         txtAgentId.Focus()
                     End If
@@ -24221,7 +21780,7 @@ Public Class FrmGeneral
 
             Else
                 MsgBox("Agent ID must not be empty..", , ":::Security Check::")
-                TravellerCreditAccess.Visible = True
+
             End If
 
             RS3.Close()
@@ -24235,7 +21794,7 @@ Public Class FrmGeneral
 
         objResponse = objSession.Send("JO*")
         objResponse = objSession.Send("JUO")
-        TravellerCreditAccess.Visible = True
+
         LstTravellerCredit.Items.Clear()
         CardExpirationDate.Text = Nothing
         CardHolderName.Text = Nothing
@@ -24245,7 +21804,7 @@ Public Class FrmGeneral
 
     End Sub
 
-  
+
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         txtDateTime_CC.Text = DateTime.Now
     End Sub
@@ -24499,7 +22058,7 @@ Public Class FrmGeneral
 
 
 
-                
+
 
 
 
@@ -25702,7 +23261,7 @@ Public Class FrmGeneral
 
     End Sub
 
-    
+
     Private Sub btnRecall_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRecall.Click
 
         If Trim(txtGlobalCustNo.Text) <> Nothing Then
@@ -25725,14 +23284,14 @@ Public Class FrmGeneral
 
     End Sub
 
- 
+
     Private Sub cboNetTicket_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboNetTicket.SelectedIndexChanged
         Dim s As String = Trim(cboNetTicket.Text)
         Dim a As String() = Split(s, "-")
         txtNetTicket.Text = a(0)
     End Sub
 
-  
+
     'Retain Segment in Abacus
     Private Sub btnRetain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRetain.Click
         If Trim(txtNoOfPax.Text) <> Nothing Then
@@ -27134,7 +24693,7 @@ Public Class FrmGeneral
                             Exit Sub
                         End If
                     End If
-                   
+
                 End If
 
 
@@ -27462,7 +25021,7 @@ Public Class FrmGeneral
                         Loop While Not RSC_CCGL.EOF
 
                     End If
-                    
+
                     RSC_CCGL.Close()
 
                 End With
@@ -27599,7 +25158,7 @@ Public Class FrmGeneral
                             RSC_ProjNum.MoveNext()
                         Loop While Not RSC_ProjNum.EOF
                     End If
-                  
+
                     RSC_ProjNum.Close()
 
                 End With
@@ -27736,7 +25295,7 @@ Public Class FrmGeneral
                             RSC_DeptNo.MoveNext()
                         Loop While Not RSC_DeptNo.EOF
                     End If
-                    
+
                 End With
 
                 RSC_DeptNo.Close()
@@ -28064,7 +25623,7 @@ Public Class FrmGeneral
 
 
     '===================
-    'Approver
+
     '===================
 
     Private Sub txtApprover_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtApprover.TextChanged
@@ -28145,7 +25704,7 @@ Public Class FrmGeneral
                             RC_Apprver.MoveNext()
                         Loop While Not RC_Apprver.EOF
                     End If
-                   
+
                     RC_Apprver.Close()
                 End With
 
@@ -28238,7 +25797,7 @@ Public Class FrmGeneral
                             txtApproverCode.SelectionStart = txtApproverCode.TextLength
                             Exit Sub
                         End If
-                      
+
                     End If
                 End If
 
@@ -28278,7 +25837,7 @@ Public Class FrmGeneral
                             RC_ApprvalCode.MoveNext()
                         Loop While Not RC_ApprvalCode.EOF
                     End If
-                    
+
 
                     RC_ApprvalCode.Close()
 
@@ -28413,7 +25972,7 @@ Public Class FrmGeneral
                         Loop While Not RSC_Mgr.EOF
                     End If
 
-                   
+
                     RSC_Mgr.Close()
 
                 End With
@@ -28549,7 +26108,7 @@ Public Class FrmGeneral
                             RSC_ReasnTrip.MoveNext()
                         Loop While Not RSC_ReasnTrip.EOF
                     End If
-                    
+
 
                     RSC_ReasnTrip.Close()
                 End With
@@ -28678,7 +26237,7 @@ Public Class FrmGeneral
                             RC_Accom.MoveNext()
                         Loop While Not RC_Accom.EOF
                     End If
-                    
+
                     RC_Accom.Close()
 
                 End With
@@ -28805,7 +26364,7 @@ Public Class FrmGeneral
                             RSC_SData1.MoveNext()
                         Loop While Not RSC_SData1.EOF
                     End If
-                    
+
 
                     RSC_SData1.Close()
                 End With
@@ -28932,7 +26491,7 @@ Public Class FrmGeneral
                             RSC_SData2.MoveNext()
                         Loop While Not RSC_SData2.EOF
                     End If
-                   
+
 
                     RSC_SData2.Close()
                 End With
@@ -29063,7 +26622,7 @@ Public Class FrmGeneral
                             RSC_SData3.MoveNext()
                         Loop While Not RSC_SData3.EOF
                     End If
-                  
+
                     RSC_SData3.Close()
                 End With
 
@@ -30100,7 +27659,7 @@ Public Class FrmGeneral
 
     End Sub
 
- 
+
 
     ''Private Sub txtSFSegment_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSFSegment.TextChanged
     ''    txtDescRCode.Text = Nothing
@@ -31658,7 +29217,7 @@ Public Class FrmGeneral
 
     End Sub
 
-  
+
 
     Private Sub rdEmployee_click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rdEmployee.Click
 
@@ -33031,7 +30590,7 @@ Public Class FrmGeneral
             RS.Close()
 
 
-        End if
+        End If
 
     End Sub
 
@@ -33051,40 +30610,16 @@ Public Class FrmGeneral
 
 
 
-    '==========================Cebu Pacific Application Interface ===========================================
-
-
-    ' Session Manager
-    Dim sessionmanager As SessionManager.ISessionManager = New SessionManager.SessionManagerClient
-    Dim logonRequest As SessionManager.LogonRequest = New SessionManager.LogonRequest
-    Dim logonResponse As SessionManager.LogonResponse = New SessionManager.LogonResponse
-
-
-    Dim changePwRequest As SessionManager.ChangePasswordRequest = New SessionManager.ChangePasswordRequest
-    Dim changeresponse As SessionManager.ChangePasswordResponse = New SessionManager.ChangePasswordResponse
-
-
-    'Booking Manager
-    Dim bookingAPI As BookingManager.IBookingManager = New BookingManager.BookingManagerClient
-    Dim bookingrequest As BookingManager.GetBookingRequest = New BookingManager.GetBookingRequest
-    Dim Response As BookingManager.GetBookingResponse = New BookingManager.GetBookingResponse
-    Dim booking As BookingManager.Booking = New BookingManager.Booking
-
     Public signature As String
     Dim ctrPax As Integer = 0
     Dim TotalPax As Integer = 0
 
 
-    'LogOnInfo
 
-    Dim UserID As String = Nothing
-    Dim Password As String = Nothing
-    Dim OrgCode As String = Nothing
-    Dim Domain As String = "EXT"
 
 
     Dim rsponse As MsgBoxResult
-    Dim logoutrequest As SessionManager.LogoutRequest
+    Dim logoutrequest As NewSessionManager.LogoutRequest
 
 
     'Payment Details
@@ -33312,7 +30847,7 @@ Public Class FrmGeneral
         Tax = Nothing
         TravelFee = Nothing
         TravelFeeOther = Nothing
-        TravelFeeLI  = Nothing
+        TravelFeeLI = Nothing
         TravelFeeLIPV = Nothing
         IncludedTax = Nothing
         IncludedTravelFee = Nothing
@@ -33371,18 +30906,42 @@ Public Class FrmGeneral
 
     End Sub
 
+    Dim UserID As String = Nothing
+    Dim Password As String = Nothing
+    Dim OrgCode As String = Nothing
+    Dim Domain As String = "EXT"
+
+    '==========================Cebu Pacific Application Interface ===========================================
+    ' Session Manager
+    Dim sessionmanager As NewSessionManager.ISessionManager = New NewSessionManager.SessionManagerClient
+    Dim logonRequest As NewSessionManager.LogonRequest = New NewSessionManager.LogonRequest
+    Dim logonResponse As NewSessionManager.LogonResponse = New NewSessionManager.LogonResponse
+
+
+    Dim changePwRequest As NewSessionManager.ChangePasswordRequest = New NewSessionManager.ChangePasswordRequest
+    Dim changeresponse As NewSessionManager.ChangePasswordResponse = New NewSessionManager.ChangePasswordResponse
+
+
+    'Booking Manager
+    Dim bookingAPI As NewBookingManager.IBookingManager = New NewBookingManager.BookingManagerClient
+    Dim bookingrequest As NewBookingManager.GetBookingRequest = New NewBookingManager.GetBookingRequest
+    Dim Response As NewBookingManager.GetBookingResponse = New NewBookingManager.GetBookingResponse
+    Dim booking As NewBookingManager.Booking = New NewBookingManager.Booking
+
 
     Private Sub logOnSession()
+
         UserID = Trim(txtUserId.Text)
         Password = Trim(txtPassword.Text)
         OrgCode = Trim(txtOrgCode.Text)
+        'Domain = "EXT"
 
-        logonRequest.logonRequestData = New SessionManager.LogonRequestData
-        logonRequest.logonRequestData.DomainCode = Domain
+
+        logonRequest.logonRequestData = New NewSessionManager.LogonRequestData
+        logonRequest.logonRequestData.DomainCode = "EXT"
         logonRequest.logonRequestData.AgentName = UserID
         logonRequest.logonRequestData.Password = Password
         logonResponse = sessionmanager.Logon(logonRequest)
-
 
         If (Not IsDBNull(logonResponse) And Not IsDBNull(logonResponse.Signature) And (logonResponse.Signature) <> String.Empty) Then
             signature = logonResponse.Signature
@@ -33407,16 +30966,16 @@ Public Class FrmGeneral
         If Trim(txtReloc.Text) <> Nothing Then
 
 
-            bookingrequest.GetBookingReqData = New BookingManager.GetBookingRequestData
+            bookingrequest.GetBookingReqData = New NewBookingManager.GetBookingRequestData
             bookingrequest.Signature = signature
 
             bookingrequest.GetBookingReqData.GetBookingBy = BookingManager.GetBookingBy.RecordLocator
-            bookingrequest.GetBookingReqData.GetByRecordLocator = New BookingManager.GetByRecordLocator
+            bookingrequest.GetBookingReqData.GetByRecordLocator = New NewBookingManager.GetByRecordLocator
             bookingrequest.Signature = signature
 
 
             bookingrequest.GetBookingReqData.GetBookingBy = BookingManager.GetBookingBy.RecordLocator
-            bookingrequest.GetBookingReqData.GetByRecordLocator = New BookingManager.GetByRecordLocator
+            bookingrequest.GetBookingReqData.GetByRecordLocator = New NewBookingManager.GetByRecordLocator
             bookingrequest.GetBookingReqData.GetByRecordLocator.RecordLocator = Trim(txtReloc.Text)
 
             Response = bookingAPI.GetBooking(bookingrequest)
@@ -33514,7 +31073,7 @@ Public Class FrmGeneral
 
                 Next
 
-                
+
 
 
 
@@ -33841,7 +31400,7 @@ Public Class FrmGeneral
 
 
 
-      
+
 
 
     End Sub
@@ -33853,7 +31412,7 @@ Public Class FrmGeneral
 
             rsponse = MsgBox("Are you sure you want to log-out?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, ":::TAIS:::")
             If rsponse = MsgBoxResult.Yes Then
-                logoutrequest = New SessionManager.LogoutRequest
+                logoutrequest = New NewSessionManager.LogoutRequest
                 logoutrequest.Signature = logonResponse.Signature
                 sessionmanager.Logout(logoutrequest)
                 MsgBox("Successsfully Log-Out..", MsgBoxStyle.OkOnly + MsgBoxStyle.Information, " :: Log-out :: ")
@@ -35097,7 +32656,7 @@ Public Class FrmGeneral
 
                 MsgBox("Air File sent! ", MsgBoxStyle.OkOnly + MsgBoxStyle.Information, ":: Air File ::")
 
-        End If
+            End If
 
         End If
 
@@ -35131,7 +32690,7 @@ Public Class FrmGeneral
 
     Private Sub btnResetSession_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnResetSession.Click
 
-        Dim request As BookingManager.ClearRequest = New BookingManager.ClearRequest
+        Dim request As NewBookingManager.ClearRequest = New NewBookingManager.ClearRequest
         request.Signature = signature
 
         If Not IsDBNull(request.Signature) And request.Signature <> Nothing Then
@@ -35151,9 +32710,9 @@ Public Class FrmGeneral
 
         If Trim(txtPWreset.Text) <> Nothing Then
 
-            changePwRequest = New SessionManager.ChangePasswordRequest
+            changePwRequest = New NewSessionManager.ChangePasswordRequest
 
-            changePwRequest.logonRequestData = New SessionManager.LogonRequestData
+            changePwRequest.logonRequestData = New NewSessionManager.LogonRequestData
             changePwRequest.logonRequestData.DomainCode = Domain
             changePwRequest.logonRequestData.AgentName = UserID
             changePwRequest.logonRequestData.Password = Password
@@ -35212,7 +32771,7 @@ Public Class FrmGeneral
         OrgCodePartner = "28300974"
 
         check_RS_CAPI()
-        SQL_QUERY = "Select * from TAIS..CAPIAccess where OrgCode='" & OrgCodePartner & "'"
+        SQL_QUERY = "Select * from TAIS_SERVER..CAPIAccess where OrgCode='" & OrgCodePartner & "'"
         RS_CAPI.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS_CAPI
@@ -35236,7 +32795,7 @@ Public Class FrmGeneral
         OrgCodeCeBBiz = "33347757S"
 
         check_RS_CAPI()
-        SQL_QUERY = "Select * from TAIS..CAPIAccess where OrgCode='" & OrgCodeCeBBiz & "'"
+        SQL_QUERY = "Select * from TAIS_SERVER..CAPIAccess where OrgCode='" & OrgCodeCeBBiz & "'"
         RS_CAPI.Open(SQL_QUERY, CNN, ADODB.CursorTypeEnum.adOpenDynamic, ADODB.LockTypeEnum.adLockOptimistic)
 
         With RS_CAPI

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b12fa47ef4e42148acd24c76acd5493" Name="Diagram1">
+        <EntityTypeShape EntityType="TAISModel.CAPIAccess" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TAISModel.CreditCardDetail" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TAISModel.CreditMonitoring" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TAISModel.NonAirTransaction" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TAISModel.ProductSetting" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TAISModel.ProfileAgentInfo" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TAISModel.sysdiagram" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TAISModel.Transmittal" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TAISModel.UserAccess" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="TAISModel.User" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TAISModel.Vessel" Width="1.5" PointX="8.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
